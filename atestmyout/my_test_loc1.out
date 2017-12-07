@@ -1,0 +1,2197 @@
+;Symbol table GLOBAL
+; return type: null
+; subscope local var size: 0
+;scope type: GLOBAL_TYPE 
+;name space type STRING value " " local slot location: -1
+;name eol type STRING value "\n" local slot location: -2
+;name m1 type STRING value " is smaller than " local slot location: -3
+;name m2 type STRING value " is greater than or equal to " local slot location: -4
+
+
+;Symbol table GETF1
+; return type: FLOAT
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+;name a type FLOAT parameter slot location: 7
+;name b type FLOAT parameter slot location: 8
+;name ret1 type FLOAT local slot location: -1
+
+
+;Symbol table GETF2
+; return type: FLOAT
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+;name c type FLOAT parameter slot location: 7
+;name b type FLOAT parameter slot location: 8
+
+
+;Symbol table main
+; return type: INT
+; subscope local var size: 6
+;scope type: FUNC_TYPE 
+;name a type FLOAT local slot location: -1
+;name b type FLOAT local slot location: -2
+;name a2 type FLOAT local slot location: -3
+;name b2 type FLOAT local slot location: -4
+
+
+;Symbol table BLOCK 1
+; return type: null
+; subscope local var size: 0
+;scope type: IF_TYPE 
+;name c type FLOAT local slot location: -5
+;name d type FLOAT local slot location: -6
+
+
+;Symbol table BLOCK 2
+; return type: null
+; subscope local var size: 0
+;scope type: ELSE_TYPE 
+;name c type FLOAT local slot location: -7
+;name d type FLOAT local slot location: -8
+
+
+;Symbol table BLOCK 3
+; return type: null
+; subscope local var size: 0
+;scope type: IF_TYPE 
+;name c type FLOAT local slot location: -9
+;name d type FLOAT local slot location: -10
+
+
+;Symbol table BLOCK 4
+; return type: null
+; subscope local var size: 0
+;scope type: ELSE_TYPE 
+;name c type FLOAT local slot location: -11
+;name d type FLOAT local slot location: -12
+
+
+; pre-conversion assignOutputID: ret1
+; searching slot location for -- ret1 -- in function scope GETF1 and get location -1
+
+; post-conversion assignOutputID: $-1
+; searching slot location for -- a -- in function scope GETF1 and get location 7
+
+; searching slot location for -- b -- in function scope GETF1 and get location 8
+
+; searching slot location for -- ret1 -- in function scope GETF1 and get location -1
+
+; searching slot location for -- ret1 -- in function scope GETF1 and get location -1
+
+;OPT BUG
+; SUBSCOPE for function scope: GETF1
+
+;return assignExpr: ret1
+;left: 
+;right: 
+;IRAction.isIF_ELSE_sameReturn(): false
+; searching slot location for -- c -- in function scope GETF2 and get location 7
+
+; searching slot location for -- c -- in function scope GETF2 and get location 7
+
+; searching slot location for -- b -- in function scope GETF2 and get location 8
+
+; searching slot location for -- b -- in function scope GETF2 and get location 8
+
+; searching slot location for -- b -- in function scope GETF2 and get location 8
+
+; searching slot location for -- b -- in function scope GETF2 and get location 8
+
+;OPT BUG
+; SUBSCOPE for function scope: GETF2
+
+;return assignExpr: GETF1(c,GETF1(b,b))
+;left: 
+;right: 
+;IRAction.isIF_ELSE_sameReturn(): false
+; pre-conversion assignOutputID: a
+; searching slot location for -- a -- in function scope main and get location -1
+
+; post-conversion assignOutputID: $-1
+; pre-conversion assignOutputID: b
+; searching slot location for -- b -- in function scope main and get location -2
+
+; post-conversion assignOutputID: $-2
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: IF
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+;exit Cond: < :: GETF1(a,b) :: GETF2(a,b)
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; pre-conversion assignOutputID: c
+; searching slot location for -- c -- in function scope main and get location -5
+
+; post-conversion assignOutputID: $-5
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; pre-conversion assignOutputID: d
+; searching slot location for -- d -- in function scope main and get location -6
+
+; post-conversion assignOutputID: $-6
+; searching slot location for -- c -- in function scope main and get location -5
+
+; searching slot location for -- d -- in function scope main and get location -6
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 2 scopeType: ELSE
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; pre-conversion assignOutputID: c
+; searching slot location for -- c -- in function scope main and get location -7
+
+; post-conversion assignOutputID: $-7
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; pre-conversion assignOutputID: d
+; searching slot location for -- d -- in function scope main and get location -8
+
+; post-conversion assignOutputID: $-8
+; searching slot location for -- c -- in function scope main and get location -7
+
+; searching slot location for -- d -- in function scope main and get location -8
+
+; pre-conversion assignOutputID: a2
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; post-conversion assignOutputID: $-3
+; pre-conversion assignOutputID: b2
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; post-conversion assignOutputID: $-4
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 3 scopeType: IF
+
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+;exit Cond: < :: GETF1(a2,b2) :: GETF2(a2,b2)
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; pre-conversion assignOutputID: c
+; searching slot location for -- c -- in function scope main and get location -9
+
+; post-conversion assignOutputID: $-9
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; pre-conversion assignOutputID: d
+; searching slot location for -- d -- in function scope main and get location -10
+
+; post-conversion assignOutputID: $-10
+; searching slot location for -- c -- in function scope main and get location -9
+
+; searching slot location for -- d -- in function scope main and get location -10
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 4 scopeType: ELSE
+
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; pre-conversion assignOutputID: c
+; searching slot location for -- c -- in function scope main and get location -11
+
+; post-conversion assignOutputID: $-11
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- a2 -- in function scope main and get location -3
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; searching slot location for -- b2 -- in function scope main and get location -4
+
+; pre-conversion assignOutputID: d
+; searching slot location for -- d -- in function scope main and get location -12
+
+; post-conversion assignOutputID: $-12
+; searching slot location for -- c -- in function scope main and get location -11
+
+; searching slot location for -- d -- in function scope main and get location -12
+
+;OPT BUG
+; SUBSCOPE for function scope: main
+
+;return assignExpr: 0
+;left: 
+;right: 
+;IRAction.isIF_ELSE_sameReturn(): false
+
+;IR code
+;PUSH
+;JSR main
+;HALT
+
+;LABEL GETF1		 Under Func Scope: GETF1
+;LINK 2			 Under Func Scope: GETF1
+;MULTF $7 $8 $T1	 Under Func Scope: GETF1
+;STOREF $T1 $-1		 Under Func Scope: GETF1
+;STOREF $-1 $T2		 Under Func Scope: GETF1
+;STOREF $T2 $6		 Under Func Scope: GETF1
+;UNLINK			 Under Func Scope: GETF1
+;RET			 Under Func Scope: GETF1
+
+;LABEL GETF2		 Under Func Scope: GETF2
+;LINK 1			 Under Func Scope: GETF2
+;PUSH $8		 Under Func Scope: GETF2
+;PUSH $8		 Under Func Scope: GETF2
+;PUSH 			 Under Func Scope: GETF2
+;PUSHREG		 Under Func Scope: GETF2
+;JSR GETF1		 Under Func Scope: GETF2
+;POPREG			 Under Func Scope: GETF2
+;POP $T3		 Under Func Scope: GETF2
+;POP 			 Under Func Scope: GETF2
+;POP 			 Under Func Scope: GETF2
+;PUSH $T3		 Under Func Scope: GETF2
+;PUSH $7		 Under Func Scope: GETF2
+;PUSH 			 Under Func Scope: GETF2
+;PUSHREG		 Under Func Scope: GETF2
+;JSR GETF1		 Under Func Scope: GETF2
+;POPREG			 Under Func Scope: GETF2
+;POP $T4		 Under Func Scope: GETF2
+;POP 			 Under Func Scope: GETF2
+;POP 			 Under Func Scope: GETF2
+;STOREF $T4 $6		 Under Func Scope: GETF2
+;UNLINK			 Under Func Scope: GETF2
+;RET			 Under Func Scope: GETF2
+
+;LABEL main		 Under Func Scope: main
+;LINK 11		 Under Func Scope: main
+;STOREI 5 $T5		 Under Func Scope: main
+;STOREF $T5 $-1		 Under Func Scope: main
+;STOREI 10 $T6		 Under Func Scope: main
+;STOREF $T6 $-2		 Under Func Scope: main
+;PUSH $-2		 Under Func Scope: main
+;PUSH $-1		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF1		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T7		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;PUSH $-2		 Under Func Scope: main
+;PUSH $-1		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF2		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T8		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;GEF $T7 $T8 label1	 Under Func Scope: main
+;PUSH $-2		 Under Func Scope: main
+;PUSH $-1		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF1		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T9		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;STOREF $T9 $-5		 Under Func Scope: main
+;PUSH $-2		 Under Func Scope: main
+;PUSH $-1		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF2		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T10		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;STOREF $T10 $-6	 Under Func Scope: main
+;WRITEF $-5		 Under Func Scope: main
+;WRITES m1		 Under Func Scope: main
+;WRITEF $-6		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;JUMP label2		 Under Func Scope: main
+;LABEL label1		 Under Func Scope: main
+;PUSH $-2		 Under Func Scope: main
+;PUSH $-1		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF1		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T11		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;STOREF $T11 $-7	 Under Func Scope: main
+;PUSH $-2		 Under Func Scope: main
+;PUSH $-1		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF2		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T12		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;STOREF $T12 $-8	 Under Func Scope: main
+;WRITEF $-7		 Under Func Scope: main
+;WRITES m2		 Under Func Scope: main
+;WRITEF $-8		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;LABEL label2		 Under Func Scope: main
+;STOREI 5 $T13		 Under Func Scope: main
+;STOREF $T13 $-3	 Under Func Scope: main
+;STOREI 1 $T14		 Under Func Scope: main
+;STOREF $T14 $-4	 Under Func Scope: main
+;PUSH $-4		 Under Func Scope: main
+;PUSH $-3		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF1		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T15		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;PUSH $-4		 Under Func Scope: main
+;PUSH $-3		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF2		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T16		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;GEF $T15 $T16 label3	 Under Func Scope: main
+;PUSH $-4		 Under Func Scope: main
+;PUSH $-3		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF1		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T17		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;STOREF $T17 $-9	 Under Func Scope: main
+;PUSH $-4		 Under Func Scope: main
+;PUSH $-3		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF2		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T18		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;STOREF $T18 $-10	 Under Func Scope: main
+;WRITEF $-9		 Under Func Scope: main
+;WRITES m1		 Under Func Scope: main
+;WRITEF $-10		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;JUMP label4		 Under Func Scope: main
+;LABEL label3		 Under Func Scope: main
+;PUSH $-4		 Under Func Scope: main
+;PUSH $-3		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF1		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T19		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;STOREF $T19 $-11	 Under Func Scope: main
+;PUSH $-4		 Under Func Scope: main
+;PUSH $-3		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR GETF2		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T20		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;STOREF $T20 $-12	 Under Func Scope: main
+;WRITEF $-11		 Under Func Scope: main
+;WRITES m2		 Under Func Scope: main
+;WRITEF $-12		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;LABEL label4		 Under Func Scope: main
+;STOREI 0 $T21		 Under Func Scope: main
+;STOREI $T21 $6		 Under Func Scope: main
+;UNLINK			 Under Func Scope: main
+;RET			 Under Func Scope: main
+
+; ========= CFG IR NODE =========
+
+;LABEL GETF1		P: 					S: ;LINK 2		 <== BB leader
+;LINK 2			P: ;LABEL GETF1			S: ;MULTF $7 $8 $T1	
+;MULTF $7 $8 $T1	P: ;LINK 2				S: ;STOREF $T1 $-1	
+;STOREF $T1 $-1		P: ;MULTF $7 $8 $T1		S: ;STOREF $-1 $T2	
+;STOREF $-1 $T2		P: ;STOREF $T1 $-1		S: ;STOREF $T2 $6	
+;STOREF $T2 $6		P: ;STOREF $-1 $T2		S: ;UNLINK	
+;UNLINK			P: ;STOREF $T2 $6		S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+;LABEL GETF2		P: 					S: ;LINK 1		 <== BB leader
+;LINK 1			P: ;LABEL GETF2			S: ;PUSH $8	
+;PUSH $8		P: ;LINK 1				S: ;PUSH $8	
+;PUSH $8		P: ;PUSH $8				S: ;PUSH 	
+;PUSH 			P: ;PUSH $8			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF1	
+;JSR GETF1		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF1			S: ;POP $T3	
+;POP $T3		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T3			S: ;POP 	
+;POP 			P: ;POP 				S: ;PUSH $T3	
+;PUSH $T3		P: ;POP 				S: ;PUSH $7	
+;PUSH $7		P: ;PUSH $T3				S: ;PUSH 	
+;PUSH 			P: ;PUSH $7			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF1	
+;JSR GETF1		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF1			S: ;POP $T4	
+;POP $T4		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T4			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T4 $6	
+;STOREF $T4 $6		P: ;POP 				S: ;UNLINK	
+;UNLINK			P: ;STOREF $T4 $6		S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+;LABEL main		P: 					S: ;LINK 11		 <== BB leader
+;LINK 11		P: ;LABEL main				S: ;STOREI 5 $T5	
+;STOREI 5 $T5		P: ;LINK 11			S: ;STOREF $T5 $-1	
+;STOREF $T5 $-1		P: ;STOREI 5 $T5			S: ;STOREI 10 $T6	
+;STOREI 10 $T6		P: ;STOREF $T5 $-1		S: ;STOREF $T6 $-2	
+;STOREF $T6 $-2		P: ;STOREI 10 $T6		S: ;PUSH $-2	
+;PUSH $-2		P: ;STOREF $T6 $-2			S: ;PUSH $-1	
+;PUSH $-1		P: ;PUSH $-2				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-1			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF1	
+;JSR GETF1		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF1			S: ;POP $T7	
+;POP $T7		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T7			S: ;POP 	
+;POP 			P: ;POP 				S: ;PUSH $-2	
+;PUSH $-2		P: ;POP 				S: ;PUSH $-1	
+;PUSH $-1		P: ;PUSH $-2				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-1			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF2	
+;JSR GETF2		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF2			S: ;POP $T8	
+;POP $T8		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T8			S: ;POP 	
+;POP 			P: ;POP 				S: ;GEF $T7 $T8 label1	
+;GEF $T7 $T8 label1	P: ;POP 				S: ;PUSH $-2	;LABEL label1	
+;PUSH $-2		P: ;GEF $T7 $T8 label1			S: ;PUSH $-1		 <== BB leader
+;PUSH $-1		P: ;PUSH $-2				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-1			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF1	
+;JSR GETF1		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF1			S: ;POP $T9	
+;POP $T9		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T9			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T9 $-5	
+;STOREF $T9 $-5		P: ;POP 				S: ;PUSH $-2	
+;PUSH $-2		P: ;STOREF $T9 $-5			S: ;PUSH $-1	
+;PUSH $-1		P: ;PUSH $-2				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-1			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF2	
+;JSR GETF2		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF2			S: ;POP $T10	
+;POP $T10		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T10			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T10 $-6	
+;STOREF $T10 $-6	P: ;POP 				S: ;WRITEF $-5	
+;WRITEF $-5		P: ;STOREF $T10 $-6			S: ;WRITES m1	
+;WRITES m1		P: ;WRITEF $-5			S: ;WRITEF $-6	
+;WRITEF $-6		P: ;WRITES m1			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEF $-6			S: ;JUMP label2	
+;JUMP label2		P: ;WRITES eol			S: ;LABEL label2	
+;LABEL label1		P: ;GEF $T7 $T8 label1		S: ;PUSH $-2		 <== BB leader
+;PUSH $-2		P: ;LABEL label1			S: ;PUSH $-1	
+;PUSH $-1		P: ;PUSH $-2				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-1			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF1	
+;JSR GETF1		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF1			S: ;POP $T11	
+;POP $T11		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T11			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T11 $-7	
+;STOREF $T11 $-7	P: ;POP 				S: ;PUSH $-2	
+;PUSH $-2		P: ;STOREF $T11 $-7			S: ;PUSH $-1	
+;PUSH $-1		P: ;PUSH $-2				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-1			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF2	
+;JSR GETF2		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF2			S: ;POP $T12	
+;POP $T12		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T12			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T12 $-8	
+;STOREF $T12 $-8	P: ;POP 				S: ;WRITEF $-7	
+;WRITEF $-7		P: ;STOREF $T12 $-8			S: ;WRITES m2	
+;WRITES m2		P: ;WRITEF $-7			S: ;WRITEF $-8	
+;WRITEF $-8		P: ;WRITES m2			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEF $-8			S: ;LABEL label2	
+;LABEL label2		P: ;WRITES eol	;JUMP label2		S: ;STOREI 5 $T13		 <== BB leader
+;STOREI 5 $T13		P: ;LABEL label2			S: ;STOREF $T13 $-3	
+;STOREF $T13 $-3	P: ;STOREI 5 $T13			S: ;STOREI 1 $T14	
+;STOREI 1 $T14		P: ;STOREF $T13 $-3		S: ;STOREF $T14 $-4	
+;STOREF $T14 $-4	P: ;STOREI 1 $T14			S: ;PUSH $-4	
+;PUSH $-4		P: ;STOREF $T14 $-4			S: ;PUSH $-3	
+;PUSH $-3		P: ;PUSH $-4				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-3			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF1	
+;JSR GETF1		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF1			S: ;POP $T15	
+;POP $T15		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T15			S: ;POP 	
+;POP 			P: ;POP 				S: ;PUSH $-4	
+;PUSH $-4		P: ;POP 				S: ;PUSH $-3	
+;PUSH $-3		P: ;PUSH $-4				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-3			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF2	
+;JSR GETF2		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF2			S: ;POP $T16	
+;POP $T16		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T16			S: ;POP 	
+;POP 			P: ;POP 				S: ;GEF $T15 $T16 label3	
+;GEF $T15 $T16 label3	P: ;POP 				S: ;PUSH $-4	;LABEL label3	
+;PUSH $-4		P: ;GEF $T15 $T16 label3		S: ;PUSH $-3		 <== BB leader
+;PUSH $-3		P: ;PUSH $-4				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-3			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF1	
+;JSR GETF1		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF1			S: ;POP $T17	
+;POP $T17		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T17			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T17 $-9	
+;STOREF $T17 $-9	P: ;POP 				S: ;PUSH $-4	
+;PUSH $-4		P: ;STOREF $T17 $-9			S: ;PUSH $-3	
+;PUSH $-3		P: ;PUSH $-4				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-3			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF2	
+;JSR GETF2		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF2			S: ;POP $T18	
+;POP $T18		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T18			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T18 $-10	
+;STOREF $T18 $-10	P: ;POP 				S: ;WRITEF $-9	
+;WRITEF $-9		P: ;STOREF $T18 $-10			S: ;WRITES m1	
+;WRITES m1		P: ;WRITEF $-9			S: ;WRITEF $-10	
+;WRITEF $-10		P: ;WRITES m1			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEF $-10			S: ;JUMP label4	
+;JUMP label4		P: ;WRITES eol			S: ;LABEL label4	
+;LABEL label3		P: ;GEF $T15 $T16 label3		S: ;PUSH $-4		 <== BB leader
+;PUSH $-4		P: ;LABEL label3			S: ;PUSH $-3	
+;PUSH $-3		P: ;PUSH $-4				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-3			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF1	
+;JSR GETF1		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF1			S: ;POP $T19	
+;POP $T19		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T19			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T19 $-11	
+;STOREF $T19 $-11	P: ;POP 				S: ;PUSH $-4	
+;PUSH $-4		P: ;STOREF $T19 $-11			S: ;PUSH $-3	
+;PUSH $-3		P: ;PUSH $-4				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-3			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR GETF2	
+;JSR GETF2		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR GETF2			S: ;POP $T20	
+;POP $T20		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T20			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T20 $-12	
+;STOREF $T20 $-12	P: ;POP 				S: ;WRITEF $-11	
+;WRITEF $-11		P: ;STOREF $T20 $-12		S: ;WRITES m2	
+;WRITES m2		P: ;WRITEF $-11			S: ;WRITEF $-12	
+;WRITEF $-12		P: ;WRITES m2			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEF $-12			S: ;LABEL label4	
+;LABEL label4		P: ;WRITES eol	;JUMP label4		S: ;STOREI 0 $T21		 <== BB leader
+;STOREI 0 $T21		P: ;LABEL label4			S: ;STOREI $T21 $6	
+;STOREI $T21 $6		P: ;STOREI 0 $T21		S: ;UNLINK	
+;UNLINK			P: ;STOREI $T21 $6		S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+; ========= CFG IR NODE / KILL/ GEN =========
+
+;LABEL GETF1		Kill: 				Gen: 
+;LINK 2			Kill: 				Gen: 
+;MULTF $7 $8 $T1	Kill: $T1, 				Gen: $7, $8, 
+;STOREF $T1 $-1		Kill: $-1, 			Gen: $T1, 
+;STOREF $-1 $T2		Kill: $T2, 			Gen: $-1, 
+;STOREF $T2 $6		Kill: $6, 			Gen: $T2, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+;LABEL GETF2		Kill: 				Gen: 
+;LINK 1			Kill: 				Gen: 
+;PUSH $8		Kill: 					Gen: $8, 
+;PUSH $8		Kill: 					Gen: $8, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF1		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T3		Kill: $T3, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;PUSH $T3		Kill: 					Gen: $T3, 
+;PUSH $7		Kill: 					Gen: $7, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF1		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T4		Kill: $T4, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T4 $6		Kill: $6, 			Gen: $T4, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+;LABEL main		Kill: 				Gen: 
+;LINK 11		Kill: 					Gen: 
+;STOREI 5 $T5		Kill: $T5, 			Gen: 
+;STOREF $T5 $-1		Kill: $-1, 			Gen: $T5, 
+;STOREI 10 $T6		Kill: $T6, 			Gen: 
+;STOREF $T6 $-2		Kill: $-2, 			Gen: $T6, 
+;PUSH $-2		Kill: 					Gen: $-2, 
+;PUSH $-1		Kill: 					Gen: $-1, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF1		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T7		Kill: $T7, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;PUSH $-2		Kill: 					Gen: $-2, 
+;PUSH $-1		Kill: 					Gen: $-1, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF2		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T8		Kill: $T8, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;GEF $T7 $T8 label1	Kill: 				Gen: $T7, $T8, 
+;PUSH $-2		Kill: 					Gen: $-2, 
+;PUSH $-1		Kill: 					Gen: $-1, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF1		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T9		Kill: $T9, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T9 $-5		Kill: $-5, 			Gen: $T9, 
+;PUSH $-2		Kill: 					Gen: $-2, 
+;PUSH $-1		Kill: 					Gen: $-1, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF2		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T10		Kill: $T10, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T10 $-6	Kill: $-6, 				Gen: $T10, 
+;WRITEF $-5		Kill: 				Gen: $-5, 
+;WRITES m1		Kill: 				Gen: 
+;WRITEF $-6		Kill: 				Gen: $-6, 
+;WRITES eol		Kill: 				Gen: 
+;JUMP label2		Kill: 				Gen: 
+;LABEL label1		Kill: 				Gen: 
+;PUSH $-2		Kill: 					Gen: $-2, 
+;PUSH $-1		Kill: 					Gen: $-1, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF1		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T11		Kill: $T11, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T11 $-7	Kill: $-7, 				Gen: $T11, 
+;PUSH $-2		Kill: 					Gen: $-2, 
+;PUSH $-1		Kill: 					Gen: $-1, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF2		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T12		Kill: $T12, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T12 $-8	Kill: $-8, 				Gen: $T12, 
+;WRITEF $-7		Kill: 				Gen: $-7, 
+;WRITES m2		Kill: 				Gen: 
+;WRITEF $-8		Kill: 				Gen: $-8, 
+;WRITES eol		Kill: 				Gen: 
+;LABEL label2		Kill: 				Gen: 
+;STOREI 5 $T13		Kill: $T13, 			Gen: 
+;STOREF $T13 $-3	Kill: $-3, 				Gen: $T13, 
+;STOREI 1 $T14		Kill: $T14, 			Gen: 
+;STOREF $T14 $-4	Kill: $-4, 				Gen: $T14, 
+;PUSH $-4		Kill: 					Gen: $-4, 
+;PUSH $-3		Kill: 					Gen: $-3, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF1		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T15		Kill: $T15, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;PUSH $-4		Kill: 					Gen: $-4, 
+;PUSH $-3		Kill: 					Gen: $-3, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF2		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T16		Kill: $T16, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;GEF $T15 $T16 label3	Kill: 				Gen: $T16, $T15, 
+;PUSH $-4		Kill: 					Gen: $-4, 
+;PUSH $-3		Kill: 					Gen: $-3, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF1		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T17		Kill: $T17, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T17 $-9	Kill: $-9, 				Gen: $T17, 
+;PUSH $-4		Kill: 					Gen: $-4, 
+;PUSH $-3		Kill: 					Gen: $-3, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF2		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T18		Kill: $T18, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T18 $-10	Kill: $-10, 				Gen: $T18, 
+;WRITEF $-9		Kill: 				Gen: $-9, 
+;WRITES m1		Kill: 				Gen: 
+;WRITEF $-10		Kill: 				Gen: $-10, 
+;WRITES eol		Kill: 				Gen: 
+;JUMP label4		Kill: 				Gen: 
+;LABEL label3		Kill: 				Gen: 
+;PUSH $-4		Kill: 					Gen: $-4, 
+;PUSH $-3		Kill: 					Gen: $-3, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF1		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T19		Kill: $T19, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T19 $-11	Kill: $-11, 				Gen: $T19, 
+;PUSH $-4		Kill: 					Gen: $-4, 
+;PUSH $-3		Kill: 					Gen: $-3, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR GETF2		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T20		Kill: $T20, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T20 $-12	Kill: $-12, 				Gen: $T20, 
+;WRITEF $-11		Kill: 				Gen: $-11, 
+;WRITES m2		Kill: 				Gen: 
+;WRITEF $-12		Kill: 				Gen: $-12, 
+;WRITES eol		Kill: 				Gen: 
+;LABEL label4		Kill: 				Gen: 
+;STOREI 0 $T21		Kill: $T21, 			Gen: 
+;STOREI $T21 $6		Kill: $6, 			Gen: $T21, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+; ========= CFG IR NODE / LIVE IN / LIVE OUT =========
+
+;LABEL GETF1		Live IN: $8, $7, 			Live OUT: $7, $8, 
+;LINK 2			Live IN: $8, $7, 		Live OUT: $7, $8, 
+;MULTF $7 $8 $T1	Live IN: $8, $7, 			Live OUT: $T1, 
+;STOREF $T1 $-1		Live IN: $T1, 			Live OUT: $-1, 
+;STOREF $-1 $T2		Live IN: $-1, 			Live OUT: $T2, 
+;STOREF $T2 $6		Live IN: $T2, 			Live OUT: 
+;UNLINK			Live IN: 			Live OUT: 
+;RET			Live IN: 				Live OUT: 
+
+;LABEL GETF2		Live IN: $8, $7, 			Live OUT: $7, $8, 
+;LINK 1			Live IN: $8, $7, 		Live OUT: $7, $8, 
+;PUSH $8		Live IN: $8, $7, 			Live OUT: $7, $8, 
+;PUSH $8		Live IN: $8, $7, 			Live OUT: $7, 
+;PUSH 			Live IN: $7, 			Live OUT: $7, 
+;PUSHREG		Live IN: $7, 				Live OUT: $7, 
+;JSR GETF1		Live IN: $7, 				Live OUT: $7, 
+;POPREG			Live IN: $7, 			Live OUT: $7, 
+;POP $T3		Live IN: $7, 				Live OUT: $T3, $7, 
+;POP 			Live IN: $7, $T3, 			Live OUT: $T3, $7, 
+;POP 			Live IN: $7, $T3, 			Live OUT: $T3, $7, 
+;PUSH $T3		Live IN: $T3, $7, 			Live OUT: $7, 
+;PUSH $7		Live IN: $7, 				Live OUT: 
+;PUSH 			Live IN: 				Live OUT: 
+;PUSHREG		Live IN: 				Live OUT: 
+;JSR GETF1		Live IN: 				Live OUT: 
+;POPREG			Live IN: 			Live OUT: 
+;POP $T4		Live IN: 				Live OUT: $T4, 
+;POP 			Live IN: $T4, 			Live OUT: $T4, 
+;POP 			Live IN: $T4, 			Live OUT: $T4, 
+;STOREF $T4 $6		Live IN: $T4, 			Live OUT: 
+;UNLINK			Live IN: 			Live OUT: 
+;RET			Live IN: 				Live OUT: 
+
+;LABEL main		Live IN: 				Live OUT: 
+;LINK 11		Live IN: 				Live OUT: 
+;STOREI 5 $T5		Live IN: 				Live OUT: $T5, 
+;STOREF $T5 $-1		Live IN: $T5, 			Live OUT: $-1, 
+;STOREI 10 $T6		Live IN: $-1, 			Live OUT: $T6, $-1, 
+;STOREF $T6 $-2		Live IN: $T6, $-1, 		Live OUT: $-2, $-1, 
+;PUSH $-2		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;PUSH $-1		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;PUSH 			Live IN: $-2, $-1, 		Live OUT: $-2, $-1, 
+;PUSHREG		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;JSR GETF1		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;POPREG			Live IN: $-2, $-1, 		Live OUT: $-2, $-1, 
+;POP $T7		Live IN: $-2, $-1, 			Live OUT: $-2, $T7, $-1, 
+;POP 			Live IN: $-2, $-1, $T7, 		Live OUT: $-2, $T7, $-1, 
+;POP 			Live IN: $-2, $-1, $T7, 		Live OUT: $-2, $T7, $-1, 
+;PUSH $-2		Live IN: $-2, $-1, $T7, 		Live OUT: $-2, $T7, $-1, 
+;PUSH $-1		Live IN: $-2, $T7, $-1, 		Live OUT: $-2, $-1, $T7, 
+;PUSH 			Live IN: $-2, $T7, $-1, 		Live OUT: $-2, $-1, $T7, 
+;PUSHREG		Live IN: $-2, $T7, $-1, 		Live OUT: $-2, $-1, $T7, 
+;JSR GETF2		Live IN: $-2, $T7, $-1, 		Live OUT: $-2, $-1, $T7, 
+;POPREG			Live IN: $-2, $T7, $-1, 		Live OUT: $-2, $-1, $T7, 
+;POP $T8		Live IN: $-2, $T7, $-1, 		Live OUT: $-2, $-1, $T7, $T8, 
+;POP 			Live IN: $T8, $-2, $T7, $-1, 	Live OUT: $-2, $-1, $T7, $T8, 
+;POP 			Live IN: $T8, $-2, $T7, $-1, 	Live OUT: $-2, $-1, $T7, $T8, 
+;GEF $T7 $T8 label1	Live IN: $-2, $T7, $-1, $T8, 	Live OUT: $-2, $-1, 
+;PUSH $-2		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;PUSH $-1		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;PUSH 			Live IN: $-2, $-1, 		Live OUT: $-2, $-1, 
+;PUSHREG		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;JSR GETF1		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;POPREG			Live IN: $-2, $-1, 		Live OUT: $-2, $-1, 
+;POP $T9		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, $T9, 
+;POP 			Live IN: $-2, $-1, $T9, 		Live OUT: $-2, $-1, $T9, 
+;POP 			Live IN: $-2, $-1, $T9, 		Live OUT: $-2, $-1, $T9, 
+;STOREF $T9 $-5		Live IN: $-2, $-1, $T9, 		Live OUT: $-5, $-2, $-1, 
+;PUSH $-2		Live IN: $-2, $-1, $-5, 		Live OUT: $-5, $-1, 
+;PUSH $-1		Live IN: $-1, $-5, 			Live OUT: $-5, 
+;PUSH 			Live IN: $-5, 			Live OUT: $-5, 
+;PUSHREG		Live IN: $-5, 				Live OUT: $-5, 
+;JSR GETF2		Live IN: $-5, 			Live OUT: $-5, 
+;POPREG			Live IN: $-5, 			Live OUT: $-5, 
+;POP $T10		Live IN: $-5, 				Live OUT: $-5, $T10, 
+;POP 			Live IN: $T10, $-5, 		Live OUT: $-5, $T10, 
+;POP 			Live IN: $T10, $-5, 		Live OUT: $-5, $T10, 
+;STOREF $T10 $-6	Live IN: $T10, $-5, 			Live OUT: $-6, $-5, 
+;WRITEF $-5		Live IN: $-6, $-5, 			Live OUT: $-6, 
+;WRITES m1		Live IN: $-6, 			Live OUT: $-6, 
+;WRITEF $-6		Live IN: $-6, 			Live OUT: 
+;WRITES eol		Live IN: 				Live OUT: 
+;JUMP label2		Live IN: 				Live OUT: 
+;LABEL label1		Live IN: $-2, $-1, 		Live OUT: $-2, $-1, 
+;PUSH $-2		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;PUSH $-1		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;PUSH 			Live IN: $-2, $-1, 		Live OUT: $-2, $-1, 
+;PUSHREG		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;JSR GETF1		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, 
+;POPREG			Live IN: $-2, $-1, 		Live OUT: $-2, $-1, 
+;POP $T11		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, $T11, 
+;POP 			Live IN: $-2, $-1, $T11, 		Live OUT: $-2, $-1, $T11, 
+;POP 			Live IN: $-2, $-1, $T11, 		Live OUT: $-2, $-1, $T11, 
+;STOREF $T11 $-7	Live IN: $-2, $-1, $T11, 		Live OUT: $-7, $-2, $-1, 
+;PUSH $-2		Live IN: $-2, $-1, $-7, 		Live OUT: $-7, $-1, 
+;PUSH $-1		Live IN: $-1, $-7, 			Live OUT: $-7, 
+;PUSH 			Live IN: $-7, 			Live OUT: $-7, 
+;PUSHREG		Live IN: $-7, 				Live OUT: $-7, 
+;JSR GETF2		Live IN: $-7, 			Live OUT: $-7, 
+;POPREG			Live IN: $-7, 			Live OUT: $-7, 
+;POP $T12		Live IN: $-7, 				Live OUT: $-7, $T12, 
+;POP 			Live IN: $T12, $-7, 		Live OUT: $-7, $T12, 
+;POP 			Live IN: $T12, $-7, 		Live OUT: $-7, $T12, 
+;STOREF $T12 $-8	Live IN: $T12, $-7, 			Live OUT: $-8, $-7, 
+;WRITEF $-7		Live IN: $-8, $-7, 			Live OUT: $-8, 
+;WRITES m2		Live IN: $-8, 			Live OUT: $-8, 
+;WRITEF $-8		Live IN: $-8, 			Live OUT: 
+;WRITES eol		Live IN: 				Live OUT: 
+;LABEL label2		Live IN: 				Live OUT: 
+;STOREI 5 $T13		Live IN: 				Live OUT: $T13, 
+;STOREF $T13 $-3	Live IN: $T13, 				Live OUT: $-3, 
+;STOREI 1 $T14		Live IN: $-3, 			Live OUT: $-3, $T14, 
+;STOREF $T14 $-4	Live IN: $T14, $-3, 			Live OUT: $-4, $-3, 
+;PUSH $-4		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;PUSH $-3		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;PUSH 			Live IN: $-4, $-3, 		Live OUT: $-4, $-3, 
+;PUSHREG		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;JSR GETF1		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;POPREG			Live IN: $-4, $-3, 		Live OUT: $-4, $-3, 
+;POP $T15		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, $T15, 
+;POP 			Live IN: $-4, $T15, $-3, 		Live OUT: $-4, $-3, $T15, 
+;POP 			Live IN: $-4, $T15, $-3, 		Live OUT: $-4, $-3, $T15, 
+;PUSH $-4		Live IN: $-4, $T15, $-3, 		Live OUT: $-4, $-3, $T15, 
+;PUSH $-3		Live IN: $-4, $T15, $-3, 		Live OUT: $-4, $-3, $T15, 
+;PUSH 			Live IN: $-4, $T15, $-3, 		Live OUT: $-4, $-3, $T15, 
+;PUSHREG		Live IN: $-4, $T15, $-3, 		Live OUT: $-4, $-3, $T15, 
+;JSR GETF2		Live IN: $-4, $T15, $-3, 		Live OUT: $-4, $-3, $T15, 
+;POPREG			Live IN: $-4, $T15, $-3, 	Live OUT: $-4, $-3, $T15, 
+;POP $T16		Live IN: $-4, $T15, $-3, 		Live OUT: $-4, $-3, $T16, $T15, 
+;POP 			Live IN: $T16, $-4, $T15, $-3, 	Live OUT: $-4, $-3, $T16, $T15, 
+;POP 			Live IN: $T16, $-4, $T15, $-3, 	Live OUT: $-4, $-3, $T16, $T15, 
+;GEF $T15 $T16 label3	Live IN: $-4, $T16, $T15, $-3, 	Live OUT: $-4, $-3, 
+;PUSH $-4		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;PUSH $-3		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;PUSH 			Live IN: $-4, $-3, 		Live OUT: $-4, $-3, 
+;PUSHREG		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;JSR GETF1		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;POPREG			Live IN: $-4, $-3, 		Live OUT: $-4, $-3, 
+;POP $T17		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, $T17, 
+;POP 			Live IN: $T17, $-4, $-3, 		Live OUT: $-4, $-3, $T17, 
+;POP 			Live IN: $T17, $-4, $-3, 		Live OUT: $-4, $-3, $T17, 
+;STOREF $T17 $-9	Live IN: $T17, $-4, $-3, 		Live OUT: $-4, $-3, $-9, 
+;PUSH $-4		Live IN: $-9, $-4, $-3, 		Live OUT: $-3, $-9, 
+;PUSH $-3		Live IN: $-9, $-3, 			Live OUT: $-9, 
+;PUSH 			Live IN: $-9, 			Live OUT: $-9, 
+;PUSHREG		Live IN: $-9, 				Live OUT: $-9, 
+;JSR GETF2		Live IN: $-9, 			Live OUT: $-9, 
+;POPREG			Live IN: $-9, 			Live OUT: $-9, 
+;POP $T18		Live IN: $-9, 				Live OUT: $-9, $T18, 
+;POP 			Live IN: $T18, $-9, 		Live OUT: $-9, $T18, 
+;POP 			Live IN: $T18, $-9, 		Live OUT: $-9, $T18, 
+;STOREF $T18 $-10	Live IN: $T18, $-9, 			Live OUT: $-10, $-9, 
+;WRITEF $-9		Live IN: $-9, $-10, 			Live OUT: $-10, 
+;WRITES m1		Live IN: $-10, 			Live OUT: $-10, 
+;WRITEF $-10		Live IN: $-10, 			Live OUT: 
+;WRITES eol		Live IN: 				Live OUT: 
+;JUMP label4		Live IN: 				Live OUT: 
+;LABEL label3		Live IN: $-4, $-3, 		Live OUT: $-4, $-3, 
+;PUSH $-4		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;PUSH $-3		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;PUSH 			Live IN: $-4, $-3, 		Live OUT: $-4, $-3, 
+;PUSHREG		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;JSR GETF1		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;POPREG			Live IN: $-4, $-3, 		Live OUT: $-4, $-3, 
+;POP $T19		Live IN: $-4, $-3, 			Live OUT: $T19, $-4, $-3, 
+;POP 			Live IN: $-4, $-3, $T19, 		Live OUT: $T19, $-4, $-3, 
+;POP 			Live IN: $-4, $-3, $T19, 		Live OUT: $T19, $-4, $-3, 
+;STOREF $T19 $-11	Live IN: $-4, $T19, $-3, 		Live OUT: $-11, $-4, $-3, 
+;PUSH $-4		Live IN: $-4, $-3, $-11, 		Live OUT: $-11, $-3, 
+;PUSH $-3		Live IN: $-3, $-11, 			Live OUT: $-11, 
+;PUSH 			Live IN: $-11, 			Live OUT: $-11, 
+;PUSHREG		Live IN: $-11, 				Live OUT: $-11, 
+;JSR GETF2		Live IN: $-11, 			Live OUT: $-11, 
+;POPREG			Live IN: $-11, 			Live OUT: $-11, 
+;POP $T20		Live IN: $-11, 			Live OUT: $-11, $T20, 
+;POP 			Live IN: $T20, $-11, 		Live OUT: $-11, $T20, 
+;POP 			Live IN: $T20, $-11, 		Live OUT: $-11, $T20, 
+;STOREF $T20 $-12	Live IN: $T20, $-11, 			Live OUT: $-11, $-12, 
+;WRITEF $-11		Live IN: $-12, $-11, 		Live OUT: $-12, 
+;WRITES m2		Live IN: $-12, 			Live OUT: $-12, 
+;WRITEF $-12		Live IN: $-12, 			Live OUT: 
+;WRITES eol		Live IN: 				Live OUT: 
+;LABEL label4		Live IN: 				Live OUT: 
+;STOREI 0 $T21		Live IN: 				Live OUT: $T21, 
+;STOREI $T21 $6		Live IN: $T21, 			Live OUT: 
+;UNLINK			Live IN: 			Live OUT: 
+;RET			Live IN: 				Live OUT: 
+;str space " " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str eol "\n" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str m1 " is smaller than " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str m2 " is greater than or equal to " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;jsr main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;sys halt 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL GETF1 liveout: ; { $7 $8  }
+;label GETF1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 2 liveout: ; { $7 $8  }
+;link 23 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;MULTF $7 $8 $T1 liveout: ; { $T1  }
+; ensure(): $7 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$7 }
+; loading $7 to register r3
+;move $7 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$7 }
+; ensure(): $8 gets register r2 { r0-><null> || r1-><null> || r2->$8 || r3->$7 }
+; loading $8 to register r2
+;move $8 r2 	; { r0-><null> || r1-><null> || r2->$8 || r3->$7 }
+; switching owner of register $7 to $T1 { r0-><null> || r1-><null> || r2->$8 || r3->$7 }
+;mulr r2 r3 	; { r0-><null> || r1-><null> || r2->$8 || r3->$T1 }
+; freeing unused variable r2
+;STOREF $T1 $-1 liveout: ; { $-1  }
+; ensure(): $T1 has register r3
+; ensure(): $-1 gets register r2 { r0-><null> || r1-><null> || r2->$-1 || r3->$T1* }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T1* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T1* }
+; freeing unused variable r3
+; spilling varialbe $T1
+;move r3 $-2 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T1* }
+;STOREF $-1 $T2 liveout: ; { $T2  }
+; ensure(): $-1 has register r2
+; ensure(): $T2 gets register r3 { r0-><null> || r1-><null> || r2->$-1* || r3->$T2 }
+; loading $-3 to register r3
+;move $-3 r3 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T2 }
+;move r2 r3 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T2 }
+; freeing unused variable r2
+; spilling varialbe $-1
+;move r2 $-1 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T2* }
+;STOREF $T2 $6 liveout: ; {  }
+; ensure(): $T2 has register r3
+;move r3 $6 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T2* }
+; freeing unused variable r3
+; spilling varialbe $T2
+;move r3 $-3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T2* }
+;UNLINK liveout: ; {  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;RET liveout: ; {  }
+; writing back global variables prior a function call
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL GETF2 liveout: ; { $7 $8  }
+;label GETF2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 1 liveout: ; { $7 $8  }
+;link 22 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;PUSH $8 liveout: ; { $7 $8  }
+; ensure(): $8 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$8 }
+; loading $8 to register r3
+;move $8 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$8 }
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$8 }
+;PUSH $8 liveout: ; { $7  }
+; ensure(): $8 has register r3
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$8 }
+; freeing unused variable r3
+;PUSH  liveout: ; { $7  }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;PUSHREG liveout: ; { $7  }
+;push r0 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push r1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push r2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;JSR GETF1 liveout: ; { $7  }
+; writing back global variables prior a function call
+;jsr GETF1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;POPREG liveout: ; { $7  }
+;pop r3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;pop r2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;pop r1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;pop r0 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;POP $T3 liveout: ; { $T3 $7  }
+; ensure(): $T3 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T3 }
+; loading $-3 to register r3
+;move $-3 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T3 }
+;pop r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T3 }
+;POP  liveout: ; { $T3 $7  }
+;pop 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T3* }
+;POP  liveout: ; { $T3 $7  }
+;pop 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T3* }
+;PUSH $T3 liveout: ; { $7  }
+; ensure(): $T3 has register r3
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T3* }
+; freeing unused variable r3
+; spilling varialbe $T3
+;move r3 $-3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T3* }
+;PUSH $7 liveout: ; {  }
+; ensure(): $7 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$7 }
+; loading $7 to register r3
+;move $7 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$7 }
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$7 }
+; freeing unused variable r3
+;PUSH  liveout: ; {  }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;PUSHREG liveout: ; {  }
+;push r0 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push r1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push r2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;JSR GETF1 liveout: ; {  }
+; writing back global variables prior a function call
+;jsr GETF1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;POPREG liveout: ; {  }
+;pop r3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;pop r2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;pop r1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;pop r0 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;POP $T4 liveout: ; { $T4  }
+; ensure(): $T4 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T4 }
+; loading $-4 to register r3
+;move $-4 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4 }
+;pop r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4 }
+;POP  liveout: ; { $T4  }
+;pop 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4* }
+;POP  liveout: ; { $T4  }
+;pop 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4* }
+;STOREF $T4 $6 liveout: ; {  }
+; ensure(): $T4 has register r3
+;move r3 $6 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4* }
+; freeing unused variable r3
+; spilling varialbe $T4
+;move r3 $-4 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4* }
+;UNLINK liveout: ; {  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;RET liveout: ; {  }
+; writing back global variables prior a function call
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL main liveout: ; {  }
+;label main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 11 liveout: ; {  }
+;link 32 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 5 $T5 liveout: ; { $T5  }
+; ensure(): $T5 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T5 }
+; loading $-15 to register r3
+;move $-15 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T5 }
+;move 5 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T5 }
+;STOREF $T5 $-1 liveout: ; { $-1  }
+; ensure(): $T5 has register r3
+; ensure(): $-1 gets register r2 { r0-><null> || r1-><null> || r2->$-1 || r3->$T5* }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T5* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T5* }
+; freeing unused variable r3
+; spilling varialbe $T5
+;move r3 $-15 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T5* }
+;STOREI 10 $T6 liveout: ; { $T6 $-1  }
+; ensure(): $T6 gets register r3 { r0-><null> || r1-><null> || r2->$-1* || r3->$T6 }
+; loading $-16 to register r3
+;move $-16 r3 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T6 }
+;move 10 r3 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T6 }
+;STOREF $T6 $-2 liveout: ; { $-2 $-1  }
+; ensure(): $T6 has register r3
+; ensure(): $-2 gets register r1 { r0-><null> || r1->$-2 || r2->$-1* || r3->$T6* }
+; loading $-2 to register r1
+;move $-2 r1 	; { r0-><null> || r1->$-2 || r2->$-1* || r3->$T6* }
+;move r3 r1 	; { r0-><null> || r1->$-2 || r2->$-1* || r3->$T6* }
+; freeing unused variable r3
+; spilling varialbe $T6
+;move r3 $-16 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T6* }
+;PUSH $-2 liveout: ; { $-2 $-1  }
+; ensure(): $-2 has register r1
+;push r1 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;PUSH $-1 liveout: ; { $-2 $-1  }
+; ensure(): $-1 has register r2
+;push r2 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;PUSH  liveout: ; { $-2 $-1  }
+;push 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;PUSHREG liveout: ; { $-2 $-1  }
+;push r0 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;push r1 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;push r2 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;push r3 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;JSR GETF1 liveout: ; { $-2 $-1  }
+; writing back global variables prior a function call
+;jsr GETF1 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;POPREG liveout: ; { $-2 $-1  }
+;pop r3 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;pop r2 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;pop r1 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;pop r0 	; { r0-><null> || r1->$-2* || r2->$-1* || r3-><null> }
+;POP $T7 liveout: ; { $-2 $T7 $-1  }
+; ensure(): $T7 gets register r3 { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7 }
+; loading $-17 to register r3
+;move $-17 r3 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7 }
+;pop r3 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7 }
+;POP  liveout: ; { $-2 $T7 $-1  }
+;pop 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;POP  liveout: ; { $-2 $T7 $-1  }
+;pop 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;PUSH $-2 liveout: ; { $-2 $T7 $-1  }
+; ensure(): $-2 has register r1
+;push r1 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;PUSH $-1 liveout: ; { $-2 $-1 $T7  }
+; ensure(): $-1 has register r2
+;push r2 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;PUSH  liveout: ; { $-2 $-1 $T7  }
+;push 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;PUSHREG liveout: ; { $-2 $-1 $T7  }
+;push r0 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;push r1 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;push r2 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;push r3 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;JSR GETF2 liveout: ; { $-2 $-1 $T7  }
+; writing back global variables prior a function call
+;jsr GETF2 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;POPREG liveout: ; { $-2 $-1 $T7  }
+;pop r3 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;pop r2 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;pop r1 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;pop r0 	; { r0-><null> || r1->$-2* || r2->$-1* || r3->$T7* }
+;POP $T8 liveout: ; { $-2 $-1 $T7 $T8  }
+; ensure(): $T8 gets register r0 { r0->$T8 || r1->$-2* || r2->$-1* || r3->$T7* }
+; loading $-18 to register r0
+;move $-18 r0 	; { r0->$T8 || r1->$-2* || r2->$-1* || r3->$T7* }
+;pop r0 	; { r0->$T8 || r1->$-2* || r2->$-1* || r3->$T7* }
+;POP  liveout: ; { $-2 $-1 $T7 $T8  }
+;pop 	; { r0->$T8* || r1->$-2* || r2->$-1* || r3->$T7* }
+;POP  liveout: ; { $-2 $-1 $T7 $T8  }
+;pop 	; { r0->$T8* || r1->$-2* || r2->$-1* || r3->$T7* }
+;GEF $T7 $T8 label1 liveout: ; { $-2 $-1  }
+; ensure(): $T7 has register r3
+; ensure(): $T8 has register r0
+;cmpr r3 r0 	; { r0->$T8* || r1->$-2* || r2->$-1* || r3->$T7* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T7
+;move r3 $-17 	; { r0->$T8* || r1->$-2* || r2->$-1* || r3->$T7* }
+; spilling varialbe $-1
+;move r2 $-1 	; { r0->$T8* || r1->$-2* || r2->$-1* || r3-><null> }
+; spilling varialbe $-2
+;move r1 $-2 	; { r0->$T8* || r1->$-2* || r2-><null> || r3-><null> }
+; spilling varialbe $T8
+;move r0 $-18 	; { r0->$T8* || r1-><null> || r2-><null> || r3-><null> }
+;jge label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r3
+; freeing unused variable r0
+;PUSH $-2 liveout: ; { $-2 $-1  }
+; ensure(): $-2 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-2 }
+; loading $-2 to register r3
+;move $-2 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-2 }
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-2 }
+;PUSH $-1 liveout: ; { $-2 $-1  }
+; ensure(): $-1 gets register r2 { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;push r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;PUSH  liveout: ; { $-2 $-1  }
+;push 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;PUSHREG liveout: ; { $-2 $-1  }
+;push r0 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;push r1 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;push r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;push r3 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;JSR GETF1 liveout: ; { $-2 $-1  }
+; writing back global variables prior a function call
+;jsr GETF1 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;POPREG liveout: ; { $-2 $-1  }
+;pop r3 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;pop r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;pop r1 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;pop r0 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;POP $T9 liveout: ; { $-2 $-1 $T9  }
+; ensure(): $T9 gets register r1 { r0-><null> || r1->$T9 || r2->$-1 || r3->$-2 }
+; loading $-19 to register r1
+;move $-19 r1 	; { r0-><null> || r1->$T9 || r2->$-1 || r3->$-2 }
+;pop r1 	; { r0-><null> || r1->$T9 || r2->$-1 || r3->$-2 }
+;POP  liveout: ; { $-2 $-1 $T9  }
+;pop 	; { r0-><null> || r1->$T9* || r2->$-1 || r3->$-2 }
+;POP  liveout: ; { $-2 $-1 $T9  }
+;pop 	; { r0-><null> || r1->$T9* || r2->$-1 || r3->$-2 }
+;STOREF $T9 $-5 liveout: ; { $-5 $-2 $-1  }
+; ensure(): $T9 has register r1
+; ensure(): $-5 gets register r0 { r0->$-5 || r1->$T9* || r2->$-1 || r3->$-2 }
+; loading $-5 to register r0
+;move $-5 r0 	; { r0->$-5 || r1->$T9* || r2->$-1 || r3->$-2 }
+;move r1 r0 	; { r0->$-5 || r1->$T9* || r2->$-1 || r3->$-2 }
+; freeing unused variable r1
+; spilling varialbe $T9
+;move r1 $-19 	; { r0->$-5* || r1->$T9* || r2->$-1 || r3->$-2 }
+;PUSH $-2 liveout: ; { $-5 $-1  }
+; ensure(): $-2 has register r3
+;push r3 	; { r0->$-5* || r1-><null> || r2->$-1 || r3->$-2 }
+; freeing unused variable r3
+;PUSH $-1 liveout: ; { $-5  }
+; ensure(): $-1 has register r2
+;push r2 	; { r0->$-5* || r1-><null> || r2->$-1 || r3-><null> }
+; freeing unused variable r2
+;PUSH  liveout: ; { $-5  }
+;push 	; { r0->$-5* || r1-><null> || r2-><null> || r3-><null> }
+;PUSHREG liveout: ; { $-5  }
+;push r0 	; { r0->$-5* || r1-><null> || r2-><null> || r3-><null> }
+;push r1 	; { r0->$-5* || r1-><null> || r2-><null> || r3-><null> }
+;push r2 	; { r0->$-5* || r1-><null> || r2-><null> || r3-><null> }
+;push r3 	; { r0->$-5* || r1-><null> || r2-><null> || r3-><null> }
+;JSR GETF2 liveout: ; { $-5  }
+; writing back global variables prior a function call
+;jsr GETF2 	; { r0->$-5* || r1-><null> || r2-><null> || r3-><null> }
+;POPREG liveout: ; { $-5  }
+;pop r3 	; { r0->$-5* || r1-><null> || r2-><null> || r3-><null> }
+;pop r2 	; { r0->$-5* || r1-><null> || r2-><null> || r3-><null> }
+;pop r1 	; { r0->$-5* || r1-><null> || r2-><null> || r3-><null> }
+;pop r0 	; { r0->$-5* || r1-><null> || r2-><null> || r3-><null> }
+;POP $T10 liveout: ; { $-5 $T10  }
+; ensure(): $T10 gets register r3 { r0->$-5* || r1-><null> || r2-><null> || r3->$T10 }
+; loading $-20 to register r3
+;move $-20 r3 	; { r0->$-5* || r1-><null> || r2-><null> || r3->$T10 }
+;pop r3 	; { r0->$-5* || r1-><null> || r2-><null> || r3->$T10 }
+;POP  liveout: ; { $-5 $T10  }
+;pop 	; { r0->$-5* || r1-><null> || r2-><null> || r3->$T10* }
+;POP  liveout: ; { $-5 $T10  }
+;pop 	; { r0->$-5* || r1-><null> || r2-><null> || r3->$T10* }
+;STOREF $T10 $-6 liveout: ; { $-6 $-5  }
+; ensure(): $T10 has register r3
+; ensure(): $-6 gets register r2 { r0->$-5* || r1-><null> || r2->$-6 || r3->$T10* }
+; loading $-6 to register r2
+;move $-6 r2 	; { r0->$-5* || r1-><null> || r2->$-6 || r3->$T10* }
+;move r3 r2 	; { r0->$-5* || r1-><null> || r2->$-6 || r3->$T10* }
+; freeing unused variable r3
+; spilling varialbe $T10
+;move r3 $-20 	; { r0->$-5* || r1-><null> || r2->$-6* || r3->$T10* }
+;WRITEF $-5 liveout: ; { $-6  }
+; ensure(): $-5 has register r0
+;sys writer r0 	; { r0->$-5* || r1-><null> || r2->$-6* || r3-><null> }
+; freeing unused variable r0
+; spilling varialbe $-5
+;move r0 $-5 	; { r0->$-5* || r1-><null> || r2->$-6* || r3-><null> }
+;WRITES m1 liveout: ; { $-6  }
+;sys writes m1 	; { r0-><null> || r1-><null> || r2->$-6* || r3-><null> }
+;WRITEF $-6 liveout: ; {  }
+; ensure(): $-6 has register r2
+;sys writer r2 	; { r0-><null> || r1-><null> || r2->$-6* || r3-><null> }
+; freeing unused variable r2
+; spilling varialbe $-6
+;move r2 $-6 	; { r0-><null> || r1-><null> || r2->$-6* || r3-><null> }
+;WRITES eol liveout: ; {  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;JUMP label2 liveout: ; {  }
+; spilling registers at the end of Basic Block
+;jmp label2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label1 liveout: ; { $-2 $-1  }
+; spilling registers at the end of Basic Block
+;label label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;PUSH $-2 liveout: ; { $-2 $-1  }
+; ensure(): $-2 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-2 }
+; loading $-2 to register r3
+;move $-2 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-2 }
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-2 }
+;PUSH $-1 liveout: ; { $-2 $-1  }
+; ensure(): $-1 gets register r2 { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;push r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;PUSH  liveout: ; { $-2 $-1  }
+;push 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;PUSHREG liveout: ; { $-2 $-1  }
+;push r0 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;push r1 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;push r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;push r3 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;JSR GETF1 liveout: ; { $-2 $-1  }
+; writing back global variables prior a function call
+;jsr GETF1 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;POPREG liveout: ; { $-2 $-1  }
+;pop r3 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;pop r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;pop r1 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;pop r0 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$-2 }
+;POP $T11 liveout: ; { $-2 $-1 $T11  }
+; ensure(): $T11 gets register r1 { r0-><null> || r1->$T11 || r2->$-1 || r3->$-2 }
+; loading $-21 to register r1
+;move $-21 r1 	; { r0-><null> || r1->$T11 || r2->$-1 || r3->$-2 }
+;pop r1 	; { r0-><null> || r1->$T11 || r2->$-1 || r3->$-2 }
+;POP  liveout: ; { $-2 $-1 $T11  }
+;pop 	; { r0-><null> || r1->$T11* || r2->$-1 || r3->$-2 }
+;POP  liveout: ; { $-2 $-1 $T11  }
+;pop 	; { r0-><null> || r1->$T11* || r2->$-1 || r3->$-2 }
+;STOREF $T11 $-7 liveout: ; { $-7 $-2 $-1  }
+; ensure(): $T11 has register r1
+; ensure(): $-7 gets register r0 { r0->$-7 || r1->$T11* || r2->$-1 || r3->$-2 }
+; loading $-7 to register r0
+;move $-7 r0 	; { r0->$-7 || r1->$T11* || r2->$-1 || r3->$-2 }
+;move r1 r0 	; { r0->$-7 || r1->$T11* || r2->$-1 || r3->$-2 }
+; freeing unused variable r1
+; spilling varialbe $T11
+;move r1 $-21 	; { r0->$-7* || r1->$T11* || r2->$-1 || r3->$-2 }
+;PUSH $-2 liveout: ; { $-7 $-1  }
+; ensure(): $-2 has register r3
+;push r3 	; { r0->$-7* || r1-><null> || r2->$-1 || r3->$-2 }
+; freeing unused variable r3
+;PUSH $-1 liveout: ; { $-7  }
+; ensure(): $-1 has register r2
+;push r2 	; { r0->$-7* || r1-><null> || r2->$-1 || r3-><null> }
+; freeing unused variable r2
+;PUSH  liveout: ; { $-7  }
+;push 	; { r0->$-7* || r1-><null> || r2-><null> || r3-><null> }
+;PUSHREG liveout: ; { $-7  }
+;push r0 	; { r0->$-7* || r1-><null> || r2-><null> || r3-><null> }
+;push r1 	; { r0->$-7* || r1-><null> || r2-><null> || r3-><null> }
+;push r2 	; { r0->$-7* || r1-><null> || r2-><null> || r3-><null> }
+;push r3 	; { r0->$-7* || r1-><null> || r2-><null> || r3-><null> }
+;JSR GETF2 liveout: ; { $-7  }
+; writing back global variables prior a function call
+;jsr GETF2 	; { r0->$-7* || r1-><null> || r2-><null> || r3-><null> }
+;POPREG liveout: ; { $-7  }
+;pop r3 	; { r0->$-7* || r1-><null> || r2-><null> || r3-><null> }
+;pop r2 	; { r0->$-7* || r1-><null> || r2-><null> || r3-><null> }
+;pop r1 	; { r0->$-7* || r1-><null> || r2-><null> || r3-><null> }
+;pop r0 	; { r0->$-7* || r1-><null> || r2-><null> || r3-><null> }
+;POP $T12 liveout: ; { $-7 $T12  }
+; ensure(): $T12 gets register r3 { r0->$-7* || r1-><null> || r2-><null> || r3->$T12 }
+; loading $-22 to register r3
+;move $-22 r3 	; { r0->$-7* || r1-><null> || r2-><null> || r3->$T12 }
+;pop r3 	; { r0->$-7* || r1-><null> || r2-><null> || r3->$T12 }
+;POP  liveout: ; { $-7 $T12  }
+;pop 	; { r0->$-7* || r1-><null> || r2-><null> || r3->$T12* }
+;POP  liveout: ; { $-7 $T12  }
+;pop 	; { r0->$-7* || r1-><null> || r2-><null> || r3->$T12* }
+;STOREF $T12 $-8 liveout: ; { $-8 $-7  }
+; ensure(): $T12 has register r3
+; ensure(): $-8 gets register r2 { r0->$-7* || r1-><null> || r2->$-8 || r3->$T12* }
+; loading $-8 to register r2
+;move $-8 r2 	; { r0->$-7* || r1-><null> || r2->$-8 || r3->$T12* }
+;move r3 r2 	; { r0->$-7* || r1-><null> || r2->$-8 || r3->$T12* }
+; freeing unused variable r3
+; spilling varialbe $T12
+;move r3 $-22 	; { r0->$-7* || r1-><null> || r2->$-8* || r3->$T12* }
+;WRITEF $-7 liveout: ; { $-8  }
+; ensure(): $-7 has register r0
+;sys writer r0 	; { r0->$-7* || r1-><null> || r2->$-8* || r3-><null> }
+; freeing unused variable r0
+; spilling varialbe $-7
+;move r0 $-7 	; { r0->$-7* || r1-><null> || r2->$-8* || r3-><null> }
+;WRITES m2 liveout: ; { $-8  }
+;sys writes m2 	; { r0-><null> || r1-><null> || r2->$-8* || r3-><null> }
+;WRITEF $-8 liveout: ; {  }
+; ensure(): $-8 has register r2
+;sys writer r2 	; { r0-><null> || r1-><null> || r2->$-8* || r3-><null> }
+; freeing unused variable r2
+; spilling varialbe $-8
+;move r2 $-8 	; { r0-><null> || r1-><null> || r2->$-8* || r3-><null> }
+;WRITES eol liveout: ; {  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label2 liveout: ; {  }
+; spilling registers at the end of Basic Block
+;label label2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 5 $T13 liveout: ; { $T13  }
+; ensure(): $T13 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T13 }
+; loading $-23 to register r3
+;move $-23 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T13 }
+;move 5 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T13 }
+;STOREF $T13 $-3 liveout: ; { $-3  }
+; ensure(): $T13 has register r3
+; ensure(): $-3 gets register r2 { r0-><null> || r1-><null> || r2->$-3 || r3->$T13* }
+; loading $-3 to register r2
+;move $-3 r2 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$T13* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$T13* }
+; freeing unused variable r3
+; spilling varialbe $T13
+;move r3 $-23 	; { r0-><null> || r1-><null> || r2->$-3* || r3->$T13* }
+;STOREI 1 $T14 liveout: ; { $-3 $T14  }
+; ensure(): $T14 gets register r3 { r0-><null> || r1-><null> || r2->$-3* || r3->$T14 }
+; loading $-24 to register r3
+;move $-24 r3 	; { r0-><null> || r1-><null> || r2->$-3* || r3->$T14 }
+;move 1 r3 	; { r0-><null> || r1-><null> || r2->$-3* || r3->$T14 }
+;STOREF $T14 $-4 liveout: ; { $-4 $-3  }
+; ensure(): $T14 has register r3
+; ensure(): $-4 gets register r1 { r0-><null> || r1->$-4 || r2->$-3* || r3->$T14* }
+; loading $-4 to register r1
+;move $-4 r1 	; { r0-><null> || r1->$-4 || r2->$-3* || r3->$T14* }
+;move r3 r1 	; { r0-><null> || r1->$-4 || r2->$-3* || r3->$T14* }
+; freeing unused variable r3
+; spilling varialbe $T14
+;move r3 $-24 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T14* }
+;PUSH $-4 liveout: ; { $-4 $-3  }
+; ensure(): $-4 has register r1
+;push r1 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;PUSH $-3 liveout: ; { $-4 $-3  }
+; ensure(): $-3 has register r2
+;push r2 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;PUSH  liveout: ; { $-4 $-3  }
+;push 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;PUSHREG liveout: ; { $-4 $-3  }
+;push r0 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;push r1 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;push r2 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;push r3 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;JSR GETF1 liveout: ; { $-4 $-3  }
+; writing back global variables prior a function call
+;jsr GETF1 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;POPREG liveout: ; { $-4 $-3  }
+;pop r3 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;pop r2 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;pop r1 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;pop r0 	; { r0-><null> || r1->$-4* || r2->$-3* || r3-><null> }
+;POP $T15 liveout: ; { $-4 $-3 $T15  }
+; ensure(): $T15 gets register r3 { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15 }
+; loading $-25 to register r3
+;move $-25 r3 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15 }
+;pop r3 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15 }
+;POP  liveout: ; { $-4 $-3 $T15  }
+;pop 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;POP  liveout: ; { $-4 $-3 $T15  }
+;pop 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;PUSH $-4 liveout: ; { $-4 $-3 $T15  }
+; ensure(): $-4 has register r1
+;push r1 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;PUSH $-3 liveout: ; { $-4 $-3 $T15  }
+; ensure(): $-3 has register r2
+;push r2 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;PUSH  liveout: ; { $-4 $-3 $T15  }
+;push 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;PUSHREG liveout: ; { $-4 $-3 $T15  }
+;push r0 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;push r1 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;push r2 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;push r3 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;JSR GETF2 liveout: ; { $-4 $-3 $T15  }
+; writing back global variables prior a function call
+;jsr GETF2 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;POPREG liveout: ; { $-4 $-3 $T15  }
+;pop r3 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;pop r2 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;pop r1 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;pop r0 	; { r0-><null> || r1->$-4* || r2->$-3* || r3->$T15* }
+;POP $T16 liveout: ; { $-4 $-3 $T16 $T15  }
+; ensure(): $T16 gets register r0 { r0->$T16 || r1->$-4* || r2->$-3* || r3->$T15* }
+; loading $-26 to register r0
+;move $-26 r0 	; { r0->$T16 || r1->$-4* || r2->$-3* || r3->$T15* }
+;pop r0 	; { r0->$T16 || r1->$-4* || r2->$-3* || r3->$T15* }
+;POP  liveout: ; { $-4 $-3 $T16 $T15  }
+;pop 	; { r0->$T16* || r1->$-4* || r2->$-3* || r3->$T15* }
+;POP  liveout: ; { $-4 $-3 $T16 $T15  }
+;pop 	; { r0->$T16* || r1->$-4* || r2->$-3* || r3->$T15* }
+;GEF $T15 $T16 label3 liveout: ; { $-4 $-3  }
+; ensure(): $T15 has register r3
+; ensure(): $T16 has register r0
+;cmpr r3 r0 	; { r0->$T16* || r1->$-4* || r2->$-3* || r3->$T15* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T15
+;move r3 $-25 	; { r0->$T16* || r1->$-4* || r2->$-3* || r3->$T15* }
+; spilling varialbe $-3
+;move r2 $-3 	; { r0->$T16* || r1->$-4* || r2->$-3* || r3-><null> }
+; spilling varialbe $-4
+;move r1 $-4 	; { r0->$T16* || r1->$-4* || r2-><null> || r3-><null> }
+; spilling varialbe $T16
+;move r0 $-26 	; { r0->$T16* || r1-><null> || r2-><null> || r3-><null> }
+;jge label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r3
+; freeing unused variable r0
+;PUSH $-4 liveout: ; { $-4 $-3  }
+; ensure(): $-4 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-4 }
+; loading $-4 to register r3
+;move $-4 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-4 }
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-4 }
+;PUSH $-3 liveout: ; { $-4 $-3  }
+; ensure(): $-3 gets register r2 { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+; loading $-3 to register r2
+;move $-3 r2 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;push r2 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;PUSH  liveout: ; { $-4 $-3  }
+;push 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;PUSHREG liveout: ; { $-4 $-3  }
+;push r0 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;push r1 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;push r2 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;push r3 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;JSR GETF1 liveout: ; { $-4 $-3  }
+; writing back global variables prior a function call
+;jsr GETF1 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;POPREG liveout: ; { $-4 $-3  }
+;pop r3 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;pop r2 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;pop r1 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;pop r0 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;POP $T17 liveout: ; { $-4 $-3 $T17  }
+; ensure(): $T17 gets register r1 { r0-><null> || r1->$T17 || r2->$-3 || r3->$-4 }
+; loading $-27 to register r1
+;move $-27 r1 	; { r0-><null> || r1->$T17 || r2->$-3 || r3->$-4 }
+;pop r1 	; { r0-><null> || r1->$T17 || r2->$-3 || r3->$-4 }
+;POP  liveout: ; { $-4 $-3 $T17  }
+;pop 	; { r0-><null> || r1->$T17* || r2->$-3 || r3->$-4 }
+;POP  liveout: ; { $-4 $-3 $T17  }
+;pop 	; { r0-><null> || r1->$T17* || r2->$-3 || r3->$-4 }
+;STOREF $T17 $-9 liveout: ; { $-4 $-3 $-9  }
+; ensure(): $T17 has register r1
+; ensure(): $-9 gets register r0 { r0->$-9 || r1->$T17* || r2->$-3 || r3->$-4 }
+; loading $-9 to register r0
+;move $-9 r0 	; { r0->$-9 || r1->$T17* || r2->$-3 || r3->$-4 }
+;move r1 r0 	; { r0->$-9 || r1->$T17* || r2->$-3 || r3->$-4 }
+; freeing unused variable r1
+; spilling varialbe $T17
+;move r1 $-27 	; { r0->$-9* || r1->$T17* || r2->$-3 || r3->$-4 }
+;PUSH $-4 liveout: ; { $-3 $-9  }
+; ensure(): $-4 has register r3
+;push r3 	; { r0->$-9* || r1-><null> || r2->$-3 || r3->$-4 }
+; freeing unused variable r3
+;PUSH $-3 liveout: ; { $-9  }
+; ensure(): $-3 has register r2
+;push r2 	; { r0->$-9* || r1-><null> || r2->$-3 || r3-><null> }
+; freeing unused variable r2
+;PUSH  liveout: ; { $-9  }
+;push 	; { r0->$-9* || r1-><null> || r2-><null> || r3-><null> }
+;PUSHREG liveout: ; { $-9  }
+;push r0 	; { r0->$-9* || r1-><null> || r2-><null> || r3-><null> }
+;push r1 	; { r0->$-9* || r1-><null> || r2-><null> || r3-><null> }
+;push r2 	; { r0->$-9* || r1-><null> || r2-><null> || r3-><null> }
+;push r3 	; { r0->$-9* || r1-><null> || r2-><null> || r3-><null> }
+;JSR GETF2 liveout: ; { $-9  }
+; writing back global variables prior a function call
+;jsr GETF2 	; { r0->$-9* || r1-><null> || r2-><null> || r3-><null> }
+;POPREG liveout: ; { $-9  }
+;pop r3 	; { r0->$-9* || r1-><null> || r2-><null> || r3-><null> }
+;pop r2 	; { r0->$-9* || r1-><null> || r2-><null> || r3-><null> }
+;pop r1 	; { r0->$-9* || r1-><null> || r2-><null> || r3-><null> }
+;pop r0 	; { r0->$-9* || r1-><null> || r2-><null> || r3-><null> }
+;POP $T18 liveout: ; { $-9 $T18  }
+; ensure(): $T18 gets register r3 { r0->$-9* || r1-><null> || r2-><null> || r3->$T18 }
+; loading $-28 to register r3
+;move $-28 r3 	; { r0->$-9* || r1-><null> || r2-><null> || r3->$T18 }
+;pop r3 	; { r0->$-9* || r1-><null> || r2-><null> || r3->$T18 }
+;POP  liveout: ; { $-9 $T18  }
+;pop 	; { r0->$-9* || r1-><null> || r2-><null> || r3->$T18* }
+;POP  liveout: ; { $-9 $T18  }
+;pop 	; { r0->$-9* || r1-><null> || r2-><null> || r3->$T18* }
+;STOREF $T18 $-10 liveout: ; { $-10 $-9  }
+; ensure(): $T18 has register r3
+; ensure(): $-10 gets register r2 { r0->$-9* || r1-><null> || r2->$-10 || r3->$T18* }
+; loading $-10 to register r2
+;move $-10 r2 	; { r0->$-9* || r1-><null> || r2->$-10 || r3->$T18* }
+;move r3 r2 	; { r0->$-9* || r1-><null> || r2->$-10 || r3->$T18* }
+; freeing unused variable r3
+; spilling varialbe $T18
+;move r3 $-28 	; { r0->$-9* || r1-><null> || r2->$-10* || r3->$T18* }
+;WRITEF $-9 liveout: ; { $-10  }
+; ensure(): $-9 has register r0
+;sys writer r0 	; { r0->$-9* || r1-><null> || r2->$-10* || r3-><null> }
+; freeing unused variable r0
+; spilling varialbe $-9
+;move r0 $-9 	; { r0->$-9* || r1-><null> || r2->$-10* || r3-><null> }
+;WRITES m1 liveout: ; { $-10  }
+;sys writes m1 	; { r0-><null> || r1-><null> || r2->$-10* || r3-><null> }
+;WRITEF $-10 liveout: ; {  }
+; ensure(): $-10 has register r2
+;sys writer r2 	; { r0-><null> || r1-><null> || r2->$-10* || r3-><null> }
+; freeing unused variable r2
+; spilling varialbe $-10
+;move r2 $-10 	; { r0-><null> || r1-><null> || r2->$-10* || r3-><null> }
+;WRITES eol liveout: ; {  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;JUMP label4 liveout: ; {  }
+; spilling registers at the end of Basic Block
+;jmp label4 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label3 liveout: ; { $-4 $-3  }
+; spilling registers at the end of Basic Block
+;label label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;PUSH $-4 liveout: ; { $-4 $-3  }
+; ensure(): $-4 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-4 }
+; loading $-4 to register r3
+;move $-4 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-4 }
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-4 }
+;PUSH $-3 liveout: ; { $-4 $-3  }
+; ensure(): $-3 gets register r2 { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+; loading $-3 to register r2
+;move $-3 r2 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;push r2 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;PUSH  liveout: ; { $-4 $-3  }
+;push 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;PUSHREG liveout: ; { $-4 $-3  }
+;push r0 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;push r1 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;push r2 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;push r3 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;JSR GETF1 liveout: ; { $-4 $-3  }
+; writing back global variables prior a function call
+;jsr GETF1 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;POPREG liveout: ; { $-4 $-3  }
+;pop r3 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;pop r2 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;pop r1 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;pop r0 	; { r0-><null> || r1-><null> || r2->$-3 || r3->$-4 }
+;POP $T19 liveout: ; { $T19 $-4 $-3  }
+; ensure(): $T19 gets register r1 { r0-><null> || r1->$T19 || r2->$-3 || r3->$-4 }
+; loading $-29 to register r1
+;move $-29 r1 	; { r0-><null> || r1->$T19 || r2->$-3 || r3->$-4 }
+;pop r1 	; { r0-><null> || r1->$T19 || r2->$-3 || r3->$-4 }
+;POP  liveout: ; { $T19 $-4 $-3  }
+;pop 	; { r0-><null> || r1->$T19* || r2->$-3 || r3->$-4 }
+;POP  liveout: ; { $T19 $-4 $-3  }
+;pop 	; { r0-><null> || r1->$T19* || r2->$-3 || r3->$-4 }
+;STOREF $T19 $-11 liveout: ; { $-11 $-4 $-3  }
+; ensure(): $T19 has register r1
+; ensure(): $-11 gets register r0 { r0->$-11 || r1->$T19* || r2->$-3 || r3->$-4 }
+; loading $-11 to register r0
+;move $-11 r0 	; { r0->$-11 || r1->$T19* || r2->$-3 || r3->$-4 }
+;move r1 r0 	; { r0->$-11 || r1->$T19* || r2->$-3 || r3->$-4 }
+; freeing unused variable r1
+; spilling varialbe $T19
+;move r1 $-29 	; { r0->$-11* || r1->$T19* || r2->$-3 || r3->$-4 }
+;PUSH $-4 liveout: ; { $-11 $-3  }
+; ensure(): $-4 has register r3
+;push r3 	; { r0->$-11* || r1-><null> || r2->$-3 || r3->$-4 }
+; freeing unused variable r3
+;PUSH $-3 liveout: ; { $-11  }
+; ensure(): $-3 has register r2
+;push r2 	; { r0->$-11* || r1-><null> || r2->$-3 || r3-><null> }
+; freeing unused variable r2
+;PUSH  liveout: ; { $-11  }
+;push 	; { r0->$-11* || r1-><null> || r2-><null> || r3-><null> }
+;PUSHREG liveout: ; { $-11  }
+;push r0 	; { r0->$-11* || r1-><null> || r2-><null> || r3-><null> }
+;push r1 	; { r0->$-11* || r1-><null> || r2-><null> || r3-><null> }
+;push r2 	; { r0->$-11* || r1-><null> || r2-><null> || r3-><null> }
+;push r3 	; { r0->$-11* || r1-><null> || r2-><null> || r3-><null> }
+;JSR GETF2 liveout: ; { $-11  }
+; writing back global variables prior a function call
+;jsr GETF2 	; { r0->$-11* || r1-><null> || r2-><null> || r3-><null> }
+;POPREG liveout: ; { $-11  }
+;pop r3 	; { r0->$-11* || r1-><null> || r2-><null> || r3-><null> }
+;pop r2 	; { r0->$-11* || r1-><null> || r2-><null> || r3-><null> }
+;pop r1 	; { r0->$-11* || r1-><null> || r2-><null> || r3-><null> }
+;pop r0 	; { r0->$-11* || r1-><null> || r2-><null> || r3-><null> }
+;POP $T20 liveout: ; { $-11 $T20  }
+; ensure(): $T20 gets register r3 { r0->$-11* || r1-><null> || r2-><null> || r3->$T20 }
+; loading $-30 to register r3
+;move $-30 r3 	; { r0->$-11* || r1-><null> || r2-><null> || r3->$T20 }
+;pop r3 	; { r0->$-11* || r1-><null> || r2-><null> || r3->$T20 }
+;POP  liveout: ; { $-11 $T20  }
+;pop 	; { r0->$-11* || r1-><null> || r2-><null> || r3->$T20* }
+;POP  liveout: ; { $-11 $T20  }
+;pop 	; { r0->$-11* || r1-><null> || r2-><null> || r3->$T20* }
+;STOREF $T20 $-12 liveout: ; { $-11 $-12  }
+; ensure(): $T20 has register r3
+; ensure(): $-12 gets register r2 { r0->$-11* || r1-><null> || r2->$-12 || r3->$T20* }
+; loading $-12 to register r2
+;move $-12 r2 	; { r0->$-11* || r1-><null> || r2->$-12 || r3->$T20* }
+;move r3 r2 	; { r0->$-11* || r1-><null> || r2->$-12 || r3->$T20* }
+; freeing unused variable r3
+; spilling varialbe $T20
+;move r3 $-30 	; { r0->$-11* || r1-><null> || r2->$-12* || r3->$T20* }
+;WRITEF $-11 liveout: ; { $-12  }
+; ensure(): $-11 has register r0
+;sys writer r0 	; { r0->$-11* || r1-><null> || r2->$-12* || r3-><null> }
+; freeing unused variable r0
+; spilling varialbe $-11
+;move r0 $-11 	; { r0->$-11* || r1-><null> || r2->$-12* || r3-><null> }
+;WRITES m2 liveout: ; { $-12  }
+;sys writes m2 	; { r0-><null> || r1-><null> || r2->$-12* || r3-><null> }
+;WRITEF $-12 liveout: ; {  }
+; ensure(): $-12 has register r2
+;sys writer r2 	; { r0-><null> || r1-><null> || r2->$-12* || r3-><null> }
+; freeing unused variable r2
+; spilling varialbe $-12
+;move r2 $-12 	; { r0-><null> || r1-><null> || r2->$-12* || r3-><null> }
+;WRITES eol liveout: ; {  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label4 liveout: ; {  }
+; spilling registers at the end of Basic Block
+;label label4 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 0 $T21 liveout: ; { $T21  }
+; ensure(): $T21 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T21 }
+; loading $-31 to register r3
+;move $-31 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T21 }
+;move 0 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T21 }
+;STOREI $T21 $6 liveout: ; {  }
+; ensure(): $T21 has register r3
+;move r3 $6 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T21* }
+; freeing unused variable r3
+; spilling varialbe $T21
+;move r3 $-31 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T21* }
+;UNLINK liveout: ; {  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;RET liveout: ; {  }
+; writing back global variables prior a function call
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+
+str space " "
+str eol "\n"
+str m1 " is smaller than "
+str m2 " is greater than or equal to "
+push
+push
+push
+push
+push
+jsr main
+sys halt
+label GETF1
+link 23
+move $7 r3
+move $8 r2
+mulr r2 r3
+move $-1 r2
+move r3 r2
+move r3 $-2
+move $-3 r3
+move r2 r3
+move r2 $-1
+move r3 $6
+move r3 $-3
+unlnk
+ret
+label GETF2
+link 22
+move $8 r3
+push r3
+push r3
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+move $-3 r3
+pop r3
+pop
+pop
+push r3
+move r3 $-3
+move $7 r3
+push r3
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+move $-4 r3
+pop r3
+pop
+pop
+move r3 $6
+move r3 $-4
+unlnk
+ret
+label main
+link 32
+move $-15 r3
+move 5 r3
+move $-1 r2
+move r3 r2
+move r3 $-15
+move $-16 r3
+move 10 r3
+move $-2 r1
+move r3 r1
+move r3 $-16
+push r1
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+move $-17 r3
+pop r3
+pop
+pop
+push r1
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+move $-18 r0
+pop r0
+pop
+pop
+cmpr r3 r0
+move r3 $-17
+move r2 $-1
+move r1 $-2
+move r0 $-18
+jge label1
+move $-2 r3
+push r3
+move $-1 r2
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+move $-19 r1
+pop r1
+pop
+pop
+move $-5 r0
+move r1 r0
+move r1 $-19
+push r3
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+move $-20 r3
+pop r3
+pop
+pop
+move $-6 r2
+move r3 r2
+move r3 $-20
+sys writer r0
+move r0 $-5
+sys writes m1
+sys writer r2
+move r2 $-6
+sys writes eol
+jmp label2
+label label1
+move $-2 r3
+push r3
+move $-1 r2
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+move $-21 r1
+pop r1
+pop
+pop
+move $-7 r0
+move r1 r0
+move r1 $-21
+push r3
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+move $-22 r3
+pop r3
+pop
+pop
+move $-8 r2
+move r3 r2
+move r3 $-22
+sys writer r0
+move r0 $-7
+sys writes m2
+sys writer r2
+move r2 $-8
+sys writes eol
+label label2
+move $-23 r3
+move 5 r3
+move $-3 r2
+move r3 r2
+move r3 $-23
+move $-24 r3
+move 1 r3
+move $-4 r1
+move r3 r1
+move r3 $-24
+push r1
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+move $-25 r3
+pop r3
+pop
+pop
+push r1
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+move $-26 r0
+pop r0
+pop
+pop
+cmpr r3 r0
+move r3 $-25
+move r2 $-3
+move r1 $-4
+move r0 $-26
+jge label3
+move $-4 r3
+push r3
+move $-3 r2
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+move $-27 r1
+pop r1
+pop
+pop
+move $-9 r0
+move r1 r0
+move r1 $-27
+push r3
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+move $-28 r3
+pop r3
+pop
+pop
+move $-10 r2
+move r3 r2
+move r3 $-28
+sys writer r0
+move r0 $-9
+sys writes m1
+sys writer r2
+move r2 $-10
+sys writes eol
+jmp label4
+label label3
+move $-4 r3
+push r3
+move $-3 r2
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+move $-29 r1
+pop r1
+pop
+pop
+move $-11 r0
+move r1 r0
+move r1 $-29
+push r3
+push r2
+push
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+move $-30 r3
+pop r3
+pop
+pop
+move $-12 r2
+move r3 r2
+move r3 $-30
+sys writer r0
+move r0 $-11
+sys writes m2
+sys writer r2
+move r2 $-12
+sys writes eol
+label label4
+move $-31 r3
+move 0 r3
+move r3 $6
+move r3 $-31
+unlnk
+ret

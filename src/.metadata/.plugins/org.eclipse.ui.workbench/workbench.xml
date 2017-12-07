@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="22" version="2.0">
+<workbenchAdvisor/>
+<window height="768" maximized="true" width="1024" x="0" y="25">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="132" y="30"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="120" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="184" y="30"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1507255579629" focus="true" label="Workspace - Resource">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="4"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+<part id="14"/>
+<part id="15"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AST.java" partName="AST.java" title="AST.java" tooltip="/home/shay/a/peng81/ECE468/project/src/AST.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/AST.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="9238" selectionTopPixel="4192"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CFG.java" partName="CFG.java" title="CFG.java" tooltip="/home/shay/a/peng81/ECE468/project/src/CFG.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/CFG.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="171" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IRAction.java" partName="IRAction.java" title="IRAction.java" tooltip="/home/shay/a/peng81/ECE468/project/src/IRAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/IRAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1049" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IRNode.java" partName="IRNode.java" title="IRNode.java" tooltip="/home/shay/a/peng81/ECE468/project/src/IRNode.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/IRNode.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="13074" selectionTopPixel="8915"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RALL.java" partName="RALL.java" title="RALL.java" tooltip="/home/shay/a/peng81/ECE468/project/src/RALL.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/RALL.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="16736" selectionTopPixel="2049"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SymbolTableStack.java" partName="SymbolTableStack.java" title="SymbolTableStack.java" tooltip="/home/shay/a/peng81/ECE468/project/src/SymbolTableStack.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/SymbolTableStack.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3431" selectionTopPixel="1356"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TYTSListener.java" partName="TYTSListener.java" title="TYTSListener.java" tooltip="/home/shay/a/peng81/ECE468/project/src/TYTSListener.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/TYTSListener.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="152" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SymbolTable.java" partName="SymbolTable.java" title="SymbolTable.java" tooltip="/home/shay/a/peng81/ECE468/project/src/SymbolTable.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/SymbolTable.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5638" selectionTopPixel="2880"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegEntry.java" partName="RegEntry.java" title="RegEntry.java" tooltip="/home/shay/a/peng81/ECE468/project/src/RegEntry.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/RegEntry.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2082" selectionTopPixel="1129"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TYTSMisc.java" partName="TYTSMisc.java" title="TYTSMisc.java" tooltip="/home/shay/a/peng81/ECE468/project/src/TYTSMisc.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/TYTSMisc.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5690" selectionTopPixel="3203"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IRType.java" partName="IRType.java" title="IRType.java" tooltip="/home/shay/a/peng81/ECE468/project/src/IRType.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/IRType.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="145" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IRScope.java" partName="IRScope.java" title="IRScope.java" tooltip="/home/shay/a/peng81/ECE468/project/src/IRScope.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/IRScope.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="907" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Label.java" partName="Label.java" title="Label.java" tooltip="/home/shay/a/peng81/ECE468/project/src/Label.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/Label.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="420" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Micro.java" partName="Micro.java" title="Micro.java" tooltip="/home/shay/a/peng81/ECE468/project/src/Micro.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/Micro.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1411" selectionTopPixel="109"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Symbol.java" partName="Symbol.java" title="Symbol.java" tooltip="/home/shay/a/peng81/ECE468/project/src/Symbol.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/Symbol.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2092" selectionTopPixel="449"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SymbolAddInvalidException.java" partName="SymbolAddInvalidException.java" title="SymbolAddInvalidException.java" tooltip="/home/shay/a/peng81/ECE468/project/src/SymbolAddInvalidException.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/home/shay/a/peng81/ECE468/project/src/SymbolAddInvalidException.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="199" selectionTopPixel="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" CommonNavigator.LINKING_ENABLED.delayed="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.cview.groupmacros="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="353" org.eclipse.ui.ide.locationField="73" org.eclipse.ui.ide.markerType="905" org.eclipse.ui.ide.pathField="143" org.eclipse.ui.ide.priorityField="19" org.eclipse.ui.ide.resourceField="108"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.ui.resourcePerspective">
+<perspective editorAreaTrimState="1" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.cdt.debug.edc.ui.snapshotDebuggingActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.debug.edc.ui.debugEDCActionSet"/>
+<alwaysOnActionSet id="org.eclipse.rse.core.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.ui.views.BookmarkView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.ProgressView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<perspective_action id="org.eclipse.cdt.ui.CPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<perspective_action id="org.eclipse.team.cvs.ui.cvsPerspective"/>
+<perspective_action id="org.eclipse.team.ui.TeamSynchronizingPerspective"/>
+<perspective_action id="org.tigris.subversion.subclipse.ui.svnPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<fastViewBars>
+<fastViewBar fastViewLocation="16384" id="bottomLeft" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="1">
+<fastViews>
+<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="1024" id="bottomRight" orientation="256" selectedTabId="org.eclipse.ui.views.TaskList" style="1">
+<fastViews>
+<view id="org.eclipse.ui.views.TaskList" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="16384" id="topLeft" orientation="512" selectedTabId="org.eclipse.ui.navigator.ProjectExplorer" style="1">
+<fastViews>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+</fastViewBars>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.team.ccvs.ui.RepositoriesView" label="LabelNotFound"/>
+<page content="org.tigris.subversion.subclipse.ui.repository.RepositoriesView" label="LabelNotFound"/>
+<page content="org.tigris.subversion.subclipse.ui.annotations.AnnotateView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@69952c5f" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.25940594" ratioLeft="262" ratioRight="748" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottomRight" ratio="0.93504274" ratioLeft="547" ratioRight="38" relationship="4" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
+<page content="org.eclipse.team.ui.GenericHistoryView" label="LabelNotFound"/>
+<page content="org.tigris.subversion.subclipse.ui.history.HistoryView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="bottomLeft" ratio="0.49921507" ratioLeft="318" ratioRight="319" relationship="4" relative="topLeft">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/home/shay/a/peng81/ECE468/project/src/RALL.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/home/shay/a/peng81/ECE468/project/src/SymbolTableStack.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/home/shay/a/peng81/ECE468/project/src/TYTSListener.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/home/shay/a/peng81/ECE468/project/src/AST.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/home/shay/a/peng81/ECE468/project/src/IRAction.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/home/shay/a/peng81/ECE468/project/src/SymbolTable.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/home/shay/a/peng81/ECE468/project/src/Symbol.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/home/shay/a/peng81/ECE468/project/src/CFG.java"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/home/shay/a/peng81/ECE468/project/src/IRScope.java"/>
+</editors>
+<item historyLabel="IRAction.java" index="4">
+<position info="not_deleted" x="8270" y="0"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position/>
+</item>
+<item historyLabel="TYTSListener.java" index="2">
+<position info="not_deleted" x="656" y="0"/>
+</item>
+<item historyLabel="AST.java" index="3">
+<position info="not_deleted" x="2607" y="11"/>
+</item>
+<item historyLabel="IRAction.java" index="4">
+<position info="not_deleted" x="4079" y="0"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position/>
+</item>
+<item historyLabel="AST.java" index="3">
+<position info="not_deleted" x="2607" y="11"/>
+</item>
+<item historyLabel="IRAction.java" index="4">
+<position info="not_deleted" x="8334" y="11"/>
+</item>
+<item historyLabel="TYTSListener.java" index="2">
+<position info="not_deleted" x="4820" y="11"/>
+</item>
+<item historyLabel="SymbolTable.java" index="5">
+<position info="not_deleted" x="5638" y="0"/>
+</item>
+<item historyLabel="RALL.java" index="0">
+<position info="not_deleted" x="16736" y="11"/>
+</item>
+<item historyLabel="Symbol.java" index="6">
+<position info="not_deleted" x="2092" y="0"/>
+</item>
+<item historyLabel="AST.java" index="3">
+<position info="not_deleted" x="2607" y="11"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position/>
+</item>
+<item historyLabel="TYTSListener.java" index="2">
+<position info="not_deleted" x="684" y="0"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position info="not_deleted" x="6040" y="0"/>
+</item>
+<item historyLabel="RALL.java" index="0">
+<position info="not_deleted" x="16736" y="11"/>
+</item>
+<item historyLabel="CFG.java" index="7">
+<position info="not_deleted" x="8859" y="0"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position info="not_deleted" x="5275" y="0"/>
+</item>
+<item historyLabel="IRAction.java" index="4">
+<position info="not_deleted" x="8334" y="11"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position/>
+</item>
+<item historyLabel="TYTSListener.java" index="2">
+<position info="not_deleted" x="684" y="0"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position/>
+</item>
+<item historyLabel="TYTSListener.java" index="2">
+<position info="not_deleted" x="767" y="0"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position info="not_deleted" x="4231" y="4"/>
+</item>
+<item historyLabel="IRAction.java" index="4">
+<position info="not_deleted" x="759" y="0"/>
+</item>
+<item historyLabel="CFG.java" index="7">
+<position info="not_deleted" x="13498" y="0"/>
+</item>
+<item historyLabel="AST.java" index="3">
+<position info="not_deleted" x="4938" y="0"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position info="not_deleted" x="4231" y="4"/>
+</item>
+<item historyLabel="TYTSListener.java" index="2">
+<position info="not_deleted" x="767" y="0"/>
+</item>
+<item historyLabel="SymbolTable.java" index="5">
+<position info="not_deleted" x="5638" y="0"/>
+</item>
+<item historyLabel="TYTSListener.java" index="2">
+<position info="not_deleted" x="656" y="0"/>
+</item>
+<item historyLabel="AST.java" index="3">
+<position info="not_deleted" x="0" y="18793"/>
+</item>
+<item historyLabel="CFG.java" index="7">
+<position info="not_deleted" x="0" y="14555"/>
+</item>
+<item historyLabel="IRAction.java" index="4">
+<position info="not_deleted" x="0" y="18251"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position info="not_deleted" x="4992" y="0"/>
+</item>
+<item historyLabel="TYTSListener.java" index="2">
+<position info="not_deleted" x="152" y="0"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position info="not_deleted" x="3431" y="0"/>
+</item>
+<item historyLabel="IRAction.java" index="4">
+<position info="not_deleted" x="759" y="0"/>
+</item>
+<item historyLabel="SymbolTableStack.java" index="1">
+<position info="not_deleted" x="3431" y="0"/>
+</item>
+<item historyLabel="IRAction.java" index="4">
+<position info="not_deleted" x="759" y="0"/>
+</item>
+<item historyLabel="IRScope.java" index="8">
+<position info="not_deleted" x="907" y="0"/>
+</item>
+<item historyLabel="IRAction.java" index="4">
+<position info="not_deleted" x="759" y="0"/>
+</item>
+<item historyLabel="AST.java" index="3">
+<position info="not_deleted" x="211" y="0"/>
+</item>
+<item historyLabel="TYTSListener.java" index="2">
+<position info="not_deleted" x="152" y="0"/>
+</item>
+<item historyLabel="AST.java" index="3">
+<position info="not_deleted" x="9238" y="0"/>
+</item>
+<item historyLabel="SymbolTable.java" index="5">
+<position info="not_deleted" x="5638" y="0"/>
+</item>
+<item historyLabel="RALL.java" index="0">
+<position info="not_deleted" x="16736" y="11"/>
+</item>
+<item historyLabel="CFG.java" index="7">
+<position info="not_deleted" x="171" y="0"/>
+</item>
+<item active="true" historyLabel="IRAction.java" index="4">
+<position info="not_deleted" x="759" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="topLeft"/>
+<trimItem IMemento.internal.id="bottomLeft"/>
+</trimArea>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottomRight"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SymbolAddInvalidException.java" tooltip="/home/shay/a/peng81/ECE468/project/src/SymbolAddInvalidException.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/SymbolAddInvalidException.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Symbol.java" tooltip="/home/shay/a/peng81/ECE468/project/src/Symbol.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/Symbol.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Micro.java" tooltip="/home/shay/a/peng81/ECE468/project/src/Micro.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/Micro.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Label.java" tooltip="/home/shay/a/peng81/ECE468/project/src/Label.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/Label.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IRScope.java" tooltip="/home/shay/a/peng81/ECE468/project/src/IRScope.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/IRScope.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IRType.java" tooltip="/home/shay/a/peng81/ECE468/project/src/IRType.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/IRType.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TYTSMisc.java" tooltip="/home/shay/a/peng81/ECE468/project/src/TYTSMisc.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/TYTSMisc.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegAlloc.java" tooltip="/home/shay/a/peng81/ECE468/project/src/tmpsrc/RegAlloc.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/tmpsrc/RegAlloc.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegEntry.java" tooltip="/home/shay/a/peng81/ECE468/project/src/RegEntry.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/RegEntry.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SymbolTable.java" tooltip="/home/shay/a/peng81/ECE468/project/src/SymbolTable.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/SymbolTable.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TYTSListener.java" tooltip="/home/shay/a/peng81/ECE468/project/src/TYTSListener.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/TYTSListener.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SymbolTableStack.java" tooltip="/home/shay/a/peng81/ECE468/project/src/SymbolTableStack.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/SymbolTableStack.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RALL.java" tooltip="/home/shay/a/peng81/ECE468/project/src/RALL.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/RALL.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IRNode.java" tooltip="/home/shay/a/peng81/ECE468/project/src/IRNode.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/IRNode.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IRAction.java" tooltip="/home/shay/a/peng81/ECE468/project/src/IRAction.java">
+<persistable uri="file:/home/shay/a/peng81/ECE468/project/src/IRAction.java"/>
+</file>
+</mruList>
+</workbench>

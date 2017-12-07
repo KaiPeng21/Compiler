@@ -1,0 +1,181 @@
+;IR code
+;LABEL PRINT
+;LINK
+;WRITEI $P1
+;WRITES eol
+;RET
+
+;LABEL BUG
+;LINK
+;WRITES buggy
+;RET
+
+;LABEL main
+;LINK
+;STOREI 5 $T1
+;STOREI $T1 $L1
+;STOREI 2 $T2
+;ADDI $T2 $L1 $T3
+;STOREI $T3 $L2
+;PUSH 
+;PUSH $L2
+;PUSH $L1
+;JSR MULT
+;POP 
+;POP 
+;POP $T4
+;PUSH 
+;PUSH $L1
+;PUSH $T4
+;JSR MULT
+;POP 
+;POP 
+;POP $T5
+;PUSH 
+;PUSH $T5
+;PUSH $L2
+;JSR MULT
+;POP 
+;POP 
+;POP $T6
+;STOREI $T6 $L3
+;WRITEI $L1
+;WRITES space
+;WRITEI $L2
+;WRITES space
+;WRITEI $L3
+;PUSH 
+;PUSH $L3
+;JSR PRINT
+;POP 
+;POP $T7
+;STOREI $T7 $L3
+;STOREI 0 $T8
+;STOREI $T8 $R
+;RET
+
+;LABEL BUG2
+;LINK
+;WRITES buggy
+;RET
+
+;LABEL MULT
+;LINK
+;MULTI $P1 $P2 $T1
+;STOREI $T1 $L1
+;STOREI $L1 $R
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+str buggy "This is a bug\n"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label PRINT
+link 0
+sys writei $6
+sys writes eol
+unlnk
+ret
+label BUG
+link 0
+sys writes buggy
+unlnk
+ret
+label main
+link 3
+move 5 r0
+move r0 $-1
+move 2 r1
+addi $-1 r1
+move r1 $-2
+push 
+push $-2
+push $-1
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r2
+push 
+push $-1
+push r2
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r3
+push 
+push r3
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r4
+move r4 $-3
+sys writei $-1
+sys writes space
+sys writei $-2
+sys writes space
+sys writei $-3
+push 
+push $-3
+push r0
+push r1
+push r2
+push r3
+jsr PRINT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r5
+move r5 $-3
+move 0 r6
+move r6 $6
+unlnk
+ret
+label BUG2
+link 0
+sys writes buggy
+unlnk
+ret
+label MULT
+link 1
+move $7 r7
+muli $6 r7
+move r7 $-1
+move $-1 r8
+move r8 $8
+unlnk
+ret
+end

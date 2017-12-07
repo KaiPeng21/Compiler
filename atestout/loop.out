@@ -1,0 +1,82 @@
+;IR code
+;LABEL main
+;LINK
+;STOREI 17 $T1
+;STOREI $T1 i
+;STOREI 0 $T2
+;STOREI $T2 j
+;STOREI 0 $T3
+;STOREI $T3 $L1
+;LABEL label1
+;EQ i j label3
+;WRITES guess
+;READI j
+;NE i j label4
+;WRITES correct
+;JUMP label5
+;LABEL label4
+;WRITES wrong
+;JUMP label5
+;LABEL label5
+;LABEL label2
+;STOREI 1 $T4
+;ADDI $L1 $T4 $T5
+;STOREI $T5 $L1
+;JUMP label1
+;LABEL label3
+;WRITES out1
+;WRITEI $L1
+;WRITES out2
+;RET
+
+;tiny code
+str guess "Guess a number: "
+str correct "Correct!\n"
+str wrong "Wrong!\n"
+str out1 "It took you "
+str out2 " guesses"
+var i
+var j
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 1
+move 17 r0
+move r0 i
+move 0 r1
+move r1 j
+move 0 r2
+move r2 $-1
+label label1
+move j r3
+cmpi i r3
+jeq label3
+sys writes guess
+sys readi j
+move j r3
+cmpi i r3
+jne label4
+sys writes correct
+jmp label5
+label label4
+sys writes wrong
+jmp label5
+label label5
+label label2
+move 1 r4
+move $-1 r5
+addi r4 r5
+move r5 $-1
+jmp label1
+label label3
+sys writes out1
+sys writei $-1
+sys writes out2
+unlnk
+ret
+end

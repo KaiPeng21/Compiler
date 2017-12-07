@@ -1,0 +1,742 @@
+; Error while creating symbol table
+;Symbol table GLOBAL
+; return type: null
+; subscope local var size: 0
+;scope type: GLOBAL_TYPE 
+;name guessmessage type STRING value "Guess a number between 1 and 10 !" local slot location: -1
+;name tooSmall type STRING value " is too small" local slot location: -2
+;name tooLarge type STRING value " is too large" local slot location: -3
+;name yougotit type STRING value " is the key " local slot location: -4
+;name space type STRING value " " local slot location: -5
+;name eol type STRING value "\n" local slot location: -6
+;name KEY type INT local slot location: -7
+;name keystr type STRING value "key is " local slot location: -8
+;name infloop type STRING value "infloop" local slot location: -9
+
+
+;Symbol table main
+; return type: INT
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+;name gotit type INT local slot location: -1
+
+
+;Symbol table BLOCK 1
+; return type: null
+; subscope local var size: 0
+;scope type: FOR_TYPE 
+
+
+;Symbol table MAKEAGUESS
+; return type: INT
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+;name guessVal type INT local slot location: -1
+
+
+;Symbol table BLOCK 2
+; return type: null
+; subscope local var size: 0
+;scope type: IF_TYPE 
+
+
+;Symbol table BLOCK 3
+; return type: null
+; subscope local var size: 0
+;scope type: ELSE_TYPE 
+
+
+;Symbol table BLOCK 4
+; return type: null
+; subscope local var size: 0
+;scope type: IF_TYPE 
+
+
+;Symbol table BLOCK 5
+; return type: null
+; subscope local var size: 0
+;scope type: ELSE_TYPE 
+
+
+; pre-conversion assignOutputID: gotit
+; searching slot location for -- gotit -- in function scope main and get location -1
+
+; post-conversion assignOutputID: $-1
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+
+; searching slot location for -- gotit -- in function scope main and get location -1
+
+;exit Cond: != :: gotit :: 1
+; searching slot location for -- gotit -- in function scope main and get location -1
+
+; pre-conversion assignOutputID: gotit
+; searching slot location for -- gotit -- in function scope main and get location -1
+
+; post-conversion assignOutputID: $-1
+;OPT BUG
+; SUBSCOPE for function scope: main
+
+;return assignExpr: 0
+;left: 
+;right: 
+;IRAction.isIF_ELSE_sameReturn(): false
+; searching slot location for -- guessVal -- in function scope MAKEAGUESS and get location -1
+
+; SUBSCOPE for function scope: MAKEAGUESS
+; SUBSCOPE block ID: 2 scopeType: IF
+
+; searching slot location for -- guessVal -- in function scope MAKEAGUESS and get location -1
+
+;exit Cond: > :: guessVal :: KEY
+; searching slot location for -- guessVal -- in function scope MAKEAGUESS and get location -1
+
+; searching slot location for -- guessVal -- in function scope MAKEAGUESS and get location -1
+
+; SUBSCOPE for function scope: MAKEAGUESS
+; SUBSCOPE block ID: 3 scopeType: ELSE
+
+; SUBSCOPE for function scope: MAKEAGUESS
+; SUBSCOPE block ID: 3 scopeType: ELSE
+; SUBSCOPE block ID: 4 scopeType: IF
+
+;exit Cond: > :: KEY :: guessVal
+; searching slot location for -- guessVal -- in function scope MAKEAGUESS and get location -1
+
+; searching slot location for -- guessVal -- in function scope MAKEAGUESS and get location -1
+
+; SUBSCOPE for function scope: MAKEAGUESS
+; SUBSCOPE block ID: 3 scopeType: ELSE
+; SUBSCOPE block ID: 5 scopeType: ELSE
+
+; searching slot location for -- guessVal -- in function scope MAKEAGUESS and get location -1
+
+;OPT BUG
+; SUBSCOPE for function scope: MAKEAGUESS
+; SUBSCOPE block ID: 3 scopeType: ELSE
+; SUBSCOPE block ID: 5 scopeType: ELSE
+
+;return assignExpr: 1
+;left: 
+;right: 
+;IRAction.isIF_ELSE_sameReturn(): false
+;OPT BUG
+; SUBSCOPE for function scope: MAKEAGUESS
+
+;return assignExpr: 0
+;left: 
+;right: 
+;IRAction.isIF_ELSE_sameReturn(): false
+
+;IR code
+;PUSH
+;JSR main
+;HALT
+
+;LABEL main		 Under Func Scope: main
+;LINK 2			 Under Func Scope: main
+;STOREI 7 $T1		 Under Func Scope: main
+;STOREI $T1 KEY		 Under Func Scope: main
+;STOREI 0 $T2		 Under Func Scope: main
+;STOREI $T2 $-1		 Under Func Scope: main
+;LABEL label1		 Under Func Scope: main
+;STOREI 1 $T3		 Under Func Scope: main
+;EQI $-1 $T3 label3	 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR MAKEAGUESS		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T4		 Under Func Scope: main
+;STOREI $T4 $-1		 Under Func Scope: main
+;JUMP label1		 Under Func Scope: main
+;LABEL label3		 Under Func Scope: main
+;STOREI 0 $T5		 Under Func Scope: main
+;STOREI $T5 $6		 Under Func Scope: main
+;UNLINK			 Under Func Scope: main
+;RET			 Under Func Scope: main
+
+;LABEL MAKEAGUESS	 Under Func Scope: MAKEAGUESS
+;LINK 2			 Under Func Scope: MAKEAGUESS
+;WRITES guessmessage	 Under Func Scope: MAKEAGUESS
+;WRITES eol		 Under Func Scope: MAKEAGUESS
+;READI $-1		 Under Func Scope: MAKEAGUESS
+;STOREI KEY $T6		 Under Func Scope: MAKEAGUESS
+;LEI $-1 $T6 label4	 Under Func Scope: MAKEAGUESS
+;WRITEI $-1		 Under Func Scope: MAKEAGUESS
+;WRITES tooLarge	 Under Func Scope: MAKEAGUESS
+;WRITES eol		 Under Func Scope: MAKEAGUESS
+;JUMP label5		 Under Func Scope: MAKEAGUESS
+;LABEL label4		 Under Func Scope: MAKEAGUESS
+;STOREI $-1 $T7		 Under Func Scope: MAKEAGUESS
+;LEI KEY $T7 label6	 Under Func Scope: MAKEAGUESS
+;WRITEI $-1		 Under Func Scope: MAKEAGUESS
+;WRITES tooSmall	 Under Func Scope: MAKEAGUESS
+;WRITES eol		 Under Func Scope: MAKEAGUESS
+;JUMP label7		 Under Func Scope: MAKEAGUESS
+;LABEL label6		 Under Func Scope: MAKEAGUESS
+;WRITEI $-1		 Under Func Scope: MAKEAGUESS
+;WRITES yougotit	 Under Func Scope: MAKEAGUESS
+;WRITES eol		 Under Func Scope: MAKEAGUESS
+;STOREI 1 $T8		 Under Func Scope: MAKEAGUESS
+;STOREI $T8 $6		 Under Func Scope: MAKEAGUESS
+;UNLINK			 Under Func Scope: MAKEAGUESS
+;RET			 Under Func Scope: MAKEAGUESS
+;LABEL label7		 Under Func Scope: MAKEAGUESS
+;LABEL label5		 Under Func Scope: MAKEAGUESS
+;STOREI 0 $T9		 Under Func Scope: MAKEAGUESS
+;STOREI $T9 $6		 Under Func Scope: MAKEAGUESS
+;UNLINK			 Under Func Scope: MAKEAGUESS
+;RET			 Under Func Scope: MAKEAGUESS
+
+; ========= CFG IR NODE =========
+
+;LABEL main		P: 					S: ;LINK 2		 <== BB leader
+;LINK 2			P: ;LABEL main			S: ;STOREI 7 $T1	
+;STOREI 7 $T1		P: ;LINK 2				S: ;STOREI $T1 KEY	
+;STOREI $T1 KEY		P: ;STOREI 7 $T1			S: ;STOREI 0 $T2	
+;STOREI 0 $T2		P: ;STOREI $T1 KEY			S: ;STOREI $T2 $-1	
+;STOREI $T2 $-1		P: ;STOREI 0 $T2			S: ;LABEL label1	
+;LABEL label1		P: ;STOREI $T2 $-1	;JUMP label1		S: ;STOREI 1 $T3		 <== BB leader
+;STOREI 1 $T3		P: ;LABEL label1			S: ;EQI $-1 $T3 label3	
+;EQI $-1 $T3 label3	P: ;STOREI 1 $T3			S: ;PUSH 	;LABEL label3	
+;PUSH 			P: ;EQI $-1 $T3 label3		S: ;PUSHREG		 <== BB leader
+;PUSHREG		P: ;PUSH 				S: ;JSR MAKEAGUESS	
+;JSR MAKEAGUESS		P: ;PUSHREG			S: ;POPREG	
+;POPREG			P: ;JSR MAKEAGUESS		S: ;POP $T4	
+;POP $T4		P: ;POPREG				S: ;STOREI $T4 $-1	
+;STOREI $T4 $-1		P: ;POP $T4			S: ;JUMP label1	
+;JUMP label1		P: ;STOREI $T4 $-1			S: ;LABEL label1	
+;LABEL label3		P: ;EQI $-1 $T3 label3		S: ;STOREI 0 $T5		 <== BB leader
+;STOREI 0 $T5		P: ;LABEL label3			S: ;STOREI $T5 $6	
+;STOREI $T5 $6		P: ;STOREI 0 $T5			S: ;UNLINK	
+;UNLINK			P: ;STOREI $T5 $6		S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+;LABEL MAKEAGUESS	P: 					S: ;LINK 2		 <== BB leader
+;LINK 2			P: ;LABEL MAKEAGUESS		S: ;WRITES guessmessage	
+;WRITES guessmessage	P: ;LINK 2				S: ;WRITES eol	
+;WRITES eol		P: ;WRITES guessmessage		S: ;READI $-1	
+;READI $-1		P: ;WRITES eol			S: ;STOREI KEY $T6	
+;STOREI KEY $T6		P: ;READI $-1			S: ;LEI $-1 $T6 label4	
+;LEI $-1 $T6 label4	P: ;STOREI KEY $T6			S: ;WRITEI $-1	;LABEL label4	
+;WRITEI $-1		P: ;LEI $-1 $T6 label4		S: ;WRITES tooLarge		 <== BB leader
+;WRITES tooLarge	P: ;WRITEI $-1				S: ;WRITES eol	
+;WRITES eol		P: ;WRITES tooLarge			S: ;JUMP label5	
+;JUMP label5		P: ;WRITES eol			S: ;LABEL label5	
+;LABEL label4		P: ;LEI $-1 $T6 label4		S: ;STOREI $-1 $T7		 <== BB leader
+;STOREI $-1 $T7		P: ;LABEL label4			S: ;LEI KEY $T7 label6	
+;LEI KEY $T7 label6	P: ;STOREI $-1 $T7			S: ;WRITEI $-1	;LABEL label6	
+;WRITEI $-1		P: ;LEI KEY $T7 label6		S: ;WRITES tooSmall		 <== BB leader
+;WRITES tooSmall	P: ;WRITEI $-1				S: ;WRITES eol	
+;WRITES eol		P: ;WRITES tooSmall			S: ;JUMP label7	
+;JUMP label7		P: ;WRITES eol			S: ;LABEL label7	
+;LABEL label6		P: ;LEI KEY $T7 label6		S: ;WRITEI $-1		 <== BB leader
+;WRITEI $-1		P: ;LABEL label6			S: ;WRITES yougotit	
+;WRITES yougotit	P: ;WRITEI $-1				S: ;WRITES eol	
+;WRITES eol		P: ;WRITES yougotit			S: ;STOREI 1 $T8	
+;STOREI 1 $T8		P: ;WRITES eol			S: ;STOREI $T8 $6	
+;STOREI $T8 $6		P: ;STOREI 1 $T8			S: ;UNLINK	
+;UNLINK			P: ;STOREI $T8 $6		S: ;RET	
+;RET			P: ;UNLINK				S: 
+;LABEL label7		P: ;RET	;JUMP label7		S: ;LABEL label5		 <== BB leader
+;LABEL label5		P: ;LABEL label7	;JUMP label5		S: ;STOREI 0 $T9		 <== BB leader
+;STOREI 0 $T9		P: ;LABEL label5			S: ;STOREI $T9 $6	
+;STOREI $T9 $6		P: ;STOREI 0 $T9			S: ;UNLINK	
+;UNLINK			P: ;STOREI $T9 $6		S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+; ========= CFG IR NODE / KILL/ GEN =========
+
+;LABEL main		Kill: 				Gen: 
+;LINK 2			Kill: 				Gen: 
+;STOREI 7 $T1		Kill: $T1, 			Gen: 
+;STOREI $T1 KEY		Kill: KEY, 			Gen: $T1, 
+;STOREI 0 $T2		Kill: $T2, 			Gen: 
+;STOREI $T2 $-1		Kill: $-1, 			Gen: $T2, 
+;LABEL label1		Kill: 				Gen: 
+;STOREI 1 $T3		Kill: $T3, 			Gen: 
+;EQI $-1 $T3 label3	Kill: 				Gen: $T3, $-1, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR MAKEAGUESS		Kill: 				Gen: KEY, 
+;POPREG			Kill: 				Gen: 
+;POP $T4		Kill: $T4, 				Gen: 
+;STOREI $T4 $-1		Kill: $-1, 			Gen: $T4, 
+;JUMP label1		Kill: 				Gen: 
+;LABEL label3		Kill: 				Gen: 
+;STOREI 0 $T5		Kill: $T5, 			Gen: 
+;STOREI $T5 $6		Kill: $6, 			Gen: $T5, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+;LABEL MAKEAGUESS	Kill: 					Gen: 
+;LINK 2			Kill: 				Gen: 
+;WRITES guessmessage	Kill: 				Gen: 
+;WRITES eol		Kill: 				Gen: 
+;READI $-1		Kill: $-1, 				Gen: 
+;STOREI KEY $T6		Kill: $T6, 			Gen: KEY, 
+;LEI $-1 $T6 label4	Kill: 				Gen: $T6, $-1, 
+;WRITEI $-1		Kill: 				Gen: $-1, 
+;WRITES tooLarge	Kill: 					Gen: 
+;WRITES eol		Kill: 				Gen: 
+;JUMP label5		Kill: 				Gen: 
+;LABEL label4		Kill: 				Gen: 
+;STOREI $-1 $T7		Kill: $T7, 			Gen: $-1, 
+;LEI KEY $T7 label6	Kill: 				Gen: $T7, KEY, 
+;WRITEI $-1		Kill: 				Gen: $-1, 
+;WRITES tooSmall	Kill: 					Gen: 
+;WRITES eol		Kill: 				Gen: 
+;JUMP label7		Kill: 				Gen: 
+;LABEL label6		Kill: 				Gen: 
+;WRITEI $-1		Kill: 				Gen: $-1, 
+;WRITES yougotit	Kill: 					Gen: 
+;WRITES eol		Kill: 				Gen: 
+;STOREI 1 $T8		Kill: $T8, 			Gen: 
+;STOREI $T8 $6		Kill: $6, 			Gen: $T8, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+;LABEL label7		Kill: 				Gen: 
+;LABEL label5		Kill: 				Gen: 
+;STOREI 0 $T9		Kill: $T9, 			Gen: 
+;STOREI $T9 $6		Kill: $6, 			Gen: $T9, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+; ========= CFG IR NODE / LIVE IN / LIVE OUT =========
+
+;LABEL main		Live IN: 				Live OUT: 
+;LINK 2			Live IN: 			Live OUT: 
+;STOREI 7 $T1		Live IN: 				Live OUT: $T1, 
+;STOREI $T1 KEY		Live IN: $T1, 			Live OUT: KEY, 
+;STOREI 0 $T2		Live IN: KEY, 			Live OUT: $T2, KEY, 
+;STOREI $T2 $-1		Live IN: $T2, KEY, 		Live OUT: $-1, KEY, 
+;LABEL label1		Live IN: KEY, $-1, 		Live OUT: $-1, KEY, 
+;STOREI 1 $T3		Live IN: $-1, KEY, 		Live OUT: $T3, $-1, KEY, 
+;EQI $-1 $T3 label3	Live IN: $-1, $T3, KEY, 		Live OUT: KEY, 
+;PUSH 			Live IN: KEY, 			Live OUT: KEY, 
+;PUSHREG		Live IN: KEY, 				Live OUT: KEY, 
+;JSR MAKEAGUESS		Live IN: KEY, 			Live OUT: KEY, 
+;POPREG			Live IN: KEY, 			Live OUT: KEY, 
+;POP $T4		Live IN: KEY, 				Live OUT: $T4, KEY, 
+;STOREI $T4 $-1		Live IN: $T4, KEY, 		Live OUT: $-1, KEY, 
+;JUMP label1		Live IN: KEY, $-1, 			Live OUT: $-1, KEY, 
+;LABEL label3		Live IN: KEY, 			Live OUT: KEY, 
+;STOREI 0 $T5		Live IN: KEY, 			Live OUT: $T5, KEY, 
+;STOREI $T5 $6		Live IN: $T5, KEY, 		Live OUT: KEY, 
+;UNLINK			Live IN: KEY, 			Live OUT: KEY, 
+;RET			Live IN: KEY, 			Live OUT: KEY, 
+
+;LABEL MAKEAGUESS	Live IN: KEY, 				Live OUT: KEY, 
+;LINK 2			Live IN: KEY, 			Live OUT: KEY, 
+;WRITES guessmessage	Live IN: KEY, 			Live OUT: KEY, 
+;WRITES eol		Live IN: KEY, 			Live OUT: KEY, 
+;READI $-1		Live IN: KEY, 			Live OUT: $-1, KEY, 
+;STOREI KEY $T6		Live IN: $-1, KEY, 		Live OUT: $T6, $-1, KEY, 
+;LEI $-1 $T6 label4	Live IN: $T6, KEY, $-1, 		Live OUT: $-1, KEY, 
+;WRITEI $-1		Live IN: $-1, KEY, 			Live OUT: KEY, 
+;WRITES tooLarge	Live IN: KEY, 				Live OUT: KEY, 
+;WRITES eol		Live IN: KEY, 			Live OUT: KEY, 
+;JUMP label5		Live IN: KEY, 			Live OUT: KEY, 
+;LABEL label4		Live IN: KEY, $-1, 		Live OUT: $-1, KEY, 
+;STOREI $-1 $T7		Live IN: $-1, KEY, 		Live OUT: $-1, $T7, KEY, 
+;LEI KEY $T7 label6	Live IN: $T7, $-1, KEY, 		Live OUT: $-1, KEY, 
+;WRITEI $-1		Live IN: $-1, KEY, 			Live OUT: KEY, 
+;WRITES tooSmall	Live IN: KEY, 				Live OUT: KEY, 
+;WRITES eol		Live IN: KEY, 			Live OUT: KEY, 
+;JUMP label7		Live IN: KEY, 			Live OUT: KEY, 
+;LABEL label6		Live IN: KEY, $-1, 		Live OUT: $-1, KEY, 
+;WRITEI $-1		Live IN: $-1, KEY, 			Live OUT: KEY, 
+;WRITES yougotit	Live IN: KEY, 				Live OUT: KEY, 
+;WRITES eol		Live IN: KEY, 			Live OUT: KEY, 
+;STOREI 1 $T8		Live IN: KEY, 			Live OUT: $T8, KEY, 
+;STOREI $T8 $6		Live IN: $T8, KEY, 		Live OUT: KEY, 
+;UNLINK			Live IN: KEY, 			Live OUT: KEY, 
+;RET			Live IN: KEY, 			Live OUT: KEY, 
+;LABEL label7		Live IN: KEY, 			Live OUT: KEY, 
+;LABEL label5		Live IN: KEY, 			Live OUT: KEY, 
+;STOREI 0 $T9		Live IN: KEY, 			Live OUT: KEY, $T9, 
+;STOREI $T9 $6		Live IN: $T9, KEY, 		Live OUT: KEY, 
+;UNLINK			Live IN: KEY, 			Live OUT: KEY, 
+;RET			Live IN: KEY, 			Live OUT: KEY, 
+;str guessmessage "Guess a number between 1 and 10 !" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str tooSmall " is too small" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str tooLarge " is too large" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str yougotit " is the key " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str space " " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str eol "\n" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var KEY 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str keystr "key is " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str infloop "infloop" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;jsr main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;sys halt 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL main liveout: ; {  }
+;label main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 2 liveout: ; {  }
+;link 11 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 7 $T1 liveout: ; { $T1  }
+; ensure(): $T1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+; loading $-2 to register r3
+;move $-2 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;move 7 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;STOREI $T1 KEY liveout: ; { KEY  }
+; ensure(): $T1 has register r3
+; ensure(): KEY gets register r2 { r0-><null> || r1-><null> || r2->KEY || r3->$T1* }
+; loading KEY to register r2
+;move KEY r2 	; { r0-><null> || r1-><null> || r2->KEY || r3->$T1* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->KEY || r3->$T1* }
+; freeing unused variable r3
+; spilling varialbe $T1
+;move r3 $-2 	; { r0-><null> || r1-><null> || r2->KEY* || r3->$T1* }
+;STOREI 0 $T2 liveout: ; { $T2 KEY  }
+; ensure(): $T2 gets register r3 { r0-><null> || r1-><null> || r2->KEY* || r3->$T2 }
+; loading $-3 to register r3
+;move $-3 r3 	; { r0-><null> || r1-><null> || r2->KEY* || r3->$T2 }
+;move 0 r3 	; { r0-><null> || r1-><null> || r2->KEY* || r3->$T2 }
+;STOREI $T2 $-1 liveout: ; { $-1 KEY  }
+; ensure(): $T2 has register r3
+; ensure(): $-1 gets register r1 { r0-><null> || r1->$-1 || r2->KEY* || r3->$T2* }
+; loading $-1 to register r1
+;move $-1 r1 	; { r0-><null> || r1->$-1 || r2->KEY* || r3->$T2* }
+;move r3 r1 	; { r0-><null> || r1->$-1 || r2->KEY* || r3->$T2* }
+; freeing unused variable r3
+; spilling varialbe $T2
+;move r3 $-3 	; { r0-><null> || r1->$-1* || r2->KEY* || r3->$T2* }
+;LABEL label1 liveout: ; { $-1 KEY  }
+; spilling registers at the end of Basic Block
+; spilling varialbe KEY
+;move r2 KEY 	; { r0-><null> || r1->$-1* || r2->KEY* || r3-><null> }
+; spilling varialbe $-1
+;move r1 $-1 	; { r0-><null> || r1->$-1* || r2-><null> || r3-><null> }
+;label label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 1 $T3 liveout: ; { $T3 $-1 KEY  }
+; ensure(): $T3 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T3 }
+; loading $-4 to register r3
+;move $-4 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T3 }
+;move 1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T3 }
+;EQI $-1 $T3 label3 liveout: ; { KEY  }
+; ensure(): $-1 gets register r2 { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+; ensure(): $T3 has register r3
+;cmpi r2 r3 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T3
+;move r3 $-4 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+; spilling varialbe $-1
+;move r2 $-1 	; { r0-><null> || r1-><null> || r2->$-1 || r3-><null> }
+;jeq label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r2
+; freeing unused variable r3
+;PUSH  liveout: ; { KEY  }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;PUSHREG liveout: ; { KEY  }
+;push r0 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push r1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push r2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push r3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;JSR MAKEAGUESS liveout: ; { KEY  }
+; writing back global variables prior a function call
+;jsr MAKEAGUESS 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;POPREG liveout: ; { KEY  }
+;pop r3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;pop r2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;pop r1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;pop r0 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;POP $T4 liveout: ; { $T4 KEY  }
+; ensure(): $T4 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T4 }
+; loading $-5 to register r3
+;move $-5 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4 }
+;pop r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4 }
+;STOREI $T4 $-1 liveout: ; { $-1 KEY  }
+; ensure(): $T4 has register r3
+; ensure(): $-1 gets register r2 { r0-><null> || r1-><null> || r2->$-1 || r3->$T4* }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T4* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T4* }
+; freeing unused variable r3
+; spilling varialbe $T4
+;move r3 $-5 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T4* }
+;JUMP label1 liveout: ; { $-1 KEY  }
+; spilling registers at the end of Basic Block
+; spilling varialbe $-1
+;move r2 $-1 	; { r0-><null> || r1-><null> || r2->$-1* || r3-><null> }
+;jmp label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label3 liveout: ; { KEY  }
+; spilling registers at the end of Basic Block
+;label label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 0 $T5 liveout: ; { $T5 KEY  }
+; ensure(): $T5 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T5 }
+; loading $-6 to register r3
+;move $-6 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T5 }
+;move 0 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T5 }
+;STOREI $T5 $6 liveout: ; { KEY  }
+; ensure(): $T5 has register r3
+;move r3 $6 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T5* }
+; freeing unused variable r3
+; spilling varialbe $T5
+;move r3 $-6 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T5* }
+;UNLINK liveout: ; { KEY  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;RET liveout: ; { KEY  }
+; writing back global variables prior a function call
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL MAKEAGUESS liveout: ; { KEY  }
+;label MAKEAGUESS 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 2 liveout: ; { KEY  }
+;link 11 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITES guessmessage liveout: ; { KEY  }
+;sys writes guessmessage 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITES eol liveout: ; { KEY  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;READI $-1 liveout: ; { $-1 KEY  }
+; ensure(): $-1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+;sys readi r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+;STOREI KEY $T6 liveout: ; { $T6 $-1 KEY  }
+; ensure(): KEY gets register r2 { r0-><null> || r1-><null> || r2->KEY || r3->$-1* }
+; loading KEY to register r2
+;move KEY r2 	; { r0-><null> || r1-><null> || r2->KEY || r3->$-1* }
+; ensure(): $T6 gets register r1 { r0-><null> || r1->$T6 || r2->KEY || r3->$-1* }
+; loading $-7 to register r1
+;move $-7 r1 	; { r0-><null> || r1->$T6 || r2->KEY || r3->$-1* }
+;move r2 r1 	; { r0-><null> || r1->$T6 || r2->KEY || r3->$-1* }
+;LEI $-1 $T6 label4 liveout: ; { $-1 KEY  }
+; ensure(): $-1 has register r3
+; ensure(): $T6 has register r1
+;cmpi r3 r1 	; { r0-><null> || r1->$T6* || r2->KEY || r3->$-1* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $-1
+;move r3 $-1 	; { r0-><null> || r1->$T6* || r2->KEY || r3->$-1* }
+; spilling varialbe KEY
+;move r2 KEY 	; { r0-><null> || r1->$T6* || r2->KEY || r3-><null> }
+; spilling varialbe $T6
+;move r1 $-7 	; { r0-><null> || r1->$T6* || r2-><null> || r3-><null> }
+;jle label4 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r3
+; freeing unused variable r1
+;WRITEI $-1 liveout: ; { KEY  }
+; ensure(): $-1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+;sys writei r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; freeing unused variable r3
+;WRITES tooLarge liveout: ; { KEY  }
+;sys writes tooLarge 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITES eol liveout: ; { KEY  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;JUMP label5 liveout: ; { KEY  }
+; spilling registers at the end of Basic Block
+;jmp label5 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label4 liveout: ; { $-1 KEY  }
+; spilling registers at the end of Basic Block
+;label label4 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI $-1 $T7 liveout: ; { $-1 $T7 KEY  }
+; ensure(): $-1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; ensure(): $T7 gets register r2 { r0-><null> || r1-><null> || r2->$T7 || r3->$-1 }
+; loading $-8 to register r2
+;move $-8 r2 	; { r0-><null> || r1-><null> || r2->$T7 || r3->$-1 }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$T7 || r3->$-1 }
+;LEI KEY $T7 label6 liveout: ; { $-1 KEY  }
+; ensure(): KEY gets register r1 { r0-><null> || r1->KEY || r2->$T7* || r3->$-1 }
+; loading KEY to register r1
+;move KEY r1 	; { r0-><null> || r1->KEY || r2->$T7* || r3->$-1 }
+; ensure(): $T7 has register r2
+;cmpi r1 r2 	; { r0-><null> || r1->KEY || r2->$T7* || r3->$-1 }
+; spilling registers at the end of Basic Block
+; spilling varialbe $-1
+;move r3 $-1 	; { r0-><null> || r1->KEY || r2->$T7* || r3->$-1 }
+; spilling varialbe $T7
+;move r2 $-8 	; { r0-><null> || r1->KEY || r2->$T7* || r3-><null> }
+; spilling varialbe KEY
+;move r1 KEY 	; { r0-><null> || r1->KEY || r2-><null> || r3-><null> }
+;jle label6 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r1
+; freeing unused variable r2
+;WRITEI $-1 liveout: ; { KEY  }
+; ensure(): $-1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+;sys writei r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; freeing unused variable r3
+;WRITES tooSmall liveout: ; { KEY  }
+;sys writes tooSmall 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITES eol liveout: ; { KEY  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;JUMP label7 liveout: ; { KEY  }
+; spilling registers at the end of Basic Block
+;jmp label7 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label6 liveout: ; { $-1 KEY  }
+; spilling registers at the end of Basic Block
+;label label6 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITEI $-1 liveout: ; { KEY  }
+; ensure(): $-1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+;sys writei r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; freeing unused variable r3
+;WRITES yougotit liveout: ; { KEY  }
+;sys writes yougotit 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITES eol liveout: ; { KEY  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 1 $T8 liveout: ; { $T8 KEY  }
+; ensure(): $T8 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T8 }
+; loading $-9 to register r3
+;move $-9 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T8 }
+;move 1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T8 }
+;STOREI $T8 $6 liveout: ; { KEY  }
+; ensure(): $T8 has register r3
+;move r3 $6 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T8* }
+; freeing unused variable r3
+; spilling varialbe $T8
+;move r3 $-9 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T8* }
+;UNLINK liveout: ; { KEY  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;RET liveout: ; { KEY  }
+; writing back global variables prior a function call
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label7 liveout: ; { KEY  }
+; spilling registers at the end of Basic Block
+;label label7 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label5 liveout: ; { KEY  }
+; spilling registers at the end of Basic Block
+;label label5 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 0 $T9 liveout: ; { KEY $T9  }
+; ensure(): $T9 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T9 }
+; loading $-10 to register r3
+;move $-10 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T9 }
+;move 0 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T9 }
+;STOREI $T9 $6 liveout: ; { KEY  }
+; ensure(): $T9 has register r3
+;move r3 $6 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T9* }
+; freeing unused variable r3
+; spilling varialbe $T9
+;move r3 $-10 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T9* }
+;UNLINK liveout: ; { KEY  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;RET liveout: ; { KEY  }
+; writing back global variables prior a function call
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+
+str guessmessage "Guess a number between 1 and 10 !"
+str tooSmall " is too small"
+str tooLarge " is too large"
+str yougotit " is the key "
+str space " "
+str eol "\n"
+var KEY
+str keystr "key is "
+str infloop "infloop"
+push
+push
+push
+push
+push
+jsr main
+sys halt
+label main
+link 11
+move $-2 r3
+move 7 r3
+move KEY r2
+move r3 r2
+move r3 $-2
+move $-3 r3
+move 0 r3
+move $-1 r1
+move r3 r1
+move r3 $-3
+move r2 KEY
+move r1 $-1
+label label1
+move $-4 r3
+move 1 r3
+move $-1 r2
+cmpi r2 r3
+move r3 $-4
+move r2 $-1
+jeq label3
+push
+push r0
+push r1
+push r2
+push r3
+jsr MAKEAGUESS
+pop r3
+pop r2
+pop r1
+pop r0
+move $-5 r3
+pop r3
+move $-1 r2
+move r3 r2
+move r3 $-5
+move r2 $-1
+jmp label1
+label label3
+move $-6 r3
+move 0 r3
+move r3 $6
+move r3 $-6
+unlnk
+ret
+label MAKEAGUESS
+link 11
+sys writes guessmessage
+sys writes eol
+move $-1 r3
+sys readi r3
+move KEY r2
+move $-7 r1
+move r2 r1
+cmpi r3 r1
+move r3 $-1
+move r2 KEY
+move r1 $-7
+jle label4
+move $-1 r3
+sys writei r3
+sys writes tooLarge
+sys writes eol
+jmp label5
+label label4
+move $-1 r3
+move $-8 r2
+move r3 r2
+move KEY r1
+cmpi r1 r2
+move r3 $-1
+move r2 $-8
+move r1 KEY
+jle label6
+move $-1 r3
+sys writei r3
+sys writes tooSmall
+sys writes eol
+jmp label7
+label label6
+move $-1 r3
+sys writei r3
+sys writes yougotit
+sys writes eol
+move $-9 r3
+move 1 r3
+move r3 $6
+move r3 $-9
+unlnk
+ret
+label label7
+label label5
+move $-10 r3
+move 0 r3
+move r3 $6
+move r3 $-10
+unlnk
+ret

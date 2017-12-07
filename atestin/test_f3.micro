@@ -1,0 +1,46 @@
+PROGRAM testf1
+BEGIN
+
+	STRING input := "Please input an integer number: ";
+	STRING space := " ";
+	STRING eol := "\n";
+
+	FUNCTION INT F (INT n)
+	BEGIN
+		INT ret1;
+		ret1 := n + 2;
+		RETURN ret1;
+	END
+	
+	FUNCTION INT FOO ()
+	BEGIN
+		RETURN 2 + FOO2(FOO2(2, 3), FOO2(2, 3) - 2);
+	END
+
+	FUNCTION INT FOO2 (INT i, INT j)
+	BEGIN
+		RETURN i * j;
+	END
+
+	FUNCTION INT BAR (INT i)
+	BEGIN
+		RETURN i + 1;
+	END
+	
+	FUNCTION INT main ()
+	BEGIN
+		
+		INT i, end, result;		
+		WRITE(input);
+		READ(end);
+
+ 		FOR (i := 0; i < FOO(); i := BAR(i))
+			result := F(i);
+			WRITE (i,space);
+			WRITE (result,eol);
+		ROF
+
+		RETURN 0;
+	END
+
+END	

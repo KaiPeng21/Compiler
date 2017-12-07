@@ -1,0 +1,382 @@
+;IR code
+;LABEL INCRE
+;LINK
+;STOREI 1 $T1
+;ADDI $P1 $T1 $T2
+;STOREI $T2 $R
+;RET
+
+;LABEL main
+;LINK
+;STOREF 5.2 $T1
+;STOREF $T1 $L1
+;STOREF 6.4 $T2
+;STOREF $T2 $L2
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR IsLargerThanOrEqualTo
+;POP 
+;POP 
+;POP $T3
+;STOREI $T3 $L3
+;WRITEF $L1
+;WRITES space
+;WRITEF $L2
+;WRITES space
+;WRITES leS
+;WRITES space
+;WRITEI $L3
+;WRITES eol
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR IsSmallerThan
+;POP 
+;POP 
+;POP $T4
+;STOREI $T4 $L3
+;WRITEF $L1
+;WRITES space
+;WRITEF $L2
+;WRITES space
+;WRITES smS
+;WRITES space
+;WRITEI $L3
+;WRITES eol
+;STOREF 7.2 $T5
+;STOREF $T5 $L1
+;STOREF 7.2 $T6
+;STOREF $T6 $L2
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR IsLargerThanOrEqualTo
+;POP 
+;POP 
+;POP $T7
+;STOREI $T7 $L3
+;WRITEF $L1
+;WRITES space
+;WRITEF $L2
+;WRITES space
+;WRITES leS
+;WRITES space
+;WRITEI $L3
+;WRITES eol
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR IsSmallerThan
+;POP 
+;POP 
+;POP $T8
+;STOREI $T8 $L3
+;WRITEF $L1
+;WRITES space
+;WRITEF $L2
+;WRITES space
+;WRITES smS
+;WRITES space
+;WRITEI $L3
+;WRITES eol
+;STOREF 21.2 $T9
+;STOREF $T9 $L1
+;STOREF 19.8 $T10
+;STOREF $T10 $L2
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR IsLargerThanOrEqualTo
+;POP 
+;POP 
+;POP $T11
+;STOREI $T11 $L3
+;WRITEF $L1
+;WRITES space
+;WRITEF $L2
+;WRITES space
+;WRITES leS
+;WRITES space
+;WRITEI $L3
+;WRITES eol
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR IsSmallerThan
+;POP 
+;POP 
+;POP $T12
+;STOREI $T12 $L3
+;WRITEF $L1
+;WRITES space
+;WRITEF $L2
+;WRITES space
+;WRITES smS
+;WRITES space
+;WRITEI $L3
+;WRITES eol
+;RET
+
+;LABEL IsLargerThanOrEqualTo
+;LINK
+;LT $P1 $P2 label1
+;STOREI 1 $T1
+;STOREI $T1 $R
+;RET
+;JUMP label2
+;LABEL label1
+;LABEL label2
+;STOREI 0 $T2
+;STOREI $T2 $R
+;RET
+
+;LABEL IsSmallerThan
+;LINK
+;PUSH 
+;PUSH $P1
+;PUSH $P2
+;JSR IsLargerThanOrEqualTo
+;POP 
+;POP 
+;POP $T1
+;STOREI 0 $T2
+;EQ $T1 $T2 label3
+;STOREI 0 $T3
+;STOREI $T3 $R
+;RET
+;JUMP label4
+;LABEL label3
+;LABEL label4
+;STOREI 1 $T4
+;STOREI $T4 $R
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+str smS " is smaller than "
+str leS " is larger than or equal to "
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label INCRE
+link 0
+move 1 r0
+move $6 r1
+addi r0 r1
+move r1 $7
+unlnk
+ret
+label main
+link 3
+move 5.2 r2
+move r2 $-1
+move 6.4 r3
+move r3 $-2
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr IsLargerThanOrEqualTo
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r4
+move r4 $-3
+sys writer $-1
+sys writes space
+sys writer $-2
+sys writes space
+sys writes leS
+sys writes space
+sys writei $-3
+sys writes eol
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr IsSmallerThan
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r5
+move r5 $-3
+sys writer $-1
+sys writes space
+sys writer $-2
+sys writes space
+sys writes smS
+sys writes space
+sys writei $-3
+sys writes eol
+move 7.2 r6
+move r6 $-1
+move 7.2 r7
+move r7 $-2
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr IsLargerThanOrEqualTo
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r8
+move r8 $-3
+sys writer $-1
+sys writes space
+sys writer $-2
+sys writes space
+sys writes leS
+sys writes space
+sys writei $-3
+sys writes eol
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr IsSmallerThan
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r9
+move r9 $-3
+sys writer $-1
+sys writes space
+sys writer $-2
+sys writes space
+sys writes smS
+sys writes space
+sys writei $-3
+sys writes eol
+move 21.2 r10
+move r10 $-1
+move 19.8 r11
+move r11 $-2
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr IsLargerThanOrEqualTo
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r12
+move r12 $-3
+sys writer $-1
+sys writes space
+sys writer $-2
+sys writes space
+sys writes leS
+sys writes space
+sys writei $-3
+sys writes eol
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr IsSmallerThan
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r13
+move r13 $-3
+sys writer $-1
+sys writes space
+sys writer $-2
+sys writes space
+sys writes smS
+sys writes space
+sys writei $-3
+sys writes eol
+unlnk
+ret
+label IsLargerThanOrEqualTo
+link 0
+move $6 r14
+cmpr $7 r14
+jlt label1
+move 1 r15
+move r15 $8
+unlnk
+ret
+jmp label2
+label label1
+label label2
+move 0 r16
+move r16 $8
+unlnk
+ret
+label IsSmallerThan
+link 0
+push 
+push $7
+push $6
+push r0
+push r1
+push r2
+push r3
+jsr IsLargerThanOrEqualTo
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r17
+move 0 r18
+cmpi r17 r18
+jeq label3
+move 0 r19
+move r19 $8
+unlnk
+ret
+jmp label4
+label label3
+label label4
+move 1 r20
+move r20 $8
+unlnk
+ret
+end

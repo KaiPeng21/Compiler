@@ -1,0 +1,218 @@
+;IR code
+;LABEL main
+;LINK
+;STOREI 10 $T1
+;STOREI $T1 $L1
+;STOREF 0.0 $T2
+;STOREF $T2 $L2
+;WRITEI $L1
+;WRITES space
+;WRITEF $L2
+;WRITES eol
+;STOREI 10 $T3
+;PUSH 
+;PUSH $T3
+;PUSH $L2
+;JSR REC1
+;POP 
+;POP 
+;POP $T4
+;STOREI $T4 $L2
+;STOREI 0 $T5
+;STOREI $T5 $R
+;RET
+
+;LABEL REC1
+;LINK
+;STOREI 1 $T1
+;ADDI $P1 $T1 $T2
+;STOREI $T2 $P1
+;STOREI 0 $T3
+;GE $P1 $T3 label1
+;STOREF $P2 $R
+;RET
+;JUMP label2
+;LABEL label1
+;STOREF 1.0 $T4
+;ADDF $P2 $T4 $T5
+;STOREF $T5 $P2
+;WRITEI $P1
+;WRITES space
+;WRITEF $P2
+;WRITES eol
+;PUSH 
+;PUSH $P1
+;PUSH $P2
+;JSR REC2
+;POP 
+;POP 
+;POP $T6
+;STOREI $T6 $R
+;RET
+;JUMP label2
+;LABEL label2
+;RET
+
+;LABEL REC2
+;LINK
+;STOREI 2 $T1
+;SUBI $P1 $T1 $T2
+;STOREI $T2 $P1
+;STOREI 0 $T3
+;GE $P1 $T3 label3
+;STOREF $P2 $R
+;RET
+;JUMP label4
+;LABEL label3
+;STOREF 0.01 $T4
+;ADDF $P2 $T4 $T5
+;STOREF $T5 $P2
+;WRITEI $P1
+;WRITES space
+;WRITEF $P2
+;WRITES eol
+;PUSH 
+;PUSH $P1
+;PUSH $P2
+;JSR REC1
+;POP 
+;POP 
+;POP $T6
+;STOREI $T6 $R
+;RET
+;JUMP label4
+;LABEL label4
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 2
+move 10 r0
+move r0 $-1
+move 0.0 r1
+move r1 $-2
+sys writei $-1
+sys writes space
+sys writer $-2
+sys writes eol
+move 10 r2
+push 
+push r2
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr REC1
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r3
+move r3 $-2
+move 0 r4
+move r4 $6
+unlnk
+ret
+label REC1
+link 0
+move 1 r5
+move $7 r6
+addi r5 r6
+move r6 $7
+move 0 r7
+cmpi $7 r7
+jge label1
+move $6 r8
+move r8 $8
+unlnk
+ret
+jmp label2
+label label1
+move 1.0 r9
+move $6 r10
+addr r9 r10
+move r10 $6
+sys writei $7
+sys writes space
+sys writer $6
+sys writes eol
+push 
+push $7
+push $6
+push r0
+push r1
+push r2
+push r3
+jsr REC2
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r11
+move r11 $8
+unlnk
+ret
+jmp label2
+label label2
+unlnk
+ret
+label REC2
+link 0
+move 2 r12
+move $7 r13
+subi r12 r13
+move r13 $7
+move 0 r14
+cmpi $7 r14
+jge label3
+move $6 r15
+move r15 $8
+unlnk
+ret
+jmp label4
+label label3
+move 0.01 r16
+move $6 r17
+addr r16 r17
+move r17 $6
+sys writei $7
+sys writes space
+sys writer $6
+sys writes eol
+push 
+push $7
+push $6
+push r0
+push r1
+push r2
+push r3
+jsr REC1
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r18
+move r18 $8
+unlnk
+ret
+jmp label4
+label label4
+unlnk
+ret
+end

@@ -1,0 +1,192 @@
+;IR code
+;LABEL main
+;LINK
+;STOREF 0.001 $T1
+;STOREF $T1 error
+;READF x1
+;MULTF x1 x1 $T2
+;SUBF $T2 n $T3
+;STOREF $T3 fx
+;STOREF 2.0 $T4
+;MULTF $T4 x1 $T5
+;STOREF $T5 dfx
+;DIVF fx dfx $T6
+;SUBF x1 $T6 $T7
+;STOREF $T7 x2
+;WRITEF x1
+;WRITES space
+;WRITEF fx
+;WRITES space
+;WRITEF dfx
+;WRITES space
+;WRITEF x2
+;WRITES eol
+;STOREI 0 $T8
+;STOREI $T8 i
+;LABEL label1
+;STOREI 2 $T9
+;GE i $T9 label3
+;STOREF x2 x1
+;MULTF x1 x1 $T12
+;SUBF $T12 n $T13
+;STOREF $T13 fx
+;STOREF 2.0 $T14
+;MULTF $T14 x1 $T15
+;STOREF $T15 dfx
+;DIVF fx dfx $T16
+;SUBF x1 $T16 $T17
+;STOREF $T17 x2
+;LABEL label2
+;STOREI 1 $T10
+;ADDI i $T10 $T11
+;STOREI $T11 i
+;JUMP label1
+;LABEL label3
+;WRITEF x1
+;WRITES space
+;WRITEF fx
+;WRITES space
+;WRITEF dfx
+;WRITES space
+;WRITEF x2
+;WRITES eol
+;LABEL label4
+;SUBF x1 x2 $T18
+;LE $T18 error label6
+;STOREF x2 x1
+;MULTF x1 x1 $T19
+;SUBF $T19 n $T20
+;STOREF $T20 fx
+;STOREF 2.0 $T21
+;MULTF $T21 x1 $T22
+;STOREF $T22 dfx
+;DIVF fx dfx $T23
+;SUBF x1 $T23 $T24
+;STOREF $T24 x2
+;LABEL label5
+;JUMP label4
+;LABEL label6
+;WRITEF x1
+;WRITES space
+;WRITEF fx
+;WRITES space
+;WRITEF dfx
+;WRITES space
+;WRITEF x2
+;WRITES eol
+;WRITEF x2
+;RET
+
+;tiny code
+str dummy "abcde"
+str space " "
+str eol "\n"
+var n
+var x1
+var x2
+var fx
+var dfx
+var error
+var i
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 0
+move 0.001 r0
+move r0 error
+sys readr x1
+move x1 r1
+mulr x1 r1
+subr n r1
+move r1 fx
+move 2.0 r2
+mulr x1 r2
+move r2 dfx
+move fx r3
+divr dfx r3
+move x1 r4
+subr r3 r4
+move r4 x2
+sys writer x1
+sys writes space
+sys writer fx
+sys writes space
+sys writer dfx
+sys writes space
+sys writer x2
+sys writes eol
+move 0 r5
+move r5 i
+label label1
+move 2 r6
+cmpi i r6
+jge label3
+move x2 r7
+move r7 x1
+move x1 r8
+mulr x1 r8
+subr n r8
+move r8 fx
+move 2.0 r9
+mulr x1 r9
+move r9 dfx
+move fx r10
+divr dfx r10
+move x1 r11
+subr r10 r11
+move r11 x2
+label label2
+move 1 r12
+move i r13
+addi r12 r13
+move r13 i
+jmp label1
+label label3
+sys writer x1
+sys writes space
+sys writer fx
+sys writes space
+sys writer dfx
+sys writes space
+sys writer x2
+sys writes eol
+label label4
+move x1 r14
+subr x2 r14
+move error r15
+cmpr r14 r15
+jle label6
+move x2 r7
+move r7 x1
+move x1 r16
+mulr x1 r16
+subr n r16
+move r16 fx
+move 2.0 r17
+mulr x1 r17
+move r17 dfx
+move fx r18
+divr dfx r18
+move x1 r19
+subr r18 r19
+move r19 x2
+label label5
+jmp label4
+label label6
+sys writer x1
+sys writes space
+sys writer fx
+sys writes space
+sys writer dfx
+sys writes space
+sys writer x2
+sys writes eol
+sys writer x2
+unlnk
+ret
+end

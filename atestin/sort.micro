@@ -1,0 +1,187 @@
+PROGRAM sort
+BEGIN
+
+    STRING inputMessage := "Inputs are: \n";
+    STRING sizeMessage := "Array size is: ";
+    STRING sortingMessage := "Sorting... \n";
+    STRING space := " ";
+    STRING eol := "\n";  -- end of line
+
+    STRING smS := " isSmallerThan: ";
+    STRING letS := " isLargerThanOrEqualTo: ";
+
+    INT arraysize;
+    FLOAT a0, a1, a2, a3, a4, a5, a6, a7;
+
+    FLOAT maxg, ming;
+    FLOAT floatingMaxConstant;
+
+    FUNCTION INT INCRE(INT i)
+    BEGIN
+	RETURN i + 1;
+    END
+
+    FUNCTION VOID main()
+    BEGIN
+	FLOAT minRes;
+
+	floatingMaxConstant := 1000.00;
+	arraysize := SYSIN();
+
+	minRes := findMin(a0, a1, a2, a3, a4, a5, a6, a7);
+
+	WRITE(minRes, eol);
+    END
+
+    FUNCTION FLOAT findMin(FLOAT p0, FLOAT p1, FLOAT p2, FLOAT p3, FLOAT p4, FLOAT p5, FLOAT p6, FLOAT p7)
+    BEGIN
+	INT i;
+	FLOAT min;
+	FLOAT tmp;
+	
+	min := GetValue(0, p0, p1, p2, p3, p4, p5, p6, p7);
+	FOR ( i := 0; i < arraysize; i := i + 1)
+		tmp := GetValue(i, p0, p1, p2, p3, p4, p5, p6, p7);
+		WRITE(tmp, space);
+		IF (1 = IsSmallerThan(GetValue(i, p0, p1, p2, p3, p4, p5, p6, p7), min))
+			min := tmp;
+		FI
+		WRITE(min, eol);
+	ROF
+	
+	RETURN min;
+    END
+
+    FUNCTION INT IsLargerThanOrEqualTo(FLOAT j, FLOAT k)
+    BEGIN
+	INT res;
+	IF (j >= k)
+		res := 1;
+		WRITE(space, letS, res, space);
+		RETURN 1;
+	FI
+	res := 0;
+	WRITE(space, letS, res, space);
+	RETURN 0;
+    END
+
+    FUNCTION INT IsSmallerThan(FLOAT j, FLOAT k)
+    BEGIN
+	INT res;
+	IF (IsLargerThanOrEqualTo(j, k) != 0)
+		res := 0;
+		WRITE(space, smS, res, space);
+		RETURN 0;
+	FI
+	res := 1;
+	WRITE(space, smS, res, space);
+	RETURN 1;
+    END
+
+    FUNCTION FLOAT GetValue(INT ind, FLOAT p0, FLOAT p1, FLOAT p2, FLOAT p3, FLOAT p4, FLOAT p5, FLOAT p6, FLOAT p7)
+    BEGIN
+	IF (ind = 0)
+		RETURN p0;
+	ELSE
+	IF (ind = 1)
+		RETURN p1;
+	ELSE
+	IF (ind = 2)
+		RETURN p2;
+	ELSE
+	IF (ind = 3)
+		RETURN p3;
+	ELSE
+	IF (ind = 4)
+		RETURN p4;
+	ELSE
+	IF (ind = 5)
+		RETURN p5;
+	ELSE
+	IF (ind = 6)
+		RETURN p6;
+	ELSE
+	IF (ind = 7)
+		RETURN p7;
+	ELSE
+	FI
+	FI
+	FI
+	FI
+	FI
+	FI
+	FI
+	FI
+
+	RETURN 0;
+    END
+
+
+    FUNCTION INT PrintIndex(INT ind, FLOAT p0, FLOAT p1, FLOAT p2, FLOAT p3, FLOAT p4, FLOAT p5, FLOAT p6, FLOAT p7)
+    BEGIN
+	IF (ind = 0)
+		WRITE(p0, space);
+		RETURN p0;
+	ELSE
+	IF (ind = 1)
+		WRITE(p1, space);
+		RETURN p1;
+	ELSE
+	IF (ind = 2)
+		WRITE(p2, space);
+		RETURN p2;
+	ELSE
+	IF (ind = 3)
+		WRITE(p3, space);
+		RETURN p3;
+	ELSE
+	IF (ind = 4)
+		WRITE(p4, space);
+		RETURN p4;
+	ELSE
+	IF (ind = 5)
+		WRITE(p5, space);
+		RETURN p5;
+	ELSE
+	IF (ind = 6)
+		WRITE(p6, space);
+		RETURN p6;
+	ELSE
+	IF (ind = 7)
+		WRITE(p7, space);
+		RETURN p7;
+	ELSE
+	FI
+	FI
+	FI
+	FI
+	FI
+	FI
+	FI
+	FI
+
+	RETURN 0;
+    END
+
+    FUNCTION INT SYSIN()
+    BEGIN
+	INT i, alocalsize, dummy;
+	i := 0;
+	alocalsize := 8;	
+
+	READ(a0, a1, a2, a3);
+	READ(a4, a5, a6, a7);
+
+	WRITE(inputMessage);
+	FOR (i := 0; i < arraysize / 2; i := i + 1)
+		dummy := PrintIndex(i, a0, a1, a2, a3, a4, a5, a6, a7);
+	ROF
+	FOR ( ; i < arraysize; i := INCRE(i))
+		dummy := PrintIndex(i, a0, a1, a2, a3, a4, a5, a6, a7);
+	ROF
+	WRITE(eol);
+
+	RETURN alocalsize;
+    END
+END
+

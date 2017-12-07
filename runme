@@ -1,0 +1,21 @@
+#! /bin/bash
+
+psize=$#
+para=$@
+
+if (( $psize != 2 ))
+then
+	echo "Usage: runme [micro file path] [output file path]"
+	exit 1
+fi
+
+if [[ ! -r $1 ]]
+then
+	echo "Error: $1 does not exist."
+	exit 2
+fi
+
+#java -classpath lib/antlr.jar:classes/ Micro $1 > $2
+java -cp $CLASSPATH:classes/ Micro $1 > $2
+
+exit 0

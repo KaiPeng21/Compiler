@@ -1,0 +1,169 @@
+PROGRAM sorting
+BEGIN
+
+    STRING inputMessage := "inputs are: \n";
+    STRING sortMessage := "\n sorting... \n";
+
+    STRING space := " ";
+    STRING eol := "\n";  -- end of line
+
+    FLOAT fmax;
+    FLOAT a0, a1, a2, a3, a4, a5; -- input array
+
+    FUNCTION INT Incre(INT i)
+    BEGIN
+	RETURN i + 1;
+    END
+
+    FUNCTION INT Decre(INT i)
+    BEGIN
+	RETURN i - 1;
+    END
+
+    FUNCTION VOID main()
+    BEGIN
+	INT arraysize, i, minind;
+	FLOAT minval;
+
+	fmax := 1000.00;
+	arraysize := SYSIN();
+
+	WRITE(sortMessage);
+	FOR ( i := 0; i < arraysize; i := i + 1)
+		minval := FindMin(arraysize, a0, a1, a2, a3, a4, a5);
+		minind := FindIndex(arraysize, minval, a0, a1, a2, a3, a4, a5);		
+		fmax := SetAValue(minind, fmax);
+		WRITE(minval, eol);
+	ROF
+	WRITE(eol);
+
+    END
+
+    FUNCTION FLOAT FindMin(INT arraysize, FLOAT p0, FLOAT p1, FLOAT p2, FLOAT p3, FLOAT p4, FLOAT p5)
+    BEGIN
+	INT i;
+	FLOAT min;
+	min := p0;
+	FOR ( i := 1; i < arraysize; )
+		IF (GetValue(i, p0, p1, p2, p3, p4, p5) < min)
+			min := GetValue(i, p0, p1, p2, p3, p4, p5);
+		FI
+		i := Incre(i);
+	ROF
+
+	RETURN min;
+    END
+
+
+    FUNCTION INT FindIndex(INT arraysize, FLOAT finding, FLOAT p0, FLOAT p1, FLOAT p2, FLOAT p3, FLOAT p4, FLOAT p5)
+    BEGIN
+	INT i;
+
+	FOR ( i := 0; i < arraysize; i := i + 1)
+		IF (IsEqual(finding, GetValue(i, p0, p1, p2, p3, p4, p5)) = 1)
+			RETURN i;
+		FI
+	ROF
+
+	RETURN i;
+    END
+
+    FUNCTION INT IsEqual(FLOAT f1, FLOAT f2)
+    BEGIN
+	IF (IsNotEqual(f1, f2) = 0)
+		RETURN 1;
+	FI
+	RETURN 0;
+    END
+
+    FUNCTION INT IsNotEqual(FLOAT f1, FLOAT f2)
+    BEGIN
+	IF (f1 != f2)
+		RETURN 1;
+	FI
+	RETURN 0;
+    END
+
+    FUNCTION FLOAT GetValue(INT ind, FLOAT p0, FLOAT p1, FLOAT p2, FLOAT p3, FLOAT p4, FLOAT p5)
+    BEGIN
+	IF (ind = 0)
+		RETURN p0;
+	ELSE
+	IF (ind = 1)
+		RETURN p1;
+	ELSE
+	IF (ind = 2)
+		RETURN p2;
+	ELSE
+	IF (ind = 3)
+		RETURN p3;
+	ELSE
+	IF (ind = 4)
+		RETURN p4;
+	ELSE
+	IF (ind = 5)
+		RETURN p5;
+	ELSE
+	FI
+	FI
+	FI
+	FI
+	FI
+	FI
+    END
+
+    FUNCTION FLOAT SetAValue(INT ind, FLOAT setval)
+    BEGIN
+	IF (ind = 0)
+		a0 := setval;
+	ELSE
+	IF (ind = 1)
+		a1 := setval;
+	ELSE
+	IF (ind = 2)
+		a2 := setval;
+	ELSE
+	IF (ind = 3)
+		a3 := setval;
+	ELSE
+	IF (ind = 4)
+		a4 := setval;
+	ELSE
+	IF (ind = 5)
+		a5 := setval;
+	ELSE
+	FI
+	FI
+	FI
+	FI
+	FI
+	FI
+	RETURN setval;
+    END
+
+
+    FUNCTION INT SYSIN()
+    BEGIN
+	INT i, arraysize;
+	FLOAT dummy;
+
+	i := 0;
+	arraysize := 6;	
+
+	READ(a0, a1, a2, a3, a4, a5);
+
+	WRITE(inputMessage);
+	FOR (i := 0; i < arraysize / 2; i := i + 1)
+		dummy := GetValue(i, a0, a1, a2, a3, a4, a5);
+		WRITE(dummy, eol);
+	ROF
+	FOR ( ; i < arraysize; i := Incre(Decre(Incre(i))))
+		dummy := GetValue(i, a0, a1, a2, a3, a4, a5);
+		WRITE(dummy, eol);
+	ROF
+	WRITE(eol);
+
+	RETURN arraysize;
+    END
+END
+

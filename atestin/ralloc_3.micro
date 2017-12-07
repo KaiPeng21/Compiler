@@ -1,0 +1,27 @@
+PROGRAM ralloc3
+BEGIN
+
+    STRING space := " ";
+    STRING eol := "\n";  -- end of line
+
+    FUNCTION VOID main()
+    BEGIN
+	
+	INT a, b, c, d, e, f, g, h, j, k;
+
+	a := 2;
+	b := 3;
+	c := 4;
+	d := a + b + c;
+	e := 5;
+	f := 6;
+	g := 7;
+	h := e + f - g;
+	j := (a + b + c + d + e + f + g + h);
+	k := j + (a + b + c + d + e + f + g + h) * (a + b + c + d);
+
+	WRITE(a, space, b, space, c, space, d, space, e, space, f, space, g, space, h, eol);
+	WRITE(j, space, k, eol);
+    END
+END
+

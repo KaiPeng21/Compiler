@@ -1,0 +1,889 @@
+;Symbol table GLOBAL
+; return type: null
+; subscope local var size: 0
+;scope type: GLOBAL_TYPE 
+;name count type INT local slot location: -1
+;name enough type INT local slot location: -2
+;name newapprox type FLOAT local slot location: -3
+;name approx type FLOAT local slot location: -4
+;name num type FLOAT local slot location: -5
+;name tolerance type FLOAT local slot location: -6
+;name diff type FLOAT local slot location: -7
+;name eol type STRING value "\n" local slot location: -8
+;name space type STRING value " " local slot location: -9
+
+
+;Symbol table main
+; return type: VOID
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+
+
+;Symbol table BLOCK 1
+; return type: null
+; subscope local var size: 0
+;scope type: FOR_TYPE 
+
+
+;Symbol table BLOCK 2
+; return type: null
+; subscope local var size: 0
+;scope type: IF_TYPE 
+
+
+;Symbol table BLOCK 3
+; return type: null
+; subscope local var size: 0
+;scope type: IF_TYPE 
+
+
+;Symbol table BLOCK 4
+; return type: null
+; subscope local var size: 0
+;scope type: ELSE_TYPE 
+
+
+;Symbol table BLOCK 5
+; return type: null
+; subscope local var size: 0
+;scope type: IF_TYPE 
+
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+
+;exit Cond: != :: enough :: 1
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+; SUBSCOPE block ID: 2 scopeType: IF
+
+;exit Cond: > :: diff :: 0.0
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+; SUBSCOPE block ID: 2 scopeType: IF
+; SUBSCOPE block ID: 3 scopeType: IF
+
+;exit Cond: < :: diff :: tolerance
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+; SUBSCOPE block ID: 2 scopeType: IF
+; SUBSCOPE block ID: 4 scopeType: ELSE
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+; SUBSCOPE block ID: 5 scopeType: ELSE
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+; SUBSCOPE block ID: 5 scopeType: ELSE
+; SUBSCOPE block ID: 6 scopeType: IF
+
+;exit Cond: > :: diff :: (0.0-tolerance)
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+; SUBSCOPE block ID: 5 scopeType: ELSE
+; SUBSCOPE block ID: 7 scopeType: ELSE
+
+
+;IR code
+;PUSH
+;JSR main
+;HALT
+
+;LABEL main		 Under Func Scope: main
+;LINK 1			 Under Func Scope: main
+;STOREF 0.0001 $T1	 Under Func Scope: main
+;STOREF $T1 tolerance	 Under Func Scope: main
+;READF num		 Under Func Scope: main
+;STOREF num $T2		 Under Func Scope: main
+;STOREF $T2 approx	 Under Func Scope: main
+;STOREI 0 $T3		 Under Func Scope: main
+;STOREI $T3 count	 Under Func Scope: main
+;STOREF 0.0 $T4		 Under Func Scope: main
+;STOREF $T4 diff	 Under Func Scope: main
+;STOREI 0 $T5		 Under Func Scope: main
+;STOREI $T5 enough	 Under Func Scope: main
+;LABEL label1		 Under Func Scope: main
+;STOREI 1 $T6		 Under Func Scope: main
+;EQI enough $T6 label3	 Under Func Scope: main
+;STOREI 1 $T7		 Under Func Scope: main
+;ADDI count $T7 $T8	 Under Func Scope: main
+;STOREI $T8 count	 Under Func Scope: main
+;STOREF 0.5 $T9		 Under Func Scope: main
+;DIVF num approx $T10	 Under Func Scope: main
+;ADDF approx $T10 $T11	 Under Func Scope: main
+;MULTF $T9 $T11 $T12	 Under Func Scope: main
+;STOREF $T12 newapprox	 Under Func Scope: main
+;SUBF approx newapprox $T13	 Under Func Scope: main
+;STOREF $T13 diff	 Under Func Scope: main
+;STOREF 0.0 $T14	 Under Func Scope: main
+;LEF diff $T14 label4	 Under Func Scope: main
+;STOREF tolerance $T15	 Under Func Scope: main
+;GEF diff $T15 label6	 Under Func Scope: main
+;STOREI 1 $T16		 Under Func Scope: main
+;STOREI $T16 enough	 Under Func Scope: main
+;JUMP label7		 Under Func Scope: main
+;LABEL label6		 Under Func Scope: main
+;LABEL label7		 Under Func Scope: main
+;JUMP label5		 Under Func Scope: main
+;LABEL label4		 Under Func Scope: main
+;STOREF 0.0 $T17	 Under Func Scope: main
+;SUBF $T17 tolerance $T18	 Under Func Scope: main
+;STOREF  $T19		 Under Func Scope: main
+;LEF diff $T19 label8	 Under Func Scope: main
+;STOREI 1 $T20		 Under Func Scope: main
+;STOREI $T20 enough	 Under Func Scope: main
+;JUMP label9		 Under Func Scope: main
+;LABEL label8		 Under Func Scope: main
+;LABEL label9		 Under Func Scope: main
+;LABEL label5		 Under Func Scope: main
+;STOREF newapprox $T21	 Under Func Scope: main
+;STOREF $T21 approx	 Under Func Scope: main
+;JUMP label1		 Under Func Scope: main
+;LABEL label3		 Under Func Scope: main
+;WRITEF approx		 Under Func Scope: main
+;WRITES space		 Under Func Scope: main
+;WRITEI count		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;UNLINK			 Under Func Scope: main
+;RET			 Under Func Scope: main
+
+; ========= CFG IR NODE =========
+
+;LABEL main		P: 					S: ;LINK 1		 <== BB leader
+;LINK 1			P: ;LABEL main			S: ;STOREF 0.0001 $T1	
+;STOREF 0.0001 $T1	P: ;LINK 1				S: ;STOREF $T1 tolerance	
+;STOREF $T1 tolerance	P: ;STOREF 0.0001 $T1		S: ;READF num	
+;READF num		P: ;STOREF $T1 tolerance		S: ;STOREF num $T2	
+;STOREF num $T2		P: ;READF num			S: ;STOREF $T2 approx	
+;STOREF $T2 approx	P: ;STOREF num $T2			S: ;STOREI 0 $T3	
+;STOREI 0 $T3		P: ;STOREF $T2 approx		S: ;STOREI $T3 count	
+;STOREI $T3 count	P: ;STOREI 0 $T3			S: ;STOREF 0.0 $T4	
+;STOREF 0.0 $T4		P: ;STOREI $T3 count		S: ;STOREF $T4 diff	
+;STOREF $T4 diff	P: ;STOREF 0.0 $T4			S: ;STOREI 0 $T5	
+;STOREI 0 $T5		P: ;STOREF $T4 diff		S: ;STOREI $T5 enough	
+;STOREI $T5 enough	P: ;STOREI 0 $T5			S: ;LABEL label1	
+;LABEL label1		P: ;STOREI $T5 enough	;JUMP label1		S: ;STOREI 1 $T6		 <== BB leader
+;STOREI 1 $T6		P: ;LABEL label1			S: ;EQI enough $T6 label3	
+;EQI enough $T6 label3	P: ;STOREI 1 $T6			S: ;STOREI 1 $T7	;LABEL label3	
+;STOREI 1 $T7		P: ;EQI enough $T6 label3		S: ;ADDI count $T7 $T8		 <== BB leader
+;ADDI count $T7 $T8	P: ;STOREI 1 $T7			S: ;STOREI $T8 count	
+;STOREI $T8 count	P: ;ADDI count $T7 $T8			S: ;STOREF 0.5 $T9	
+;STOREF 0.5 $T9		P: ;STOREI $T8 count		S: ;DIVF num approx $T10	
+;DIVF num approx $T10	P: ;STOREF 0.5 $T9			S: ;ADDF approx $T10 $T11	
+;ADDF approx $T10 $T11	P: ;DIVF num approx $T10		S: ;MULTF $T9 $T11 $T12	
+;MULTF $T9 $T11 $T12	P: ;ADDF approx $T10 $T11		S: ;STOREF $T12 newapprox	
+;STOREF $T12 newapprox	P: ;MULTF $T9 $T11 $T12		S: ;SUBF approx newapprox $T13	
+;SUBF approx newapprox $T13	P: ;STOREF $T12 newapprox		S: ;STOREF $T13 diff	
+;STOREF $T13 diff	P: ;SUBF approx newapprox $T13		S: ;STOREF 0.0 $T14	
+;STOREF 0.0 $T14	P: ;STOREF $T13 diff			S: ;LEF diff $T14 label4	
+;LEF diff $T14 label4	P: ;STOREF 0.0 $T14		S: ;STOREF tolerance $T15	;LABEL label4	
+;STOREF tolerance $T15	P: ;LEF diff $T14 label4		S: ;GEF diff $T15 label6		 <== BB leader
+;GEF diff $T15 label6	P: ;STOREF tolerance $T15		S: ;STOREI 1 $T16	;LABEL label6	
+;STOREI 1 $T16		P: ;GEF diff $T15 label6		S: ;STOREI $T16 enough		 <== BB leader
+;STOREI $T16 enough	P: ;STOREI 1 $T16			S: ;JUMP label7	
+;JUMP label7		P: ;STOREI $T16 enough		S: ;LABEL label7	
+;LABEL label6		P: ;GEF diff $T15 label6		S: ;LABEL label7		 <== BB leader
+;LABEL label7		P: ;LABEL label6	;JUMP label7		S: ;JUMP label5		 <== BB leader
+;JUMP label5		P: ;LABEL label7			S: ;LABEL label5	
+;LABEL label4		P: ;LEF diff $T14 label4		S: ;STOREF 0.0 $T17		 <== BB leader
+;STOREF 0.0 $T17	P: ;LABEL label4			S: ;SUBF $T17 tolerance $T18	
+;SUBF $T17 tolerance $T18	P: ;STOREF 0.0 $T17		S: ;STOREF  $T19	
+;STOREF  $T19		P: ;SUBF $T17 tolerance $T18		S: ;LEF diff $T19 label8	
+;LEF diff $T19 label8	P: ;STOREF  $T19			S: ;STOREI 1 $T20	;LABEL label8	
+;STOREI 1 $T20		P: ;LEF diff $T19 label8		S: ;STOREI $T20 enough		 <== BB leader
+;STOREI $T20 enough	P: ;STOREI 1 $T20			S: ;JUMP label9	
+;JUMP label9		P: ;STOREI $T20 enough		S: ;LABEL label9	
+;LABEL label8		P: ;LEF diff $T19 label8		S: ;LABEL label9		 <== BB leader
+;LABEL label9		P: ;LABEL label8	;JUMP label9		S: ;LABEL label5		 <== BB leader
+;LABEL label5		P: ;LABEL label9	;JUMP label5		S: ;STOREF newapprox $T21		 <== BB leader
+;STOREF newapprox $T21	P: ;LABEL label5			S: ;STOREF $T21 approx	
+;STOREF $T21 approx	P: ;STOREF newapprox $T21		S: ;JUMP label1	
+;JUMP label1		P: ;STOREF $T21 approx		S: ;LABEL label1	
+;LABEL label3		P: ;EQI enough $T6 label3		S: ;WRITEF approx		 <== BB leader
+;WRITEF approx		P: ;LABEL label3			S: ;WRITES space	
+;WRITES space		P: ;WRITEF approx			S: ;WRITEI count	
+;WRITEI count		P: ;WRITES space			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEI count			S: ;UNLINK	
+;UNLINK			P: ;WRITES eol			S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+; ========= CFG IR NODE / KILL/ GEN =========
+
+;LABEL main		Kill: 				Gen: 
+;LINK 1			Kill: 				Gen: 
+;STOREF 0.0001 $T1	Kill: $T1, 				Gen: 
+;STOREF $T1 tolerance	Kill: tolerance, 			Gen: $T1, 
+;READF num		Kill: num, 				Gen: 
+;STOREF num $T2		Kill: $T2, 			Gen: num, 
+;STOREF $T2 approx	Kill: approx, 			Gen: $T2, 
+;STOREI 0 $T3		Kill: $T3, 			Gen: 
+;STOREI $T3 count	Kill: count, 				Gen: $T3, 
+;STOREF 0.0 $T4		Kill: $T4, 			Gen: 
+;STOREF $T4 diff	Kill: diff, 				Gen: $T4, 
+;STOREI 0 $T5		Kill: $T5, 			Gen: 
+;STOREI $T5 enough	Kill: enough, 			Gen: $T5, 
+;LABEL label1		Kill: 				Gen: 
+;STOREI 1 $T6		Kill: $T6, 			Gen: 
+;EQI enough $T6 label3	Kill: 				Gen: $T6, enough, 
+;STOREI 1 $T7		Kill: $T7, 			Gen: 
+;ADDI count $T7 $T8	Kill: $T8, 				Gen: count, $T7, 
+;STOREI $T8 count	Kill: count, 				Gen: $T8, 
+;STOREF 0.5 $T9		Kill: $T9, 			Gen: 
+;DIVF num approx $T10	Kill: $T10, 			Gen: approx, num, 
+;ADDF approx $T10 $T11	Kill: $T11, 			Gen: approx, $T10, 
+;MULTF $T9 $T11 $T12	Kill: $T12, 			Gen: $T11, $T9, 
+;STOREF $T12 newapprox	Kill: newapprox, 			Gen: $T12, 
+;SUBF approx newapprox $T13	Kill: $T13, 			Gen: approx, newapprox, 
+;STOREF $T13 diff	Kill: diff, 				Gen: $T13, 
+;STOREF 0.0 $T14	Kill: $T14, 				Gen: 
+;LEF diff $T14 label4	Kill: 				Gen: diff, $T14, 
+;STOREF tolerance $T15	Kill: $T15, 			Gen: tolerance, 
+;GEF diff $T15 label6	Kill: 				Gen: diff, $T15, 
+;STOREI 1 $T16		Kill: $T16, 			Gen: 
+;STOREI $T16 enough	Kill: enough, 			Gen: $T16, 
+;JUMP label7		Kill: 				Gen: 
+;LABEL label6		Kill: 				Gen: 
+;LABEL label7		Kill: 				Gen: 
+;JUMP label5		Kill: 				Gen: 
+;LABEL label4		Kill: 				Gen: 
+;STOREF 0.0 $T17	Kill: $T17, 				Gen: 
+;SUBF $T17 tolerance $T18	Kill: $T18, 			Gen: tolerance, $T17, 
+;STOREF  $T19		Kill: $T19, 			Gen: , 
+;LEF diff $T19 label8	Kill: 				Gen: $T19, diff, 
+;STOREI 1 $T20		Kill: $T20, 			Gen: 
+;STOREI $T20 enough	Kill: enough, 			Gen: $T20, 
+;JUMP label9		Kill: 				Gen: 
+;LABEL label8		Kill: 				Gen: 
+;LABEL label9		Kill: 				Gen: 
+;LABEL label5		Kill: 				Gen: 
+;STOREF newapprox $T21	Kill: $T21, 			Gen: newapprox, 
+;STOREF $T21 approx	Kill: approx, 			Gen: $T21, 
+;JUMP label1		Kill: 				Gen: 
+;LABEL label3		Kill: 				Gen: 
+;WRITEF approx		Kill: 				Gen: approx, 
+;WRITES space		Kill: 				Gen: 
+;WRITEI count		Kill: 				Gen: count, 
+;WRITES eol		Kill: 				Gen: 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+; ========= CFG IR NODE / LIVE IN / LIVE OUT =========
+
+;LABEL main		Live IN: newapprox, , 		Live OUT: , newapprox, 
+;LINK 1			Live IN: newapprox, , 		Live OUT: , newapprox, 
+;STOREF 0.0001 $T1	Live IN: newapprox, , 		Live OUT: , $T1, newapprox, 
+;STOREF $T1 tolerance	Live IN: newapprox, , $T1, 	Live OUT: , newapprox, tolerance, 
+;READF num		Live IN: tolerance, newapprox, , 	Live OUT: , num, newapprox, tolerance, 
+;STOREF num $T2		Live IN: tolerance, newapprox, , num, 	Live OUT: , $T2, num, newapprox, tolerance, 
+;STOREF $T2 approx	Live IN: $T2, tolerance, newapprox, , num, 	Live OUT: , num, approx, newapprox, tolerance, 
+;STOREI 0 $T3		Live IN: tolerance, newapprox, , approx, num, 	Live OUT: , $T3, num, approx, newapprox, tolerance, 
+;STOREI $T3 count	Live IN: tolerance, newapprox, , $T3, approx, num, 	Live OUT: , num, approx, count, newapprox, tolerance, 
+;STOREF 0.0 $T4		Live IN: , approx, num, count, tolerance, newapprox, 	Live OUT: , num, approx, count, $T4, newapprox, tolerance, 
+;STOREF $T4 diff	Live IN: , approx, num, count, $T4, tolerance, newapprox, 	Live OUT: , num, approx, count, diff, newapprox, tolerance, 
+;STOREI 0 $T5		Live IN: , approx, num, count, diff, tolerance, newapprox, 	Live OUT: , num, approx, count, diff, $T5, newapprox, tolerance, 
+;STOREI $T5 enough	Live IN: , approx, num, count, diff, $T5, tolerance, newapprox, 	Live OUT: , num, approx, count, diff, newapprox, tolerance, enough, 
+;LABEL label1		Live IN: , approx, num, count, diff, tolerance, newapprox, enough, 	Live OUT: , num, approx, count, diff, newapprox, tolerance, enough, 
+;STOREI 1 $T6		Live IN: , approx, num, count, diff, tolerance, newapprox, enough, 	Live OUT: , num, approx, count, $T6, diff, newapprox, tolerance, enough, 
+;EQI enough $T6 label3	Live IN: , approx, num, $T6, count, diff, tolerance, newapprox, enough, 	Live OUT: , num, approx, count, diff, newapprox, tolerance, enough, 
+;STOREI 1 $T7		Live IN: , approx, num, count, tolerance, enough, 	Live OUT: , num, approx, count, $T7, tolerance, enough, 
+;ADDI count $T7 $T8	Live IN: tolerance, , approx, num, count, enough, $T7, 	Live OUT: , num, approx, tolerance, $T8, enough, 
+;STOREI $T8 count	Live IN: tolerance, , $T8, num, approx, enough, 	Live OUT: , approx, num, count, tolerance, enough, 
+;STOREF 0.5 $T9		Live IN: , num, approx, count, tolerance, enough, 	Live OUT: , approx, num, count, tolerance, $T9, enough, 
+;DIVF num approx $T10	Live IN: , approx, num, count, tolerance, $T9, enough, 	Live OUT: , num, approx, count, $T10, tolerance, $T9, enough, 
+;ADDF approx $T10 $T11	Live IN: , approx, num, count, $T10, tolerance, $T9, enough, 	Live OUT: , num, approx, count, tolerance, $T11, $T9, enough, 
+;MULTF $T9 $T11 $T12	Live IN: , approx, num, count, tolerance, $T9, $T11, enough, 	Live OUT: , num, approx, count, tolerance, $T12, enough, 
+;STOREF $T12 newapprox	Live IN: , approx, num, count, tolerance, $T12, enough, 	Live OUT: , num, approx, count, tolerance, newapprox, enough, 
+;SUBF approx newapprox $T13	Live IN: , approx, num, count, tolerance, newapprox, enough, 	Live OUT: , num, count, newapprox, tolerance, $T13, enough, 
+;STOREF $T13 diff	Live IN: , num, count, tolerance, newapprox, $T13, enough, 	Live OUT: , num, count, diff, newapprox, tolerance, enough, 
+;STOREF 0.0 $T14	Live IN: , num, count, diff, tolerance, newapprox, enough, 	Live OUT: , num, count, diff, newapprox, tolerance, $T14, enough, 
+;LEF diff $T14 label4	Live IN: , num, count, diff, $T14, tolerance, newapprox, enough, 	Live OUT: , num, count, diff, newapprox, tolerance, enough, 
+;STOREF tolerance $T15	Live IN: , num, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, $T15, 
+;GEF diff $T15 label6	Live IN: , num, count, diff, newapprox, tolerance, enough, $T15, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;STOREI 1 $T16		Live IN: , num, count, diff, newapprox, tolerance, 	Live OUT: , num, count, diff, tolerance, newapprox, $T16, 
+;STOREI $T16 enough	Live IN: , num, count, diff, newapprox, tolerance, $T16, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;JUMP label7		Live IN: , num, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;LABEL label6		Live IN: , num, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;LABEL label7		Live IN: , num, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;JUMP label5		Live IN: , num, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;LABEL label4		Live IN: , num, count, diff, tolerance, newapprox, enough, 	Live OUT: , num, count, diff, newapprox, tolerance, enough, 
+;STOREF 0.0 $T17	Live IN: , num, count, diff, tolerance, newapprox, enough, 	Live OUT: , num, count, diff, newapprox, tolerance, enough, $T17, 
+;SUBF $T17 tolerance $T18	Live IN: , num, count, diff, newapprox, tolerance, enough, $T17, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;STOREF  $T19		Live IN: , num, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, $T19, count, diff, tolerance, newapprox, enough, 
+;LEF diff $T19 label8	Live IN: , num, $T19, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;STOREI 1 $T20		Live IN: , num, count, diff, newapprox, tolerance, 	Live OUT: , num, count, diff, $T20, tolerance, newapprox, 
+;STOREI $T20 enough	Live IN: , num, count, diff, $T20, newapprox, tolerance, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;JUMP label9		Live IN: , num, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;LABEL label8		Live IN: , num, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;LABEL label9		Live IN: , num, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;LABEL label5		Live IN: , num, count, diff, newapprox, tolerance, enough, 	Live OUT: , num, count, diff, tolerance, newapprox, enough, 
+;STOREF newapprox $T21	Live IN: , num, count, diff, tolerance, newapprox, enough, 	Live OUT: , num, count, diff, $T21, newapprox, tolerance, enough, 
+;STOREF $T21 approx	Live IN: , num, count, diff, $T21, tolerance, newapprox, enough, 	Live OUT: , num, approx, count, diff, newapprox, tolerance, enough, 
+;JUMP label1		Live IN: , approx, num, count, diff, tolerance, newapprox, enough, 	Live OUT: , num, approx, count, diff, newapprox, tolerance, enough, 
+;LABEL label3		Live IN: approx, num, count, diff, tolerance, newapprox, enough, 	Live OUT: num, approx, count, diff, newapprox, tolerance, enough, 
+;WRITEF approx		Live IN: num, approx, count, diff, tolerance, newapprox, enough, 	Live OUT: approx, num, count, diff, newapprox, tolerance, enough, 
+;WRITES space		Live IN: num, approx, count, diff, tolerance, newapprox, enough, 	Live OUT: approx, num, count, diff, newapprox, tolerance, enough, 
+;WRITEI count		Live IN: num, approx, count, diff, tolerance, newapprox, enough, 	Live OUT: approx, num, count, diff, newapprox, tolerance, enough, 
+;WRITES eol		Live IN: num, approx, count, diff, tolerance, newapprox, enough, 	Live OUT: approx, num, count, diff, newapprox, tolerance, enough, 
+;UNLINK			Live IN: num, approx, count, diff, tolerance, newapprox, enough, 	Live OUT: approx, num, count, diff, newapprox, tolerance, enough, 
+;RET			Live IN: num, approx, count, diff, tolerance, newapprox, enough, 	Live OUT: approx, num, count, diff, newapprox, tolerance, enough, 
+;var count 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var enough 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var newapprox 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var approx 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var num 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var tolerance 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var diff 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str eol "\n" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str space " " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;jsr main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;sys halt 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL main liveout: ; {  newapprox  }
+;label main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 1 liveout: ; {  newapprox  }
+;link 22 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREF 0.0001 $T1 liveout: ; {  $T1 newapprox  }
+; ensure(): $T1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;move 0.0001 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;STOREF $T1 tolerance liveout: ; {  newapprox tolerance  }
+; ensure(): $T1 has register r3
+; ensure(): tolerance gets register r2 { r0-><null> || r1-><null> || r2->tolerance || r3->$T1* }
+; loading tolerance to register r2
+;move tolerance r2 	; { r0-><null> || r1-><null> || r2->tolerance || r3->$T1* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->tolerance || r3->$T1* }
+; freeing unused variable r3
+; spilling varialbe $T1
+;move r3 $-1 	; { r0-><null> || r1-><null> || r2->tolerance* || r3->$T1* }
+;READF num liveout: ; {  num newapprox tolerance  }
+; ensure(): num gets register r3 { r0-><null> || r1-><null> || r2->tolerance* || r3->num }
+; loading num to register r3
+;move num r3 	; { r0-><null> || r1-><null> || r2->tolerance* || r3->num }
+;sys readr r3 	; { r0-><null> || r1-><null> || r2->tolerance* || r3->num }
+;STOREF num $T2 liveout: ; {  $T2 num newapprox tolerance  }
+; ensure(): num has register r3
+; ensure(): $T2 gets register r1 { r0-><null> || r1->$T2 || r2->tolerance* || r3->num* }
+; loading $-2 to register r1
+;move $-2 r1 	; { r0-><null> || r1->$T2 || r2->tolerance* || r3->num* }
+;move r3 r1 	; { r0-><null> || r1->$T2 || r2->tolerance* || r3->num* }
+;STOREF $T2 approx liveout: ; {  num approx newapprox tolerance  }
+; ensure(): $T2 has register r1
+; ensure(): approx gets register r0 { r0->approx || r1->$T2* || r2->tolerance* || r3->num* }
+; loading approx to register r0
+;move approx r0 	; { r0->approx || r1->$T2* || r2->tolerance* || r3->num* }
+;move r1 r0 	; { r0->approx || r1->$T2* || r2->tolerance* || r3->num* }
+; freeing unused variable r1
+; spilling varialbe $T2
+;move r1 $-2 	; { r0->approx* || r1->$T2* || r2->tolerance* || r3->num* }
+;STOREI 0 $T3 liveout: ; {  $T3 num approx newapprox tolerance  }
+; ensure(): $T3 gets register r1 { r0->approx* || r1->$T3 || r2->tolerance* || r3->num* }
+; loading $-3 to register r1
+;move $-3 r1 	; { r0->approx* || r1->$T3 || r2->tolerance* || r3->num* }
+;move 0 r1 	; { r0->approx* || r1->$T3 || r2->tolerance* || r3->num* }
+;STOREI $T3 count liveout: ; {  num approx count newapprox tolerance  }
+; ensure(): $T3 has register r1
+; freeing unused variable r0
+; spilling varialbe approx
+;move r0 approx 	; { r0->approx* || r1->$T3* || r2->tolerance* || r3->num* }
+; allocate() has to spill count
+; ensure(): count gets register r0 { r0->count || r1->$T3* || r2->tolerance* || r3->num* }
+; loading count to register r0
+;move count r0 	; { r0->count || r1->$T3* || r2->tolerance* || r3->num* }
+;move r1 r0 	; { r0->count || r1->$T3* || r2->tolerance* || r3->num* }
+; freeing unused variable r1
+; spilling varialbe $T3
+;move r1 $-3 	; { r0->count* || r1->$T3* || r2->tolerance* || r3->num* }
+;STOREF 0.0 $T4 liveout: ; {  num approx count $T4 newapprox tolerance  }
+; ensure(): $T4 gets register r1 { r0->count* || r1->$T4 || r2->tolerance* || r3->num* }
+; loading $-4 to register r1
+;move $-4 r1 	; { r0->count* || r1->$T4 || r2->tolerance* || r3->num* }
+;move 0.0 r1 	; { r0->count* || r1->$T4 || r2->tolerance* || r3->num* }
+;STOREF $T4 diff liveout: ; {  num approx count diff newapprox tolerance  }
+; ensure(): $T4 has register r1
+; freeing unused variable r0
+; spilling varialbe count
+;move r0 count 	; { r0->count* || r1->$T4* || r2->tolerance* || r3->num* }
+; allocate() has to spill diff
+; ensure(): diff gets register r0 { r0->diff || r1->$T4* || r2->tolerance* || r3->num* }
+; loading diff to register r0
+;move diff r0 	; { r0->diff || r1->$T4* || r2->tolerance* || r3->num* }
+;move r1 r0 	; { r0->diff || r1->$T4* || r2->tolerance* || r3->num* }
+; freeing unused variable r1
+; spilling varialbe $T4
+;move r1 $-4 	; { r0->diff* || r1->$T4* || r2->tolerance* || r3->num* }
+;STOREI 0 $T5 liveout: ; {  num approx count diff $T5 newapprox tolerance  }
+; ensure(): $T5 gets register r1 { r0->diff* || r1->$T5 || r2->tolerance* || r3->num* }
+; loading $-5 to register r1
+;move $-5 r1 	; { r0->diff* || r1->$T5 || r2->tolerance* || r3->num* }
+;move 0 r1 	; { r0->diff* || r1->$T5 || r2->tolerance* || r3->num* }
+;STOREI $T5 enough liveout: ; {  num approx count diff newapprox tolerance enough  }
+; ensure(): $T5 has register r1
+; freeing unused variable r0
+; spilling varialbe diff
+;move r0 diff 	; { r0->diff* || r1->$T5* || r2->tolerance* || r3->num* }
+; allocate() has to spill enough
+; ensure(): enough gets register r0 { r0->enough || r1->$T5* || r2->tolerance* || r3->num* }
+; loading enough to register r0
+;move enough r0 	; { r0->enough || r1->$T5* || r2->tolerance* || r3->num* }
+;move r1 r0 	; { r0->enough || r1->$T5* || r2->tolerance* || r3->num* }
+; freeing unused variable r1
+; spilling varialbe $T5
+;move r1 $-5 	; { r0->enough* || r1->$T5* || r2->tolerance* || r3->num* }
+;LABEL label1 liveout: ; {  num approx count diff newapprox tolerance enough  }
+; spilling registers at the end of Basic Block
+; spilling varialbe num
+;move r3 num 	; { r0->enough* || r1-><null> || r2->tolerance* || r3->num* }
+; spilling varialbe tolerance
+;move r2 tolerance 	; { r0->enough* || r1-><null> || r2->tolerance* || r3-><null> }
+; spilling varialbe enough
+;move r0 enough 	; { r0->enough* || r1-><null> || r2-><null> || r3-><null> }
+;label label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 1 $T6 liveout: ; {  num approx count $T6 diff newapprox tolerance enough  }
+; ensure(): $T6 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T6 }
+; loading $-6 to register r3
+;move $-6 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T6 }
+;move 1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T6 }
+;EQI enough $T6 label3 liveout: ; {  num approx count diff newapprox tolerance enough  }
+; ensure(): enough gets register r2 { r0-><null> || r1-><null> || r2->enough || r3->$T6* }
+; loading enough to register r2
+;move enough r2 	; { r0-><null> || r1-><null> || r2->enough || r3->$T6* }
+; ensure(): $T6 has register r3
+;cmpi r2 r3 	; { r0-><null> || r1-><null> || r2->enough || r3->$T6* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T6
+;move r3 $-6 	; { r0-><null> || r1-><null> || r2->enough || r3->$T6* }
+; spilling varialbe enough
+;move r2 enough 	; { r0-><null> || r1-><null> || r2->enough || r3-><null> }
+;jeq label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 1 $T7 liveout: ; {  num approx count $T7 tolerance enough  }
+; ensure(): $T7 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T7 }
+; loading $-7 to register r3
+;move $-7 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T7 }
+;move 1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T7 }
+;ADDI count $T7 $T8 liveout: ; {  num approx tolerance $T8 enough  }
+; ensure(): count gets register r2 { r0-><null> || r1-><null> || r2->count || r3->$T7* }
+; loading count to register r2
+;move count r2 	; { r0-><null> || r1-><null> || r2->count || r3->$T7* }
+; ensure(): $T7 has register r3
+; switching owner of register count to $T8 { r0-><null> || r1-><null> || r2->count || r3->$T7* }
+;addi r3 r2 	; { r0-><null> || r1-><null> || r2->$T8 || r3->$T7* }
+; freeing unused variable r3
+; spilling varialbe $T7
+;move r3 $-7 	; { r0-><null> || r1-><null> || r2->$T8* || r3->$T7* }
+;STOREI $T8 count liveout: ; {  approx num count tolerance enough  }
+; ensure(): $T8 has register r2
+; ensure(): count gets register r3 { r0-><null> || r1-><null> || r2->$T8* || r3->count }
+; loading count to register r3
+;move count r3 	; { r0-><null> || r1-><null> || r2->$T8* || r3->count }
+;move r2 r3 	; { r0-><null> || r1-><null> || r2->$T8* || r3->count }
+; freeing unused variable r2
+; spilling varialbe $T8
+;move r2 $-8 	; { r0-><null> || r1-><null> || r2->$T8* || r3->count* }
+;STOREF 0.5 $T9 liveout: ; {  approx num count tolerance $T9 enough  }
+; ensure(): $T9 gets register r2 { r0-><null> || r1-><null> || r2->$T9 || r3->count* }
+; loading $-9 to register r2
+;move $-9 r2 	; { r0-><null> || r1-><null> || r2->$T9 || r3->count* }
+;move 0.5 r2 	; { r0-><null> || r1-><null> || r2->$T9 || r3->count* }
+;DIVF num approx $T10 liveout: ; {  num approx count $T10 tolerance $T9 enough  }
+; ensure(): num gets register r1 { r0-><null> || r1->num || r2->$T9* || r3->count* }
+; loading num to register r1
+;move num r1 	; { r0-><null> || r1->num || r2->$T9* || r3->count* }
+; ensure(): approx gets register r0 { r0->approx || r1->num || r2->$T9* || r3->count* }
+; loading approx to register r0
+;move approx r0 	; { r0->approx || r1->num || r2->$T9* || r3->count* }
+; switching owner of register num to $T10 { r0->approx || r1->num || r2->$T9* || r3->count* }
+;divr r0 r1 	; { r0->approx || r1->$T10 || r2->$T9* || r3->count* }
+;ADDF approx $T10 $T11 liveout: ; {  num approx count tolerance $T11 $T9 enough  }
+; ensure(): approx has register r0
+; ensure(): $T10 has register r1
+; switching owner of register approx to $T11 { r0->approx || r1->$T10* || r2->$T9* || r3->count* }
+;addr r1 r0 	; { r0->$T11 || r1->$T10* || r2->$T9* || r3->count* }
+; freeing unused variable r1
+; spilling varialbe $T10
+;move r1 $-10 	; { r0->$T11* || r1->$T10* || r2->$T9* || r3->count* }
+;MULTF $T9 $T11 $T12 liveout: ; {  num approx count tolerance $T12 enough  }
+; ensure(): $T9 has register r2
+; ensure(): $T11 has register r0
+; switching owner of register $T9 to $T12 { r0->$T11* || r1-><null> || r2->$T9* || r3->count* }
+; spilling varialbe $T9
+;move r2 $-9 	; { r0->$T11* || r1-><null> || r2->$T9* || r3->count* }
+;mulr r0 r2 	; { r0->$T11* || r1-><null> || r2->$T12 || r3->count* }
+; freeing unused variable r0
+; spilling varialbe $T11
+;move r0 $-11 	; { r0->$T11* || r1-><null> || r2->$T12* || r3->count* }
+;STOREF $T12 newapprox liveout: ; {  num approx count tolerance newapprox enough  }
+; ensure(): $T12 has register r2
+; ensure(): newapprox gets register r1 { r0-><null> || r1->newapprox || r2->$T12* || r3->count* }
+; loading newapprox to register r1
+;move newapprox r1 	; { r0-><null> || r1->newapprox || r2->$T12* || r3->count* }
+;move r2 r1 	; { r0-><null> || r1->newapprox || r2->$T12* || r3->count* }
+; freeing unused variable r2
+; spilling varialbe $T12
+;move r2 $-12 	; { r0-><null> || r1->newapprox* || r2->$T12* || r3->count* }
+;SUBF approx newapprox $T13 liveout: ; {  num count newapprox tolerance $T13 enough  }
+; ensure(): approx gets register r2 { r0-><null> || r1->newapprox* || r2->approx || r3->count* }
+; loading approx to register r2
+;move approx r2 	; { r0-><null> || r1->newapprox* || r2->approx || r3->count* }
+; ensure(): newapprox has register r1
+; switching owner of register approx to $T13 { r0-><null> || r1->newapprox* || r2->approx || r3->count* }
+;subr r1 r2 	; { r0-><null> || r1->newapprox* || r2->$T13 || r3->count* }
+;STOREF $T13 diff liveout: ; {  num count diff newapprox tolerance enough  }
+; ensure(): $T13 has register r2
+; ensure(): diff gets register r0 { r0->diff || r1->newapprox* || r2->$T13* || r3->count* }
+; loading diff to register r0
+;move diff r0 	; { r0->diff || r1->newapprox* || r2->$T13* || r3->count* }
+;move r2 r0 	; { r0->diff || r1->newapprox* || r2->$T13* || r3->count* }
+; freeing unused variable r2
+; spilling varialbe $T13
+;move r2 $-13 	; { r0->diff* || r1->newapprox* || r2->$T13* || r3->count* }
+;STOREF 0.0 $T14 liveout: ; {  num count diff newapprox tolerance $T14 enough  }
+; ensure(): $T14 gets register r2 { r0->diff* || r1->newapprox* || r2->$T14 || r3->count* }
+; loading $-14 to register r2
+;move $-14 r2 	; { r0->diff* || r1->newapprox* || r2->$T14 || r3->count* }
+;move 0.0 r2 	; { r0->diff* || r1->newapprox* || r2->$T14 || r3->count* }
+;LEF diff $T14 label4 liveout: ; {  num count diff newapprox tolerance enough  }
+; ensure(): diff has register r0
+; ensure(): $T14 has register r2
+;cmpr r0 r2 	; { r0->diff* || r1->newapprox* || r2->$T14* || r3->count* }
+; spilling registers at the end of Basic Block
+; spilling varialbe count
+;move r3 count 	; { r0->diff* || r1->newapprox* || r2->$T14* || r3->count* }
+; spilling varialbe $T14
+;move r2 $-14 	; { r0->diff* || r1->newapprox* || r2->$T14* || r3-><null> }
+; spilling varialbe newapprox
+;move r1 newapprox 	; { r0->diff* || r1->newapprox* || r2-><null> || r3-><null> }
+; spilling varialbe diff
+;move r0 diff 	; { r0->diff* || r1-><null> || r2-><null> || r3-><null> }
+;jle label4 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREF tolerance $T15 liveout: ; {  num count diff tolerance newapprox enough $T15  }
+; ensure(): tolerance gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->tolerance }
+; loading tolerance to register r3
+;move tolerance r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->tolerance }
+; ensure(): $T15 gets register r2 { r0-><null> || r1-><null> || r2->$T15 || r3->tolerance }
+; loading $-15 to register r2
+;move $-15 r2 	; { r0-><null> || r1-><null> || r2->$T15 || r3->tolerance }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$T15 || r3->tolerance }
+;GEF diff $T15 label6 liveout: ; {  num count diff tolerance newapprox enough  }
+; ensure(): diff gets register r1 { r0-><null> || r1->diff || r2->$T15* || r3->tolerance }
+; loading diff to register r1
+;move diff r1 	; { r0-><null> || r1->diff || r2->$T15* || r3->tolerance }
+; ensure(): $T15 has register r2
+;cmpr r1 r2 	; { r0-><null> || r1->diff || r2->$T15* || r3->tolerance }
+; spilling registers at the end of Basic Block
+; spilling varialbe tolerance
+;move r3 tolerance 	; { r0-><null> || r1->diff || r2->$T15* || r3->tolerance }
+; spilling varialbe $T15
+;move r2 $-15 	; { r0-><null> || r1->diff || r2->$T15* || r3-><null> }
+; spilling varialbe diff
+;move r1 diff 	; { r0-><null> || r1->diff || r2-><null> || r3-><null> }
+;jge label6 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 1 $T16 liveout: ; {  num count diff tolerance newapprox $T16  }
+; ensure(): $T16 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T16 }
+; loading $-16 to register r3
+;move $-16 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T16 }
+;move 1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T16 }
+;STOREI $T16 enough liveout: ; {  num count diff tolerance newapprox enough  }
+; ensure(): $T16 has register r3
+; ensure(): enough gets register r2 { r0-><null> || r1-><null> || r2->enough || r3->$T16* }
+; loading enough to register r2
+;move enough r2 	; { r0-><null> || r1-><null> || r2->enough || r3->$T16* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->enough || r3->$T16* }
+; freeing unused variable r3
+; spilling varialbe $T16
+;move r3 $-16 	; { r0-><null> || r1-><null> || r2->enough* || r3->$T16* }
+;JUMP label7 liveout: ; {  num count diff tolerance newapprox enough  }
+; spilling registers at the end of Basic Block
+; spilling varialbe enough
+;move r2 enough 	; { r0-><null> || r1-><null> || r2->enough* || r3-><null> }
+;jmp label7 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label6 liveout: ; {  num count diff tolerance newapprox enough  }
+; spilling registers at the end of Basic Block
+;label label6 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label7 liveout: ; {  num count diff tolerance newapprox enough  }
+; spilling registers at the end of Basic Block
+;label label7 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;JUMP label5 liveout: ; {  num count diff tolerance newapprox enough  }
+; spilling registers at the end of Basic Block
+;jmp label5 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label4 liveout: ; {  num count diff newapprox tolerance enough  }
+; spilling registers at the end of Basic Block
+;label label4 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREF 0.0 $T17 liveout: ; {  num count diff newapprox tolerance enough $T17  }
+; ensure(): $T17 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T17 }
+; loading $-17 to register r3
+;move $-17 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T17 }
+;move 0.0 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T17 }
+;SUBF $T17 tolerance $T18 liveout: ; {  num count diff tolerance newapprox enough  }
+; ensure(): $T17 has register r3
+; ensure(): tolerance gets register r2 { r0-><null> || r1-><null> || r2->tolerance || r3->$T17* }
+; loading tolerance to register r2
+;move tolerance r2 	; { r0-><null> || r1-><null> || r2->tolerance || r3->$T17* }
+; switching owner of register $T17 to $T18 { r0-><null> || r1-><null> || r2->tolerance || r3->$T17* }
+; spilling varialbe $T17
+;move r3 $-17 	; { r0-><null> || r1-><null> || r2->tolerance || r3->$T17* }
+;subr r2 r3 	; { r0-><null> || r1-><null> || r2->tolerance || r3->$T18 }
+; freeing unused variable r3
+; spilling varialbe $T18
+;move r3 $-18 	; { r0-><null> || r1-><null> || r2->tolerance || r3->$T18* }
+;STOREF  $T19 liveout: ; {  num $T19 count diff tolerance newapprox enough  }
+; ensure():  has register r3
+; ensure(): $T19 gets register r3 { r0-><null> || r1-><null> || r2->tolerance || r3->$T19 }
+; loading $-19 to register r3
+;move $-19 r3 	; { r0-><null> || r1-><null> || r2->tolerance || r3->$T19 }
+;move r3 r3 	; { r0-><null> || r1-><null> || r2->tolerance || r3->$T19 }
+;LEF diff $T19 label8 liveout: ; {  num count diff tolerance newapprox enough  }
+; ensure(): diff gets register r1 { r0-><null> || r1->diff || r2->tolerance || r3->$T19* }
+; loading diff to register r1
+;move diff r1 	; { r0-><null> || r1->diff || r2->tolerance || r3->$T19* }
+; ensure(): $T19 has register r3
+;cmpr r1 r3 	; { r0-><null> || r1->diff || r2->tolerance || r3->$T19* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T19
+;move r3 $-19 	; { r0-><null> || r1->diff || r2->tolerance || r3->$T19* }
+; spilling varialbe tolerance
+;move r2 tolerance 	; { r0-><null> || r1->diff || r2->tolerance || r3-><null> }
+; spilling varialbe diff
+;move r1 diff 	; { r0-><null> || r1->diff || r2-><null> || r3-><null> }
+;jle label8 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 1 $T20 liveout: ; {  num count diff $T20 tolerance newapprox  }
+; ensure(): $T20 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T20 }
+; loading $-20 to register r3
+;move $-20 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T20 }
+;move 1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T20 }
+;STOREI $T20 enough liveout: ; {  num count diff tolerance newapprox enough  }
+; ensure(): $T20 has register r3
+; ensure(): enough gets register r2 { r0-><null> || r1-><null> || r2->enough || r3->$T20* }
+; loading enough to register r2
+;move enough r2 	; { r0-><null> || r1-><null> || r2->enough || r3->$T20* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->enough || r3->$T20* }
+; freeing unused variable r3
+; spilling varialbe $T20
+;move r3 $-20 	; { r0-><null> || r1-><null> || r2->enough* || r3->$T20* }
+;JUMP label9 liveout: ; {  num count diff tolerance newapprox enough  }
+; spilling registers at the end of Basic Block
+; spilling varialbe enough
+;move r2 enough 	; { r0-><null> || r1-><null> || r2->enough* || r3-><null> }
+;jmp label9 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label8 liveout: ; {  num count diff tolerance newapprox enough  }
+; spilling registers at the end of Basic Block
+;label label8 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label9 liveout: ; {  num count diff tolerance newapprox enough  }
+; spilling registers at the end of Basic Block
+;label label9 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label5 liveout: ; {  num count diff tolerance newapprox enough  }
+; spilling registers at the end of Basic Block
+;label label5 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREF newapprox $T21 liveout: ; {  num count diff $T21 newapprox tolerance enough  }
+; ensure(): newapprox gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->newapprox }
+; loading newapprox to register r3
+;move newapprox r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->newapprox }
+; ensure(): $T21 gets register r2 { r0-><null> || r1-><null> || r2->$T21 || r3->newapprox }
+; loading $-21 to register r2
+;move $-21 r2 	; { r0-><null> || r1-><null> || r2->$T21 || r3->newapprox }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$T21 || r3->newapprox }
+;STOREF $T21 approx liveout: ; {  num approx count diff newapprox tolerance enough  }
+; ensure(): $T21 has register r2
+; ensure(): approx gets register r1 { r0-><null> || r1->approx || r2->$T21* || r3->newapprox }
+; loading approx to register r1
+;move approx r1 	; { r0-><null> || r1->approx || r2->$T21* || r3->newapprox }
+;move r2 r1 	; { r0-><null> || r1->approx || r2->$T21* || r3->newapprox }
+; freeing unused variable r2
+; spilling varialbe $T21
+;move r2 $-21 	; { r0-><null> || r1->approx* || r2->$T21* || r3->newapprox }
+;JUMP label1 liveout: ; {  num approx count diff newapprox tolerance enough  }
+; spilling registers at the end of Basic Block
+; spilling varialbe newapprox
+;move r3 newapprox 	; { r0-><null> || r1->approx* || r2-><null> || r3->newapprox }
+; spilling varialbe approx
+;move r1 approx 	; { r0-><null> || r1->approx* || r2-><null> || r3-><null> }
+;jmp label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label3 liveout: ; { num approx count diff newapprox tolerance enough  }
+; spilling registers at the end of Basic Block
+;label label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITEF approx liveout: ; { approx num count diff newapprox tolerance enough  }
+; ensure(): approx gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->approx }
+; loading approx to register r3
+;move approx r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->approx }
+;sys writer r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->approx }
+;WRITES space liveout: ; { approx num count diff newapprox tolerance enough  }
+;sys writes space 	; { r0-><null> || r1-><null> || r2-><null> || r3->approx }
+;WRITEI count liveout: ; { approx num count diff newapprox tolerance enough  }
+; ensure(): count gets register r2 { r0-><null> || r1-><null> || r2->count || r3->approx }
+; loading count to register r2
+;move count r2 	; { r0-><null> || r1-><null> || r2->count || r3->approx }
+;sys writei r2 	; { r0-><null> || r1-><null> || r2->count || r3->approx }
+;WRITES eol liveout: ; { approx num count diff newapprox tolerance enough  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2->count || r3->approx }
+;UNLINK liveout: ; { approx num count diff newapprox tolerance enough  }
+;unlnk 	; { r0-><null> || r1-><null> || r2->count || r3->approx }
+;RET liveout: ; { approx num count diff newapprox tolerance enough  }
+; writing back global variables prior a function call
+; spilling varialbe approx
+;move r3 approx 	; { r0-><null> || r1-><null> || r2->count || r3->approx }
+; spilling varialbe count
+;move r2 count 	; { r0-><null> || r1-><null> || r2->count || r3-><null> }
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+
+var count
+var enough
+var newapprox
+var approx
+var num
+var tolerance
+var diff
+str eol "\n"
+str space " "
+push
+push
+push
+push
+push
+jsr main
+sys halt
+label main
+link 22
+move $-1 r3
+move 0.0001 r3
+move tolerance r2
+move r3 r2
+move r3 $-1
+move num r3
+sys readr r3
+move $-2 r1
+move r3 r1
+move approx r0
+move r1 r0
+move r1 $-2
+move $-3 r1
+move 0 r1
+move r0 approx
+move count r0
+move r1 r0
+move r1 $-3
+move $-4 r1
+move 0.0 r1
+move r0 count
+move diff r0
+move r1 r0
+move r1 $-4
+move $-5 r1
+move 0 r1
+move r0 diff
+move enough r0
+move r1 r0
+move r1 $-5
+move r3 num
+move r2 tolerance
+move r0 enough
+label label1
+move $-6 r3
+move 1 r3
+move enough r2
+cmpi r2 r3
+move r3 $-6
+move r2 enough
+jeq label3
+move $-7 r3
+move 1 r3
+move count r2
+addi r3 r2
+move r3 $-7
+move count r3
+move r2 r3
+move r2 $-8
+move $-9 r2
+move 0.5 r2
+move num r1
+move approx r0
+divr r0 r1
+addr r1 r0
+move r1 $-10
+move r2 $-9
+mulr r0 r2
+move r0 $-11
+move newapprox r1
+move r2 r1
+move r2 $-12
+move approx r2
+subr r1 r2
+move diff r0
+move r2 r0
+move r2 $-13
+move $-14 r2
+move 0.0 r2
+cmpr r0 r2
+move r3 count
+move r2 $-14
+move r1 newapprox
+move r0 diff
+jle label4
+move tolerance r3
+move $-15 r2
+move r3 r2
+move diff r1
+cmpr r1 r2
+move r3 tolerance
+move r2 $-15
+move r1 diff
+jge label6
+move $-16 r3
+move 1 r3
+move enough r2
+move r3 r2
+move r3 $-16
+move r2 enough
+jmp label7
+label label6
+label label7
+jmp label5
+label label4
+move $-17 r3
+move 0.0 r3
+move tolerance r2
+move r3 $-17
+subr r2 r3
+move r3 $-18
+move $-19 r3
+move r3 r3
+move diff r1
+cmpr r1 r3
+move r3 $-19
+move r2 tolerance
+move r1 diff
+jle label8
+move $-20 r3
+move 1 r3
+move enough r2
+move r3 r2
+move r3 $-20
+move r2 enough
+jmp label9
+label label8
+label label9
+label label5
+move newapprox r3
+move $-21 r2
+move r3 r2
+move approx r1
+move r2 r1
+move r2 $-21
+move r3 newapprox
+move r1 approx
+jmp label1
+label label3
+move approx r3
+sys writer r3
+sys writes space
+move count r2
+sys writei r2
+sys writes eol
+unlnk
+move r3 approx
+move r2 count
+ret

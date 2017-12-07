@@ -1,0 +1,135 @@
+;IR code
+;LABEL main
+;LINK
+;STOREI 7 $T1
+;STOREI $T1 KEY
+;STOREI 0 $T2
+;STOREI $T2 $L1
+;LABEL label1
+;STOREI 1 $T3
+;EQ $L1 $T3 label3
+;PUSH 
+;JSR MAKEAGUESS
+;POP $T4
+;STOREI $T4 $L1
+;LABEL label2
+;JUMP label1
+;LABEL label3
+;STOREI 0 $T5
+;STOREI $T5 $R
+;RET
+
+;LABEL MAKEAGUESS
+;LINK
+;WRITES guessmessage
+;WRITES eol
+;READI $L1
+;LE $L1 KEY label4
+;WRITEI $L1
+;WRITES tooLarge
+;WRITES eol
+;JUMP label5
+;LABEL label4
+;LE KEY $L1 label6
+;WRITEI $L1
+;WRITES tooSmall
+;WRITES eol
+;JUMP label7
+;LABEL label6
+;WRITEI $L1
+;WRITES yougotit
+;WRITES eol
+;STOREI 1 $T1
+;STOREI $T1 $R
+;RET
+;JUMP label7
+;LABEL label7
+;JUMP label5
+;LABEL label5
+;STOREI 0 $T2
+;STOREI $T2 $R
+;RET
+
+;tiny code
+str guessmessage "Guess a number between 1 and 10 !"
+str tooSmall " is too small"
+str tooLarge " is too large"
+str yougotit " is the key "
+str space " "
+str eol "\n"
+var KEY
+str keystr "key is "
+str infloop "infloop"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 1
+move 7 r0
+move r0 KEY
+move 0 r1
+move r1 $-1
+label label1
+move 1 r2
+cmpi $-1 r2
+jeq label3
+push 
+push r0
+push r1
+push r2
+push r3
+jsr MAKEAGUESS
+pop r3
+pop r2
+pop r1
+pop r0
+pop r3
+move r3 $-1
+label label2
+jmp label1
+label label3
+move 0 r4
+move r4 $6
+unlnk
+ret
+label MAKEAGUESS
+link 1
+sys writes guessmessage
+sys writes eol
+sys readi $-1
+move KEY r5
+cmpi $-1 r5
+jle label4
+sys writei $-1
+sys writes tooLarge
+sys writes eol
+jmp label5
+label label4
+move $-1 r6
+cmpi KEY r6
+jle label6
+sys writei $-1
+sys writes tooSmall
+sys writes eol
+jmp label7
+label label6
+sys writei $-1
+sys writes yougotit
+sys writes eol
+move 1 r7
+move r7 $6
+unlnk
+ret
+jmp label7
+label label7
+jmp label5
+label label5
+move 0 r8
+move r8 $6
+unlnk
+ret
+end

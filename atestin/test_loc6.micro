@@ -1,0 +1,32 @@
+
+
+------------- DO NOT CARE ABOUT THIS FUNCTION OVERLOADING TEST CASE
+
+PROGRAM loc6
+BEGIN
+	STRING space := " ";
+	STRING eol := "\n";
+
+	FUNCTION INT SUM (INT a, INT b)
+	BEGIN
+		INT ret1;
+		ret1 := a + b;
+		RETURN ret1;
+	END
+
+--	FUNCTION INT SUM (INT a, INT b, INT c)
+--	BEGIN
+--		INT ret1;
+--		ret1 := SUM(c, SUM(a, b));
+--		RETURN ret1;
+--	END
+	
+	FUNCTION INT main ()
+	BEGIN
+		INT a, b;
+		a := SUM(2, 4);
+--		b := SUM(a, 3, 5);
+		WRITE(a, space, b, space, eol);
+	END
+
+END	

@@ -1,0 +1,247 @@
+;IR code
+;LABEL MULT
+;LINK
+;MULTI $P1 $P2 $T1
+;STOREI $T1 $L1
+;STOREI $L1 $R
+;RET
+
+;LABEL TEST
+;LINK
+;STOREI 5 $T1
+;GE $P1 $T1 label1
+;WRITEI $P1
+;WRITES space
+;WRITES m1
+;WRITES eol
+;STOREI 1 $T2
+;STOREI $T2 $R
+;RET
+;JUMP label2
+;LABEL label1
+;WRITEI $P1
+;WRITES space
+;WRITES m2
+;WRITES eol
+;STOREI 1 $T3
+;STOREI $T3 $R
+;RET
+;JUMP label2
+;LABEL label2
+;RET
+
+;LABEL INCT
+;LINK
+;STOREI 1 $T1
+;ADDI $P1 $T1 $T2
+;STOREI $T2 $R
+;RET
+
+;LABEL main
+;LINK
+;STOREI 1 $T1
+;PUSH 
+;PUSH $T1
+;JSR TEST
+;POP 
+;POP $T2
+;STOREI $T2 $L1
+;STOREI 5 $T3
+;PUSH 
+;PUSH $L1
+;JSR TEST
+;POP 
+;POP $T4
+;MULTI $T3 $T4 $T5
+;STOREI $T5 $L2
+;PUSH 
+;PUSH $L2
+;JSR TEST
+;POP 
+;POP $T6
+;STOREI 10 $T7
+;ADDI $T6 $T7 $T8
+;STOREI $T8 $L3
+;STOREI 6 $T9
+;PUSH 
+;PUSH $T9
+;JSR TEST
+;POP 
+;POP $T10
+;STOREI $T10 $L4
+;ADDI $L1 $L2 $T11
+;ADDI $T11 $L3 $T12
+;ADDI $T12 $L4 $T13
+;PUSH 
+;PUSH $T13
+;JSR TEST
+;POP 
+;POP $T14
+;STOREI $T14 $L5
+;WRITEI $L1
+;WRITES space
+;WRITEI $L2
+;WRITES space
+;WRITEI $L3
+;WRITES space
+;WRITEI $L4
+;WRITES space
+;WRITEI $L5
+;WRITES eol
+;STOREI 0 $T15
+;STOREI $T15 $R
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+str m1 "get if block"
+str m2 "get else block"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label MULT
+link 1
+move $7 r0
+muli $6 r0
+move r0 $-1
+move $-1 r1
+move r1 $8
+unlnk
+ret
+label TEST
+link 0
+move 5 r2
+cmpi $6 r2
+jge label1
+sys writei $6
+sys writes space
+sys writes m1
+sys writes eol
+move 1 r3
+move r3 $7
+unlnk
+ret
+jmp label2
+label label1
+sys writei $6
+sys writes space
+sys writes m2
+sys writes eol
+move 1 r4
+move r4 $7
+unlnk
+ret
+jmp label2
+label label2
+unlnk
+ret
+label INCT
+link 0
+move 1 r5
+move $6 r6
+addi r5 r6
+move r6 $7
+unlnk
+ret
+label main
+link 5
+move 1 r7
+push 
+push r7
+push r0
+push r1
+push r2
+push r3
+jsr TEST
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r8
+move r8 $-1
+move 5 r9
+push 
+push $-1
+push r0
+push r1
+push r2
+push r3
+jsr TEST
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r10
+muli r10 r9
+move r9 $-2
+push 
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr TEST
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r11
+move 10 r12
+addi r12 r11
+move r11 $-3
+move 6 r13
+push 
+push r13
+push r0
+push r1
+push r2
+push r3
+jsr TEST
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r14
+move r14 $-4
+move $-1 r15
+addi $-2 r15
+addi $-3 r15
+addi $-4 r15
+push 
+push r15
+push r0
+push r1
+push r2
+push r3
+jsr TEST
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r16
+move r16 $-5
+sys writei $-1
+sys writes space
+sys writei $-2
+sys writes space
+sys writei $-3
+sys writes space
+sys writei $-4
+sys writes space
+sys writei $-5
+sys writes eol
+move 0 r17
+move r17 $6
+unlnk
+ret
+end

@@ -1,0 +1,45 @@
+PROGRAM sqrt
+BEGIN
+
+    STRING dummy := "abcde";  --This is dummy to satisfy the grammar
+
+    STRING space := " ";
+    STRING eol := "\n";
+
+    FLOAT n;
+    FLOAT x1,x2;
+    FLOAT fx, dfx;
+    FLOAT error;
+    INT i;
+
+    FUNCTION VOID main()
+    BEGIN
+        error := 0.001;
+        READ (x1);
+        fx := x1*x1 - n;
+        dfx := 2.0*x1;
+        x2 := x1 - fx/dfx;
+
+	WRITE(x1, space, fx, space, dfx, space, x2, eol);
+
+        FOR ( i := 0; i < 2; i := i + 1)
+            x1 := x2;
+            fx := x1*x1 - n;
+            dfx := 2.0*x1;
+            x2 := x1 - fx/dfx;
+        ROF
+        
+	WRITE(x1, space, fx, space, dfx, space, x2, eol);
+
+        FOR ( ; (x1 - x2) > error; )
+            x1 := x2;
+            fx := x1*x1 - n;
+            dfx := 2.0*x1;
+            x2 := x1 - fx/dfx;
+        ROF
+
+	WRITE(x1, space, fx, space, dfx, space, x2, eol);
+        WRITE (x2);
+    END
+END
+

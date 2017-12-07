@@ -1,0 +1,38 @@
+PROGRAM loc4
+BEGIN
+	STRING space := " ";
+	STRING eol := "\n";
+	STRING m := "This is the end";
+
+	FUNCTION FLOAT MULT (FLOAT a, FLOAT b)
+	BEGIN
+		FLOAT ret1;
+		ret1 := a * b;
+		RETURN ret1;
+	END
+	
+	FUNCTION FLOAT SQUARE (FLOAT c)
+	BEGIN
+		RETURN MULT(c, c);
+	END
+	
+	FUNCTION VOID main ()
+	BEGIN
+		RETURN PRINTMESSAGE();
+	END
+
+	FUNCTION VOID PRINTMESSAGE()
+	BEGIN
+		FLOAT a, b;
+		a := 2;
+		b := SQUARE(SQUARE(SQUARE(SQUARE(SQUARE(2)))));
+		FOR ( ; a != b ; )
+			FLOAT c;
+			c := SQUARE(a);
+			a := c;
+			WRITE(a, eol); 
+		ROF
+		WRITE(m, eol); 
+	END
+
+END	

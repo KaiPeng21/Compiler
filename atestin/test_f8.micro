@@ -1,0 +1,32 @@
+PROGRAM testf8
+BEGIN
+	STRING space := " ";
+	STRING eol := "\n";
+
+	FUNCTION INT MULT (INT a, INT b)
+	BEGIN
+		INT ret1;
+		ret1 := a * b;
+		RETURN ret1;
+	END
+	
+	FUNCTION INT INCT (INT i)
+	BEGIN
+		RETURN i + 1;
+	END
+	
+	FUNCTION INT main ()
+	BEGIN
+		INT i, a, b, c;
+		a := 5;
+		b := INCT(MULT(a, a-3));
+		FOR ( i := 0; 5 + i < MULT(a, b) ; i := INCT(INCT(i)))
+		
+			WRITE(i, space);
+			c := MULT(a, INCT(MULT(i, b)));
+			WRITE(c, eol);
+		ROF
+		RETURN 0;
+	END
+
+END	

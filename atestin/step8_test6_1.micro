@@ -1,0 +1,27 @@
+PROGRAM shadowvar
+BEGIN
+
+    STRING space := " ";
+    STRING eol := "\n";  -- end of line
+
+    STRING strmain := " in main a is: ";
+    STRING strfor := " in for loop a is: ";
+
+    INT a;
+
+    FUNCTION VOID main()
+    BEGIN
+	INT i;
+
+	a := 100;	
+	
+	WRITE(strmain, a, eol);
+	FOR ( i := 0; i < 5; i := i + 1)
+		INT a;
+		a := i;
+		WRITE(strfor, a, eol);
+	ROF
+	WRITE(strmain, a, eol);
+    END
+END
+

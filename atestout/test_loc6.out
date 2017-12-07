@@ -1,0 +1,74 @@
+;IR code
+;LABEL SUM
+;LINK
+;ADDI $P1 $P2 $T1
+;STOREI $T1 $L1
+;STOREI $L1 $R
+;RET
+
+;LABEL main
+;LINK
+;STOREI 2 $T1
+;STOREI 4 $T2
+;PUSH 
+;PUSH $T1
+;PUSH $T2
+;JSR SUM
+;POP 
+;POP 
+;POP $T3
+;STOREI $T3 $L1
+;WRITEI $L1
+;WRITES space
+;WRITEI $L2
+;WRITES space
+;WRITES eol
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label SUM
+link 1
+move $7 r0
+addi $6 r0
+move r0 $-1
+move $-1 r1
+move r1 $8
+unlnk
+ret
+label main
+link 2
+move 2 r2
+move 4 r3
+push 
+push r2
+push r3
+push r0
+push r1
+push r2
+push r3
+jsr SUM
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r4
+move r4 $-1
+sys writei $-1
+sys writes space
+sys writei $-2
+sys writes space
+sys writes eol
+unlnk
+ret
+end

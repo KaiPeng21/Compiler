@@ -1,0 +1,214 @@
+;IR code
+;LABEL MULT
+;LINK
+;MULTI $P1 $P2 $T1
+;STOREI $T1 $L1
+;STOREI $L1 $R
+;RET
+
+;LABEL INCT
+;LINK
+;STOREI 1 $T1
+;ADDI $P1 $T1 $T2
+;STOREI $T2 $R
+;RET
+
+;LABEL main
+;LINK
+;STOREI 5 $T1
+;STOREI $T1 $L1
+;STOREI 2 $T2
+;ADDI $T2 $L1 $T3
+;STOREI $T3 $L2
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR MULT
+;POP 
+;POP 
+;POP $T4
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR MULT
+;POP 
+;POP 
+;POP $T5
+;STOREI 5 $T6
+;ADDI $T5 $T6 $T7
+;PUSH 
+;PUSH $T4
+;PUSH $T7
+;JSR MULT
+;POP 
+;POP 
+;POP $T8
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR MULT
+;POP 
+;POP 
+;POP $T9
+;PUSH 
+;PUSH $L1
+;PUSH $T9
+;JSR MULT
+;POP 
+;POP 
+;POP $T10
+;PUSH 
+;PUSH $T8
+;PUSH $T10
+;JSR MULT
+;POP 
+;POP 
+;POP $T11
+;STOREI $T11 $L3
+;WRITEI $L1
+;WRITES space
+;WRITEI $L2
+;WRITES space
+;WRITEI $L3
+;STOREI 0 $T12
+;STOREI $T12 $R
+;RET
+
+;tiny code
+str input "Please input an integer number: "
+str space " "
+str eol "\n"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label MULT
+link 1
+move $7 r0
+muli $6 r0
+move r0 $-1
+move $-1 r1
+move r1 $8
+unlnk
+ret
+label INCT
+link 0
+move 1 r2
+move $6 r3
+addi r2 r3
+move r3 $7
+unlnk
+ret
+label main
+link 3
+move 5 r4
+move r4 $-1
+move 2 r5
+addi $-1 r5
+move r5 $-2
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r6
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r7
+move 5 r8
+addi r8 r7
+push 
+push r6
+push r7
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r9
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r10
+push 
+push $-1
+push r10
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r11
+push 
+push r9
+push r11
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r12
+move r12 $-3
+sys writei $-1
+sys writes space
+sys writei $-2
+sys writes space
+sys writei $-3
+move 0 r13
+move r13 $6
+unlnk
+ret
+end

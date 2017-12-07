@@ -1,0 +1,44 @@
+PROGRAM loc1
+BEGIN
+	STRING space := " ";
+	STRING eol := "\n";
+
+	FUNCTION INT main ()
+	BEGIN
+			INT a;
+			FLOAT b;
+			a := 10;
+			b := 0.0;
+			WRITE(a, space, b, eol);
+			b := REC1(10, b);
+
+			RETURN 0;
+	END
+
+	FUNCTION INT REC1 (INT a, FLOAT b)
+	BEGIN
+		a := a + 1;
+		IF (a < 0)
+			RETURN b;
+		ELSE
+			b := b + 1.0;
+			WRITE(a, space, b, eol);
+			RETURN REC2(a, b);			
+		FI
+	END
+	
+	FUNCTION INT REC2 (INT a, FLOAT b)
+	BEGIN
+		a := a - 2;
+		IF (a < 0)
+			RETURN b;
+		ELSE
+			b := b + 0.01;
+			WRITE(a, space, b, eol);
+			RETURN REC1(a, b);			
+		FI
+	END
+	
+
+
+END	

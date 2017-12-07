@@ -1,0 +1,144 @@
+;IR code
+;LABEL main
+;LINK
+;STOREI 2 $T1
+;STOREI $T1 $L1
+;STOREI 3 $T2
+;STOREI $T2 $L2
+;STOREI 4 $T3
+;STOREI $T3 $L3
+;ADDI $L1 $L2 $T4
+;ADDI $T4 $L3 $T5
+;STOREI $T5 $L4
+;STOREI 5 $T6
+;STOREI $T6 $L5
+;STOREI 6 $T7
+;STOREI $T7 $L6
+;STOREI 7 $T8
+;STOREI $T8 $L7
+;ADDI $L5 $L6 $T9
+;SUBI $T9 $L7 $T10
+;STOREI $T10 $L8
+;ADDI $L1 $L2 $T11
+;ADDI $T11 $L3 $T12
+;ADDI $T12 $L4 $T13
+;ADDI $T13 $L5 $T14
+;ADDI $T14 $L6 $T15
+;ADDI $T15 $L7 $T16
+;ADDI $T16 $L8 $T17
+;STOREI $T17 $L9
+;ADDI $L1 $L2 $T18
+;ADDI $T18 $L3 $T19
+;ADDI $T19 $L4 $T20
+;ADDI $T20 $L5 $T21
+;ADDI $T21 $L6 $T22
+;ADDI $T22 $L7 $T23
+;ADDI $T23 $L8 $T24
+;ADDI $L1 $L2 $T25
+;ADDI $T25 $L3 $T26
+;ADDI $T26 $L4 $T27
+;MULTI $T24 $T27 $T28
+;ADDI $L9 $T28 $T29
+;STOREI $T29 $L10
+;WRITEI $L1
+;WRITES space
+;WRITEI $L2
+;WRITES space
+;WRITEI $L3
+;WRITES space
+;WRITEI $L4
+;WRITES space
+;WRITEI $L5
+;WRITES space
+;WRITEI $L6
+;WRITES space
+;WRITEI $L7
+;WRITES space
+;WRITEI $L8
+;WRITES eol
+;WRITEI $L9
+;WRITES space
+;WRITEI $L10
+;WRITES eol
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 10
+move 2 r0
+move r0 $-1
+move 3 r1
+move r1 $-2
+move 4 r2
+move r2 $-3
+move $-1 r3
+addi $-2 r3
+addi $-3 r3
+move r3 $-4
+move 5 r4
+move r4 $-5
+move 6 r5
+move r5 $-6
+move 7 r6
+move r6 $-7
+move $-5 r7
+addi $-6 r7
+subi $-7 r7
+move r7 $-8
+move $-1 r8
+addi $-2 r8
+addi $-3 r8
+addi $-4 r8
+addi $-5 r8
+addi $-6 r8
+addi $-7 r8
+addi $-8 r8
+move r8 $-9
+move $-1 r9
+addi $-2 r9
+addi $-3 r9
+addi $-4 r9
+addi $-5 r9
+addi $-6 r9
+addi $-7 r9
+addi $-8 r9
+move $-1 r10
+addi $-2 r10
+addi $-3 r10
+addi $-4 r10
+muli r10 r9
+move $-9 r11
+addi r9 r11
+move r11 $-10
+sys writei $-1
+sys writes space
+sys writei $-2
+sys writes space
+sys writei $-3
+sys writes space
+sys writei $-4
+sys writes space
+sys writei $-5
+sys writes space
+sys writei $-6
+sys writes space
+sys writei $-7
+sys writes space
+sys writei $-8
+sys writes eol
+sys writei $-9
+sys writes space
+sys writei $-10
+sys writes eol
+unlnk
+ret
+end

@@ -1,0 +1,129 @@
+;IR code
+;LABEL main
+;LINK
+;READI $L1
+;READI $L2
+;READI $L3
+;READI G1
+;READI G2
+;READI G3
+;STOREI 10 $T1
+;STOREI $T1 G1
+;ADDI $L1 G1 $T2
+;STOREI $T2 $L1
+;DIVI G1 $L2 $T3
+;STOREI $T3 $L2
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR FOO
+;POP 
+;POP 
+;POP $T4
+;STOREI $T4 $L3
+;STOREI 5 $T5
+;STOREI $T5 G1
+;WRITEI $L1
+;WRITES space
+;WRITEI $L2
+;WRITES space
+;WRITEI $L3
+;WRITES space
+;WRITEI G1
+;WRITES space
+;WRITEI G2
+;WRITES space
+;WRITEI G3
+;WRITES eol
+;RET
+
+;LABEL FOO
+;LINK
+;ADDI G1 G2 $T1
+;STOREI $T1 G1
+;SUBI G1 G2 $T2
+;STOREI $T2 G2
+;MULTI $P1 $P2 $T3
+;STOREI $T3 G3
+;SUBI $P1 $P2 $T4
+;STOREI $T4 $R
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+var G1
+var G2
+var G3
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 3
+sys readi $-1
+sys readi $-2
+sys readi $-3
+sys readi G1
+sys readi G2
+sys readi G3
+move 10 r0
+move r0 G1
+move $-1 r1
+addi G1 r1
+move r1 $-1
+move G1 r2
+divi $-2 r2
+move r2 $-2
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr FOO
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r3
+move r3 $-3
+move 5 r4
+move r4 G1
+sys writei $-1
+sys writes space
+sys writei $-2
+sys writes space
+sys writei $-3
+sys writes space
+sys writei G1
+sys writes space
+sys writei G2
+sys writes space
+sys writei G3
+sys writes eol
+unlnk
+ret
+label FOO
+link 0
+move G1 r5
+addi G2 r5
+move r5 G1
+move G1 r6
+subi G2 r6
+move r6 G2
+move $7 r7
+muli $6 r7
+move r7 G3
+move $7 r8
+subi $6 r8
+move r8 $8
+unlnk
+ret
+end

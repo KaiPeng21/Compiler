@@ -1,0 +1,26 @@
+PROGRAM loc8
+BEGIN
+	STRING space := " ";
+	STRING eol := "\n";
+
+	FUNCTION INT FOO (INT a, INT b)
+	BEGIN
+		RETURN INCT(a) + INCT(b);
+	END
+	
+	FUNCTION INT INCT (INT i)
+	BEGIN
+		RETURN i + 1;
+	END
+	
+	FUNCTION INT main ()
+	BEGIN
+		INT i, a, b, c;
+		a := 5;
+		b := 2;
+		c := FOO(a, b);
+		WRITE(a, space, b, space, c, eol);
+		RETURN 0;
+	END
+
+END	

@@ -1,0 +1,57 @@
+PROGRAM loc1
+BEGIN
+	STRING space := " ";
+	STRING eol := "\n";
+	STRING m1 := " is smaller than ";
+	STRING m2 := " is greater than or equal to ";
+
+	FUNCTION FLOAT GETF1 (FLOAT a, FLOAT b)
+	BEGIN
+		FLOAT ret1;
+		ret1 := a * b;
+		RETURN ret1;
+	END
+	
+	FUNCTION FLOAT GETF2 (FLOAT c, FLOAT b)
+	BEGIN
+		RETURN GETF1(c, GETF1(b, b));
+	END
+	
+	FUNCTION INT main ()
+	BEGIN
+		FLOAT a, b, a2, b2;
+		a := 5;
+		b := 10;
+		IF (GETF1(a, b) < GETF2(a, b))
+			FLOAT c;
+			FLOAT d;
+			c := GETF1(a, b);
+			d := GETF2(a, b);
+			WRITE(c, m1, d, eol);
+		ELSE
+			FLOAT c;
+			FLOAT d;
+			c := GETF1(a, b);
+			d := GETF2(a, b);
+			WRITE(c, m2, d, eol);
+		FI
+		a2 := 5;
+		b2 := 1;
+		IF (GETF1(a2, b2) < GETF2(a2, b2))
+			FLOAT c;
+			FLOAT d;
+			c := GETF1(a2, b2);
+			d := GETF2(a2, b2);
+			WRITE(c, m1, d, eol);
+		ELSE
+			FLOAT c;
+			FLOAT d;
+			c := GETF1(a2, b2);
+			d := GETF2(a2, b2);
+			WRITE(c, m2, d, eol);
+		FI
+
+		RETURN 0;
+	END
+
+END	

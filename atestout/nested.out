@@ -1,0 +1,107 @@
+;IR code
+;LABEL main
+;LINK
+;STOREI 0 $T1
+;STOREI $T1 i
+;STOREI 0 $T2
+;STOREI $T2 j
+;STOREI 0 $T3
+;STOREI $T3 k
+;STOREI 0 $T4
+;STOREI $T4 $L1
+;LABEL label1
+;STOREI 99 $T5
+;GT i $T5 label3
+;LABEL label4
+;STOREI 99 $T8
+;GT j $T8 label6
+;LABEL label7
+;STOREI 100 $T11
+;GE k $T11 label9
+;STOREI 1 $T14
+;ADDI $L1 $T14 $T15
+;STOREI $T15 $L1
+;LABEL label8
+;STOREI 1 $T12
+;ADDI k $T12 $T13
+;STOREI $T13 k
+;JUMP label7
+;LABEL label9
+;LABEL label5
+;STOREI 1 $T9
+;ADDI j $T9 $T10
+;STOREI $T10 j
+;JUMP label4
+;LABEL label6
+;LABEL label2
+;STOREI 1 $T6
+;ADDI i $T6 $T7
+;STOREI $T7 i
+;JUMP label1
+;LABEL label3
+;WRITEI $L1
+;RET
+
+;tiny code
+str dummy "abcde"
+var i
+var j
+var k
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 1
+move 0 r0
+move r0 i
+move 0 r1
+move r1 j
+move 0 r2
+move r2 k
+move 0 r3
+move r3 $-1
+label label1
+move 99 r4
+cmpi i r4
+jgt label3
+label label4
+move 99 r5
+cmpi j r5
+jgt label6
+label label7
+move 100 r6
+cmpi k r6
+jge label9
+move 1 r7
+move $-1 r8
+addi r7 r8
+move r8 $-1
+label label8
+move 1 r9
+move k r10
+addi r9 r10
+move r10 k
+jmp label7
+label label9
+label label5
+move 1 r11
+move j r12
+addi r11 r12
+move r12 j
+jmp label4
+label label6
+label label2
+move 1 r13
+move i r14
+addi r13 r14
+move r14 i
+jmp label1
+label label3
+sys writei $-1
+unlnk
+ret
+end

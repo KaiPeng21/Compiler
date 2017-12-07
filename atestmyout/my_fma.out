@@ -1,0 +1,776 @@
+;Symbol table GLOBAL
+; return type: null
+; subscope local var size: 0
+;scope type: GLOBAL_TYPE 
+;name intro type STRING value "You will be asked for three float numbers\n" local slot location: -1
+;name first type STRING value "Please enter the first float number: " local slot location: -2
+;name second type STRING value "Please enter the second float number: " local slot location: -3
+;name third type STRING value "Please enter the third float number: " local slot location: -4
+;name eol type STRING value "\n" local slot location: -5
+;name star type STRING value "*" local slot location: -6
+;name plus type STRING value "+" local slot location: -7
+;name equal type STRING value "=" local slot location: -8
+
+
+;Symbol table add
+; return type: FLOAT
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+;name a type FLOAT parameter slot location: 7
+;name b type FLOAT parameter slot location: 8
+;name result type FLOAT local slot location: -1
+
+
+;Symbol table multiply
+; return type: FLOAT
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+;name a type FLOAT parameter slot location: 7
+;name b type FLOAT parameter slot location: 8
+;name result type FLOAT local slot location: -1
+
+
+;Symbol table main
+; return type: INT
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+;name a type FLOAT local slot location: -1
+;name b type FLOAT local slot location: -2
+;name c type FLOAT local slot location: -3
+;name addresult type FLOAT local slot location: -4
+;name multiplyresult type FLOAT local slot location: -5
+
+
+; pre-conversion assignOutputID: result
+; searching slot location for -- result -- in function scope add and get location -1
+
+; post-conversion assignOutputID: $-1
+; searching slot location for -- a -- in function scope add and get location 7
+
+; searching slot location for -- b -- in function scope add and get location 8
+
+; searching slot location for -- result -- in function scope add and get location -1
+
+; searching slot location for -- result -- in function scope add and get location -1
+
+;OPT BUG
+; SUBSCOPE for function scope: add
+
+;return assignExpr: result
+;left: 
+;right: 
+;IRAction.isIF_ELSE_sameReturn(): false
+; pre-conversion assignOutputID: result
+; searching slot location for -- result -- in function scope multiply and get location -1
+
+; post-conversion assignOutputID: $-1
+; searching slot location for -- a -- in function scope multiply and get location 7
+
+; searching slot location for -- b -- in function scope multiply and get location 8
+
+; searching slot location for -- result -- in function scope multiply and get location -1
+
+; searching slot location for -- result -- in function scope multiply and get location -1
+
+;OPT BUG
+; SUBSCOPE for function scope: multiply
+
+;return assignExpr: result
+;left: 
+;right: 
+;IRAction.isIF_ELSE_sameReturn(): false
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; searching slot location for -- c -- in function scope main and get location -3
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; pre-conversion assignOutputID: multiplyresult
+; searching slot location for -- multiplyresult -- in function scope main and get location -5
+
+; post-conversion assignOutputID: $-5
+; searching slot location for -- multiplyresult -- in function scope main and get location -5
+
+; searching slot location for -- multiplyresult -- in function scope main and get location -5
+
+; searching slot location for -- multiplyresult -- in function scope main and get location -5
+
+; searching slot location for -- c -- in function scope main and get location -3
+
+; searching slot location for -- c -- in function scope main and get location -3
+
+; pre-conversion assignOutputID: addresult
+; searching slot location for -- addresult -- in function scope main and get location -4
+
+; post-conversion assignOutputID: $-4
+; searching slot location for -- a -- in function scope main and get location -1
+
+; searching slot location for -- b -- in function scope main and get location -2
+
+; searching slot location for -- c -- in function scope main and get location -3
+
+; searching slot location for -- addresult -- in function scope main and get location -4
+
+;OPT BUG
+; SUBSCOPE for function scope: main
+
+;return assignExpr: 0
+;left: 
+;right: 
+;IRAction.isIF_ELSE_sameReturn(): false
+
+;IR code
+;PUSH
+;JSR main
+;HALT
+
+;LABEL add		 Under Func Scope: add
+;LINK 2			 Under Func Scope: add
+;ADDF $7 $8 $T1		 Under Func Scope: add
+;STOREF $T1 $-1		 Under Func Scope: add
+;STOREF $-1 $T2		 Under Func Scope: add
+;STOREF $T2 $6		 Under Func Scope: add
+;UNLINK			 Under Func Scope: add
+;RET			 Under Func Scope: add
+
+;LABEL multiply		 Under Func Scope: multiply
+;LINK 2			 Under Func Scope: multiply
+;MULTF $7 $8 $T3	 Under Func Scope: multiply
+;STOREF $T3 $-1		 Under Func Scope: multiply
+;STOREF $-1 $T4		 Under Func Scope: multiply
+;STOREF $T4 $6		 Under Func Scope: multiply
+;UNLINK			 Under Func Scope: multiply
+;RET			 Under Func Scope: multiply
+
+;LABEL main		 Under Func Scope: main
+;LINK 6			 Under Func Scope: main
+;WRITES intro		 Under Func Scope: main
+;WRITES first		 Under Func Scope: main
+;READF $-1		 Under Func Scope: main
+;WRITES second		 Under Func Scope: main
+;READF $-2		 Under Func Scope: main
+;WRITES third		 Under Func Scope: main
+;READF $-3		 Under Func Scope: main
+;PUSH $-2		 Under Func Scope: main
+;PUSH $-1		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR multiply		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T5		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;STOREF $T5 $-5		 Under Func Scope: main
+;WRITEF $-5		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;PUSH $-3		 Under Func Scope: main
+;PUSH $-5		 Under Func Scope: main
+;PUSH 			 Under Func Scope: main
+;PUSHREG		 Under Func Scope: main
+;JSR add		 Under Func Scope: main
+;POPREG			 Under Func Scope: main
+;POP $T6		 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;POP 			 Under Func Scope: main
+;STOREF $T6 $-4		 Under Func Scope: main
+;WRITEF $-1		 Under Func Scope: main
+;WRITES star		 Under Func Scope: main
+;WRITEF $-2		 Under Func Scope: main
+;WRITES plus		 Under Func Scope: main
+;WRITEF $-3		 Under Func Scope: main
+;WRITES equal		 Under Func Scope: main
+;WRITEF $-4		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;STOREI 0 $T7		 Under Func Scope: main
+;STOREI $T7 $6		 Under Func Scope: main
+;UNLINK			 Under Func Scope: main
+;RET			 Under Func Scope: main
+
+; ========= CFG IR NODE =========
+
+;LABEL add		P: 					S: ;LINK 2		 <== BB leader
+;LINK 2			P: ;LABEL add			S: ;ADDF $7 $8 $T1	
+;ADDF $7 $8 $T1		P: ;LINK 2			S: ;STOREF $T1 $-1	
+;STOREF $T1 $-1		P: ;ADDF $7 $8 $T1		S: ;STOREF $-1 $T2	
+;STOREF $-1 $T2		P: ;STOREF $T1 $-1		S: ;STOREF $T2 $6	
+;STOREF $T2 $6		P: ;STOREF $-1 $T2		S: ;UNLINK	
+;UNLINK			P: ;STOREF $T2 $6		S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+;LABEL multiply		P: 				S: ;LINK 2		 <== BB leader
+;LINK 2			P: ;LABEL multiply		S: ;MULTF $7 $8 $T3	
+;MULTF $7 $8 $T3	P: ;LINK 2				S: ;STOREF $T3 $-1	
+;STOREF $T3 $-1		P: ;MULTF $7 $8 $T3		S: ;STOREF $-1 $T4	
+;STOREF $-1 $T4		P: ;STOREF $T3 $-1		S: ;STOREF $T4 $6	
+;STOREF $T4 $6		P: ;STOREF $-1 $T4		S: ;UNLINK	
+;UNLINK			P: ;STOREF $T4 $6		S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+;LABEL main		P: 					S: ;LINK 6		 <== BB leader
+;LINK 6			P: ;LABEL main			S: ;WRITES intro	
+;WRITES intro		P: ;LINK 6				S: ;WRITES first	
+;WRITES first		P: ;WRITES intro			S: ;READF $-1	
+;READF $-1		P: ;WRITES first			S: ;WRITES second	
+;WRITES second		P: ;READF $-1			S: ;READF $-2	
+;READF $-2		P: ;WRITES second			S: ;WRITES third	
+;WRITES third		P: ;READF $-2			S: ;READF $-3	
+;READF $-3		P: ;WRITES third			S: ;PUSH $-2	
+;PUSH $-2		P: ;READF $-3				S: ;PUSH $-1	
+;PUSH $-1		P: ;PUSH $-2				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-1			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR multiply	
+;JSR multiply		P: ;PUSHREG			S: ;POPREG	
+;POPREG			P: ;JSR multiply			S: ;POP $T5	
+;POP $T5		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T5			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T5 $-5	
+;STOREF $T5 $-5		P: ;POP 				S: ;WRITEF $-5	
+;WRITEF $-5		P: ;STOREF $T5 $-5			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEF $-5			S: ;PUSH $-3	
+;PUSH $-3		P: ;WRITES eol				S: ;PUSH $-5	
+;PUSH $-5		P: ;PUSH $-3				S: ;PUSH 	
+;PUSH 			P: ;PUSH $-5			S: ;PUSHREG	
+;PUSHREG		P: ;PUSH 				S: ;JSR add	
+;JSR add		P: ;PUSHREG				S: ;POPREG	
+;POPREG			P: ;JSR add			S: ;POP $T6	
+;POP $T6		P: ;POPREG				S: ;POP 	
+;POP 			P: ;POP $T6			S: ;POP 	
+;POP 			P: ;POP 				S: ;STOREF $T6 $-4	
+;STOREF $T6 $-4		P: ;POP 				S: ;WRITEF $-1	
+;WRITEF $-1		P: ;STOREF $T6 $-4			S: ;WRITES star	
+;WRITES star		P: ;WRITEF $-1			S: ;WRITEF $-2	
+;WRITEF $-2		P: ;WRITES star			S: ;WRITES plus	
+;WRITES plus		P: ;WRITEF $-2			S: ;WRITEF $-3	
+;WRITEF $-3		P: ;WRITES plus			S: ;WRITES equal	
+;WRITES equal		P: ;WRITEF $-3			S: ;WRITEF $-4	
+;WRITEF $-4		P: ;WRITES equal			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEF $-4			S: ;STOREI 0 $T7	
+;STOREI 0 $T7		P: ;WRITES eol			S: ;STOREI $T7 $6	
+;STOREI $T7 $6		P: ;STOREI 0 $T7			S: ;UNLINK	
+;UNLINK			P: ;STOREI $T7 $6		S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+; ========= CFG IR NODE / KILL/ GEN =========
+
+;LABEL add		Kill: 				Gen: 
+;LINK 2			Kill: 				Gen: 
+;ADDF $7 $8 $T1		Kill: $T1, 			Gen: $7, $8, 
+;STOREF $T1 $-1		Kill: $-1, 			Gen: $T1, 
+;STOREF $-1 $T2		Kill: $T2, 			Gen: $-1, 
+;STOREF $T2 $6		Kill: $6, 			Gen: $T2, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+;LABEL multiply		Kill: 				Gen: 
+;LINK 2			Kill: 				Gen: 
+;MULTF $7 $8 $T3	Kill: $T3, 				Gen: $7, $8, 
+;STOREF $T3 $-1		Kill: $-1, 			Gen: $T3, 
+;STOREF $-1 $T4		Kill: $T4, 			Gen: $-1, 
+;STOREF $T4 $6		Kill: $6, 			Gen: $T4, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+;LABEL main		Kill: 				Gen: 
+;LINK 6			Kill: 				Gen: 
+;WRITES intro		Kill: 				Gen: 
+;WRITES first		Kill: 				Gen: 
+;READF $-1		Kill: $-1, 				Gen: 
+;WRITES second		Kill: 				Gen: 
+;READF $-2		Kill: $-2, 				Gen: 
+;WRITES third		Kill: 				Gen: 
+;READF $-3		Kill: $-3, 				Gen: 
+;PUSH $-2		Kill: 					Gen: $-2, 
+;PUSH $-1		Kill: 					Gen: $-1, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR multiply		Kill: 				Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T5		Kill: $T5, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T5 $-5		Kill: $-5, 			Gen: $T5, 
+;WRITEF $-5		Kill: 				Gen: $-5, 
+;WRITES eol		Kill: 				Gen: 
+;PUSH $-3		Kill: 					Gen: $-3, 
+;PUSH $-5		Kill: 					Gen: $-5, 
+;PUSH 			Kill: 				Gen: 
+;PUSHREG		Kill: 					Gen: 
+;JSR add		Kill: 					Gen: 
+;POPREG			Kill: 				Gen: 
+;POP $T6		Kill: $T6, 				Gen: 
+;POP 			Kill: 				Gen: 
+;POP 			Kill: 				Gen: 
+;STOREF $T6 $-4		Kill: $-4, 			Gen: $T6, 
+;WRITEF $-1		Kill: 				Gen: $-1, 
+;WRITES star		Kill: 				Gen: 
+;WRITEF $-2		Kill: 				Gen: $-2, 
+;WRITES plus		Kill: 				Gen: 
+;WRITEF $-3		Kill: 				Gen: $-3, 
+;WRITES equal		Kill: 				Gen: 
+;WRITEF $-4		Kill: 				Gen: $-4, 
+;WRITES eol		Kill: 				Gen: 
+;STOREI 0 $T7		Kill: $T7, 			Gen: 
+;STOREI $T7 $6		Kill: $6, 			Gen: $T7, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+; ========= CFG IR NODE / LIVE IN / LIVE OUT =========
+
+;LABEL add		Live IN: $8, $7, 			Live OUT: $7, $8, 
+;LINK 2			Live IN: $8, $7, 		Live OUT: $7, $8, 
+;ADDF $7 $8 $T1		Live IN: $8, $7, 		Live OUT: $T1, 
+;STOREF $T1 $-1		Live IN: $T1, 			Live OUT: $-1, 
+;STOREF $-1 $T2		Live IN: $-1, 			Live OUT: $T2, 
+;STOREF $T2 $6		Live IN: $T2, 			Live OUT: 
+;UNLINK			Live IN: 			Live OUT: 
+;RET			Live IN: 				Live OUT: 
+
+;LABEL multiply		Live IN: $8, $7, 		Live OUT: $7, $8, 
+;LINK 2			Live IN: $8, $7, 		Live OUT: $7, $8, 
+;MULTF $7 $8 $T3	Live IN: $8, $7, 			Live OUT: $T3, 
+;STOREF $T3 $-1		Live IN: $T3, 			Live OUT: $-1, 
+;STOREF $-1 $T4		Live IN: $-1, 			Live OUT: $T4, 
+;STOREF $T4 $6		Live IN: $T4, 			Live OUT: 
+;UNLINK			Live IN: 			Live OUT: 
+;RET			Live IN: 				Live OUT: 
+
+;LABEL main		Live IN: 				Live OUT: 
+;LINK 6			Live IN: 			Live OUT: 
+;WRITES intro		Live IN: 				Live OUT: 
+;WRITES first		Live IN: 				Live OUT: 
+;READF $-1		Live IN: 				Live OUT: $-1, 
+;WRITES second		Live IN: $-1, 			Live OUT: $-1, 
+;READF $-2		Live IN: $-1, 			Live OUT: $-2, $-1, 
+;WRITES third		Live IN: $-2, $-1, 		Live OUT: $-2, $-1, 
+;READF $-3		Live IN: $-2, $-1, 			Live OUT: $-2, $-1, $-3, 
+;PUSH $-2		Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;PUSH $-1		Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;PUSH 			Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;PUSHREG		Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;JSR multiply		Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;POPREG			Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;POP $T5		Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, $T5, 
+;POP 			Live IN: $-2, $-1, $T5, $-3, 	Live OUT: $-2, $-1, $-3, $T5, 
+;POP 			Live IN: $-2, $-1, $T5, $-3, 	Live OUT: $-2, $-1, $-3, $T5, 
+;STOREF $T5 $-5		Live IN: $-2, $-1, $T5, $-3, 	Live OUT: $-5, $-2, $-1, $-3, 
+;WRITEF $-5		Live IN: $-5, $-2, $-1, $-3, 	Live OUT: $-5, $-2, $-1, $-3, 
+;WRITES eol		Live IN: $-5, $-2, $-1, $-3, 	Live OUT: $-5, $-2, $-1, $-3, 
+;PUSH $-3		Live IN: $-5, $-2, $-1, $-3, 		Live OUT: $-5, $-2, $-1, $-3, 
+;PUSH $-5		Live IN: $-5, $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;PUSH 			Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;PUSHREG		Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;JSR add		Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;POPREG			Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $-1, $-3, 
+;POP $T6		Live IN: $-2, $-1, $-3, 		Live OUT: $-2, $T6, $-1, $-3, 
+;POP 			Live IN: $T6, $-2, $-1, $-3, 	Live OUT: $-2, $T6, $-1, $-3, 
+;POP 			Live IN: $T6, $-2, $-1, $-3, 	Live OUT: $-2, $T6, $-1, $-3, 
+;STOREF $T6 $-4		Live IN: $T6, $-2, $-1, $-3, 	Live OUT: $-2, $-1, $-4, $-3, 
+;WRITEF $-1		Live IN: $-2, $-1, $-4, $-3, 	Live OUT: $-2, $-4, $-3, 
+;WRITES star		Live IN: $-2, $-4, $-3, 		Live OUT: $-2, $-4, $-3, 
+;WRITEF $-2		Live IN: $-2, $-4, $-3, 		Live OUT: $-4, $-3, 
+;WRITES plus		Live IN: $-4, $-3, 			Live OUT: $-4, $-3, 
+;WRITEF $-3		Live IN: $-4, $-3, 			Live OUT: $-4, 
+;WRITES equal		Live IN: $-4, 			Live OUT: $-4, 
+;WRITEF $-4		Live IN: $-4, 			Live OUT: 
+;WRITES eol		Live IN: 				Live OUT: 
+;STOREI 0 $T7		Live IN: 				Live OUT: $T7, 
+;STOREI $T7 $6		Live IN: $T7, 			Live OUT: 
+;UNLINK			Live IN: 			Live OUT: 
+;RET			Live IN: 				Live OUT: 
+;str intro "You will be asked for three float numbers\n" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str first "Please enter the first float number: " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str second "Please enter the second float number: " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str third "Please enter the third float number: " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str eol "\n" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str star "*" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str plus "+" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str equal "=" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;jsr main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;sys halt 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL add liveout: ; { $7 $8  }
+;label add 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 2 liveout: ; { $7 $8  }
+;link 9 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;ADDF $7 $8 $T1 liveout: ; { $T1  }
+; ensure(): $7 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$7 }
+; loading $7 to register r3
+;move $7 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$7 }
+; ensure(): $8 gets register r2 { r0-><null> || r1-><null> || r2->$8 || r3->$7 }
+; loading $8 to register r2
+;move $8 r2 	; { r0-><null> || r1-><null> || r2->$8 || r3->$7 }
+; switching owner of register $7 to $T1 { r0-><null> || r1-><null> || r2->$8 || r3->$7 }
+;addr r2 r3 	; { r0-><null> || r1-><null> || r2->$8 || r3->$T1 }
+; freeing unused variable r2
+;STOREF $T1 $-1 liveout: ; { $-1  }
+; ensure(): $T1 has register r3
+; ensure(): $-1 gets register r2 { r0-><null> || r1-><null> || r2->$-1 || r3->$T1* }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T1* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T1* }
+; freeing unused variable r3
+; spilling varialbe $T1
+;move r3 $-2 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T1* }
+;STOREF $-1 $T2 liveout: ; { $T2  }
+; ensure(): $-1 has register r2
+; ensure(): $T2 gets register r3 { r0-><null> || r1-><null> || r2->$-1* || r3->$T2 }
+; loading $-3 to register r3
+;move $-3 r3 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T2 }
+;move r2 r3 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T2 }
+; freeing unused variable r2
+; spilling varialbe $-1
+;move r2 $-1 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T2* }
+;STOREF $T2 $6 liveout: ; {  }
+; ensure(): $T2 has register r3
+;move r3 $6 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T2* }
+; freeing unused variable r3
+; spilling varialbe $T2
+;move r3 $-3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T2* }
+;UNLINK liveout: ; {  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;RET liveout: ; {  }
+; writing back global variables prior a function call
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL multiply liveout: ; { $7 $8  }
+;label multiply 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 2 liveout: ; { $7 $8  }
+;link 9 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;MULTF $7 $8 $T3 liveout: ; { $T3  }
+; ensure(): $7 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$7 }
+; loading $7 to register r3
+;move $7 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$7 }
+; ensure(): $8 gets register r2 { r0-><null> || r1-><null> || r2->$8 || r3->$7 }
+; loading $8 to register r2
+;move $8 r2 	; { r0-><null> || r1-><null> || r2->$8 || r3->$7 }
+; switching owner of register $7 to $T3 { r0-><null> || r1-><null> || r2->$8 || r3->$7 }
+;mulr r2 r3 	; { r0-><null> || r1-><null> || r2->$8 || r3->$T3 }
+; freeing unused variable r2
+;STOREF $T3 $-1 liveout: ; { $-1  }
+; ensure(): $T3 has register r3
+; ensure(): $-1 gets register r2 { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+; freeing unused variable r3
+; spilling varialbe $T3
+;move r3 $-4 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T3* }
+;STOREF $-1 $T4 liveout: ; { $T4  }
+; ensure(): $-1 has register r2
+; ensure(): $T4 gets register r3 { r0-><null> || r1-><null> || r2->$-1* || r3->$T4 }
+; loading $-5 to register r3
+;move $-5 r3 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T4 }
+;move r2 r3 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T4 }
+; freeing unused variable r2
+; spilling varialbe $-1
+;move r2 $-1 	; { r0-><null> || r1-><null> || r2->$-1* || r3->$T4* }
+;STOREF $T4 $6 liveout: ; {  }
+; ensure(): $T4 has register r3
+;move r3 $6 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4* }
+; freeing unused variable r3
+; spilling varialbe $T4
+;move r3 $-5 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4* }
+;UNLINK liveout: ; {  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;RET liveout: ; {  }
+; writing back global variables prior a function call
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL main liveout: ; {  }
+;label main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 6 liveout: ; {  }
+;link 13 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITES intro liveout: ; {  }
+;sys writes intro 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITES first liveout: ; {  }
+;sys writes first 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;READF $-1 liveout: ; { $-1  }
+; ensure(): $-1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+;sys readr r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+;WRITES second liveout: ; { $-1  }
+;sys writes second 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1* }
+;READF $-2 liveout: ; { $-2 $-1  }
+; ensure(): $-2 gets register r2 { r0-><null> || r1-><null> || r2->$-2 || r3->$-1* }
+; loading $-2 to register r2
+;move $-2 r2 	; { r0-><null> || r1-><null> || r2->$-2 || r3->$-1* }
+;sys readr r2 	; { r0-><null> || r1-><null> || r2->$-2 || r3->$-1* }
+;WRITES third liveout: ; { $-2 $-1  }
+;sys writes third 	; { r0-><null> || r1-><null> || r2->$-2* || r3->$-1* }
+;READF $-3 liveout: ; { $-2 $-1 $-3  }
+; ensure(): $-3 gets register r1 { r0-><null> || r1->$-3 || r2->$-2* || r3->$-1* }
+; loading $-3 to register r1
+;move $-3 r1 	; { r0-><null> || r1->$-3 || r2->$-2* || r3->$-1* }
+;sys readr r1 	; { r0-><null> || r1->$-3 || r2->$-2* || r3->$-1* }
+;PUSH $-2 liveout: ; { $-2 $-1 $-3  }
+; ensure(): $-2 has register r2
+;push r2 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;PUSH $-1 liveout: ; { $-2 $-1 $-3  }
+; ensure(): $-1 has register r3
+;push r3 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;PUSH  liveout: ; { $-2 $-1 $-3  }
+;push 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;PUSHREG liveout: ; { $-2 $-1 $-3  }
+;push r0 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;push r1 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;push r2 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;push r3 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;JSR multiply liveout: ; { $-2 $-1 $-3  }
+; writing back global variables prior a function call
+;jsr multiply 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;POPREG liveout: ; { $-2 $-1 $-3  }
+;pop r3 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;pop r2 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;pop r1 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;pop r0 	; { r0-><null> || r1->$-3* || r2->$-2* || r3->$-1* }
+;POP $T5 liveout: ; { $-2 $-1 $-3 $T5  }
+; ensure(): $T5 gets register r0 { r0->$T5 || r1->$-3* || r2->$-2* || r3->$-1* }
+; loading $-10 to register r0
+;move $-10 r0 	; { r0->$T5 || r1->$-3* || r2->$-2* || r3->$-1* }
+;pop r0 	; { r0->$T5 || r1->$-3* || r2->$-2* || r3->$-1* }
+;POP  liveout: ; { $-2 $-1 $-3 $T5  }
+;pop 	; { r0->$T5* || r1->$-3* || r2->$-2* || r3->$-1* }
+;POP  liveout: ; { $-2 $-1 $-3 $T5  }
+;pop 	; { r0->$T5* || r1->$-3* || r2->$-2* || r3->$-1* }
+;STOREF $T5 $-5 liveout: ; { $-5 $-2 $-1 $-3  }
+; ensure(): $T5 has register r0
+; freeing unused variable r1
+; spilling varialbe $-3
+;move r1 $-3 	; { r0->$T5* || r1->$-3* || r2->$-2* || r3->$-1* }
+; allocate() has to spill $-5
+; ensure(): $-5 gets register r1 { r0->$T5* || r1->$-5 || r2->$-2* || r3->$-1* }
+; loading $-5 to register r1
+;move $-5 r1 	; { r0->$T5* || r1->$-5 || r2->$-2* || r3->$-1* }
+;move r0 r1 	; { r0->$T5* || r1->$-5 || r2->$-2* || r3->$-1* }
+; freeing unused variable r0
+; spilling varialbe $T5
+;move r0 $-10 	; { r0->$T5* || r1->$-5* || r2->$-2* || r3->$-1* }
+;WRITEF $-5 liveout: ; { $-5 $-2 $-1 $-3  }
+; ensure(): $-5 has register r1
+;sys writer r1 	; { r0-><null> || r1->$-5* || r2->$-2* || r3->$-1* }
+;WRITES eol liveout: ; { $-5 $-2 $-1 $-3  }
+;sys writes eol 	; { r0-><null> || r1->$-5* || r2->$-2* || r3->$-1* }
+;PUSH $-3 liveout: ; { $-5 $-2 $-1 $-3  }
+; ensure(): $-3 gets register r0 { r0->$-3 || r1->$-5* || r2->$-2* || r3->$-1* }
+; loading $-3 to register r0
+;move $-3 r0 	; { r0->$-3 || r1->$-5* || r2->$-2* || r3->$-1* }
+;push r0 	; { r0->$-3 || r1->$-5* || r2->$-2* || r3->$-1* }
+;PUSH $-5 liveout: ; { $-2 $-1 $-3  }
+; ensure(): $-5 has register r1
+;push r1 	; { r0->$-3 || r1->$-5* || r2->$-2* || r3->$-1* }
+; freeing unused variable r1
+; spilling varialbe $-5
+;move r1 $-5 	; { r0->$-3 || r1->$-5* || r2->$-2* || r3->$-1* }
+;PUSH  liveout: ; { $-2 $-1 $-3  }
+;push 	; { r0->$-3 || r1-><null> || r2->$-2* || r3->$-1* }
+;PUSHREG liveout: ; { $-2 $-1 $-3  }
+;push r0 	; { r0->$-3 || r1-><null> || r2->$-2* || r3->$-1* }
+;push r1 	; { r0->$-3 || r1-><null> || r2->$-2* || r3->$-1* }
+;push r2 	; { r0->$-3 || r1-><null> || r2->$-2* || r3->$-1* }
+;push r3 	; { r0->$-3 || r1-><null> || r2->$-2* || r3->$-1* }
+;JSR add liveout: ; { $-2 $-1 $-3  }
+; writing back global variables prior a function call
+;jsr add 	; { r0->$-3 || r1-><null> || r2->$-2* || r3->$-1* }
+;POPREG liveout: ; { $-2 $-1 $-3  }
+;pop r3 	; { r0->$-3 || r1-><null> || r2->$-2* || r3->$-1* }
+;pop r2 	; { r0->$-3 || r1-><null> || r2->$-2* || r3->$-1* }
+;pop r1 	; { r0->$-3 || r1-><null> || r2->$-2* || r3->$-1* }
+;pop r0 	; { r0->$-3 || r1-><null> || r2->$-2* || r3->$-1* }
+;POP $T6 liveout: ; { $-2 $T6 $-1 $-3  }
+; ensure(): $T6 gets register r1 { r0->$-3 || r1->$T6 || r2->$-2* || r3->$-1* }
+; loading $-11 to register r1
+;move $-11 r1 	; { r0->$-3 || r1->$T6 || r2->$-2* || r3->$-1* }
+;pop r1 	; { r0->$-3 || r1->$T6 || r2->$-2* || r3->$-1* }
+;POP  liveout: ; { $-2 $T6 $-1 $-3  }
+;pop 	; { r0->$-3 || r1->$T6* || r2->$-2* || r3->$-1* }
+;POP  liveout: ; { $-2 $T6 $-1 $-3  }
+;pop 	; { r0->$-3 || r1->$T6* || r2->$-2* || r3->$-1* }
+;STOREF $T6 $-4 liveout: ; { $-2 $-1 $-4 $-3  }
+; ensure(): $T6 has register r1
+; freeing unused variable r0
+; allocate() has to spill $-4
+; ensure(): $-4 gets register r0 { r0->$-4 || r1->$T6* || r2->$-2* || r3->$-1* }
+; loading $-4 to register r0
+;move $-4 r0 	; { r0->$-4 || r1->$T6* || r2->$-2* || r3->$-1* }
+;move r1 r0 	; { r0->$-4 || r1->$T6* || r2->$-2* || r3->$-1* }
+; freeing unused variable r1
+; spilling varialbe $T6
+;move r1 $-11 	; { r0->$-4* || r1->$T6* || r2->$-2* || r3->$-1* }
+;WRITEF $-1 liveout: ; { $-2 $-4 $-3  }
+; ensure(): $-1 has register r3
+;sys writer r3 	; { r0->$-4* || r1-><null> || r2->$-2* || r3->$-1* }
+; freeing unused variable r3
+; spilling varialbe $-1
+;move r3 $-1 	; { r0->$-4* || r1-><null> || r2->$-2* || r3->$-1* }
+;WRITES star liveout: ; { $-2 $-4 $-3  }
+;sys writes star 	; { r0->$-4* || r1-><null> || r2->$-2* || r3-><null> }
+;WRITEF $-2 liveout: ; { $-4 $-3  }
+; ensure(): $-2 has register r2
+;sys writer r2 	; { r0->$-4* || r1-><null> || r2->$-2* || r3-><null> }
+; freeing unused variable r2
+; spilling varialbe $-2
+;move r2 $-2 	; { r0->$-4* || r1-><null> || r2->$-2* || r3-><null> }
+;WRITES plus liveout: ; { $-4 $-3  }
+;sys writes plus 	; { r0->$-4* || r1-><null> || r2-><null> || r3-><null> }
+;WRITEF $-3 liveout: ; { $-4  }
+; ensure(): $-3 gets register r3 { r0->$-4* || r1-><null> || r2-><null> || r3->$-3 }
+; loading $-3 to register r3
+;move $-3 r3 	; { r0->$-4* || r1-><null> || r2-><null> || r3->$-3 }
+;sys writer r3 	; { r0->$-4* || r1-><null> || r2-><null> || r3->$-3 }
+; freeing unused variable r3
+;WRITES equal liveout: ; { $-4  }
+;sys writes equal 	; { r0->$-4* || r1-><null> || r2-><null> || r3-><null> }
+;WRITEF $-4 liveout: ; {  }
+; ensure(): $-4 has register r0
+;sys writer r0 	; { r0->$-4* || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r0
+; spilling varialbe $-4
+;move r0 $-4 	; { r0->$-4* || r1-><null> || r2-><null> || r3-><null> }
+;WRITES eol liveout: ; {  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 0 $T7 liveout: ; { $T7  }
+; ensure(): $T7 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T7 }
+; loading $-12 to register r3
+;move $-12 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T7 }
+;move 0 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T7 }
+;STOREI $T7 $6 liveout: ; {  }
+; ensure(): $T7 has register r3
+;move r3 $6 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T7* }
+; freeing unused variable r3
+; spilling varialbe $T7
+;move r3 $-12 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T7* }
+;UNLINK liveout: ; {  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;RET liveout: ; {  }
+; writing back global variables prior a function call
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+
+str intro "You will be asked for three float numbers\n"
+str first "Please enter the first float number: "
+str second "Please enter the second float number: "
+str third "Please enter the third float number: "
+str eol "\n"
+str star "*"
+str plus "+"
+str equal "="
+push
+push
+push
+push
+push
+jsr main
+sys halt
+label add
+link 9
+move $7 r3
+move $8 r2
+addr r2 r3
+move $-1 r2
+move r3 r2
+move r3 $-2
+move $-3 r3
+move r2 r3
+move r2 $-1
+move r3 $6
+move r3 $-3
+unlnk
+ret
+label multiply
+link 9
+move $7 r3
+move $8 r2
+mulr r2 r3
+move $-1 r2
+move r3 r2
+move r3 $-4
+move $-5 r3
+move r2 r3
+move r2 $-1
+move r3 $6
+move r3 $-5
+unlnk
+ret
+label main
+link 13
+sys writes intro
+sys writes first
+move $-1 r3
+sys readr r3
+sys writes second
+move $-2 r2
+sys readr r2
+sys writes third
+move $-3 r1
+sys readr r1
+push r2
+push r3
+push
+push r0
+push r1
+push r2
+push r3
+jsr multiply
+pop r3
+pop r2
+pop r1
+pop r0
+move $-10 r0
+pop r0
+pop
+pop
+move r1 $-3
+move $-5 r1
+move r0 r1
+move r0 $-10
+sys writer r1
+sys writes eol
+move $-3 r0
+push r0
+push r1
+move r1 $-5
+push
+push r0
+push r1
+push r2
+push r3
+jsr add
+pop r3
+pop r2
+pop r1
+pop r0
+move $-11 r1
+pop r1
+pop
+pop
+move $-4 r0
+move r1 r0
+move r1 $-11
+sys writer r3
+move r3 $-1
+sys writes star
+sys writer r2
+move r2 $-2
+sys writes plus
+move $-3 r3
+sys writer r3
+sys writes equal
+sys writer r0
+move r0 $-4
+sys writes eol
+move $-12 r3
+move 0 r3
+move r3 $6
+move r3 $-12
+unlnk
+ret

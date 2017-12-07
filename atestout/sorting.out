@@ -1,0 +1,1023 @@
+;IR code
+;LABEL Incre
+;LINK
+;STOREI 1 $T1
+;ADDI $P1 $T1 $T2
+;STOREI $T2 $R
+;RET
+
+;LABEL Decre
+;LINK
+;STOREI 1 $T1
+;SUBI $P1 $T1 $T2
+;STOREI $T2 $R
+;RET
+
+;LABEL main
+;LINK
+;STOREF 1000.00 $T1
+;STOREF $T1 fmax
+;PUSH 
+;JSR SYSIN
+;POP $T2
+;STOREI $T2 $L1
+;WRITES sortMessage
+;STOREI 0 $T3
+;STOREI $T3 $L2
+;LABEL label1
+;GE $L2 $L1 label3
+;PUSH 
+;PUSH $L1
+;PUSH a0
+;PUSH a1
+;PUSH a2
+;PUSH a3
+;PUSH a4
+;PUSH a5
+;JSR FindMin
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T6
+;STOREI $T6 $L4
+;PUSH 
+;PUSH $L1
+;PUSH $L4
+;PUSH a0
+;PUSH a1
+;PUSH a2
+;PUSH a3
+;PUSH a4
+;PUSH a5
+;JSR FindIndex
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T7
+;STOREI $T7 $L3
+;PUSH 
+;PUSH $L3
+;PUSH fmax
+;JSR SetAValue
+;POP 
+;POP 
+;POP $T8
+;STOREI $T8 fmax
+;WRITEF $L4
+;WRITES eol
+;LABEL label2
+;STOREI 1 $T4
+;ADDI $L2 $T4 $T5
+;STOREI $T5 $L2
+;JUMP label1
+;LABEL label3
+;WRITES eol
+;RET
+
+;LABEL FindMin
+;LINK
+;STOREF $P2 $L2
+;STOREI 1 $T1
+;STOREI $T1 $L1
+;LABEL label4
+;GE $L1 $P1 label6
+;PUSH 
+;PUSH $L1
+;PUSH $P2
+;PUSH $P3
+;PUSH $P4
+;PUSH $P5
+;PUSH $P6
+;PUSH $P7
+;JSR GetValue
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T2
+;GE $T2 $L2 label7
+;PUSH 
+;PUSH $L1
+;PUSH $P2
+;PUSH $P3
+;PUSH $P4
+;PUSH $P5
+;PUSH $P6
+;PUSH $P7
+;JSR GetValue
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T3
+;STOREI $T3 $L2
+;JUMP label8
+;LABEL label7
+;LABEL label8
+;PUSH 
+;PUSH $L1
+;JSR Incre
+;POP 
+;POP $T4
+;STOREI $T4 $L1
+;LABEL label5
+;JUMP label4
+;LABEL label6
+;STOREF $L2 $R
+;RET
+
+;LABEL FindIndex
+;LINK
+;STOREI 0 $T1
+;STOREI $T1 $L1
+;LABEL label9
+;GE $L1 $P1 label11
+;PUSH 
+;PUSH $L1
+;PUSH $P3
+;PUSH $P4
+;PUSH $P5
+;PUSH $P6
+;PUSH $P7
+;PUSH $P8
+;JSR GetValue
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T4
+;PUSH 
+;PUSH $P2
+;PUSH $T4
+;JSR IsEqual
+;POP 
+;POP 
+;POP $T5
+;STOREI 1 $T6
+;NE $T5 $T6 label12
+;STOREI $L1 $R
+;RET
+;JUMP label13
+;LABEL label12
+;LABEL label13
+;LABEL label10
+;STOREI 1 $T2
+;ADDI $L1 $T2 $T3
+;STOREI $T3 $L1
+;JUMP label9
+;LABEL label11
+;STOREI $L1 $R
+;RET
+
+;LABEL IsEqual
+;LINK
+;PUSH 
+;PUSH $P1
+;PUSH $P2
+;JSR IsNotEqual
+;POP 
+;POP 
+;POP $T1
+;STOREI 0 $T2
+;NE $T1 $T2 label14
+;STOREI 1 $T3
+;STOREI $T3 $R
+;RET
+;JUMP label15
+;LABEL label14
+;LABEL label15
+;STOREI 0 $T4
+;STOREI $T4 $R
+;RET
+
+;LABEL IsNotEqual
+;LINK
+;EQ $P1 $P2 label16
+;STOREI 1 $T1
+;STOREI $T1 $R
+;RET
+;JUMP label17
+;LABEL label16
+;LABEL label17
+;STOREI 0 $T2
+;STOREI $T2 $R
+;RET
+
+;LABEL GetValue
+;LINK
+;STOREI 0 $T1
+;NE $P1 $T1 label18
+;STOREF $P2 $R
+;RET
+;JUMP label19
+;LABEL label18
+;STOREI 1 $T2
+;NE $P1 $T2 label20
+;STOREF $P3 $R
+;RET
+;JUMP label21
+;LABEL label20
+;STOREI 2 $T3
+;NE $P1 $T3 label22
+;STOREF $P4 $R
+;RET
+;JUMP label23
+;LABEL label22
+;STOREI 3 $T4
+;NE $P1 $T4 label24
+;STOREF $P5 $R
+;RET
+;JUMP label25
+;LABEL label24
+;STOREI 4 $T5
+;NE $P1 $T5 label26
+;STOREF $P6 $R
+;RET
+;JUMP label27
+;LABEL label26
+;STOREI 5 $T6
+;NE $P1 $T6 label28
+;STOREF $P7 $R
+;RET
+;JUMP label29
+;LABEL label28
+;JUMP label29
+;LABEL label29
+;JUMP label27
+;LABEL label27
+;JUMP label25
+;LABEL label25
+;JUMP label23
+;LABEL label23
+;JUMP label21
+;LABEL label21
+;JUMP label19
+;LABEL label19
+;RET
+
+;LABEL SetAValue
+;LINK
+;STOREI 0 $T1
+;NE $P1 $T1 label30
+;STOREF $P2 a0
+;JUMP label31
+;LABEL label30
+;STOREI 1 $T2
+;NE $P1 $T2 label32
+;STOREF $P2 a1
+;JUMP label33
+;LABEL label32
+;STOREI 2 $T3
+;NE $P1 $T3 label34
+;STOREF $P2 a2
+;JUMP label35
+;LABEL label34
+;STOREI 3 $T4
+;NE $P1 $T4 label36
+;STOREF $P2 a3
+;JUMP label37
+;LABEL label36
+;STOREI 4 $T5
+;NE $P1 $T5 label38
+;STOREF $P2 a4
+;JUMP label39
+;LABEL label38
+;STOREI 5 $T6
+;NE $P1 $T6 label40
+;STOREF $P2 a5
+;JUMP label41
+;LABEL label40
+;JUMP label41
+;LABEL label41
+;JUMP label39
+;LABEL label39
+;JUMP label37
+;LABEL label37
+;JUMP label35
+;LABEL label35
+;JUMP label33
+;LABEL label33
+;JUMP label31
+;LABEL label31
+;STOREF $P2 $R
+;RET
+
+;LABEL SYSIN
+;LINK
+;STOREI 0 $T1
+;STOREI $T1 $L1
+;STOREI 6 $T2
+;STOREI $T2 $L2
+;READF a0
+;READF a1
+;READF a2
+;READF a3
+;READF a4
+;READF a5
+;WRITES inputMessage
+;STOREI 0 $T3
+;STOREI $T3 $L1
+;LABEL label42
+;STOREI 2 $T4
+;DIVI $L2 $T4 $T5
+;GE $L1 $T5 label44
+;PUSH 
+;PUSH $L1
+;PUSH a0
+;PUSH a1
+;PUSH a2
+;PUSH a3
+;PUSH a4
+;PUSH a5
+;JSR GetValue
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T8
+;STOREF $T8 $L3
+;WRITEF $L3
+;WRITES eol
+;LABEL label43
+;STOREI 1 $T6
+;ADDI $L1 $T6 $T7
+;STOREI $T7 $L1
+;JUMP label42
+;LABEL label44
+;LABEL label45
+;GE $L1 $L2 label47
+;PUSH 
+;PUSH $L1
+;PUSH a0
+;PUSH a1
+;PUSH a2
+;PUSH a3
+;PUSH a4
+;PUSH a5
+;JSR GetValue
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T12
+;STOREF $T12 $L3
+;WRITEF $L3
+;WRITES eol
+;PUSH 
+;PUSH $L1
+;JSR Incre
+;POP 
+;POP $T9
+;PUSH 
+;PUSH $T9
+;JSR Decre
+;POP 
+;POP $T10
+;PUSH 
+;PUSH $T10
+;JSR Incre
+;POP 
+;POP $T11
+;LABEL label46
+;STOREI $T11 $L1
+;JUMP label45
+;LABEL label47
+;WRITES eol
+;STOREI $L2 $R
+;RET
+
+;tiny code
+str inputMessage "inputs are: \n"
+str sortMessage "\n sorting... \n"
+str space " "
+str eol "\n"
+var fmax
+var a0
+var a1
+var a2
+var a3
+var a4
+var a5
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label Incre
+link 0
+move 1 r0
+move $6 r1
+addi r0 r1
+move r1 $7
+unlnk
+ret
+label Decre
+link 0
+move 1 r2
+move $6 r3
+subi r2 r3
+move r3 $7
+unlnk
+ret
+label main
+link 4
+move 1000.00 r4
+move r4 fmax
+push 
+push r0
+push r1
+push r2
+push r3
+jsr SYSIN
+pop r3
+pop r2
+pop r1
+pop r0
+pop r5
+move r5 $-1
+sys writes sortMessage
+move 0 r6
+move r6 $-2
+label label1
+move $-1 r7
+cmpi $-2 r7
+jge label3
+push 
+push $-1
+push a0
+push a1
+push a2
+push a3
+push a4
+push a5
+push r0
+push r1
+push r2
+push r3
+jsr FindMin
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r8
+move r8 $-4
+push 
+push $-1
+push $-4
+push a0
+push a1
+push a2
+push a3
+push a4
+push a5
+push r0
+push r1
+push r2
+push r3
+jsr FindIndex
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r9
+move r9 $-3
+push 
+push $-3
+push fmax
+push r0
+push r1
+push r2
+push r3
+jsr SetAValue
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r10
+move r10 fmax
+sys writer $-4
+sys writes eol
+label label2
+move 1 r11
+move $-2 r12
+addi r11 r12
+move r12 $-2
+jmp label1
+label label3
+sys writes eol
+unlnk
+ret
+label FindMin
+link 2
+move $11 r13
+move r13 $-2
+move 1 r14
+move r14 $-1
+label label4
+move $12 r15
+cmpi $-1 r15
+jge label6
+push 
+push $-1
+push $11
+push $10
+push $9
+push $8
+push $7
+push $6
+push r0
+push r1
+push r2
+push r3
+jsr GetValue
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r16
+move $-2 r17
+cmpr r16 r17
+jge label7
+push 
+push $-1
+push $11
+push $10
+push $9
+push $8
+push $7
+push $6
+push r0
+push r1
+push r2
+push r3
+jsr GetValue
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r18
+move r18 $-2
+jmp label8
+label label7
+label label8
+push 
+push $-1
+push r0
+push r1
+push r2
+push r3
+jsr Incre
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r19
+move r19 $-1
+label label5
+jmp label4
+label label6
+move $-2 r17
+move r17 $13
+unlnk
+ret
+label FindIndex
+link 1
+move 0 r20
+move r20 $-1
+label label9
+move $13 r21
+cmpi $-1 r21
+jge label11
+push 
+push $-1
+push $11
+push $10
+push $9
+push $8
+push $7
+push $6
+push r0
+push r1
+push r2
+push r3
+jsr GetValue
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r22
+push 
+push $12
+push r22
+push r0
+push r1
+push r2
+push r3
+jsr IsEqual
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r23
+move 1 r24
+cmpi r23 r24
+jne label12
+move $-1 r25
+move r25 $14
+unlnk
+ret
+jmp label13
+label label12
+label label13
+label label10
+move 1 r26
+move $-1 r27
+addi r26 r27
+move r27 $-1
+jmp label9
+label label11
+move $-1 r25
+move r25 $14
+unlnk
+ret
+label IsEqual
+link 0
+push 
+push $7
+push $6
+push r0
+push r1
+push r2
+push r3
+jsr IsNotEqual
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r28
+move 0 r29
+cmpi r28 r29
+jne label14
+move 1 r30
+move r30 $8
+unlnk
+ret
+jmp label15
+label label14
+label label15
+move 0 r31
+move r31 $8
+unlnk
+ret
+label IsNotEqual
+link 0
+move $6 r32
+cmpr $7 r32
+jeq label16
+move 1 r33
+move r33 $8
+unlnk
+ret
+jmp label17
+label label16
+label label17
+move 0 r34
+move r34 $8
+unlnk
+ret
+label GetValue
+link 0
+move 0 r35
+cmpi $12 r35
+jne label18
+move $11 r36
+move r36 $13
+unlnk
+ret
+jmp label19
+label label18
+move 1 r37
+cmpi $12 r37
+jne label20
+move $10 r38
+move r38 $13
+unlnk
+ret
+jmp label21
+label label20
+move 2 r39
+cmpi $12 r39
+jne label22
+move $9 r40
+move r40 $13
+unlnk
+ret
+jmp label23
+label label22
+move 3 r41
+cmpi $12 r41
+jne label24
+move $8 r42
+move r42 $13
+unlnk
+ret
+jmp label25
+label label24
+move 4 r43
+cmpi $12 r43
+jne label26
+move $7 r44
+move r44 $13
+unlnk
+ret
+jmp label27
+label label26
+move 5 r45
+cmpi $12 r45
+jne label28
+move $6 r46
+move r46 $13
+unlnk
+ret
+jmp label29
+label label28
+jmp label29
+label label29
+jmp label27
+label label27
+jmp label25
+label label25
+jmp label23
+label label23
+jmp label21
+label label21
+jmp label19
+label label19
+unlnk
+ret
+label SetAValue
+link 0
+move 0 r47
+cmpi $7 r47
+jne label30
+move $6 r48
+move r48 a0
+jmp label31
+label label30
+move 1 r49
+cmpi $7 r49
+jne label32
+move $6 r48
+move r48 a1
+jmp label33
+label label32
+move 2 r50
+cmpi $7 r50
+jne label34
+move $6 r48
+move r48 a2
+jmp label35
+label label34
+move 3 r51
+cmpi $7 r51
+jne label36
+move $6 r48
+move r48 a3
+jmp label37
+label label36
+move 4 r52
+cmpi $7 r52
+jne label38
+move $6 r48
+move r48 a4
+jmp label39
+label label38
+move 5 r53
+cmpi $7 r53
+jne label40
+move $6 r48
+move r48 a5
+jmp label41
+label label40
+jmp label41
+label label41
+jmp label39
+label label39
+jmp label37
+label label37
+jmp label35
+label label35
+jmp label33
+label label33
+jmp label31
+label label31
+move $6 r48
+move r48 $8
+unlnk
+ret
+label SYSIN
+link 3
+move 0 r54
+move r54 $-1
+move 6 r55
+move r55 $-2
+sys readr a0
+sys readr a1
+sys readr a2
+sys readr a3
+sys readr a4
+sys readr a5
+sys writes inputMessage
+move 0 r56
+move r56 $-1
+label label42
+move 2 r57
+move $-2 r58
+divi r57 r58
+cmpi $-1 r58
+jge label44
+push 
+push $-1
+push a0
+push a1
+push a2
+push a3
+push a4
+push a5
+push r0
+push r1
+push r2
+push r3
+jsr GetValue
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r59
+move r59 $-3
+sys writer $-3
+sys writes eol
+label label43
+move 1 r60
+move $-1 r61
+addi r60 r61
+move r61 $-1
+jmp label42
+label label44
+label label45
+move $-2 r62
+cmpi $-1 r62
+jge label47
+push 
+push $-1
+push a0
+push a1
+push a2
+push a3
+push a4
+push a5
+push r0
+push r1
+push r2
+push r3
+jsr GetValue
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r63
+move r63 $-3
+sys writer $-3
+sys writes eol
+push 
+push $-1
+push r0
+push r1
+push r2
+push r3
+jsr Incre
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r64
+push 
+push r64
+push r0
+push r1
+push r2
+push r3
+jsr Decre
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r65
+push 
+push r65
+push r0
+push r1
+push r2
+push r3
+jsr Incre
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r66
+label label46
+move r66 $-1
+jmp label45
+label label47
+sys writes eol
+move $-2 r62
+move r62 $6
+unlnk
+ret
+end

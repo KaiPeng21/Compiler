@@ -1,0 +1,51 @@
+PROGRAM guess
+BEGIN
+	STRING guessmessage := "Guess a number between 1 and 10 !";
+	STRING tooSmall := " is too small";
+	STRING tooLarge := " is too large";
+	STRING yougotit := " is the key ";
+	STRING space := " ";
+	STRING eol := "\n";
+	INT KEY;
+	STRING keystr := "key is ";
+
+	STRING infloop := "infloop";
+
+	FUNCTION INT main ()
+	BEGIN
+			INT gotit;
+			KEY := 7;
+			gotit := 0;
+
+			FOR ( ; gotit != 1; )
+				gotit := MAKEAGUESS();
+			ROF
+			
+			RETURN 0;
+	END
+
+	FUNCTION INT MAKEAGUESS ()
+	BEGIN
+		INT guessVal;
+
+	--	IF (KEY = 7)
+	--		WRITE(keystr, KEY, eol);
+	--	FI
+		
+	--	RETURN 1;
+
+		WRITE(guessmessage, eol);
+		READ(guessVal);
+		IF (guessVal > KEY)
+			WRITE(guessVal, tooLarge, eol);
+		ELSE
+			IF (KEY > guessVal)
+				WRITE(guessVal, tooSmall, eol);
+			ELSE
+				WRITE(guessVal, yougotit, eol);
+				RETURN 1;
+			FI
+		FI
+		RETURN 0;
+	END	
+END	

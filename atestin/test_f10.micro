@@ -1,0 +1,44 @@
+PROGRAM testf9
+BEGIN
+	STRING space := " ";
+	STRING eol := "\n";
+	STRING m1 := "get if block";
+	STRING m2 := "get else block";
+
+	FUNCTION INT MULT (INT a, INT b)
+	BEGIN
+		INT ret1;
+		ret1 := a * b;
+		RETURN ret1;
+	END
+
+	FUNCTION INT TEST(INT a)
+	BEGIN
+		IF (a < 5)
+			WRITE(a, space, m1, eol);
+			RETURN 1;
+		ELSE
+			WRITE(a, space, m2, eol);
+			RETURN 1;
+		FI
+	END
+	
+	FUNCTION INT INCT (INT i)
+	BEGIN
+		RETURN i + 1;
+	END
+	
+	FUNCTION INT main ()
+	BEGIN
+		INT a, b, c, d, e;
+		a := TEST(1);		
+		b := 5 * TEST(a);
+		c := TEST(b) + 10;
+		d := TEST(6);		
+		e := TEST(a + b + c + d);
+
+		WRITE(a, space, b, space, c, space, d, space, e, eol);
+		RETURN 0;
+	END
+
+END	

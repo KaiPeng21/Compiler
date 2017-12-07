@@ -1,0 +1,257 @@
+;IR code
+;LABEL MULT
+;LINK
+;MULTI $P1 $P2 $T1
+;STOREI $T1 $L1
+;STOREI $L1 $R
+;RET
+
+;LABEL INCT
+;LINK
+;STOREI 1 $T1
+;ADDI $P1 $T1 $T2
+;STOREI $T2 $R
+;RET
+
+;LABEL main
+;LINK
+;STOREI 5 $T1
+;STOREI $T1 $L2
+;STOREI 3 $T2
+;SUBI $L2 $T2 $T3
+;PUSH 
+;PUSH $L2
+;PUSH $T3
+;JSR MULT
+;POP 
+;POP 
+;POP $T4
+;PUSH 
+;PUSH $T4
+;JSR INCT
+;POP 
+;POP $T5
+;STOREI $T5 $L3
+;STOREI 0 $T6
+;STOREI $T6 $L1
+;LABEL label1
+;STOREI 5 $T7
+;ADDI $T7 $L1 $T8
+;PUSH 
+;PUSH $L2
+;PUSH $L3
+;JSR MULT
+;POP 
+;POP 
+;POP $T9
+;GE $T8 $T9 label3
+;WRITEI $L1
+;WRITES space
+;PUSH 
+;PUSH $L1
+;PUSH $L3
+;JSR MULT
+;POP 
+;POP 
+;POP $T12
+;PUSH 
+;PUSH $T12
+;JSR INCT
+;POP 
+;POP $T13
+;PUSH 
+;PUSH $L2
+;PUSH $T13
+;JSR MULT
+;POP 
+;POP 
+;POP $T14
+;STOREI $T14 $L4
+;WRITEI $L4
+;WRITES eol
+;PUSH 
+;PUSH $L1
+;JSR INCT
+;POP 
+;POP $T10
+;PUSH 
+;PUSH $T10
+;JSR INCT
+;POP 
+;POP $T11
+;LABEL label2
+;STOREI $T11 $L1
+;JUMP label1
+;LABEL label3
+;STOREI 0 $T15
+;STOREI $T15 $R
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label MULT
+link 1
+move $7 r0
+muli $6 r0
+move r0 $-1
+move $-1 r1
+move r1 $8
+unlnk
+ret
+label INCT
+link 0
+move 1 r2
+move $6 r3
+addi r2 r3
+move r3 $7
+unlnk
+ret
+label main
+link 4
+move 5 r4
+move r4 $-2
+move 3 r5
+move $-2 r6
+subi r5 r6
+push 
+push $-2
+push r6
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r7
+push 
+push r7
+push r0
+push r1
+push r2
+push r3
+jsr INCT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r8
+move r8 $-3
+move 0 r9
+move r9 $-1
+label label1
+move 5 r10
+addi $-1 r10
+push 
+push $-2
+push $-3
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r11
+cmpi r10 r11
+jge label3
+sys writei $-1
+sys writes space
+push 
+push $-1
+push $-3
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r12
+push 
+push r12
+push r0
+push r1
+push r2
+push r3
+jsr INCT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r13
+push 
+push $-2
+push r13
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r14
+move r14 $-4
+sys writei $-4
+sys writes eol
+push 
+push $-1
+push r0
+push r1
+push r2
+push r3
+jsr INCT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r15
+push 
+push r15
+push r0
+push r1
+push r2
+push r3
+jsr INCT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r16
+label label2
+move r16 $-1
+jmp label1
+label label3
+move 0 r17
+move r17 $6
+unlnk
+ret
+end

@@ -1,0 +1,19 @@
+PROGRAM add
+BEGIN
+	STRING space := " ";
+	STRING eol := "\n";
+
+	INT a, b, c, x, y, z;
+
+	FUNCTION INT main ()
+	BEGIN
+		a := 10 + 11 + 12;
+		b := a;
+		c := a;
+		x := a + b + c;
+
+		WRITE(a, space, b, space, c, space, x, eol);
+
+		RETURN 0;
+	END
+END

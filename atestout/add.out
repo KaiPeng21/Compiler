@@ -1,0 +1,71 @@
+;IR code
+;LABEL main
+;LINK
+;STOREI 10 $T1
+;STOREI 11 $T2
+;ADDI $T1 $T2 $T3
+;STOREI 12 $T4
+;ADDI $T3 $T4 $T5
+;STOREI $T5 a
+;STOREI a b
+;STOREI a c
+;ADDI a b $T6
+;ADDI $T6 c $T7
+;STOREI $T7 x
+;WRITEI a
+;WRITES space
+;WRITEI b
+;WRITES space
+;WRITEI c
+;WRITES space
+;WRITEI x
+;WRITES eol
+;STOREI 0 $T8
+;STOREI $T8 $R
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+var a
+var b
+var c
+var x
+var y
+var z
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 0
+move 10 r0
+move 11 r1
+addi r1 r0
+move 12 r2
+addi r2 r0
+move r0 a
+move a r3
+move r3 b
+move a r3
+move r3 c
+move a r4
+addi b r4
+addi c r4
+move r4 x
+sys writei a
+sys writes space
+sys writei b
+sys writes space
+sys writei c
+sys writes space
+sys writei x
+sys writes eol
+move 0 r5
+move r5 $6
+unlnk
+ret
+end

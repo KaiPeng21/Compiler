@@ -1,0 +1,40 @@
+PROGRAM ralloc2
+BEGIN
+
+    STRING space := " ";
+    STRING eol := "\n";  -- end of line
+
+    INT G1, G2, G3;
+
+    FUNCTION VOID main()
+    BEGIN
+	
+	INT a, b, c;
+
+	READ(a);
+	READ(b);
+	READ(c);
+	READ(G1);
+	READ(G2);
+	READ(G3);
+	
+	G1 := 10;
+
+	a := a + G1;
+	b := G1 / b;
+	c := FOO(a, b);
+
+	G1 := 5;
+
+	WRITE(a, space, b, space, c, space, G1, space, G2, space, G3, eol);
+    END
+
+    FUNCTION INT FOO(INT p1, INT p2)
+    BEGIN
+	G1 := G1 + G2;
+	G2 := G1 - G2;
+	G3 := p1 * p2;
+	RETURN p1 - p2;
+    END
+END
+

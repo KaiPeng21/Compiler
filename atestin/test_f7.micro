@@ -1,0 +1,41 @@
+PROGRAM testf7
+BEGIN
+	STRING space := " ";
+	STRING eol := "\n";
+	STRING buggy := "This is a bug\n";
+
+	FUNCTION VOID PRINT(INT val)
+	BEGIN
+		WRITE(val, eol);
+	END
+
+	FUNCTION VOID BUG()
+	BEGIN
+		WRITE(buggy);
+	END
+
+	FUNCTION INT main ()
+	BEGIN
+		INT a, b, c;
+		a := 5;
+		b := 2 + a;
+		c := MULT(MULT(a, MULT(b, a)), b);		
+
+		WRITE(a, space, b, space, c);
+		c := PRINT(c);
+		
+		RETURN 0;
+	END
+
+	FUNCTION VOID BUG2()
+	BEGIN
+		WRITE(buggy);
+	END
+
+	FUNCTION INT MULT (INT a, INT b)
+	BEGIN
+		INT ret1;
+		ret1 := a * b;
+		RETURN ret1;
+	END	
+END	

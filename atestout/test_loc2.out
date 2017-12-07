@@ -1,0 +1,446 @@
+;IR code
+;LABEL GETF1
+;LINK
+;MULTF $P1 $P2 $T1
+;STOREF $T1 $L1
+;STOREF $L1 $R
+;RET
+
+;LABEL GETF2
+;LINK
+;PUSH 
+;PUSH $P2
+;PUSH $P2
+;JSR GETF1
+;POP 
+;POP 
+;POP $T1
+;PUSH 
+;PUSH $P1
+;PUSH $T1
+;JSR GETF1
+;POP 
+;POP 
+;POP $T2
+;STOREF $T2 $R
+;RET
+
+;LABEL main
+;LINK
+;STOREI 5 $T1
+;STOREI $T1 $L1
+;STOREI 10 $T2
+;STOREI $T2 $L2
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR GETF1
+;POP 
+;POP 
+;POP $T3
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR GETF2
+;POP 
+;POP 
+;POP $T4
+;GE $T3 $T4 label1
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR GETF1
+;POP 
+;POP 
+;POP $T5
+;STOREF $T5 $L5
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR GETF2
+;POP 
+;POP 
+;POP $T6
+;STOREF $T6 $L6
+;WRITEF $L5
+;WRITES m1
+;WRITEF $L6
+;WRITES eol
+;JUMP label2
+;LABEL label1
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR GETF1
+;POP 
+;POP 
+;POP $T7
+;STOREF $T7 $L5
+;PUSH 
+;PUSH $L1
+;PUSH $L2
+;JSR GETF2
+;POP 
+;POP 
+;POP $T8
+;STOREF $T8 $L6
+;WRITEF $L5
+;WRITES m2
+;WRITEF $L6
+;WRITES eol
+;JUMP label2
+;LABEL label2
+;STOREI 5 $T9
+;STOREI $T9 $L3
+;STOREI 1 $T10
+;STOREI $T10 $L4
+;PUSH 
+;PUSH $L3
+;PUSH $L4
+;JSR GETF1
+;POP 
+;POP 
+;POP $T11
+;PUSH 
+;PUSH $L3
+;PUSH $L4
+;JSR GETF2
+;POP 
+;POP 
+;POP $T12
+;GE $T11 $T12 label3
+;PUSH 
+;PUSH $L3
+;PUSH $L4
+;JSR GETF1
+;POP 
+;POP 
+;POP $T13
+;STOREF $T13 $L5
+;PUSH 
+;PUSH $L3
+;PUSH $L4
+;JSR GETF2
+;POP 
+;POP 
+;POP $T14
+;STOREF $T14 $L6
+;WRITEF $L5
+;WRITES m1
+;WRITEF $L6
+;WRITES eol
+;JUMP label4
+;LABEL label3
+;PUSH 
+;PUSH $L3
+;PUSH $L4
+;JSR GETF1
+;POP 
+;POP 
+;POP $T15
+;STOREF $T15 $L5
+;PUSH 
+;PUSH $L3
+;PUSH $L4
+;JSR GETF2
+;POP 
+;POP 
+;POP $T16
+;STOREF $T16 $L6
+;WRITEF $L5
+;WRITES m2
+;WRITEF $L6
+;WRITES eol
+;JUMP label4
+;LABEL label4
+;STOREI 0 $T17
+;STOREI $T17 $R
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+str m1 " is smaller than "
+str m2 " is greater than or equal to "
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label GETF1
+link 1
+move $7 r0
+mulr $6 r0
+move r0 $-1
+move $-1 r1
+move r1 $8
+unlnk
+ret
+label GETF2
+link 0
+push 
+push $6
+push $6
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r2
+push 
+push $7
+push r2
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r3
+move r3 $8
+unlnk
+ret
+label main
+link 6
+move 5 r4
+move r4 $-1
+move 10 r5
+move r5 $-2
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r6
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r7
+cmpr r6 r7
+jge label1
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r8
+move r8 $-5
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r9
+move r9 $-6
+sys writer $-5
+sys writes m1
+sys writer $-6
+sys writes eol
+jmp label2
+label label1
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r10
+move r10 $-5
+push 
+push $-1
+push $-2
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r11
+move r11 $-6
+sys writer $-5
+sys writes m2
+sys writer $-6
+sys writes eol
+jmp label2
+label label2
+move 5 r12
+move r12 $-3
+move 1 r13
+move r13 $-4
+push 
+push $-3
+push $-4
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r14
+push 
+push $-3
+push $-4
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r15
+cmpr r14 r15
+jge label3
+push 
+push $-3
+push $-4
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r16
+move r16 $-5
+push 
+push $-3
+push $-4
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r17
+move r17 $-6
+sys writer $-5
+sys writes m1
+sys writer $-6
+sys writes eol
+jmp label4
+label label3
+push 
+push $-3
+push $-4
+push r0
+push r1
+push r2
+push r3
+jsr GETF1
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r18
+move r18 $-5
+push 
+push $-3
+push $-4
+push r0
+push r1
+push r2
+push r3
+jsr GETF2
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r19
+move r19 $-6
+sys writer $-5
+sys writes m2
+sys writer $-6
+sys writes eol
+jmp label4
+label label4
+move 0 r20
+move r20 $6
+unlnk
+ret
+end

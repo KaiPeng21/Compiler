@@ -1,0 +1,102 @@
+#/bin/bash
+
+SAMPLECOMPILER=step6.jar
+inputfiles=$(ls atestin)
+summary=atest.summary
+
+
+if [[ $# != 0 && $1 == "-h" ]]
+then
+	echo "atest"
+	echo "atest <filename without .micro>"
+	exit 0
+fi
+
+#g++ -o tiny tinyNew.c &>/dev/null
+g++ -o tiny4 tiny4regs.c &>/dev/null
+
+export CLASSPATH=lib/antlr.jar
+make
+
+rm atestout/* &>/dev/null
+rm atestmyout/* &>/dev/null
+
+
+echo "ATEST" > $summary
+echo "created by Chia-Hua Peng, Team TooYoungTooSimple" >> $summary
+echo "" >> $summary
+
+if (( $# == 0 ))
+then
+	for file in $inputfiles
+	do
+		filename=(${file//./ })
+		if [[ ${filename[1]} == "micro" ]]
+		then
+			echo "======================================================================================" >> $summary
+			echo "testing ${filename[0]} ..." >> $summary
+			echo "" >> $summary
+	
+			# use the sample compiler to generate tiny assembly from the testing micro file
+			java -jar $SAMPLECOMPILER atestin/${filename[0]}.micro > atestout/${filename[0]}.out
+	
+			# run the tiny simulator using the sample tiny assembly output
+			./tiny atestout/${filename[0]}.out < atestin/${filename[0]}.input > atest_standard.result
+	
+			# run student's complier to generate tiny assembly from the testing micro file
+			runme atestin/${filename[0]}.micro atestmyout/my_${filename[0]}.out
+			
+			# run the tiny simulator using the student's tiny assembly output
+			./tiny4 atestmyout/my_${filename[0]}.out < atestin/${filename[0]}.input > atest_student.result
+	
+			# compare the standard result and student result
+			sdiff atest_standard.result atest_student.result >> $summary
+	
+			printf "testing ${filename[0]} ...   \t"
+			python3.4 atestdiff.py
+	
+			echo "" >> $summary
+			echo "end testing ${filename[0]}" >> $summary
+			echo "======================================================================================" >> $summary
+			rm atest_standard.result
+			rm atest_student.result
+		fi
+	done	
+else
+	
+			echo "======================================================================================" >> $summary
+			echo "testing $1 ..." >> $summary
+			echo "" >> $summary
+	
+			# use the sample compiler to generate tiny assembly from the testing micro file
+			java -jar $SAMPLECOMPILER atestin/${1}.micro > atestout/${1}.out
+	
+			# run the tiny simulator using the sample tiny assembly output
+			./tiny atestout/${1}.out < atestin/${1}.input > atest_standard.result
+	
+			# run student's complier to generate tiny assembly from the testing micro file
+			runme atestin/${1}.micro atestmyout/my_${1}.out
+			
+			# run the tiny simulator using the student's tiny assembly output
+			./tiny4 atestmyout/my_${1}.out < atestin/${1}.input > atest_student.result
+	
+			# compare the standard result and student result
+			sdiff atest_standard.result atest_student.result >> $summary
+	
+			printf "testing $1 ...   \t"
+			python3.4 atestdiff.py
+	
+			echo "" >> $summary
+			echo "end testing $1" >> $summary
+			echo "======================================================================================" >> $summary
+			rm atest_standard.result
+			rm atest_student.result
+
+fi
+
+echo ""
+echo "check $summary for detail results"
+echo "test cases created by Chia-Hua Peng, Team TooYoungTooSimple"
+echo ""
+
+exit 0

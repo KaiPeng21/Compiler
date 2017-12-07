@@ -1,0 +1,598 @@
+;IR code
+;LABEL main
+;LINK
+;STOREF 20.5 $T1
+;STOREF $T1 a0
+;STOREF 16.5 $T2
+;STOREF $T2 a1
+;STOREF 12.0 $T3
+;STOREF $T3 a2
+;STOREF 1.2 $T4
+;STOREF $T4 a3
+;STOREF 1.3 $T5
+;STOREF $T5 a4
+;STOREF 12.1 $T6
+;STOREF $T6 a5
+;STOREF 15.1 $T7
+;STOREF $T7 a6
+;STOREF 10.1 $T8
+;STOREF $T8 a7
+;STOREF a0 $L6
+;STOREI 0 $T9
+;STOREI $T9 $L8
+;LABEL label1
+;STOREI 4 $T10
+;GE $L8 $T10 label3
+;STOREI 7 $T13
+;SUBI $T13 $L8 $T14
+;STOREI $T14 $L9
+;PUSH 
+;PUSH $L8
+;PUSH a0
+;PUSH a1
+;PUSH a2
+;PUSH a3
+;PUSH a4
+;PUSH a5
+;PUSH a6
+;PUSH a7
+;JSR GetValue
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T15
+;STOREI $T15 $L3
+;PUSH 
+;PUSH $L9
+;PUSH a0
+;PUSH a1
+;PUSH a2
+;PUSH a3
+;PUSH a4
+;PUSH a5
+;PUSH a6
+;PUSH a7
+;JSR GetValue
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T16
+;STOREI $T16 $L4
+;PUSH 
+;PUSH $L8
+;PUSH a0
+;PUSH a1
+;PUSH a2
+;PUSH a3
+;PUSH a4
+;PUSH a5
+;PUSH a6
+;PUSH a7
+;JSR GetValue
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T17
+;PUSH 
+;PUSH $L9
+;PUSH a0
+;PUSH a1
+;PUSH a2
+;PUSH a3
+;PUSH a4
+;PUSH a5
+;PUSH a6
+;PUSH a7
+;JSR GetValue
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP 
+;POP $T18
+;LE $T17 $T18 label4
+;WRITEI $L8
+;WRITES space
+;WRITEI $L9
+;WRITES space
+;WRITEF $L3
+;WRITES space
+;WRITEF $L4
+;WRITES space
+;WRITEF $L3
+;WRITES eol
+;JUMP label5
+;LABEL label4
+;WRITEI $L8
+;WRITES space
+;WRITEI $L9
+;WRITES space
+;WRITEF $L3
+;WRITES space
+;WRITEF $L4
+;WRITES space
+;WRITEF $L4
+;WRITES eol
+;JUMP label5
+;LABEL label5
+;LABEL label2
+;STOREI 1 $T11
+;ADDI $L8 $T11 $T12
+;STOREI $T12 $L8
+;JUMP label1
+;LABEL label3
+;RET
+
+;LABEL IsLargerThanOrEqualTo
+;LINK
+;LT $P1 $P2 label6
+;STOREI 1 $T1
+;STOREI $T1 $R
+;RET
+;JUMP label7
+;LABEL label6
+;LABEL label7
+;STOREI 0 $T2
+;STOREI $T2 $R
+;RET
+
+;LABEL IsSmallerThan
+;LINK
+;PUSH 
+;PUSH $P1
+;PUSH $P2
+;JSR IsLargerThanOrEqualTo
+;POP 
+;POP 
+;POP $T1
+;STOREI 0 $T2
+;EQ $T1 $T2 label8
+;STOREI 0 $T3
+;STOREI $T3 $R
+;RET
+;JUMP label9
+;LABEL label8
+;LABEL label9
+;STOREI 1 $T4
+;STOREI $T4 $R
+;RET
+
+;LABEL GetValue
+;LINK
+;STOREI 0 $T1
+;NE $P1 $T1 label10
+;STOREF $P2 $R
+;RET
+;JUMP label11
+;LABEL label10
+;STOREI 1 $T2
+;NE $P1 $T2 label12
+;STOREF $P3 $R
+;RET
+;JUMP label13
+;LABEL label12
+;STOREI 2 $T3
+;NE $P1 $T3 label14
+;STOREF $P4 $R
+;RET
+;JUMP label15
+;LABEL label14
+;STOREI 3 $T4
+;NE $P1 $T4 label16
+;STOREF $P5 $R
+;RET
+;JUMP label17
+;LABEL label16
+;STOREI 4 $T5
+;NE $P1 $T5 label18
+;STOREF $P6 $R
+;RET
+;JUMP label19
+;LABEL label18
+;STOREI 5 $T6
+;NE $P1 $T6 label20
+;STOREF $P7 $R
+;RET
+;JUMP label21
+;LABEL label20
+;STOREI 6 $T7
+;NE $P1 $T7 label22
+;STOREF $P8 $R
+;RET
+;JUMP label23
+;LABEL label22
+;STOREI 7 $T8
+;NE $P1 $T8 label24
+;STOREF $P9 $R
+;RET
+;JUMP label25
+;LABEL label24
+;JUMP label25
+;LABEL label25
+;JUMP label23
+;LABEL label23
+;JUMP label21
+;LABEL label21
+;JUMP label19
+;LABEL label19
+;JUMP label17
+;LABEL label17
+;JUMP label15
+;LABEL label15
+;JUMP label13
+;LABEL label13
+;JUMP label11
+;LABEL label11
+;STOREI 0 $T9
+;STOREI $T9 $R
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+str tab "        "
+str smS " is smaller than "
+str leS " is larger than or equal to "
+str minis " min: "
+str maxis " max: "
+var a0
+var a1
+var a2
+var a3
+var a4
+var a5
+var a6
+var a7
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 9
+move 20.5 r0
+move r0 a0
+move 16.5 r1
+move r1 a1
+move 12.0 r2
+move r2 a2
+move 1.2 r3
+move r3 a3
+move 1.3 r4
+move r4 a4
+move 12.1 r5
+move r5 a5
+move 15.1 r6
+move r6 a6
+move 10.1 r7
+move r7 a7
+move a0 r8
+move r8 $-6
+move 0 r9
+move r9 $-8
+label label1
+move 4 r10
+cmpi $-8 r10
+jge label3
+move 7 r11
+subi $-8 r11
+move r11 $-9
+push 
+push $-8
+push a0
+push a1
+push a2
+push a3
+push a4
+push a5
+push a6
+push a7
+push r0
+push r1
+push r2
+push r3
+jsr GetValue
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r12
+move r12 $-3
+push 
+push $-9
+push a0
+push a1
+push a2
+push a3
+push a4
+push a5
+push a6
+push a7
+push r0
+push r1
+push r2
+push r3
+jsr GetValue
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r13
+move r13 $-4
+push 
+push $-8
+push a0
+push a1
+push a2
+push a3
+push a4
+push a5
+push a6
+push a7
+push r0
+push r1
+push r2
+push r3
+jsr GetValue
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r14
+push 
+push $-9
+push a0
+push a1
+push a2
+push a3
+push a4
+push a5
+push a6
+push a7
+push r0
+push r1
+push r2
+push r3
+jsr GetValue
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop 
+pop r15
+cmpi r14 r15
+jle label4
+sys writei $-8
+sys writes space
+sys writei $-9
+sys writes space
+sys writer $-3
+sys writes space
+sys writer $-4
+sys writes space
+sys writer $-3
+sys writes eol
+jmp label5
+label label4
+sys writei $-8
+sys writes space
+sys writei $-9
+sys writes space
+sys writer $-3
+sys writes space
+sys writer $-4
+sys writes space
+sys writer $-4
+sys writes eol
+jmp label5
+label label5
+label label2
+move 1 r16
+move $-8 r17
+addi r16 r17
+move r17 $-8
+jmp label1
+label label3
+unlnk
+ret
+label IsLargerThanOrEqualTo
+link 0
+move $6 r18
+cmpr $7 r18
+jlt label6
+move 1 r19
+move r19 $8
+unlnk
+ret
+jmp label7
+label label6
+label label7
+move 0 r20
+move r20 $8
+unlnk
+ret
+label IsSmallerThan
+link 0
+push 
+push $7
+push $6
+push r0
+push r1
+push r2
+push r3
+jsr IsLargerThanOrEqualTo
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r21
+move 0 r22
+cmpi r21 r22
+jeq label8
+move 0 r23
+move r23 $8
+unlnk
+ret
+jmp label9
+label label8
+label label9
+move 1 r24
+move r24 $8
+unlnk
+ret
+label GetValue
+link 0
+move 0 r25
+cmpi $14 r25
+jne label10
+move $13 r26
+move r26 $15
+unlnk
+ret
+jmp label11
+label label10
+move 1 r27
+cmpi $14 r27
+jne label12
+move $12 r28
+move r28 $15
+unlnk
+ret
+jmp label13
+label label12
+move 2 r29
+cmpi $14 r29
+jne label14
+move $11 r30
+move r30 $15
+unlnk
+ret
+jmp label15
+label label14
+move 3 r31
+cmpi $14 r31
+jne label16
+move $10 r32
+move r32 $15
+unlnk
+ret
+jmp label17
+label label16
+move 4 r33
+cmpi $14 r33
+jne label18
+move $9 r34
+move r34 $15
+unlnk
+ret
+jmp label19
+label label18
+move 5 r35
+cmpi $14 r35
+jne label20
+move $8 r36
+move r36 $15
+unlnk
+ret
+jmp label21
+label label20
+move 6 r37
+cmpi $14 r37
+jne label22
+move $7 r38
+move r38 $15
+unlnk
+ret
+jmp label23
+label label22
+move 7 r39
+cmpi $14 r39
+jne label24
+move $6 r40
+move r40 $15
+unlnk
+ret
+jmp label25
+label label24
+jmp label25
+label label25
+jmp label23
+label label23
+jmp label21
+label label21
+jmp label19
+label label19
+jmp label17
+label label17
+jmp label15
+label label15
+jmp label13
+label label13
+jmp label11
+label label11
+move 0 r41
+move r41 $15
+unlnk
+ret
+end

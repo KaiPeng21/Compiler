@@ -1,0 +1,58 @@
+PROGRAM sort
+BEGIN
+
+    STRING space := " ";
+    STRING eol := "\n";  -- end of line
+    STRING smS := " is smaller than ";
+    STRING leS := " is larger than or equal to ";
+
+    FUNCTION INT INCRE(INT i)
+    BEGIN
+	RETURN i + 1;
+    END
+
+    FUNCTION VOID main()
+    BEGIN
+	FLOAT b, c;
+	INT res;
+
+	b := 5.2;
+	c := 6.4;
+	res := IsLargerThanOrEqualTo(b, c);
+	WRITE(b, space, c, space, leS, space, res, eol);
+	res := IsSmallerThan(b, c);
+	WRITE(b, space, c, space, smS, space, res, eol);
+
+	b := 7.2;
+	c := 7.2;
+	res := IsLargerThanOrEqualTo(b, c);
+	WRITE(b, space, c, space, leS, space, res, eol);
+	res := IsSmallerThan(b, c);
+	WRITE(b, space, c, space, smS, space, res, eol);
+
+	b := 21.2;
+	c := 19.8;
+	res := IsLargerThanOrEqualTo(b, c);
+	WRITE(b, space, c, space, leS, space, res, eol);
+	res := IsSmallerThan(b, c);
+	WRITE(b, space, c, space, smS, space, res, eol);
+
+    END
+
+    FUNCTION INT IsLargerThanOrEqualTo(FLOAT j, FLOAT k)
+    BEGIN
+	IF (j >= k)
+		RETURN 1;
+	FI
+	RETURN 0;
+    END
+
+    FUNCTION INT IsSmallerThan(FLOAT j, FLOAT k)
+    BEGIN
+	IF (IsLargerThanOrEqualTo(j, k) != 0)
+		RETURN 0;
+	FI
+	RETURN 1;
+    END
+END
+

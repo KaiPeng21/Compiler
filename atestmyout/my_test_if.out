@@ -1,0 +1,515 @@
+;Symbol table GLOBAL
+; return type: null
+; subscope local var size: 0
+;scope type: GLOBAL_TYPE 
+;name i type INT local slot location: -1
+;name a type INT local slot location: -2
+;name num type INT local slot location: -3
+
+
+;Symbol table main
+; return type: VOID
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+
+
+;Symbol table BLOCK 1
+; return type: null
+; subscope local var size: 0
+;scope type: IF_TYPE 
+
+
+;Symbol table BLOCK 2
+; return type: null
+; subscope local var size: 0
+;scope type: IF_TYPE 
+
+
+;Symbol table BLOCK 3
+; return type: null
+; subscope local var size: 0
+;scope type: ELSE_TYPE 
+
+
+;Symbol table BLOCK 4
+; return type: null
+; subscope local var size: 0
+;scope type: IF_TYPE 
+
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: IF
+
+;exit Cond: < :: i :: 5
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: IF
+; SUBSCOPE block ID: 2 scopeType: IF
+
+;exit Cond: < :: i :: 3
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: IF
+; SUBSCOPE block ID: 3 scopeType: ELSE
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 4 scopeType: ELSE
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 4 scopeType: ELSE
+; SUBSCOPE block ID: 5 scopeType: IF
+
+;exit Cond: >= :: i :: 5
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 4 scopeType: ELSE
+; SUBSCOPE block ID: 6 scopeType: ELSE
+
+
+;IR code
+;PUSH
+;JSR main
+;HALT
+
+;LABEL main		 Under Func Scope: main
+;LINK 1			 Under Func Scope: main
+;STOREI 7 $T1		 Under Func Scope: main
+;STOREI $T1 num		 Under Func Scope: main
+;STOREI 2 $T2		 Under Func Scope: main
+;STOREI $T2 i		 Under Func Scope: main
+;STOREI 42 $T3		 Under Func Scope: main
+;STOREI $T3 a		 Under Func Scope: main
+;STOREI 5 $T4		 Under Func Scope: main
+;GEI i $T4 label1	 Under Func Scope: main
+;ADDI num a $T5		 Under Func Scope: main
+;STOREI $T5 num		 Under Func Scope: main
+;STOREI 3 $T6		 Under Func Scope: main
+;GEI i $T6 label3	 Under Func Scope: main
+;ADDI num a $T7		 Under Func Scope: main
+;STOREI $T7 num		 Under Func Scope: main
+;JUMP label4		 Under Func Scope: main
+;LABEL label3		 Under Func Scope: main
+;LABEL label4		 Under Func Scope: main
+;JUMP label2		 Under Func Scope: main
+;LABEL label1		 Under Func Scope: main
+;STOREI 5 $T8		 Under Func Scope: main
+;LTI i $T8 label5	 Under Func Scope: main
+;SUBI num a $T9		 Under Func Scope: main
+;STOREI $T9 num		 Under Func Scope: main
+;JUMP label6		 Under Func Scope: main
+;LABEL label5		 Under Func Scope: main
+;LABEL label6		 Under Func Scope: main
+;LABEL label2		 Under Func Scope: main
+;WRITEI num		 Under Func Scope: main
+;UNLINK			 Under Func Scope: main
+;RET			 Under Func Scope: main
+
+; ========= CFG IR NODE =========
+
+;LABEL main		P: 					S: ;LINK 1		 <== BB leader
+;LINK 1			P: ;LABEL main			S: ;STOREI 7 $T1	
+;STOREI 7 $T1		P: ;LINK 1				S: ;STOREI $T1 num	
+;STOREI $T1 num		P: ;STOREI 7 $T1			S: ;STOREI 2 $T2	
+;STOREI 2 $T2		P: ;STOREI $T1 num			S: ;STOREI $T2 i	
+;STOREI $T2 i		P: ;STOREI 2 $T2			S: ;STOREI 42 $T3	
+;STOREI 42 $T3		P: ;STOREI $T2 i			S: ;STOREI $T3 a	
+;STOREI $T3 a		P: ;STOREI 42 $T3			S: ;STOREI 5 $T4	
+;STOREI 5 $T4		P: ;STOREI $T3 a			S: ;GEI i $T4 label1	
+;GEI i $T4 label1	P: ;STOREI 5 $T4			S: ;ADDI num a $T5	;LABEL label1	
+;ADDI num a $T5		P: ;GEI i $T4 label1		S: ;STOREI $T5 num		 <== BB leader
+;STOREI $T5 num		P: ;ADDI num a $T5		S: ;STOREI 3 $T6	
+;STOREI 3 $T6		P: ;STOREI $T5 num			S: ;GEI i $T6 label3	
+;GEI i $T6 label3	P: ;STOREI 3 $T6			S: ;ADDI num a $T7	;LABEL label3	
+;ADDI num a $T7		P: ;GEI i $T6 label3		S: ;STOREI $T7 num		 <== BB leader
+;STOREI $T7 num		P: ;ADDI num a $T7		S: ;JUMP label4	
+;JUMP label4		P: ;STOREI $T7 num			S: ;LABEL label4	
+;LABEL label3		P: ;GEI i $T6 label3		S: ;LABEL label4		 <== BB leader
+;LABEL label4		P: ;LABEL label3	;JUMP label4		S: ;JUMP label2		 <== BB leader
+;JUMP label2		P: ;LABEL label4			S: ;LABEL label2	
+;LABEL label1		P: ;GEI i $T4 label1		S: ;STOREI 5 $T8		 <== BB leader
+;STOREI 5 $T8		P: ;LABEL label1			S: ;LTI i $T8 label5	
+;LTI i $T8 label5	P: ;STOREI 5 $T8			S: ;SUBI num a $T9	;LABEL label5	
+;SUBI num a $T9		P: ;LTI i $T8 label5		S: ;STOREI $T9 num		 <== BB leader
+;STOREI $T9 num		P: ;SUBI num a $T9		S: ;JUMP label6	
+;JUMP label6		P: ;STOREI $T9 num			S: ;LABEL label6	
+;LABEL label5		P: ;LTI i $T8 label5		S: ;LABEL label6		 <== BB leader
+;LABEL label6		P: ;LABEL label5	;JUMP label6		S: ;LABEL label2		 <== BB leader
+;LABEL label2		P: ;LABEL label6	;JUMP label2		S: ;WRITEI num		 <== BB leader
+;WRITEI num		P: ;LABEL label2			S: ;UNLINK	
+;UNLINK			P: ;WRITEI num			S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+; ========= CFG IR NODE / KILL/ GEN =========
+
+;LABEL main		Kill: 				Gen: 
+;LINK 1			Kill: 				Gen: 
+;STOREI 7 $T1		Kill: $T1, 			Gen: 
+;STOREI $T1 num		Kill: num, 			Gen: $T1, 
+;STOREI 2 $T2		Kill: $T2, 			Gen: 
+;STOREI $T2 i		Kill: i, 				Gen: $T2, 
+;STOREI 42 $T3		Kill: $T3, 			Gen: 
+;STOREI $T3 a		Kill: a, 				Gen: $T3, 
+;STOREI 5 $T4		Kill: $T4, 			Gen: 
+;GEI i $T4 label1	Kill: 					Gen: $T4, i, 
+;ADDI num a $T5		Kill: $T5, 			Gen: num, a, 
+;STOREI $T5 num		Kill: num, 			Gen: $T5, 
+;STOREI 3 $T6		Kill: $T6, 			Gen: 
+;GEI i $T6 label3	Kill: 					Gen: $T6, i, 
+;ADDI num a $T7		Kill: $T7, 			Gen: num, a, 
+;STOREI $T7 num		Kill: num, 			Gen: $T7, 
+;JUMP label4		Kill: 				Gen: 
+;LABEL label3		Kill: 				Gen: 
+;LABEL label4		Kill: 				Gen: 
+;JUMP label2		Kill: 				Gen: 
+;LABEL label1		Kill: 				Gen: 
+;STOREI 5 $T8		Kill: $T8, 			Gen: 
+;LTI i $T8 label5	Kill: 					Gen: $T8, i, 
+;SUBI num a $T9		Kill: $T9, 			Gen: num, a, 
+;STOREI $T9 num		Kill: num, 			Gen: $T9, 
+;JUMP label6		Kill: 				Gen: 
+;LABEL label5		Kill: 				Gen: 
+;LABEL label6		Kill: 				Gen: 
+;LABEL label2		Kill: 				Gen: 
+;WRITEI num		Kill: 				Gen: num, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+; ========= CFG IR NODE / LIVE IN / LIVE OUT =========
+
+;LABEL main		Live IN: 				Live OUT: 
+;LINK 1			Live IN: 			Live OUT: 
+;STOREI 7 $T1		Live IN: 				Live OUT: $T1, 
+;STOREI $T1 num		Live IN: $T1, 			Live OUT: num, 
+;STOREI 2 $T2		Live IN: num, 			Live OUT: $T2, num, 
+;STOREI $T2 i		Live IN: $T2, num, 		Live OUT: num, i, 
+;STOREI 42 $T3		Live IN: num, i, 			Live OUT: $T3, num, i, 
+;STOREI $T3 a		Live IN: $T3, num, i, 		Live OUT: num, a, i, 
+;STOREI 5 $T4		Live IN: num, i, a, 		Live OUT: num, $T4, a, i, 
+;GEI i $T4 label1	Live IN: num, $T4, a, i, 		Live OUT: num, a, i, 
+;ADDI num a $T5		Live IN: num, i, a, 		Live OUT: a, $T5, i, 
+;STOREI $T5 num		Live IN: $T5, i, a, 		Live OUT: num, a, i, 
+;STOREI 3 $T6		Live IN: num, i, a, 		Live OUT: num, $T6, a, i, 
+;GEI i $T6 label3	Live IN: $T6, num, i, a, 		Live OUT: num, a, i, 
+;ADDI num a $T7		Live IN: num, i, a, 		Live OUT: $T7, a, i, 
+;STOREI $T7 num		Live IN: $T7, i, a, 		Live OUT: num, a, i, 
+;JUMP label4		Live IN: num, i, a, 		Live OUT: num, a, i, 
+;LABEL label3		Live IN: num, i, a, 		Live OUT: num, a, i, 
+;LABEL label4		Live IN: num, i, a, 		Live OUT: num, a, i, 
+;JUMP label2		Live IN: num, i, a, 		Live OUT: num, a, i, 
+;LABEL label1		Live IN: num, i, a, 		Live OUT: num, a, i, 
+;STOREI 5 $T8		Live IN: num, i, a, 		Live OUT: num, a, $T8, i, 
+;LTI i $T8 label5	Live IN: $T8, num, a, i, 		Live OUT: num, a, i, 
+;SUBI num a $T9		Live IN: num, i, a, 		Live OUT: a, $T9, i, 
+;STOREI $T9 num		Live IN: $T9, i, a, 		Live OUT: num, a, i, 
+;JUMP label6		Live IN: num, i, a, 		Live OUT: num, a, i, 
+;LABEL label5		Live IN: num, i, a, 		Live OUT: num, a, i, 
+;LABEL label6		Live IN: num, i, a, 		Live OUT: num, a, i, 
+;LABEL label2		Live IN: num, i, a, 		Live OUT: num, a, i, 
+;WRITEI num		Live IN: num, i, a, 			Live OUT: num, a, i, 
+;UNLINK			Live IN: num, i, a, 		Live OUT: num, a, i, 
+;RET			Live IN: num, i, a, 		Live OUT: num, a, i, 
+;var i 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var a 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var num 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;jsr main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;sys halt 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL main liveout: ; {  }
+;label main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 1 liveout: ; {  }
+;link 10 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 7 $T1 liveout: ; { $T1  }
+; ensure(): $T1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;move 7 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;STOREI $T1 num liveout: ; { num  }
+; ensure(): $T1 has register r3
+; ensure(): num gets register r2 { r0-><null> || r1-><null> || r2->num || r3->$T1* }
+; loading num to register r2
+;move num r2 	; { r0-><null> || r1-><null> || r2->num || r3->$T1* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->num || r3->$T1* }
+; freeing unused variable r3
+; spilling varialbe $T1
+;move r3 $-1 	; { r0-><null> || r1-><null> || r2->num* || r3->$T1* }
+;STOREI 2 $T2 liveout: ; { $T2 num  }
+; ensure(): $T2 gets register r3 { r0-><null> || r1-><null> || r2->num* || r3->$T2 }
+; loading $-2 to register r3
+;move $-2 r3 	; { r0-><null> || r1-><null> || r2->num* || r3->$T2 }
+;move 2 r3 	; { r0-><null> || r1-><null> || r2->num* || r3->$T2 }
+;STOREI $T2 i liveout: ; { num i  }
+; ensure(): $T2 has register r3
+; ensure(): i gets register r1 { r0-><null> || r1->i || r2->num* || r3->$T2* }
+; loading i to register r1
+;move i r1 	; { r0-><null> || r1->i || r2->num* || r3->$T2* }
+;move r3 r1 	; { r0-><null> || r1->i || r2->num* || r3->$T2* }
+; freeing unused variable r3
+; spilling varialbe $T2
+;move r3 $-2 	; { r0-><null> || r1->i* || r2->num* || r3->$T2* }
+;STOREI 42 $T3 liveout: ; { $T3 num i  }
+; ensure(): $T3 gets register r3 { r0-><null> || r1->i* || r2->num* || r3->$T3 }
+; loading $-3 to register r3
+;move $-3 r3 	; { r0-><null> || r1->i* || r2->num* || r3->$T3 }
+;move 42 r3 	; { r0-><null> || r1->i* || r2->num* || r3->$T3 }
+;STOREI $T3 a liveout: ; { num a i  }
+; ensure(): $T3 has register r3
+; ensure(): a gets register r0 { r0->a || r1->i* || r2->num* || r3->$T3* }
+; loading a to register r0
+;move a r0 	; { r0->a || r1->i* || r2->num* || r3->$T3* }
+;move r3 r0 	; { r0->a || r1->i* || r2->num* || r3->$T3* }
+; freeing unused variable r3
+; spilling varialbe $T3
+;move r3 $-3 	; { r0->a* || r1->i* || r2->num* || r3->$T3* }
+;STOREI 5 $T4 liveout: ; { num $T4 a i  }
+; ensure(): $T4 gets register r3 { r0->a* || r1->i* || r2->num* || r3->$T4 }
+; loading $-4 to register r3
+;move $-4 r3 	; { r0->a* || r1->i* || r2->num* || r3->$T4 }
+;move 5 r3 	; { r0->a* || r1->i* || r2->num* || r3->$T4 }
+;GEI i $T4 label1 liveout: ; { num a i  }
+; ensure(): i has register r1
+; ensure(): $T4 has register r3
+;cmpi r1 r3 	; { r0->a* || r1->i* || r2->num* || r3->$T4* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T4
+;move r3 $-4 	; { r0->a* || r1->i* || r2->num* || r3->$T4* }
+; spilling varialbe num
+;move r2 num 	; { r0->a* || r1->i* || r2->num* || r3-><null> }
+; spilling varialbe i
+;move r1 i 	; { r0->a* || r1->i* || r2-><null> || r3-><null> }
+; spilling varialbe a
+;move r0 a 	; { r0->a* || r1-><null> || r2-><null> || r3-><null> }
+;jge label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r1
+; freeing unused variable r3
+;ADDI num a $T5 liveout: ; { a $T5 i  }
+; ensure(): num gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->num }
+; loading num to register r3
+;move num r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->num }
+; ensure(): a gets register r2 { r0-><null> || r1-><null> || r2->a || r3->num }
+; loading a to register r2
+;move a r2 	; { r0-><null> || r1-><null> || r2->a || r3->num }
+; switching owner of register num to $T5 { r0-><null> || r1-><null> || r2->a || r3->num }
+;addi r2 r3 	; { r0-><null> || r1-><null> || r2->a || r3->$T5 }
+;STOREI $T5 num liveout: ; { num a i  }
+; ensure(): $T5 has register r3
+; ensure(): num gets register r1 { r0-><null> || r1->num || r2->a || r3->$T5* }
+; loading num to register r1
+;move num r1 	; { r0-><null> || r1->num || r2->a || r3->$T5* }
+;move r3 r1 	; { r0-><null> || r1->num || r2->a || r3->$T5* }
+; freeing unused variable r3
+; spilling varialbe $T5
+;move r3 $-5 	; { r0-><null> || r1->num* || r2->a || r3->$T5* }
+;STOREI 3 $T6 liveout: ; { num $T6 a i  }
+; ensure(): $T6 gets register r3 { r0-><null> || r1->num* || r2->a || r3->$T6 }
+; loading $-6 to register r3
+;move $-6 r3 	; { r0-><null> || r1->num* || r2->a || r3->$T6 }
+;move 3 r3 	; { r0-><null> || r1->num* || r2->a || r3->$T6 }
+;GEI i $T6 label3 liveout: ; { num a i  }
+; ensure(): i gets register r0 { r0->i || r1->num* || r2->a || r3->$T6* }
+; loading i to register r0
+;move i r0 	; { r0->i || r1->num* || r2->a || r3->$T6* }
+; ensure(): $T6 has register r3
+;cmpi r0 r3 	; { r0->i || r1->num* || r2->a || r3->$T6* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T6
+;move r3 $-6 	; { r0->i || r1->num* || r2->a || r3->$T6* }
+; spilling varialbe a
+;move r2 a 	; { r0->i || r1->num* || r2->a || r3-><null> }
+; spilling varialbe num
+;move r1 num 	; { r0->i || r1->num* || r2-><null> || r3-><null> }
+; spilling varialbe i
+;move r0 i 	; { r0->i || r1-><null> || r2-><null> || r3-><null> }
+;jge label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r0
+; freeing unused variable r3
+;ADDI num a $T7 liveout: ; { $T7 a i  }
+; ensure(): num gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->num }
+; loading num to register r3
+;move num r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->num }
+; ensure(): a gets register r2 { r0-><null> || r1-><null> || r2->a || r3->num }
+; loading a to register r2
+;move a r2 	; { r0-><null> || r1-><null> || r2->a || r3->num }
+; switching owner of register num to $T7 { r0-><null> || r1-><null> || r2->a || r3->num }
+;addi r2 r3 	; { r0-><null> || r1-><null> || r2->a || r3->$T7 }
+;STOREI $T7 num liveout: ; { num a i  }
+; ensure(): $T7 has register r3
+; ensure(): num gets register r1 { r0-><null> || r1->num || r2->a || r3->$T7* }
+; loading num to register r1
+;move num r1 	; { r0-><null> || r1->num || r2->a || r3->$T7* }
+;move r3 r1 	; { r0-><null> || r1->num || r2->a || r3->$T7* }
+; freeing unused variable r3
+; spilling varialbe $T7
+;move r3 $-7 	; { r0-><null> || r1->num* || r2->a || r3->$T7* }
+;JUMP label4 liveout: ; { num a i  }
+; spilling registers at the end of Basic Block
+; spilling varialbe a
+;move r2 a 	; { r0-><null> || r1->num* || r2->a || r3-><null> }
+; spilling varialbe num
+;move r1 num 	; { r0-><null> || r1->num* || r2-><null> || r3-><null> }
+;jmp label4 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label3 liveout: ; { num a i  }
+; spilling registers at the end of Basic Block
+;label label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label4 liveout: ; { num a i  }
+; spilling registers at the end of Basic Block
+;label label4 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;JUMP label2 liveout: ; { num a i  }
+; spilling registers at the end of Basic Block
+;jmp label2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label1 liveout: ; { num a i  }
+; spilling registers at the end of Basic Block
+;label label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 5 $T8 liveout: ; { num a $T8 i  }
+; ensure(): $T8 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T8 }
+; loading $-8 to register r3
+;move $-8 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T8 }
+;move 5 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T8 }
+;LTI i $T8 label5 liveout: ; { num a i  }
+; ensure(): i gets register r2 { r0-><null> || r1-><null> || r2->i || r3->$T8* }
+; loading i to register r2
+;move i r2 	; { r0-><null> || r1-><null> || r2->i || r3->$T8* }
+; ensure(): $T8 has register r3
+;cmpi r2 r3 	; { r0-><null> || r1-><null> || r2->i || r3->$T8* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T8
+;move r3 $-8 	; { r0-><null> || r1-><null> || r2->i || r3->$T8* }
+; spilling varialbe i
+;move r2 i 	; { r0-><null> || r1-><null> || r2->i || r3-><null> }
+;jlt label5 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r2
+; freeing unused variable r3
+;SUBI num a $T9 liveout: ; { a $T9 i  }
+; ensure(): num gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->num }
+; loading num to register r3
+;move num r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->num }
+; ensure(): a gets register r2 { r0-><null> || r1-><null> || r2->a || r3->num }
+; loading a to register r2
+;move a r2 	; { r0-><null> || r1-><null> || r2->a || r3->num }
+; switching owner of register num to $T9 { r0-><null> || r1-><null> || r2->a || r3->num }
+;subi r2 r3 	; { r0-><null> || r1-><null> || r2->a || r3->$T9 }
+;STOREI $T9 num liveout: ; { num a i  }
+; ensure(): $T9 has register r3
+; ensure(): num gets register r1 { r0-><null> || r1->num || r2->a || r3->$T9* }
+; loading num to register r1
+;move num r1 	; { r0-><null> || r1->num || r2->a || r3->$T9* }
+;move r3 r1 	; { r0-><null> || r1->num || r2->a || r3->$T9* }
+; freeing unused variable r3
+; spilling varialbe $T9
+;move r3 $-9 	; { r0-><null> || r1->num* || r2->a || r3->$T9* }
+;JUMP label6 liveout: ; { num a i  }
+; spilling registers at the end of Basic Block
+; spilling varialbe a
+;move r2 a 	; { r0-><null> || r1->num* || r2->a || r3-><null> }
+; spilling varialbe num
+;move r1 num 	; { r0-><null> || r1->num* || r2-><null> || r3-><null> }
+;jmp label6 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label5 liveout: ; { num a i  }
+; spilling registers at the end of Basic Block
+;label label5 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label6 liveout: ; { num a i  }
+; spilling registers at the end of Basic Block
+;label label6 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label2 liveout: ; { num a i  }
+; spilling registers at the end of Basic Block
+;label label2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITEI num liveout: ; { num a i  }
+; ensure(): num gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->num }
+; loading num to register r3
+;move num r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->num }
+;sys writei r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->num }
+;UNLINK liveout: ; { num a i  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3->num }
+;RET liveout: ; { num a i  }
+; writing back global variables prior a function call
+; spilling varialbe num
+;move r3 num 	; { r0-><null> || r1-><null> || r2-><null> || r3->num }
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+
+var i
+var a
+var num
+push
+push
+push
+push
+push
+jsr main
+sys halt
+label main
+link 10
+move $-1 r3
+move 7 r3
+move num r2
+move r3 r2
+move r3 $-1
+move $-2 r3
+move 2 r3
+move i r1
+move r3 r1
+move r3 $-2
+move $-3 r3
+move 42 r3
+move a r0
+move r3 r0
+move r3 $-3
+move $-4 r3
+move 5 r3
+cmpi r1 r3
+move r3 $-4
+move r2 num
+move r1 i
+move r0 a
+jge label1
+move num r3
+move a r2
+addi r2 r3
+move num r1
+move r3 r1
+move r3 $-5
+move $-6 r3
+move 3 r3
+move i r0
+cmpi r0 r3
+move r3 $-6
+move r2 a
+move r1 num
+move r0 i
+jge label3
+move num r3
+move a r2
+addi r2 r3
+move num r1
+move r3 r1
+move r3 $-7
+move r2 a
+move r1 num
+jmp label4
+label label3
+label label4
+jmp label2
+label label1
+move $-8 r3
+move 5 r3
+move i r2
+cmpi r2 r3
+move r3 $-8
+move r2 i
+jlt label5
+move num r3
+move a r2
+subi r2 r3
+move num r1
+move r3 r1
+move r3 $-9
+move r2 a
+move r1 num
+jmp label6
+label label5
+label label6
+label label2
+move num r3
+sys writei r3
+unlnk
+move r3 num
+ret

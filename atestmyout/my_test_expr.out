@@ -1,0 +1,1571 @@
+;Symbol table GLOBAL
+; return type: null
+; subscope local var size: 0
+;scope type: GLOBAL_TYPE 
+;name a type INT local slot location: -1
+;name b type INT local slot location: -2
+;name c type INT local slot location: -3
+;name d type INT local slot location: -4
+;name x type FLOAT local slot location: -5
+;name y type FLOAT local slot location: -6
+;name z type FLOAT local slot location: -7
+;name t type FLOAT local slot location: -8
+;name newline type STRING value "\n" local slot location: -9
+
+
+;Symbol table main
+; return type: VOID
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+
+
+
+;IR code
+;PUSH
+;JSR main
+;HALT
+
+;LABEL main		 Under Func Scope: main
+;LINK 1			 Under Func Scope: main
+;STOREI 1 $T1		 Under Func Scope: main
+;STOREI $T1 a		 Under Func Scope: main
+;STOREI 2 $T2		 Under Func Scope: main
+;STOREI $T2 b		 Under Func Scope: main
+;STOREI 10 $T3		 Under Func Scope: main
+;STOREI $T3 c		 Under Func Scope: main
+;STOREI 20 $T4		 Under Func Scope: main
+;STOREI $T4 d		 Under Func Scope: main
+;WRITEI a		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;WRITEI b		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;WRITEI c		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;WRITEI d		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;ADDI a b $T5		 Under Func Scope: main
+;STOREI $T5 a		 Under Func Scope: main
+;WRITEI a		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;MULTI a c $T6		 Under Func Scope: main
+;STOREI $T6 b		 Under Func Scope: main
+;WRITEI b		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;STOREI 0 $T7		 Under Func Scope: main
+;SUBI $T7 a $T8		 Under Func Scope: main
+;ADDI $T8 b $T9		 Under Func Scope: main
+;STOREI $T9 c		 Under Func Scope: main
+;WRITEI c		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;STOREI 0 $T10		 Under Func Scope: main
+;SUBI $T10 d $T11	 Under Func Scope: main
+;STOREI $T11 d		 Under Func Scope: main
+;WRITEI d		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;ADDI a b $T12		 Under Func Scope: main
+;ADDI d c $T13		 Under Func Scope: main
+;MULTI $T12 $T13 $T14	 Under Func Scope: main
+;ADDI a b $T15		 Under Func Scope: main
+;ADDI $T15 c $T16	 Under Func Scope: main
+;ADDI $T16 d $T17	 Under Func Scope: main
+;DIVI $T17 a $T18	 Under Func Scope: main
+;SUBI $T14 $T18 $T19	 Under Func Scope: main
+;STOREI $T19 a		 Under Func Scope: main
+;WRITEI a		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;STOREI 10 $T20		 Under Func Scope: main
+;ADDI a $T20 $T21	 Under Func Scope: main
+;STOREI $T21 a		 Under Func Scope: main
+;WRITEI a		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;ADDI b a $T22		 Under Func Scope: main
+;STOREI 10 $T23		 Under Func Scope: main
+;ADDI $T22 $T23 $T24	 Under Func Scope: main
+;STOREI $T24 b		 Under Func Scope: main
+;WRITEI b		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;STOREI 0 $T25		 Under Func Scope: main
+;STOREI 10 $T26		 Under Func Scope: main
+;SUBI $T25 $T26 $T27	 Under Func Scope: main
+;STOREI $T27 c		 Under Func Scope: main
+;WRITEI c		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;STOREF 1.0 $T28	 Under Func Scope: main
+;STOREF $T28 x		 Under Func Scope: main
+;STOREF 2.0 $T29	 Under Func Scope: main
+;STOREF $T29 y		 Under Func Scope: main
+;STOREF 3.14159 $T30	 Under Func Scope: main
+;STOREF $T30 z		 Under Func Scope: main
+;WRITEF x		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;WRITEF z		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;WRITEF y		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;STOREF 2.0 $T31	 Under Func Scope: main
+;DIVF z $T31 $T32	 Under Func Scope: main
+;STOREF $T32 x		 Under Func Scope: main
+;DIVF z y $T33		 Under Func Scope: main
+;STOREF $T33 y		 Under Func Scope: main
+;WRITEF x		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;WRITEF y		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;ADDF x y $T34		 Under Func Scope: main
+;ADDF $T34 z $T35	 Under Func Scope: main
+;DIVF $T35 z $T36	 Under Func Scope: main
+;STOREF $T36 t		 Under Func Scope: main
+;WRITEF t		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;MULTF t t $T37		 Under Func Scope: main
+;STOREF $T37 t		 Under Func Scope: main
+;WRITEF t		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;ADDF t z $T38		 Under Func Scope: main
+;ADDF $T38 t $T39	 Under Func Scope: main
+;STOREF 2.0 $T40	 Under Func Scope: main
+;DIVF t $T40 $T41	 Under Func Scope: main
+;ADDF $T39 $T41 $T42	 Under Func Scope: main
+;STOREF 4.0 $T43	 Under Func Scope: main
+;DIVF z $T43 $T44	 Under Func Scope: main
+;ADDF $T42 $T44 $T45	 Under Func Scope: main
+;STOREF 5.0 $T46	 Under Func Scope: main
+;DIVF z $T46 $T47	 Under Func Scope: main
+;ADDF $T45 $T47 $T48	 Under Func Scope: main
+;STOREF 6.0 $T49	 Under Func Scope: main
+;DIVF z $T49 $T50	 Under Func Scope: main
+;ADDF $T48 $T50 $T51	 Under Func Scope: main
+;STOREF 7.0 $T52	 Under Func Scope: main
+;DIVF z $T52 $T53	 Under Func Scope: main
+;ADDF $T51 $T53 $T54	 Under Func Scope: main
+;STOREF $T54 t		 Under Func Scope: main
+;WRITEF t		 Under Func Scope: main
+;WRITES newline		 Under Func Scope: main
+;UNLINK			 Under Func Scope: main
+;RET			 Under Func Scope: main
+
+; ========= CFG IR NODE =========
+
+;LABEL main		P: 					S: ;LINK 1		 <== BB leader
+;LINK 1			P: ;LABEL main			S: ;STOREI 1 $T1	
+;STOREI 1 $T1		P: ;LINK 1				S: ;STOREI $T1 a	
+;STOREI $T1 a		P: ;STOREI 1 $T1			S: ;STOREI 2 $T2	
+;STOREI 2 $T2		P: ;STOREI $T1 a			S: ;STOREI $T2 b	
+;STOREI $T2 b		P: ;STOREI 2 $T2			S: ;STOREI 10 $T3	
+;STOREI 10 $T3		P: ;STOREI $T2 b			S: ;STOREI $T3 c	
+;STOREI $T3 c		P: ;STOREI 10 $T3			S: ;STOREI 20 $T4	
+;STOREI 20 $T4		P: ;STOREI $T3 c			S: ;STOREI $T4 d	
+;STOREI $T4 d		P: ;STOREI 20 $T4			S: ;WRITEI a	
+;WRITEI a		P: ;STOREI $T4 d			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI a			S: ;WRITEI b	
+;WRITEI b		P: ;WRITES newline			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI b			S: ;WRITEI c	
+;WRITEI c		P: ;WRITES newline			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI c			S: ;WRITEI d	
+;WRITEI d		P: ;WRITES newline			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI d			S: ;ADDI a b $T5	
+;ADDI a b $T5		P: ;WRITES newline			S: ;STOREI $T5 a	
+;STOREI $T5 a		P: ;ADDI a b $T5			S: ;WRITEI a	
+;WRITEI a		P: ;STOREI $T5 a			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI a			S: ;MULTI a c $T6	
+;MULTI a c $T6		P: ;WRITES newline		S: ;STOREI $T6 b	
+;STOREI $T6 b		P: ;MULTI a c $T6			S: ;WRITEI b	
+;WRITEI b		P: ;STOREI $T6 b			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI b			S: ;STOREI 0 $T7	
+;STOREI 0 $T7		P: ;WRITES newline			S: ;SUBI $T7 a $T8	
+;SUBI $T7 a $T8		P: ;STOREI 0 $T7			S: ;ADDI $T8 b $T9	
+;ADDI $T8 b $T9		P: ;SUBI $T7 a $T8		S: ;STOREI $T9 c	
+;STOREI $T9 c		P: ;ADDI $T8 b $T9			S: ;WRITEI c	
+;WRITEI c		P: ;STOREI $T9 c			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI c			S: ;STOREI 0 $T10	
+;STOREI 0 $T10		P: ;WRITES newline		S: ;SUBI $T10 d $T11	
+;SUBI $T10 d $T11	P: ;STOREI 0 $T10			S: ;STOREI $T11 d	
+;STOREI $T11 d		P: ;SUBI $T10 d $T11		S: ;WRITEI d	
+;WRITEI d		P: ;STOREI $T11 d			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI d			S: ;ADDI a b $T12	
+;ADDI a b $T12		P: ;WRITES newline		S: ;ADDI d c $T13	
+;ADDI d c $T13		P: ;ADDI a b $T12			S: ;MULTI $T12 $T13 $T14	
+;MULTI $T12 $T13 $T14	P: ;ADDI d c $T13			S: ;ADDI a b $T15	
+;ADDI a b $T15		P: ;MULTI $T12 $T13 $T14		S: ;ADDI $T15 c $T16	
+;ADDI $T15 c $T16	P: ;ADDI a b $T15			S: ;ADDI $T16 d $T17	
+;ADDI $T16 d $T17	P: ;ADDI $T15 c $T16			S: ;DIVI $T17 a $T18	
+;DIVI $T17 a $T18	P: ;ADDI $T16 d $T17			S: ;SUBI $T14 $T18 $T19	
+;SUBI $T14 $T18 $T19	P: ;DIVI $T17 a $T18		S: ;STOREI $T19 a	
+;STOREI $T19 a		P: ;SUBI $T14 $T18 $T19		S: ;WRITEI a	
+;WRITEI a		P: ;STOREI $T19 a			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI a			S: ;STOREI 10 $T20	
+;STOREI 10 $T20		P: ;WRITES newline		S: ;ADDI a $T20 $T21	
+;ADDI a $T20 $T21	P: ;STOREI 10 $T20			S: ;STOREI $T21 a	
+;STOREI $T21 a		P: ;ADDI a $T20 $T21		S: ;WRITEI a	
+;WRITEI a		P: ;STOREI $T21 a			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI a			S: ;ADDI b a $T22	
+;ADDI b a $T22		P: ;WRITES newline		S: ;STOREI 10 $T23	
+;STOREI 10 $T23		P: ;ADDI b a $T22		S: ;ADDI $T22 $T23 $T24	
+;ADDI $T22 $T23 $T24	P: ;STOREI 10 $T23			S: ;STOREI $T24 b	
+;STOREI $T24 b		P: ;ADDI $T22 $T23 $T24		S: ;WRITEI b	
+;WRITEI b		P: ;STOREI $T24 b			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI b			S: ;STOREI 0 $T25	
+;STOREI 0 $T25		P: ;WRITES newline		S: ;STOREI 10 $T26	
+;STOREI 10 $T26		P: ;STOREI 0 $T25		S: ;SUBI $T25 $T26 $T27	
+;SUBI $T25 $T26 $T27	P: ;STOREI 10 $T26			S: ;STOREI $T27 c	
+;STOREI $T27 c		P: ;SUBI $T25 $T26 $T27		S: ;WRITEI c	
+;WRITEI c		P: ;STOREI $T27 c			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEI c			S: ;STOREF 1.0 $T28	
+;STOREF 1.0 $T28	P: ;WRITES newline			S: ;STOREF $T28 x	
+;STOREF $T28 x		P: ;STOREF 1.0 $T28		S: ;STOREF 2.0 $T29	
+;STOREF 2.0 $T29	P: ;STOREF $T28 x			S: ;STOREF $T29 y	
+;STOREF $T29 y		P: ;STOREF 2.0 $T29		S: ;STOREF 3.14159 $T30	
+;STOREF 3.14159 $T30	P: ;STOREF $T29 y			S: ;STOREF $T30 z	
+;STOREF $T30 z		P: ;STOREF 3.14159 $T30		S: ;WRITEF x	
+;WRITEF x		P: ;STOREF $T30 z			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEF x			S: ;WRITEF z	
+;WRITEF z		P: ;WRITES newline			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEF z			S: ;WRITEF y	
+;WRITEF y		P: ;WRITES newline			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEF y			S: ;STOREF 2.0 $T31	
+;STOREF 2.0 $T31	P: ;WRITES newline			S: ;DIVF z $T31 $T32	
+;DIVF z $T31 $T32	P: ;STOREF 2.0 $T31			S: ;STOREF $T32 x	
+;STOREF $T32 x		P: ;DIVF z $T31 $T32		S: ;DIVF z y $T33	
+;DIVF z y $T33		P: ;STOREF $T32 x			S: ;STOREF $T33 y	
+;STOREF $T33 y		P: ;DIVF z y $T33			S: ;WRITEF x	
+;WRITEF x		P: ;STOREF $T33 y			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEF x			S: ;WRITEF y	
+;WRITEF y		P: ;WRITES newline			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEF y			S: ;ADDF x y $T34	
+;ADDF x y $T34		P: ;WRITES newline		S: ;ADDF $T34 z $T35	
+;ADDF $T34 z $T35	P: ;ADDF x y $T34			S: ;DIVF $T35 z $T36	
+;DIVF $T35 z $T36	P: ;ADDF $T34 z $T35			S: ;STOREF $T36 t	
+;STOREF $T36 t		P: ;DIVF $T35 z $T36		S: ;WRITEF t	
+;WRITEF t		P: ;STOREF $T36 t			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEF t			S: ;MULTF t t $T37	
+;MULTF t t $T37		P: ;WRITES newline		S: ;STOREF $T37 t	
+;STOREF $T37 t		P: ;MULTF t t $T37		S: ;WRITEF t	
+;WRITEF t		P: ;STOREF $T37 t			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEF t			S: ;ADDF t z $T38	
+;ADDF t z $T38		P: ;WRITES newline		S: ;ADDF $T38 t $T39	
+;ADDF $T38 t $T39	P: ;ADDF t z $T38			S: ;STOREF 2.0 $T40	
+;STOREF 2.0 $T40	P: ;ADDF $T38 t $T39			S: ;DIVF t $T40 $T41	
+;DIVF t $T40 $T41	P: ;STOREF 2.0 $T40			S: ;ADDF $T39 $T41 $T42	
+;ADDF $T39 $T41 $T42	P: ;DIVF t $T40 $T41		S: ;STOREF 4.0 $T43	
+;STOREF 4.0 $T43	P: ;ADDF $T39 $T41 $T42			S: ;DIVF z $T43 $T44	
+;DIVF z $T43 $T44	P: ;STOREF 4.0 $T43			S: ;ADDF $T42 $T44 $T45	
+;ADDF $T42 $T44 $T45	P: ;DIVF z $T43 $T44		S: ;STOREF 5.0 $T46	
+;STOREF 5.0 $T46	P: ;ADDF $T42 $T44 $T45			S: ;DIVF z $T46 $T47	
+;DIVF z $T46 $T47	P: ;STOREF 5.0 $T46			S: ;ADDF $T45 $T47 $T48	
+;ADDF $T45 $T47 $T48	P: ;DIVF z $T46 $T47		S: ;STOREF 6.0 $T49	
+;STOREF 6.0 $T49	P: ;ADDF $T45 $T47 $T48			S: ;DIVF z $T49 $T50	
+;DIVF z $T49 $T50	P: ;STOREF 6.0 $T49			S: ;ADDF $T48 $T50 $T51	
+;ADDF $T48 $T50 $T51	P: ;DIVF z $T49 $T50		S: ;STOREF 7.0 $T52	
+;STOREF 7.0 $T52	P: ;ADDF $T48 $T50 $T51			S: ;DIVF z $T52 $T53	
+;DIVF z $T52 $T53	P: ;STOREF 7.0 $T52			S: ;ADDF $T51 $T53 $T54	
+;ADDF $T51 $T53 $T54	P: ;DIVF z $T52 $T53		S: ;STOREF $T54 t	
+;STOREF $T54 t		P: ;ADDF $T51 $T53 $T54		S: ;WRITEF t	
+;WRITEF t		P: ;STOREF $T54 t			S: ;WRITES newline	
+;WRITES newline		P: ;WRITEF t			S: ;UNLINK	
+;UNLINK			P: ;WRITES newline		S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+; ========= CFG IR NODE / KILL/ GEN =========
+
+;LABEL main		Kill: 				Gen: 
+;LINK 1			Kill: 				Gen: 
+;STOREI 1 $T1		Kill: $T1, 			Gen: 
+;STOREI $T1 a		Kill: a, 				Gen: $T1, 
+;STOREI 2 $T2		Kill: $T2, 			Gen: 
+;STOREI $T2 b		Kill: b, 				Gen: $T2, 
+;STOREI 10 $T3		Kill: $T3, 			Gen: 
+;STOREI $T3 c		Kill: c, 				Gen: $T3, 
+;STOREI 20 $T4		Kill: $T4, 			Gen: 
+;STOREI $T4 d		Kill: d, 				Gen: $T4, 
+;WRITEI a		Kill: 					Gen: a, 
+;WRITES newline		Kill: 				Gen: 
+;WRITEI b		Kill: 					Gen: b, 
+;WRITES newline		Kill: 				Gen: 
+;WRITEI c		Kill: 					Gen: c, 
+;WRITES newline		Kill: 				Gen: 
+;WRITEI d		Kill: 					Gen: d, 
+;WRITES newline		Kill: 				Gen: 
+;ADDI a b $T5		Kill: $T5, 			Gen: b, a, 
+;STOREI $T5 a		Kill: a, 				Gen: $T5, 
+;WRITEI a		Kill: 					Gen: a, 
+;WRITES newline		Kill: 				Gen: 
+;MULTI a c $T6		Kill: $T6, 			Gen: c, a, 
+;STOREI $T6 b		Kill: b, 				Gen: $T6, 
+;WRITEI b		Kill: 					Gen: b, 
+;WRITES newline		Kill: 				Gen: 
+;STOREI 0 $T7		Kill: $T7, 			Gen: 
+;SUBI $T7 a $T8		Kill: $T8, 			Gen: $T7, a, 
+;ADDI $T8 b $T9		Kill: $T9, 			Gen: b, $T8, 
+;STOREI $T9 c		Kill: c, 				Gen: $T9, 
+;WRITEI c		Kill: 					Gen: c, 
+;WRITES newline		Kill: 				Gen: 
+;STOREI 0 $T10		Kill: $T10, 			Gen: 
+;SUBI $T10 d $T11	Kill: $T11, 				Gen: d, $T10, 
+;STOREI $T11 d		Kill: d, 				Gen: $T11, 
+;WRITEI d		Kill: 					Gen: d, 
+;WRITES newline		Kill: 				Gen: 
+;ADDI a b $T12		Kill: $T12, 			Gen: b, a, 
+;ADDI d c $T13		Kill: $T13, 			Gen: d, c, 
+;MULTI $T12 $T13 $T14	Kill: $T14, 			Gen: $T13, $T12, 
+;ADDI a b $T15		Kill: $T15, 			Gen: b, a, 
+;ADDI $T15 c $T16	Kill: $T16, 				Gen: c, $T15, 
+;ADDI $T16 d $T17	Kill: $T17, 				Gen: d, $T16, 
+;DIVI $T17 a $T18	Kill: $T18, 				Gen: a, $T17, 
+;SUBI $T14 $T18 $T19	Kill: $T19, 			Gen: $T14, $T18, 
+;STOREI $T19 a		Kill: a, 				Gen: $T19, 
+;WRITEI a		Kill: 					Gen: a, 
+;WRITES newline		Kill: 				Gen: 
+;STOREI 10 $T20		Kill: $T20, 			Gen: 
+;ADDI a $T20 $T21	Kill: $T21, 				Gen: $T20, a, 
+;STOREI $T21 a		Kill: a, 				Gen: $T21, 
+;WRITEI a		Kill: 					Gen: a, 
+;WRITES newline		Kill: 				Gen: 
+;ADDI b a $T22		Kill: $T22, 			Gen: b, a, 
+;STOREI 10 $T23		Kill: $T23, 			Gen: 
+;ADDI $T22 $T23 $T24	Kill: $T24, 			Gen: $T23, $T22, 
+;STOREI $T24 b		Kill: b, 				Gen: $T24, 
+;WRITEI b		Kill: 					Gen: b, 
+;WRITES newline		Kill: 				Gen: 
+;STOREI 0 $T25		Kill: $T25, 			Gen: 
+;STOREI 10 $T26		Kill: $T26, 			Gen: 
+;SUBI $T25 $T26 $T27	Kill: $T27, 			Gen: $T25, $T26, 
+;STOREI $T27 c		Kill: c, 				Gen: $T27, 
+;WRITEI c		Kill: 					Gen: c, 
+;WRITES newline		Kill: 				Gen: 
+;STOREF 1.0 $T28	Kill: $T28, 				Gen: 
+;STOREF $T28 x		Kill: x, 				Gen: $T28, 
+;STOREF 2.0 $T29	Kill: $T29, 				Gen: 
+;STOREF $T29 y		Kill: y, 				Gen: $T29, 
+;STOREF 3.14159 $T30	Kill: $T30, 			Gen: 
+;STOREF $T30 z		Kill: z, 				Gen: $T30, 
+;WRITEF x		Kill: 					Gen: x, 
+;WRITES newline		Kill: 				Gen: 
+;WRITEF z		Kill: 					Gen: z, 
+;WRITES newline		Kill: 				Gen: 
+;WRITEF y		Kill: 					Gen: y, 
+;WRITES newline		Kill: 				Gen: 
+;STOREF 2.0 $T31	Kill: $T31, 				Gen: 
+;DIVF z $T31 $T32	Kill: $T32, 				Gen: $T31, z, 
+;STOREF $T32 x		Kill: x, 				Gen: $T32, 
+;DIVF z y $T33		Kill: $T33, 			Gen: z, y, 
+;STOREF $T33 y		Kill: y, 				Gen: $T33, 
+;WRITEF x		Kill: 					Gen: x, 
+;WRITES newline		Kill: 				Gen: 
+;WRITEF y		Kill: 					Gen: y, 
+;WRITES newline		Kill: 				Gen: 
+;ADDF x y $T34		Kill: $T34, 			Gen: y, x, 
+;ADDF $T34 z $T35	Kill: $T35, 				Gen: $T34, z, 
+;DIVF $T35 z $T36	Kill: $T36, 				Gen: $T35, z, 
+;STOREF $T36 t		Kill: t, 				Gen: $T36, 
+;WRITEF t		Kill: 					Gen: t, 
+;WRITES newline		Kill: 				Gen: 
+;MULTF t t $T37		Kill: $T37, 			Gen: t, 
+;STOREF $T37 t		Kill: t, 				Gen: $T37, 
+;WRITEF t		Kill: 					Gen: t, 
+;WRITES newline		Kill: 				Gen: 
+;ADDF t z $T38		Kill: $T38, 			Gen: t, z, 
+;ADDF $T38 t $T39	Kill: $T39, 				Gen: $T38, t, 
+;STOREF 2.0 $T40	Kill: $T40, 				Gen: 
+;DIVF t $T40 $T41	Kill: $T41, 				Gen: t, $T40, 
+;ADDF $T39 $T41 $T42	Kill: $T42, 			Gen: $T39, $T41, 
+;STOREF 4.0 $T43	Kill: $T43, 				Gen: 
+;DIVF z $T43 $T44	Kill: $T44, 				Gen: $T43, z, 
+;ADDF $T42 $T44 $T45	Kill: $T45, 			Gen: $T44, $T42, 
+;STOREF 5.0 $T46	Kill: $T46, 				Gen: 
+;DIVF z $T46 $T47	Kill: $T47, 				Gen: $T46, z, 
+;ADDF $T45 $T47 $T48	Kill: $T48, 			Gen: $T47, $T45, 
+;STOREF 6.0 $T49	Kill: $T49, 				Gen: 
+;DIVF z $T49 $T50	Kill: $T50, 				Gen: $T49, z, 
+;ADDF $T48 $T50 $T51	Kill: $T51, 			Gen: $T48, $T50, 
+;STOREF 7.0 $T52	Kill: $T52, 				Gen: 
+;DIVF z $T52 $T53	Kill: $T53, 				Gen: $T52, z, 
+;ADDF $T51 $T53 $T54	Kill: $T54, 			Gen: $T51, $T53, 
+;STOREF $T54 t		Kill: t, 				Gen: $T54, 
+;WRITEF t		Kill: 					Gen: t, 
+;WRITES newline		Kill: 				Gen: 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+; ========= CFG IR NODE / LIVE IN / LIVE OUT =========
+
+;LABEL main		Live IN: 				Live OUT: 
+;LINK 1			Live IN: 			Live OUT: 
+;STOREI 1 $T1		Live IN: 				Live OUT: $T1, 
+;STOREI $T1 a		Live IN: $T1, 			Live OUT: a, 
+;STOREI 2 $T2		Live IN: a, 			Live OUT: $T2, a, 
+;STOREI $T2 b		Live IN: $T2, a, 			Live OUT: b, a, 
+;STOREI 10 $T3		Live IN: b, a, 			Live OUT: $T3, b, a, 
+;STOREI $T3 c		Live IN: b, $T3, a, 		Live OUT: b, c, a, 
+;STOREI 20 $T4		Live IN: b, c, a, 		Live OUT: b, c, $T4, a, 
+;STOREI $T4 d		Live IN: b, c, $T4, a, 		Live OUT: d, b, c, a, 
+;WRITEI a		Live IN: d, b, c, a, 			Live OUT: d, b, c, a, 
+;WRITES newline		Live IN: d, b, c, a, 		Live OUT: d, b, c, a, 
+;WRITEI b		Live IN: d, b, c, a, 			Live OUT: d, b, c, a, 
+;WRITES newline		Live IN: d, b, c, a, 		Live OUT: d, b, c, a, 
+;WRITEI c		Live IN: d, b, c, a, 			Live OUT: d, b, c, a, 
+;WRITES newline		Live IN: d, b, c, a, 		Live OUT: d, b, c, a, 
+;WRITEI d		Live IN: d, b, c, a, 			Live OUT: d, b, c, a, 
+;WRITES newline		Live IN: d, b, c, a, 		Live OUT: d, b, c, a, 
+;ADDI a b $T5		Live IN: b, c, d, a, 		Live OUT: d, c, $T5, 
+;STOREI $T5 a		Live IN: c, d, $T5, 		Live OUT: d, c, a, 
+;WRITEI a		Live IN: c, d, a, 			Live OUT: d, c, a, 
+;WRITES newline		Live IN: c, d, a, 		Live OUT: d, c, a, 
+;MULTI a c $T6		Live IN: c, d, a, 		Live OUT: d, $T6, a, 
+;STOREI $T6 b		Live IN: $T6, d, a, 		Live OUT: d, b, a, 
+;WRITEI b		Live IN: b, d, a, 			Live OUT: d, b, a, 
+;WRITES newline		Live IN: b, d, a, 		Live OUT: d, b, a, 
+;STOREI 0 $T7		Live IN: d, b, a, 			Live OUT: d, b, $T7, a, 
+;SUBI $T7 a $T8		Live IN: d, b, $T7, a, 		Live OUT: d, b, a, $T8, 
+;ADDI $T8 b $T9		Live IN: $T8, d, b, a, 		Live OUT: d, b, a, $T9, 
+;STOREI $T9 c		Live IN: d, $T9, b, a, 		Live OUT: d, b, c, a, 
+;WRITEI c		Live IN: d, b, c, a, 			Live OUT: d, b, c, a, 
+;WRITES newline		Live IN: d, b, c, a, 		Live OUT: d, b, c, a, 
+;STOREI 0 $T10		Live IN: d, b, c, a, 		Live OUT: d, b, c, $T10, a, 
+;SUBI $T10 d $T11	Live IN: d, b, $T10, c, a, 		Live OUT: b, c, a, $T11, 
+;STOREI $T11 d		Live IN: $T11, b, c, a, 		Live OUT: d, b, c, a, 
+;WRITEI d		Live IN: d, b, c, a, 			Live OUT: d, b, c, a, 
+;WRITES newline		Live IN: d, b, c, a, 		Live OUT: d, b, c, a, 
+;ADDI a b $T12		Live IN: d, b, c, a, 		Live OUT: d, b, c, a, $T12, 
+;ADDI d c $T13		Live IN: $T12, d, b, c, a, 	Live OUT: d, b, c, a, $T13, $T12, 
+;MULTI $T12 $T13 $T14	Live IN: $T13, $T12, d, b, c, a, 	Live OUT: d, b, c, a, $T14, 
+;ADDI a b $T15		Live IN: $T14, d, b, c, a, 	Live OUT: d, b, c, a, $T14, $T15, 
+;ADDI $T15 c $T16	Live IN: $T14, d, b, c, $T15, a, 	Live OUT: d, b, a, $T14, $T16, 
+;ADDI $T16 d $T17	Live IN: $T14, d, b, $T16, a, 		Live OUT: d, b, a, $T14, $T17, 
+;DIVI $T17 a $T18	Live IN: $T14, d, b, $T17, a, 		Live OUT: d, b, $T14, $T18, 
+;SUBI $T14 $T18 $T19	Live IN: $T14, d, $T18, b, 		Live OUT: d, $T19, b, 
+;STOREI $T19 a		Live IN: b, d, $T19, 		Live OUT: d, b, a, 
+;WRITEI a		Live IN: b, d, a, 			Live OUT: d, b, a, 
+;WRITES newline		Live IN: b, d, a, 		Live OUT: d, b, a, 
+;STOREI 10 $T20		Live IN: d, b, a, 		Live OUT: d, b, $T20, a, 
+;ADDI a $T20 $T21	Live IN: b, $T20, d, a, 		Live OUT: d, b, $T21, 
+;STOREI $T21 a		Live IN: b, d, $T21, 		Live OUT: d, b, a, 
+;WRITEI a		Live IN: b, d, a, 			Live OUT: d, b, a, 
+;WRITES newline		Live IN: b, d, a, 		Live OUT: d, b, a, 
+;ADDI b a $T22		Live IN: b, d, a, 		Live OUT: d, a, $T22, 
+;STOREI 10 $T23		Live IN: $T22, d, a, 		Live OUT: d, a, $T23, $T22, 
+;ADDI $T22 $T23 $T24	Live IN: $T23, $T22, d, a, 		Live OUT: d, a, $T24, 
+;STOREI $T24 b		Live IN: d, $T24, a, 		Live OUT: d, b, a, 
+;WRITEI b		Live IN: b, d, a, 			Live OUT: d, b, a, 
+;WRITES newline		Live IN: b, d, a, 		Live OUT: d, b, a, 
+;STOREI 0 $T25		Live IN: d, b, a, 		Live OUT: d, b, a, $T25, 
+;STOREI 10 $T26		Live IN: $T25, d, b, a, 		Live OUT: d, b, a, $T25, $T26, 
+;SUBI $T25 $T26 $T27	Live IN: $T25, d, b, $T26, a, 	Live OUT: d, b, a, $T27, 
+;STOREI $T27 c		Live IN: d, $T27, b, a, 		Live OUT: d, b, c, a, 
+;WRITEI c		Live IN: d, b, c, a, 			Live OUT: d, b, c, a, 
+;WRITES newline		Live IN: d, b, c, a, 		Live OUT: d, b, c, a, 
+;STOREF 1.0 $T28	Live IN: d, b, c, a, 			Live OUT: d, b, c, a, $T28, 
+;STOREF $T28 x		Live IN: d, b, c, $T28, a, 	Live OUT: d, b, c, a, x, 
+;STOREF 2.0 $T29	Live IN: d, b, c, x, a, 		Live OUT: d, b, c, a, $T29, x, 
+;STOREF $T29 y		Live IN: d, b, c, $T29, x, a, 	Live OUT: d, b, c, a, y, x, 
+;STOREF 3.14159 $T30	Live IN: d, b, c, a, y, x, 		Live OUT: d, b, c, a, $T30, y, x, 
+;STOREF $T30 z		Live IN: d, b, c, a, $T30, y, x, 	Live OUT: d, b, c, a, z, y, x, 
+;WRITEF x		Live IN: d, b, c, a, z, y, x, 		Live OUT: d, b, c, a, z, y, 
+;WRITES newline		Live IN: d, b, z, c, y, a, 	Live OUT: d, b, c, a, z, y, 
+;WRITEF z		Live IN: d, b, z, c, y, a, 		Live OUT: d, b, c, a, z, y, 
+;WRITES newline		Live IN: d, b, z, c, y, a, 	Live OUT: d, b, c, a, z, y, 
+;WRITEF y		Live IN: d, b, z, c, y, a, 		Live OUT: d, b, c, a, z, y, 
+;WRITES newline		Live IN: d, b, z, c, y, a, 	Live OUT: d, b, c, a, z, y, 
+;STOREF 2.0 $T31	Live IN: d, b, c, a, z, y, 		Live OUT: d, b, c, a, $T31, z, y, 
+;DIVF z $T31 $T32	Live IN: d, b, c, a, $T31, z, y, 	Live OUT: d, b, c, a, $T32, z, y, 
+;STOREF $T32 x		Live IN: d, b, c, a, $T32, z, y, 	Live OUT: d, b, c, a, z, y, x, 
+;DIVF z y $T33		Live IN: d, b, c, a, z, y, x, 	Live OUT: d, b, $T33, c, a, z, x, 
+;STOREF $T33 y		Live IN: d, $T33, b, c, a, z, x, 	Live OUT: d, b, c, a, z, y, x, 
+;WRITEF x		Live IN: d, b, c, a, z, y, x, 		Live OUT: d, b, c, a, z, y, x, 
+;WRITES newline		Live IN: d, b, c, a, z, y, x, 	Live OUT: d, b, c, a, z, y, x, 
+;WRITEF y		Live IN: d, b, c, a, z, y, x, 		Live OUT: d, b, c, a, z, y, x, 
+;WRITES newline		Live IN: d, b, c, a, z, y, x, 	Live OUT: d, b, c, a, z, y, x, 
+;ADDF x y $T34		Live IN: d, b, c, a, z, y, x, 	Live OUT: d, b, c, $T34, a, z, y, x, 
+;ADDF $T34 z $T35	Live IN: d, b, $T34, c, a, z, y, x, 	Live OUT: d, b, c, $T35, a, z, y, x, 
+;DIVF $T35 z $T36	Live IN: d, b, c, $T35, a, z, y, x, 	Live OUT: d, b, c, a, $T36, z, y, x, 
+;STOREF $T36 t		Live IN: d, b, c, $T36, a, z, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;WRITEF t		Live IN: d, t, b, c, a, z, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;WRITES newline		Live IN: d, t, b, c, a, z, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;MULTF t t $T37		Live IN: d, t, b, c, a, z, y, x, 	Live OUT: $T37, d, b, c, a, z, y, x, 
+;STOREF $T37 t		Live IN: $T37, d, b, c, a, z, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;WRITEF t		Live IN: d, t, b, c, a, z, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;WRITES newline		Live IN: d, t, b, c, a, z, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;ADDF t z $T38		Live IN: d, t, b, c, a, z, y, x, 	Live OUT: $T38, d, t, b, c, a, z, y, x, 
+;ADDF $T38 t $T39	Live IN: $T38, d, t, b, c, a, z, y, x, 	Live OUT: d, $T39, t, b, c, a, z, y, x, 
+;STOREF 2.0 $T40	Live IN: $T39, d, t, b, c, a, z, y, x, 	Live OUT: d, $T39, t, b, c, a, $T40, z, y, x, 
+;DIVF t $T40 $T41	Live IN: $T39, d, t, b, c, a, $T40, z, y, x, 	Live OUT: d, $T39, b, c, a, $T41, z, y, x, 
+;ADDF $T39 $T41 $T42	Live IN: $T39, d, b, c, a, $T41, z, y, x, 	Live OUT: d, b, c, a, $T42, z, y, x, 
+;STOREF 4.0 $T43	Live IN: d, b, c, a, $T42, z, y, x, 	Live OUT: d, b, c, a, $T43, $T42, z, y, x, 
+;DIVF z $T43 $T44	Live IN: d, b, c, a, $T43, $T42, z, y, x, 	Live OUT: d, b, c, $T44, a, $T42, z, y, x, 
+;ADDF $T42 $T44 $T45	Live IN: d, b, c, $T44, a, $T42, z, y, x, 	Live OUT: d, b, c, a, $T45, z, y, x, 
+;STOREF 5.0 $T46	Live IN: d, b, c, $T45, a, z, y, x, 	Live OUT: d, b, $T46, c, a, $T45, z, y, x, 
+;DIVF z $T46 $T47	Live IN: d, $T46, b, c, $T45, a, z, y, x, 	Live OUT: d, b, c, $T47, a, $T45, z, y, x, 
+;ADDF $T45 $T47 $T48	Live IN: d, b, $T47, c, $T45, a, z, y, x, 	Live OUT: d, $T48, b, c, a, z, y, x, 
+;STOREF 6.0 $T49	Live IN: $T48, d, b, c, a, z, y, x, 	Live OUT: d, $T48, $T49, b, c, a, z, y, x, 
+;DIVF z $T49 $T50	Live IN: $T48, d, $T49, b, c, a, z, y, x, 	Live OUT: d, $T48, b, c, a, $T50, z, y, x, 
+;ADDF $T48 $T50 $T51	Live IN: $T48, d, b, c, a, $T50, z, y, x, 	Live OUT: d, b, c, a, $T51, z, y, x, 
+;STOREF 7.0 $T52	Live IN: d, b, c, a, z, $T51, y, x, 	Live OUT: d, b, c, a, $T52, $T51, z, y, x, 
+;DIVF z $T52 $T53	Live IN: d, b, c, a, $T52, $T51, z, y, x, 	Live OUT: d, b, c, a, z, $T51, y, x, $T53, 
+;ADDF $T51 $T53 $T54	Live IN: d, b, c, a, $T51, z, y, $T53, x, 	Live OUT: d, b, c, a, z, y, $T54, x, 
+;STOREF $T54 t		Live IN: d, b, c, a, z, $T54, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;WRITEF t		Live IN: d, t, b, c, a, z, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;WRITES newline		Live IN: d, t, b, c, a, z, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;UNLINK			Live IN: d, t, b, c, a, z, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;RET			Live IN: d, t, b, c, a, z, y, x, 	Live OUT: d, t, b, c, a, z, y, x, 
+;var a 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var b 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var c 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var d 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var x 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var y 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var z 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var t 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str newline "\n" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;jsr main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;sys halt 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL main liveout: ; {  }
+;label main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 1 liveout: ; {  }
+;link 55 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 1 $T1 liveout: ; { $T1  }
+; ensure(): $T1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;move 1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;STOREI $T1 a liveout: ; { a  }
+; ensure(): $T1 has register r3
+; ensure(): a gets register r2 { r0-><null> || r1-><null> || r2->a || r3->$T1* }
+; loading a to register r2
+;move a r2 	; { r0-><null> || r1-><null> || r2->a || r3->$T1* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->a || r3->$T1* }
+; freeing unused variable r3
+; spilling varialbe $T1
+;move r3 $-1 	; { r0-><null> || r1-><null> || r2->a* || r3->$T1* }
+;STOREI 2 $T2 liveout: ; { $T2 a  }
+; ensure(): $T2 gets register r3 { r0-><null> || r1-><null> || r2->a* || r3->$T2 }
+; loading $-2 to register r3
+;move $-2 r3 	; { r0-><null> || r1-><null> || r2->a* || r3->$T2 }
+;move 2 r3 	; { r0-><null> || r1-><null> || r2->a* || r3->$T2 }
+;STOREI $T2 b liveout: ; { b a  }
+; ensure(): $T2 has register r3
+; ensure(): b gets register r1 { r0-><null> || r1->b || r2->a* || r3->$T2* }
+; loading b to register r1
+;move b r1 	; { r0-><null> || r1->b || r2->a* || r3->$T2* }
+;move r3 r1 	; { r0-><null> || r1->b || r2->a* || r3->$T2* }
+; freeing unused variable r3
+; spilling varialbe $T2
+;move r3 $-2 	; { r0-><null> || r1->b* || r2->a* || r3->$T2* }
+;STOREI 10 $T3 liveout: ; { $T3 b a  }
+; ensure(): $T3 gets register r3 { r0-><null> || r1->b* || r2->a* || r3->$T3 }
+; loading $-3 to register r3
+;move $-3 r3 	; { r0-><null> || r1->b* || r2->a* || r3->$T3 }
+;move 10 r3 	; { r0-><null> || r1->b* || r2->a* || r3->$T3 }
+;STOREI $T3 c liveout: ; { b c a  }
+; ensure(): $T3 has register r3
+; ensure(): c gets register r0 { r0->c || r1->b* || r2->a* || r3->$T3* }
+; loading c to register r0
+;move c r0 	; { r0->c || r1->b* || r2->a* || r3->$T3* }
+;move r3 r0 	; { r0->c || r1->b* || r2->a* || r3->$T3* }
+; freeing unused variable r3
+; spilling varialbe $T3
+;move r3 $-3 	; { r0->c* || r1->b* || r2->a* || r3->$T3* }
+;STOREI 20 $T4 liveout: ; { b c $T4 a  }
+; ensure(): $T4 gets register r3 { r0->c* || r1->b* || r2->a* || r3->$T4 }
+; loading $-4 to register r3
+;move $-4 r3 	; { r0->c* || r1->b* || r2->a* || r3->$T4 }
+;move 20 r3 	; { r0->c* || r1->b* || r2->a* || r3->$T4 }
+;STOREI $T4 d liveout: ; { d b c a  }
+; ensure(): $T4 has register r3
+; freeing unused variable r0
+; spilling varialbe c
+;move r0 c 	; { r0->c* || r1->b* || r2->a* || r3->$T4* }
+; allocate() has to spill d
+; ensure(): d gets register r0 { r0->d || r1->b* || r2->a* || r3->$T4* }
+; loading d to register r0
+;move d r0 	; { r0->d || r1->b* || r2->a* || r3->$T4* }
+;move r3 r0 	; { r0->d || r1->b* || r2->a* || r3->$T4* }
+; freeing unused variable r3
+; spilling varialbe $T4
+;move r3 $-4 	; { r0->d* || r1->b* || r2->a* || r3->$T4* }
+;WRITEI a liveout: ; { d b c a  }
+; ensure(): a has register r2
+;sys writei r2 	; { r0->d* || r1->b* || r2->a* || r3-><null> }
+;WRITES newline liveout: ; { d b c a  }
+;sys writes newline 	; { r0->d* || r1->b* || r2->a* || r3-><null> }
+;WRITEI b liveout: ; { d b c a  }
+; ensure(): b has register r1
+;sys writei r1 	; { r0->d* || r1->b* || r2->a* || r3-><null> }
+;WRITES newline liveout: ; { d b c a  }
+;sys writes newline 	; { r0->d* || r1->b* || r2->a* || r3-><null> }
+;WRITEI c liveout: ; { d b c a  }
+; ensure(): c gets register r3 { r0->d* || r1->b* || r2->a* || r3->c }
+; loading c to register r3
+;move c r3 	; { r0->d* || r1->b* || r2->a* || r3->c }
+;sys writei r3 	; { r0->d* || r1->b* || r2->a* || r3->c }
+;WRITES newline liveout: ; { d b c a  }
+;sys writes newline 	; { r0->d* || r1->b* || r2->a* || r3->c }
+;WRITEI d liveout: ; { d b c a  }
+; ensure(): d has register r0
+;sys writei r0 	; { r0->d* || r1->b* || r2->a* || r3->c }
+;WRITES newline liveout: ; { d b c a  }
+;sys writes newline 	; { r0->d* || r1->b* || r2->a* || r3->c }
+;ADDI a b $T5 liveout: ; { d c $T5  }
+; ensure(): a has register r2
+; ensure(): b has register r1
+; switching owner of register a to $T5 { r0->d* || r1->b* || r2->a* || r3->c }
+; spilling varialbe a
+;move r2 a 	; { r0->d* || r1->b* || r2->a* || r3->c }
+;addi r1 r2 	; { r0->d* || r1->b* || r2->$T5 || r3->c }
+; freeing unused variable r1
+; spilling varialbe b
+;move r1 b 	; { r0->d* || r1->b* || r2->$T5* || r3->c }
+;STOREI $T5 a liveout: ; { d c a  }
+; ensure(): $T5 has register r2
+; ensure(): a gets register r1 { r0->d* || r1->a || r2->$T5* || r3->c }
+; loading a to register r1
+;move a r1 	; { r0->d* || r1->a || r2->$T5* || r3->c }
+;move r2 r1 	; { r0->d* || r1->a || r2->$T5* || r3->c }
+; freeing unused variable r2
+; spilling varialbe $T5
+;move r2 $-5 	; { r0->d* || r1->a* || r2->$T5* || r3->c }
+;WRITEI a liveout: ; { d c a  }
+; ensure(): a has register r1
+;sys writei r1 	; { r0->d* || r1->a* || r2-><null> || r3->c }
+;WRITES newline liveout: ; { d c a  }
+;sys writes newline 	; { r0->d* || r1->a* || r2-><null> || r3->c }
+;MULTI a c $T6 liveout: ; { d $T6 a  }
+; ensure(): a has register r1
+; ensure(): c has register r3
+; switching owner of register a to $T6 { r0->d* || r1->a* || r2-><null> || r3->c }
+; spilling varialbe a
+;move r1 a 	; { r0->d* || r1->a* || r2-><null> || r3->c }
+;muli r3 r1 	; { r0->d* || r1->$T6 || r2-><null> || r3->c }
+; freeing unused variable r3
+;STOREI $T6 b liveout: ; { d b a  }
+; ensure(): $T6 has register r1
+; ensure(): b gets register r3 { r0->d* || r1->$T6* || r2-><null> || r3->b }
+; loading b to register r3
+;move b r3 	; { r0->d* || r1->$T6* || r2-><null> || r3->b }
+;move r1 r3 	; { r0->d* || r1->$T6* || r2-><null> || r3->b }
+; freeing unused variable r1
+; spilling varialbe $T6
+;move r1 $-6 	; { r0->d* || r1->$T6* || r2-><null> || r3->b* }
+;WRITEI b liveout: ; { d b a  }
+; ensure(): b has register r3
+;sys writei r3 	; { r0->d* || r1-><null> || r2-><null> || r3->b* }
+;WRITES newline liveout: ; { d b a  }
+;sys writes newline 	; { r0->d* || r1-><null> || r2-><null> || r3->b* }
+;STOREI 0 $T7 liveout: ; { d b $T7 a  }
+; ensure(): $T7 gets register r2 { r0->d* || r1-><null> || r2->$T7 || r3->b* }
+; loading $-7 to register r2
+;move $-7 r2 	; { r0->d* || r1-><null> || r2->$T7 || r3->b* }
+;move 0 r2 	; { r0->d* || r1-><null> || r2->$T7 || r3->b* }
+;SUBI $T7 a $T8 liveout: ; { d b a $T8  }
+; ensure(): $T7 has register r2
+; ensure(): a gets register r1 { r0->d* || r1->a || r2->$T7* || r3->b* }
+; loading a to register r1
+;move a r1 	; { r0->d* || r1->a || r2->$T7* || r3->b* }
+; switching owner of register $T7 to $T8 { r0->d* || r1->a || r2->$T7* || r3->b* }
+; spilling varialbe $T7
+;move r2 $-7 	; { r0->d* || r1->a || r2->$T7* || r3->b* }
+;subi r1 r2 	; { r0->d* || r1->a || r2->$T8 || r3->b* }
+;ADDI $T8 b $T9 liveout: ; { d b a $T9  }
+; ensure(): $T8 has register r2
+; ensure(): b has register r3
+; switching owner of register $T8 to $T9 { r0->d* || r1->a || r2->$T8* || r3->b* }
+; spilling varialbe $T8
+;move r2 $-8 	; { r0->d* || r1->a || r2->$T8* || r3->b* }
+;addi r3 r2 	; { r0->d* || r1->a || r2->$T9 || r3->b* }
+;STOREI $T9 c liveout: ; { d b c a  }
+; ensure(): $T9 has register r2
+; freeing unused variable r0
+; spilling varialbe d
+;move r0 d 	; { r0->d* || r1->a || r2->$T9* || r3->b* }
+; allocate() has to spill c
+; ensure(): c gets register r0 { r0->c || r1->a || r2->$T9* || r3->b* }
+; loading c to register r0
+;move c r0 	; { r0->c || r1->a || r2->$T9* || r3->b* }
+;move r2 r0 	; { r0->c || r1->a || r2->$T9* || r3->b* }
+; freeing unused variable r2
+; spilling varialbe $T9
+;move r2 $-9 	; { r0->c* || r1->a || r2->$T9* || r3->b* }
+;WRITEI c liveout: ; { d b c a  }
+; ensure(): c has register r0
+;sys writei r0 	; { r0->c* || r1->a || r2-><null> || r3->b* }
+;WRITES newline liveout: ; { d b c a  }
+;sys writes newline 	; { r0->c* || r1->a || r2-><null> || r3->b* }
+;STOREI 0 $T10 liveout: ; { d b c $T10 a  }
+; ensure(): $T10 gets register r2 { r0->c* || r1->a || r2->$T10 || r3->b* }
+; loading $-10 to register r2
+;move $-10 r2 	; { r0->c* || r1->a || r2->$T10 || r3->b* }
+;move 0 r2 	; { r0->c* || r1->a || r2->$T10 || r3->b* }
+;SUBI $T10 d $T11 liveout: ; { b c a $T11  }
+; ensure(): $T10 has register r2
+; freeing unused variable r0
+; spilling varialbe c
+;move r0 c 	; { r0->c* || r1->a || r2->$T10* || r3->b* }
+; allocate() has to spill d
+; ensure(): d gets register r0 { r0->d || r1->a || r2->$T10* || r3->b* }
+; loading d to register r0
+;move d r0 	; { r0->d || r1->a || r2->$T10* || r3->b* }
+; switching owner of register $T10 to $T11 { r0->d || r1->a || r2->$T10* || r3->b* }
+; spilling varialbe $T10
+;move r2 $-10 	; { r0->d || r1->a || r2->$T10* || r3->b* }
+;subi r0 r2 	; { r0->d || r1->a || r2->$T11 || r3->b* }
+; freeing unused variable r0
+;STOREI $T11 d liveout: ; { d b c a  }
+; ensure(): $T11 has register r2
+; ensure(): d gets register r0 { r0->d || r1->a || r2->$T11* || r3->b* }
+; loading d to register r0
+;move d r0 	; { r0->d || r1->a || r2->$T11* || r3->b* }
+;move r2 r0 	; { r0->d || r1->a || r2->$T11* || r3->b* }
+; freeing unused variable r2
+; spilling varialbe $T11
+;move r2 $-11 	; { r0->d* || r1->a || r2->$T11* || r3->b* }
+;WRITEI d liveout: ; { d b c a  }
+; ensure(): d has register r0
+;sys writei r0 	; { r0->d* || r1->a || r2-><null> || r3->b* }
+;WRITES newline liveout: ; { d b c a  }
+;sys writes newline 	; { r0->d* || r1->a || r2-><null> || r3->b* }
+;ADDI a b $T12 liveout: ; { d b c a $T12  }
+; ensure(): a has register r1
+; ensure(): b has register r3
+; switching owner of register a to $T12 { r0->d* || r1->a || r2-><null> || r3->b* }
+;addi r3 r1 	; { r0->d* || r1->$T12 || r2-><null> || r3->b* }
+;ADDI d c $T13 liveout: ; { d b c a $T13 $T12  }
+; ensure(): d has register r0
+; ensure(): c gets register r2 { r0->d* || r1->$T12* || r2->c || r3->b* }
+; loading c to register r2
+;move c r2 	; { r0->d* || r1->$T12* || r2->c || r3->b* }
+; switching owner of register d to $T13 { r0->d* || r1->$T12* || r2->c || r3->b* }
+; spilling varialbe d
+;move r0 d 	; { r0->d* || r1->$T12* || r2->c || r3->b* }
+;addi r2 r0 	; { r0->$T13 || r1->$T12* || r2->c || r3->b* }
+;MULTI $T12 $T13 $T14 liveout: ; { d b c a $T14  }
+; ensure(): $T12 has register r1
+; ensure(): $T13 has register r0
+; switching owner of register $T12 to $T14 { r0->$T13* || r1->$T12* || r2->c || r3->b* }
+; spilling varialbe $T12
+;move r1 $-12 	; { r0->$T13* || r1->$T12* || r2->c || r3->b* }
+;muli r0 r1 	; { r0->$T13* || r1->$T14 || r2->c || r3->b* }
+; freeing unused variable r0
+; spilling varialbe $T13
+;move r0 $-13 	; { r0->$T13* || r1->$T14* || r2->c || r3->b* }
+;ADDI a b $T15 liveout: ; { d b c a $T14 $T15  }
+; ensure(): a gets register r0 { r0->a || r1->$T14* || r2->c || r3->b* }
+; loading a to register r0
+;move a r0 	; { r0->a || r1->$T14* || r2->c || r3->b* }
+; ensure(): b has register r3
+; switching owner of register a to $T15 { r0->a || r1->$T14* || r2->c || r3->b* }
+;addi r3 r0 	; { r0->$T15 || r1->$T14* || r2->c || r3->b* }
+;ADDI $T15 c $T16 liveout: ; { d b a $T14 $T16  }
+; ensure(): $T15 has register r0
+; ensure(): c has register r2
+; switching owner of register $T15 to $T16 { r0->$T15* || r1->$T14* || r2->c || r3->b* }
+; spilling varialbe $T15
+;move r0 $-15 	; { r0->$T15* || r1->$T14* || r2->c || r3->b* }
+;addi r2 r0 	; { r0->$T16 || r1->$T14* || r2->c || r3->b* }
+; freeing unused variable r2
+;ADDI $T16 d $T17 liveout: ; { d b a $T14 $T17  }
+; ensure(): $T16 has register r0
+; ensure(): d gets register r2 { r0->$T16* || r1->$T14* || r2->d || r3->b* }
+; loading d to register r2
+;move d r2 	; { r0->$T16* || r1->$T14* || r2->d || r3->b* }
+; switching owner of register $T16 to $T17 { r0->$T16* || r1->$T14* || r2->d || r3->b* }
+; spilling varialbe $T16
+;move r0 $-16 	; { r0->$T16* || r1->$T14* || r2->d || r3->b* }
+;addi r2 r0 	; { r0->$T17 || r1->$T14* || r2->d || r3->b* }
+;DIVI $T17 a $T18 liveout: ; { d b $T14 $T18  }
+; ensure(): $T17 has register r0
+; freeing unused variable r1
+; spilling varialbe $T14
+;move r1 $-14 	; { r0->$T17* || r1->$T14* || r2->d || r3->b* }
+; allocate() has to spill a
+; ensure(): a gets register r1 { r0->$T17* || r1->a || r2->d || r3->b* }
+; loading a to register r1
+;move a r1 	; { r0->$T17* || r1->a || r2->d || r3->b* }
+; switching owner of register $T17 to $T18 { r0->$T17* || r1->a || r2->d || r3->b* }
+; spilling varialbe $T17
+;move r0 $-17 	; { r0->$T17* || r1->a || r2->d || r3->b* }
+;divi r1 r0 	; { r0->$T18 || r1->a || r2->d || r3->b* }
+; freeing unused variable r1
+;SUBI $T14 $T18 $T19 liveout: ; { d $T19 b  }
+; ensure(): $T14 gets register r1 { r0->$T18* || r1->$T14 || r2->d || r3->b* }
+; loading $-14 to register r1
+;move $-14 r1 	; { r0->$T18* || r1->$T14 || r2->d || r3->b* }
+; ensure(): $T18 has register r0
+; switching owner of register $T14 to $T19 { r0->$T18* || r1->$T14 || r2->d || r3->b* }
+;subi r0 r1 	; { r0->$T18* || r1->$T19 || r2->d || r3->b* }
+; freeing unused variable r0
+; spilling varialbe $T18
+;move r0 $-18 	; { r0->$T18* || r1->$T19* || r2->d || r3->b* }
+;STOREI $T19 a liveout: ; { d b a  }
+; ensure(): $T19 has register r1
+; ensure(): a gets register r0 { r0->a || r1->$T19* || r2->d || r3->b* }
+; loading a to register r0
+;move a r0 	; { r0->a || r1->$T19* || r2->d || r3->b* }
+;move r1 r0 	; { r0->a || r1->$T19* || r2->d || r3->b* }
+; freeing unused variable r1
+; spilling varialbe $T19
+;move r1 $-19 	; { r0->a* || r1->$T19* || r2->d || r3->b* }
+;WRITEI a liveout: ; { d b a  }
+; ensure(): a has register r0
+;sys writei r0 	; { r0->a* || r1-><null> || r2->d || r3->b* }
+;WRITES newline liveout: ; { d b a  }
+;sys writes newline 	; { r0->a* || r1-><null> || r2->d || r3->b* }
+;STOREI 10 $T20 liveout: ; { d b $T20 a  }
+; ensure(): $T20 gets register r1 { r0->a* || r1->$T20 || r2->d || r3->b* }
+; loading $-20 to register r1
+;move $-20 r1 	; { r0->a* || r1->$T20 || r2->d || r3->b* }
+;move 10 r1 	; { r0->a* || r1->$T20 || r2->d || r3->b* }
+;ADDI a $T20 $T21 liveout: ; { d b $T21  }
+; ensure(): a has register r0
+; ensure(): $T20 has register r1
+; switching owner of register a to $T21 { r0->a* || r1->$T20* || r2->d || r3->b* }
+; spilling varialbe a
+;move r0 a 	; { r0->a* || r1->$T20* || r2->d || r3->b* }
+;addi r1 r0 	; { r0->$T21 || r1->$T20* || r2->d || r3->b* }
+; freeing unused variable r1
+; spilling varialbe $T20
+;move r1 $-20 	; { r0->$T21* || r1->$T20* || r2->d || r3->b* }
+;STOREI $T21 a liveout: ; { d b a  }
+; ensure(): $T21 has register r0
+; ensure(): a gets register r1 { r0->$T21* || r1->a || r2->d || r3->b* }
+; loading a to register r1
+;move a r1 	; { r0->$T21* || r1->a || r2->d || r3->b* }
+;move r0 r1 	; { r0->$T21* || r1->a || r2->d || r3->b* }
+; freeing unused variable r0
+; spilling varialbe $T21
+;move r0 $-21 	; { r0->$T21* || r1->a* || r2->d || r3->b* }
+;WRITEI a liveout: ; { d b a  }
+; ensure(): a has register r1
+;sys writei r1 	; { r0-><null> || r1->a* || r2->d || r3->b* }
+;WRITES newline liveout: ; { d b a  }
+;sys writes newline 	; { r0-><null> || r1->a* || r2->d || r3->b* }
+;ADDI b a $T22 liveout: ; { d a $T22  }
+; ensure(): b has register r3
+; ensure(): a has register r1
+; switching owner of register b to $T22 { r0-><null> || r1->a* || r2->d || r3->b* }
+; spilling varialbe b
+;move r3 b 	; { r0-><null> || r1->a* || r2->d || r3->b* }
+;addi r1 r3 	; { r0-><null> || r1->a* || r2->d || r3->$T22 }
+;STOREI 10 $T23 liveout: ; { d a $T23 $T22  }
+; ensure(): $T23 gets register r0 { r0->$T23 || r1->a* || r2->d || r3->$T22* }
+; loading $-23 to register r0
+;move $-23 r0 	; { r0->$T23 || r1->a* || r2->d || r3->$T22* }
+;move 10 r0 	; { r0->$T23 || r1->a* || r2->d || r3->$T22* }
+;ADDI $T22 $T23 $T24 liveout: ; { d a $T24  }
+; ensure(): $T22 has register r3
+; ensure(): $T23 has register r0
+; switching owner of register $T22 to $T24 { r0->$T23* || r1->a* || r2->d || r3->$T22* }
+; spilling varialbe $T22
+;move r3 $-22 	; { r0->$T23* || r1->a* || r2->d || r3->$T22* }
+;addi r0 r3 	; { r0->$T23* || r1->a* || r2->d || r3->$T24 }
+; freeing unused variable r0
+; spilling varialbe $T23
+;move r0 $-23 	; { r0->$T23* || r1->a* || r2->d || r3->$T24* }
+;STOREI $T24 b liveout: ; { d b a  }
+; ensure(): $T24 has register r3
+; ensure(): b gets register r0 { r0->b || r1->a* || r2->d || r3->$T24* }
+; loading b to register r0
+;move b r0 	; { r0->b || r1->a* || r2->d || r3->$T24* }
+;move r3 r0 	; { r0->b || r1->a* || r2->d || r3->$T24* }
+; freeing unused variable r3
+; spilling varialbe $T24
+;move r3 $-24 	; { r0->b* || r1->a* || r2->d || r3->$T24* }
+;WRITEI b liveout: ; { d b a  }
+; ensure(): b has register r0
+;sys writei r0 	; { r0->b* || r1->a* || r2->d || r3-><null> }
+;WRITES newline liveout: ; { d b a  }
+;sys writes newline 	; { r0->b* || r1->a* || r2->d || r3-><null> }
+;STOREI 0 $T25 liveout: ; { d b a $T25  }
+; ensure(): $T25 gets register r3 { r0->b* || r1->a* || r2->d || r3->$T25 }
+; loading $-25 to register r3
+;move $-25 r3 	; { r0->b* || r1->a* || r2->d || r3->$T25 }
+;move 0 r3 	; { r0->b* || r1->a* || r2->d || r3->$T25 }
+;STOREI 10 $T26 liveout: ; { d b a $T25 $T26  }
+; freeing unused variable r0
+; spilling varialbe b
+;move r0 b 	; { r0->b* || r1->a* || r2->d || r3->$T25* }
+; allocate() has to spill $T26
+; ensure(): $T26 gets register r0 { r0->$T26 || r1->a* || r2->d || r3->$T25* }
+; loading $-26 to register r0
+;move $-26 r0 	; { r0->$T26 || r1->a* || r2->d || r3->$T25* }
+;move 10 r0 	; { r0->$T26 || r1->a* || r2->d || r3->$T25* }
+;SUBI $T25 $T26 $T27 liveout: ; { d b a $T27  }
+; ensure(): $T25 has register r3
+; ensure(): $T26 has register r0
+; switching owner of register $T25 to $T27 { r0->$T26* || r1->a* || r2->d || r3->$T25* }
+; spilling varialbe $T25
+;move r3 $-25 	; { r0->$T26* || r1->a* || r2->d || r3->$T25* }
+;subi r0 r3 	; { r0->$T26* || r1->a* || r2->d || r3->$T27 }
+; freeing unused variable r0
+; spilling varialbe $T26
+;move r0 $-26 	; { r0->$T26* || r1->a* || r2->d || r3->$T27* }
+;STOREI $T27 c liveout: ; { d b c a  }
+; ensure(): $T27 has register r3
+; ensure(): c gets register r0 { r0->c || r1->a* || r2->d || r3->$T27* }
+; loading c to register r0
+;move c r0 	; { r0->c || r1->a* || r2->d || r3->$T27* }
+;move r3 r0 	; { r0->c || r1->a* || r2->d || r3->$T27* }
+; freeing unused variable r3
+; spilling varialbe $T27
+;move r3 $-27 	; { r0->c* || r1->a* || r2->d || r3->$T27* }
+;WRITEI c liveout: ; { d b c a  }
+; ensure(): c has register r0
+;sys writei r0 	; { r0->c* || r1->a* || r2->d || r3-><null> }
+;WRITES newline liveout: ; { d b c a  }
+;sys writes newline 	; { r0->c* || r1->a* || r2->d || r3-><null> }
+;STOREF 1.0 $T28 liveout: ; { d b c a $T28  }
+; ensure(): $T28 gets register r3 { r0->c* || r1->a* || r2->d || r3->$T28 }
+; loading $-28 to register r3
+;move $-28 r3 	; { r0->c* || r1->a* || r2->d || r3->$T28 }
+;move 1.0 r3 	; { r0->c* || r1->a* || r2->d || r3->$T28 }
+;STOREF $T28 x liveout: ; { d b c a x  }
+; ensure(): $T28 has register r3
+; freeing unused variable r0
+; spilling varialbe c
+;move r0 c 	; { r0->c* || r1->a* || r2->d || r3->$T28* }
+; allocate() has to spill x
+; ensure(): x gets register r0 { r0->x || r1->a* || r2->d || r3->$T28* }
+; loading x to register r0
+;move x r0 	; { r0->x || r1->a* || r2->d || r3->$T28* }
+;move r3 r0 	; { r0->x || r1->a* || r2->d || r3->$T28* }
+; freeing unused variable r3
+; spilling varialbe $T28
+;move r3 $-28 	; { r0->x* || r1->a* || r2->d || r3->$T28* }
+;STOREF 2.0 $T29 liveout: ; { d b c a $T29 x  }
+; ensure(): $T29 gets register r3 { r0->x* || r1->a* || r2->d || r3->$T29 }
+; loading $-29 to register r3
+;move $-29 r3 	; { r0->x* || r1->a* || r2->d || r3->$T29 }
+;move 2.0 r3 	; { r0->x* || r1->a* || r2->d || r3->$T29 }
+;STOREF $T29 y liveout: ; { d b c a y x  }
+; ensure(): $T29 has register r3
+; freeing unused variable r0
+; spilling varialbe x
+;move r0 x 	; { r0->x* || r1->a* || r2->d || r3->$T29* }
+; allocate() has to spill y
+; ensure(): y gets register r0 { r0->y || r1->a* || r2->d || r3->$T29* }
+; loading y to register r0
+;move y r0 	; { r0->y || r1->a* || r2->d || r3->$T29* }
+;move r3 r0 	; { r0->y || r1->a* || r2->d || r3->$T29* }
+; freeing unused variable r3
+; spilling varialbe $T29
+;move r3 $-29 	; { r0->y* || r1->a* || r2->d || r3->$T29* }
+;STOREF 3.14159 $T30 liveout: ; { d b c a $T30 y x  }
+; ensure(): $T30 gets register r3 { r0->y* || r1->a* || r2->d || r3->$T30 }
+; loading $-30 to register r3
+;move $-30 r3 	; { r0->y* || r1->a* || r2->d || r3->$T30 }
+;move 3.14159 r3 	; { r0->y* || r1->a* || r2->d || r3->$T30 }
+;STOREF $T30 z liveout: ; { d b c a z y x  }
+; ensure(): $T30 has register r3
+; freeing unused variable r0
+; spilling varialbe y
+;move r0 y 	; { r0->y* || r1->a* || r2->d || r3->$T30* }
+; allocate() has to spill z
+; ensure(): z gets register r0 { r0->z || r1->a* || r2->d || r3->$T30* }
+; loading z to register r0
+;move z r0 	; { r0->z || r1->a* || r2->d || r3->$T30* }
+;move r3 r0 	; { r0->z || r1->a* || r2->d || r3->$T30* }
+; freeing unused variable r3
+; spilling varialbe $T30
+;move r3 $-30 	; { r0->z* || r1->a* || r2->d || r3->$T30* }
+;WRITEF x liveout: ; { d b c a z y  }
+; ensure(): x gets register r3 { r0->z* || r1->a* || r2->d || r3->x }
+; loading x to register r3
+;move x r3 	; { r0->z* || r1->a* || r2->d || r3->x }
+;sys writer r3 	; { r0->z* || r1->a* || r2->d || r3->x }
+; freeing unused variable r3
+;WRITES newline liveout: ; { d b c a z y  }
+;sys writes newline 	; { r0->z* || r1->a* || r2->d || r3-><null> }
+;WRITEF z liveout: ; { d b c a z y  }
+; ensure(): z has register r0
+;sys writer r0 	; { r0->z* || r1->a* || r2->d || r3-><null> }
+;WRITES newline liveout: ; { d b c a z y  }
+;sys writes newline 	; { r0->z* || r1->a* || r2->d || r3-><null> }
+;WRITEF y liveout: ; { d b c a z y  }
+; ensure(): y gets register r3 { r0->z* || r1->a* || r2->d || r3->y }
+; loading y to register r3
+;move y r3 	; { r0->z* || r1->a* || r2->d || r3->y }
+;sys writer r3 	; { r0->z* || r1->a* || r2->d || r3->y }
+;WRITES newline liveout: ; { d b c a z y  }
+;sys writes newline 	; { r0->z* || r1->a* || r2->d || r3->y }
+;STOREF 2.0 $T31 liveout: ; { d b c a $T31 z y  }
+; freeing unused variable r0
+; spilling varialbe z
+;move r0 z 	; { r0->z* || r1->a* || r2->d || r3->y }
+; allocate() has to spill $T31
+; ensure(): $T31 gets register r0 { r0->$T31 || r1->a* || r2->d || r3->y }
+; loading $-31 to register r0
+;move $-31 r0 	; { r0->$T31 || r1->a* || r2->d || r3->y }
+;move 2.0 r0 	; { r0->$T31 || r1->a* || r2->d || r3->y }
+;DIVF z $T31 $T32 liveout: ; { d b c a $T32 z y  }
+; freeing unused variable r1
+; spilling varialbe a
+;move r1 a 	; { r0->$T31* || r1->a* || r2->d || r3->y }
+; allocate() has to spill z
+; ensure(): z gets register r1 { r0->$T31* || r1->z || r2->d || r3->y }
+; loading z to register r1
+;move z r1 	; { r0->$T31* || r1->z || r2->d || r3->y }
+; ensure(): $T31 has register r0
+; switching owner of register z to $T32 { r0->$T31* || r1->z || r2->d || r3->y }
+;divr r0 r1 	; { r0->$T31* || r1->$T32 || r2->d || r3->y }
+; freeing unused variable r0
+; spilling varialbe $T31
+;move r0 $-31 	; { r0->$T31* || r1->$T32* || r2->d || r3->y }
+;STOREF $T32 x liveout: ; { d b c a z y x  }
+; ensure(): $T32 has register r1
+; ensure(): x gets register r0 { r0->x || r1->$T32* || r2->d || r3->y }
+; loading x to register r0
+;move x r0 	; { r0->x || r1->$T32* || r2->d || r3->y }
+;move r1 r0 	; { r0->x || r1->$T32* || r2->d || r3->y }
+; freeing unused variable r1
+; spilling varialbe $T32
+;move r1 $-32 	; { r0->x* || r1->$T32* || r2->d || r3->y }
+;DIVF z y $T33 liveout: ; { d b $T33 c a z x  }
+; ensure(): z gets register r1 { r0->x* || r1->z || r2->d || r3->y }
+; loading z to register r1
+;move z r1 	; { r0->x* || r1->z || r2->d || r3->y }
+; ensure(): y has register r3
+; switching owner of register z to $T33 { r0->x* || r1->z || r2->d || r3->y }
+;divr r3 r1 	; { r0->x* || r1->$T33 || r2->d || r3->y }
+; freeing unused variable r3
+;STOREF $T33 y liveout: ; { d b c a z y x  }
+; ensure(): $T33 has register r1
+; ensure(): y gets register r3 { r0->x* || r1->$T33* || r2->d || r3->y }
+; loading y to register r3
+;move y r3 	; { r0->x* || r1->$T33* || r2->d || r3->y }
+;move r1 r3 	; { r0->x* || r1->$T33* || r2->d || r3->y }
+; freeing unused variable r1
+; spilling varialbe $T33
+;move r1 $-33 	; { r0->x* || r1->$T33* || r2->d || r3->y* }
+;WRITEF x liveout: ; { d b c a z y x  }
+; ensure(): x has register r0
+;sys writer r0 	; { r0->x* || r1-><null> || r2->d || r3->y* }
+;WRITES newline liveout: ; { d b c a z y x  }
+;sys writes newline 	; { r0->x* || r1-><null> || r2->d || r3->y* }
+;WRITEF y liveout: ; { d b c a z y x  }
+; ensure(): y has register r3
+;sys writer r3 	; { r0->x* || r1-><null> || r2->d || r3->y* }
+;WRITES newline liveout: ; { d b c a z y x  }
+;sys writes newline 	; { r0->x* || r1-><null> || r2->d || r3->y* }
+;ADDF x y $T34 liveout: ; { d b c $T34 a z y x  }
+; ensure(): x has register r0
+; ensure(): y has register r3
+; switching owner of register x to $T34 { r0->x* || r1-><null> || r2->d || r3->y* }
+; spilling varialbe x
+;move r0 x 	; { r0->x* || r1-><null> || r2->d || r3->y* }
+;addr r3 r0 	; { r0->$T34 || r1-><null> || r2->d || r3->y* }
+;ADDF $T34 z $T35 liveout: ; { d b c $T35 a z y x  }
+; ensure(): $T34 has register r0
+; ensure(): z gets register r1 { r0->$T34* || r1->z || r2->d || r3->y* }
+; loading z to register r1
+;move z r1 	; { r0->$T34* || r1->z || r2->d || r3->y* }
+; switching owner of register $T34 to $T35 { r0->$T34* || r1->z || r2->d || r3->y* }
+; spilling varialbe $T34
+;move r0 $-34 	; { r0->$T34* || r1->z || r2->d || r3->y* }
+;addr r1 r0 	; { r0->$T35 || r1->z || r2->d || r3->y* }
+;DIVF $T35 z $T36 liveout: ; { d b c a $T36 z y x  }
+; ensure(): $T35 has register r0
+; ensure(): z has register r1
+; switching owner of register $T35 to $T36 { r0->$T35* || r1->z || r2->d || r3->y* }
+; spilling varialbe $T35
+;move r0 $-35 	; { r0->$T35* || r1->z || r2->d || r3->y* }
+;divr r1 r0 	; { r0->$T36 || r1->z || r2->d || r3->y* }
+;STOREF $T36 t liveout: ; { d t b c a z y x  }
+; ensure(): $T36 has register r0
+; freeing unused variable r1
+; allocate() has to spill t
+; ensure(): t gets register r1 { r0->$T36* || r1->t || r2->d || r3->y* }
+; loading t to register r1
+;move t r1 	; { r0->$T36* || r1->t || r2->d || r3->y* }
+;move r0 r1 	; { r0->$T36* || r1->t || r2->d || r3->y* }
+; freeing unused variable r0
+; spilling varialbe $T36
+;move r0 $-36 	; { r0->$T36* || r1->t* || r2->d || r3->y* }
+;WRITEF t liveout: ; { d t b c a z y x  }
+; ensure(): t has register r1
+;sys writer r1 	; { r0-><null> || r1->t* || r2->d || r3->y* }
+;WRITES newline liveout: ; { d t b c a z y x  }
+;sys writes newline 	; { r0-><null> || r1->t* || r2->d || r3->y* }
+;MULTF t t $T37 liveout: ; { $T37 d b c a z y x  }
+; ensure(): t has register r1
+; ensure(): t has register r1
+; switching owner of register t to $T37 { r0-><null> || r1->t* || r2->d || r3->y* }
+; spilling varialbe t
+;move r1 t 	; { r0-><null> || r1->t* || r2->d || r3->y* }
+;mulr r1 r1 	; { r0-><null> || r1->$T37 || r2->d || r3->y* }
+;STOREF $T37 t liveout: ; { d t b c a z y x  }
+; ensure(): $T37 has register r1
+; ensure(): t gets register r0 { r0->t || r1->$T37* || r2->d || r3->y* }
+; loading t to register r0
+;move t r0 	; { r0->t || r1->$T37* || r2->d || r3->y* }
+;move r1 r0 	; { r0->t || r1->$T37* || r2->d || r3->y* }
+; freeing unused variable r1
+; spilling varialbe $T37
+;move r1 $-37 	; { r0->t* || r1->$T37* || r2->d || r3->y* }
+;WRITEF t liveout: ; { d t b c a z y x  }
+; ensure(): t has register r0
+;sys writer r0 	; { r0->t* || r1-><null> || r2->d || r3->y* }
+;WRITES newline liveout: ; { d t b c a z y x  }
+;sys writes newline 	; { r0->t* || r1-><null> || r2->d || r3->y* }
+;ADDF t z $T38 liveout: ; { $T38 d t b c a z y x  }
+; ensure(): t has register r0
+; ensure(): z gets register r1 { r0->t* || r1->z || r2->d || r3->y* }
+; loading z to register r1
+;move z r1 	; { r0->t* || r1->z || r2->d || r3->y* }
+; switching owner of register t to $T38 { r0->t* || r1->z || r2->d || r3->y* }
+; spilling varialbe t
+;move r0 t 	; { r0->t* || r1->z || r2->d || r3->y* }
+;addr r1 r0 	; { r0->$T38 || r1->z || r2->d || r3->y* }
+;ADDF $T38 t $T39 liveout: ; { d $T39 t b c a z y x  }
+; ensure(): $T38 has register r0
+; freeing unused variable r1
+; allocate() has to spill t
+; ensure(): t gets register r1 { r0->$T38* || r1->t || r2->d || r3->y* }
+; loading t to register r1
+;move t r1 	; { r0->$T38* || r1->t || r2->d || r3->y* }
+; switching owner of register $T38 to $T39 { r0->$T38* || r1->t || r2->d || r3->y* }
+; spilling varialbe $T38
+;move r0 $-38 	; { r0->$T38* || r1->t || r2->d || r3->y* }
+;addr r1 r0 	; { r0->$T39 || r1->t || r2->d || r3->y* }
+;STOREF 2.0 $T40 liveout: ; { d $T39 t b c a $T40 z y x  }
+; freeing unused variable r0
+; spilling varialbe $T39
+;move r0 $-39 	; { r0->$T39* || r1->t || r2->d || r3->y* }
+; allocate() has to spill $T40
+; ensure(): $T40 gets register r0 { r0->$T40 || r1->t || r2->d || r3->y* }
+; loading $-40 to register r0
+;move $-40 r0 	; { r0->$T40 || r1->t || r2->d || r3->y* }
+;move 2.0 r0 	; { r0->$T40 || r1->t || r2->d || r3->y* }
+;DIVF t $T40 $T41 liveout: ; { d $T39 b c a $T41 z y x  }
+; ensure(): t has register r1
+; ensure(): $T40 has register r0
+; switching owner of register t to $T41 { r0->$T40* || r1->t || r2->d || r3->y* }
+;divr r0 r1 	; { r0->$T40* || r1->$T41 || r2->d || r3->y* }
+; freeing unused variable r0
+; spilling varialbe $T40
+;move r0 $-40 	; { r0->$T40* || r1->$T41* || r2->d || r3->y* }
+;ADDF $T39 $T41 $T42 liveout: ; { d b c a $T42 z y x  }
+; ensure(): $T39 gets register r0 { r0->$T39 || r1->$T41* || r2->d || r3->y* }
+; loading $-39 to register r0
+;move $-39 r0 	; { r0->$T39 || r1->$T41* || r2->d || r3->y* }
+; ensure(): $T41 has register r1
+; switching owner of register $T39 to $T42 { r0->$T39 || r1->$T41* || r2->d || r3->y* }
+;addr r1 r0 	; { r0->$T42 || r1->$T41* || r2->d || r3->y* }
+; freeing unused variable r1
+; spilling varialbe $T41
+;move r1 $-41 	; { r0->$T42* || r1->$T41* || r2->d || r3->y* }
+;STOREF 4.0 $T43 liveout: ; { d b c a $T43 $T42 z y x  }
+; ensure(): $T43 gets register r1 { r0->$T42* || r1->$T43 || r2->d || r3->y* }
+; loading $-43 to register r1
+;move $-43 r1 	; { r0->$T42* || r1->$T43 || r2->d || r3->y* }
+;move 4.0 r1 	; { r0->$T42* || r1->$T43 || r2->d || r3->y* }
+;DIVF z $T43 $T44 liveout: ; { d b c $T44 a $T42 z y x  }
+; freeing unused variable r0
+; spilling varialbe $T42
+;move r0 $-42 	; { r0->$T42* || r1->$T43* || r2->d || r3->y* }
+; allocate() has to spill z
+; ensure(): z gets register r0 { r0->z || r1->$T43* || r2->d || r3->y* }
+; loading z to register r0
+;move z r0 	; { r0->z || r1->$T43* || r2->d || r3->y* }
+; ensure(): $T43 has register r1
+; switching owner of register z to $T44 { r0->z || r1->$T43* || r2->d || r3->y* }
+;divr r1 r0 	; { r0->$T44 || r1->$T43* || r2->d || r3->y* }
+; freeing unused variable r1
+; spilling varialbe $T43
+;move r1 $-43 	; { r0->$T44* || r1->$T43* || r2->d || r3->y* }
+;ADDF $T42 $T44 $T45 liveout: ; { d b c a $T45 z y x  }
+; ensure(): $T42 gets register r1 { r0->$T44* || r1->$T42 || r2->d || r3->y* }
+; loading $-42 to register r1
+;move $-42 r1 	; { r0->$T44* || r1->$T42 || r2->d || r3->y* }
+; ensure(): $T44 has register r0
+; switching owner of register $T42 to $T45 { r0->$T44* || r1->$T42 || r2->d || r3->y* }
+;addr r0 r1 	; { r0->$T44* || r1->$T45 || r2->d || r3->y* }
+; freeing unused variable r0
+; spilling varialbe $T44
+;move r0 $-44 	; { r0->$T44* || r1->$T45* || r2->d || r3->y* }
+;STOREF 5.0 $T46 liveout: ; { d b $T46 c a $T45 z y x  }
+; ensure(): $T46 gets register r0 { r0->$T46 || r1->$T45* || r2->d || r3->y* }
+; loading $-46 to register r0
+;move $-46 r0 	; { r0->$T46 || r1->$T45* || r2->d || r3->y* }
+;move 5.0 r0 	; { r0->$T46 || r1->$T45* || r2->d || r3->y* }
+;DIVF z $T46 $T47 liveout: ; { d b c $T47 a $T45 z y x  }
+; freeing unused variable r1
+; spilling varialbe $T45
+;move r1 $-45 	; { r0->$T46* || r1->$T45* || r2->d || r3->y* }
+; allocate() has to spill z
+; ensure(): z gets register r1 { r0->$T46* || r1->z || r2->d || r3->y* }
+; loading z to register r1
+;move z r1 	; { r0->$T46* || r1->z || r2->d || r3->y* }
+; ensure(): $T46 has register r0
+; switching owner of register z to $T47 { r0->$T46* || r1->z || r2->d || r3->y* }
+;divr r0 r1 	; { r0->$T46* || r1->$T47 || r2->d || r3->y* }
+; freeing unused variable r0
+; spilling varialbe $T46
+;move r0 $-46 	; { r0->$T46* || r1->$T47* || r2->d || r3->y* }
+;ADDF $T45 $T47 $T48 liveout: ; { d $T48 b c a z y x  }
+; ensure(): $T45 gets register r0 { r0->$T45 || r1->$T47* || r2->d || r3->y* }
+; loading $-45 to register r0
+;move $-45 r0 	; { r0->$T45 || r1->$T47* || r2->d || r3->y* }
+; ensure(): $T47 has register r1
+; switching owner of register $T45 to $T48 { r0->$T45 || r1->$T47* || r2->d || r3->y* }
+;addr r1 r0 	; { r0->$T48 || r1->$T47* || r2->d || r3->y* }
+; freeing unused variable r1
+; spilling varialbe $T47
+;move r1 $-47 	; { r0->$T48* || r1->$T47* || r2->d || r3->y* }
+;STOREF 6.0 $T49 liveout: ; { d $T48 $T49 b c a z y x  }
+; ensure(): $T49 gets register r1 { r0->$T48* || r1->$T49 || r2->d || r3->y* }
+; loading $-49 to register r1
+;move $-49 r1 	; { r0->$T48* || r1->$T49 || r2->d || r3->y* }
+;move 6.0 r1 	; { r0->$T48* || r1->$T49 || r2->d || r3->y* }
+;DIVF z $T49 $T50 liveout: ; { d $T48 b c a $T50 z y x  }
+; freeing unused variable r0
+; spilling varialbe $T48
+;move r0 $-48 	; { r0->$T48* || r1->$T49* || r2->d || r3->y* }
+; allocate() has to spill z
+; ensure(): z gets register r0 { r0->z || r1->$T49* || r2->d || r3->y* }
+; loading z to register r0
+;move z r0 	; { r0->z || r1->$T49* || r2->d || r3->y* }
+; ensure(): $T49 has register r1
+; switching owner of register z to $T50 { r0->z || r1->$T49* || r2->d || r3->y* }
+;divr r1 r0 	; { r0->$T50 || r1->$T49* || r2->d || r3->y* }
+; freeing unused variable r1
+; spilling varialbe $T49
+;move r1 $-49 	; { r0->$T50* || r1->$T49* || r2->d || r3->y* }
+;ADDF $T48 $T50 $T51 liveout: ; { d b c a $T51 z y x  }
+; ensure(): $T48 gets register r1 { r0->$T50* || r1->$T48 || r2->d || r3->y* }
+; loading $-48 to register r1
+;move $-48 r1 	; { r0->$T50* || r1->$T48 || r2->d || r3->y* }
+; ensure(): $T50 has register r0
+; switching owner of register $T48 to $T51 { r0->$T50* || r1->$T48 || r2->d || r3->y* }
+;addr r0 r1 	; { r0->$T50* || r1->$T51 || r2->d || r3->y* }
+; freeing unused variable r0
+; spilling varialbe $T50
+;move r0 $-50 	; { r0->$T50* || r1->$T51* || r2->d || r3->y* }
+;STOREF 7.0 $T52 liveout: ; { d b c a $T52 $T51 z y x  }
+; ensure(): $T52 gets register r0 { r0->$T52 || r1->$T51* || r2->d || r3->y* }
+; loading $-52 to register r0
+;move $-52 r0 	; { r0->$T52 || r1->$T51* || r2->d || r3->y* }
+;move 7.0 r0 	; { r0->$T52 || r1->$T51* || r2->d || r3->y* }
+;DIVF z $T52 $T53 liveout: ; { d b c a z $T51 y x $T53  }
+; freeing unused variable r1
+; spilling varialbe $T51
+;move r1 $-51 	; { r0->$T52* || r1->$T51* || r2->d || r3->y* }
+; allocate() has to spill z
+; ensure(): z gets register r1 { r0->$T52* || r1->z || r2->d || r3->y* }
+; loading z to register r1
+;move z r1 	; { r0->$T52* || r1->z || r2->d || r3->y* }
+; ensure(): $T52 has register r0
+; switching owner of register z to $T53 { r0->$T52* || r1->z || r2->d || r3->y* }
+;divr r0 r1 	; { r0->$T52* || r1->$T53 || r2->d || r3->y* }
+; freeing unused variable r0
+; spilling varialbe $T52
+;move r0 $-52 	; { r0->$T52* || r1->$T53* || r2->d || r3->y* }
+;ADDF $T51 $T53 $T54 liveout: ; { d b c a z y $T54 x  }
+; ensure(): $T51 gets register r0 { r0->$T51 || r1->$T53* || r2->d || r3->y* }
+; loading $-51 to register r0
+;move $-51 r0 	; { r0->$T51 || r1->$T53* || r2->d || r3->y* }
+; ensure(): $T53 has register r1
+; switching owner of register $T51 to $T54 { r0->$T51 || r1->$T53* || r2->d || r3->y* }
+;addr r1 r0 	; { r0->$T54 || r1->$T53* || r2->d || r3->y* }
+; freeing unused variable r1
+; spilling varialbe $T53
+;move r1 $-53 	; { r0->$T54* || r1->$T53* || r2->d || r3->y* }
+;STOREF $T54 t liveout: ; { d t b c a z y x  }
+; ensure(): $T54 has register r0
+; ensure(): t gets register r1 { r0->$T54* || r1->t || r2->d || r3->y* }
+; loading t to register r1
+;move t r1 	; { r0->$T54* || r1->t || r2->d || r3->y* }
+;move r0 r1 	; { r0->$T54* || r1->t || r2->d || r3->y* }
+; freeing unused variable r0
+; spilling varialbe $T54
+;move r0 $-54 	; { r0->$T54* || r1->t* || r2->d || r3->y* }
+;WRITEF t liveout: ; { d t b c a z y x  }
+; ensure(): t has register r1
+;sys writer r1 	; { r0-><null> || r1->t* || r2->d || r3->y* }
+;WRITES newline liveout: ; { d t b c a z y x  }
+;sys writes newline 	; { r0-><null> || r1->t* || r2->d || r3->y* }
+;UNLINK liveout: ; { d t b c a z y x  }
+;unlnk 	; { r0-><null> || r1->t* || r2->d || r3->y* }
+;RET liveout: ; { d t b c a z y x  }
+; writing back global variables prior a function call
+; spilling varialbe y
+;move r3 y 	; { r0-><null> || r1->t* || r2->d || r3->y* }
+; spilling varialbe d
+;move r2 d 	; { r0-><null> || r1->t* || r2->d || r3-><null> }
+; spilling varialbe t
+;move r1 t 	; { r0-><null> || r1->t* || r2-><null> || r3-><null> }
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+
+var a
+var b
+var c
+var d
+var x
+var y
+var z
+var t
+str newline "\n"
+push
+push
+push
+push
+push
+jsr main
+sys halt
+label main
+link 55
+move $-1 r3
+move 1 r3
+move a r2
+move r3 r2
+move r3 $-1
+move $-2 r3
+move 2 r3
+move b r1
+move r3 r1
+move r3 $-2
+move $-3 r3
+move 10 r3
+move c r0
+move r3 r0
+move r3 $-3
+move $-4 r3
+move 20 r3
+move r0 c
+move d r0
+move r3 r0
+move r3 $-4
+sys writei r2
+sys writes newline
+sys writei r1
+sys writes newline
+move c r3
+sys writei r3
+sys writes newline
+sys writei r0
+sys writes newline
+move r2 a
+addi r1 r2
+move r1 b
+move a r1
+move r2 r1
+move r2 $-5
+sys writei r1
+sys writes newline
+move r1 a
+muli r3 r1
+move b r3
+move r1 r3
+move r1 $-6
+sys writei r3
+sys writes newline
+move $-7 r2
+move 0 r2
+move a r1
+move r2 $-7
+subi r1 r2
+move r2 $-8
+addi r3 r2
+move r0 d
+move c r0
+move r2 r0
+move r2 $-9
+sys writei r0
+sys writes newline
+move $-10 r2
+move 0 r2
+move r0 c
+move d r0
+move r2 $-10
+subi r0 r2
+move d r0
+move r2 r0
+move r2 $-11
+sys writei r0
+sys writes newline
+addi r3 r1
+move c r2
+move r0 d
+addi r2 r0
+move r1 $-12
+muli r0 r1
+move r0 $-13
+move a r0
+addi r3 r0
+move r0 $-15
+addi r2 r0
+move d r2
+move r0 $-16
+addi r2 r0
+move r1 $-14
+move a r1
+move r0 $-17
+divi r1 r0
+move $-14 r1
+subi r0 r1
+move r0 $-18
+move a r0
+move r1 r0
+move r1 $-19
+sys writei r0
+sys writes newline
+move $-20 r1
+move 10 r1
+move r0 a
+addi r1 r0
+move r1 $-20
+move a r1
+move r0 r1
+move r0 $-21
+sys writei r1
+sys writes newline
+move r3 b
+addi r1 r3
+move $-23 r0
+move 10 r0
+move r3 $-22
+addi r0 r3
+move r0 $-23
+move b r0
+move r3 r0
+move r3 $-24
+sys writei r0
+sys writes newline
+move $-25 r3
+move 0 r3
+move r0 b
+move $-26 r0
+move 10 r0
+move r3 $-25
+subi r0 r3
+move r0 $-26
+move c r0
+move r3 r0
+move r3 $-27
+sys writei r0
+sys writes newline
+move $-28 r3
+move 1.0 r3
+move r0 c
+move x r0
+move r3 r0
+move r3 $-28
+move $-29 r3
+move 2.0 r3
+move r0 x
+move y r0
+move r3 r0
+move r3 $-29
+move $-30 r3
+move 3.14159 r3
+move r0 y
+move z r0
+move r3 r0
+move r3 $-30
+move x r3
+sys writer r3
+sys writes newline
+sys writer r0
+sys writes newline
+move y r3
+sys writer r3
+sys writes newline
+move r0 z
+move $-31 r0
+move 2.0 r0
+move r1 a
+move z r1
+divr r0 r1
+move r0 $-31
+move x r0
+move r1 r0
+move r1 $-32
+move z r1
+divr r3 r1
+move y r3
+move r1 r3
+move r1 $-33
+sys writer r0
+sys writes newline
+sys writer r3
+sys writes newline
+move r0 x
+addr r3 r0
+move z r1
+move r0 $-34
+addr r1 r0
+move r0 $-35
+divr r1 r0
+move t r1
+move r0 r1
+move r0 $-36
+sys writer r1
+sys writes newline
+move r1 t
+mulr r1 r1
+move t r0
+move r1 r0
+move r1 $-37
+sys writer r0
+sys writes newline
+move z r1
+move r0 t
+addr r1 r0
+move t r1
+move r0 $-38
+addr r1 r0
+move r0 $-39
+move $-40 r0
+move 2.0 r0
+divr r0 r1
+move r0 $-40
+move $-39 r0
+addr r1 r0
+move r1 $-41
+move $-43 r1
+move 4.0 r1
+move r0 $-42
+move z r0
+divr r1 r0
+move r1 $-43
+move $-42 r1
+addr r0 r1
+move r0 $-44
+move $-46 r0
+move 5.0 r0
+move r1 $-45
+move z r1
+divr r0 r1
+move r0 $-46
+move $-45 r0
+addr r1 r0
+move r1 $-47
+move $-49 r1
+move 6.0 r1
+move r0 $-48
+move z r0
+divr r1 r0
+move r1 $-49
+move $-48 r1
+addr r0 r1
+move r0 $-50
+move $-52 r0
+move 7.0 r0
+move r1 $-51
+move z r1
+divr r0 r1
+move r0 $-52
+move $-51 r0
+addr r1 r0
+move r1 $-53
+move t r1
+move r0 r1
+move r0 $-54
+sys writer r1
+sys writes newline
+unlnk
+move r3 y
+move r2 d
+move r1 t
+ret

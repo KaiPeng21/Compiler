@@ -1,0 +1,1340 @@
+ATEST
+created by Chia-Hua Peng, Team TooYoungTooSimple
+
+======================================================================================
+testing add ...
+
+33 33 33 99							33 33 33 99
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:34					      |	   #Instructions:59
+    (move-ops mem:7, reglit:10)				      |	    (move-ops mem:10, reglit:32)
+    ( int-ops mem:10, reglit:7)				      |	    ( int-ops mem:8, reglit:9)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:17,reg:22)				      |	   Memory Usage (mem:18,reg:51)
+      register-use[5,3,3,5,4,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, |	      register-use[8,4,20,19]
+   Total Cycles = 61					      |	   Total Cycles = 80
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:8, fp-ops:0)					    (int-ops:8, fp-ops:0)
+    (branches:1)						    (branches:1)
+      peephole-ops:0						      peephole-ops:0
+
+end testing add
+======================================================================================
+======================================================================================
+testing factorial2 ...
+
+Please enter an integer number: 479001600			Please enter an integer number: 479001600
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:365					      |	   #Instructions:562
+    (move-ops mem:0, reglit:245)			      |	    (move-ops mem:0, reglit:454)
+    ( int-ops mem:29, reglit:91)			      |	    ( int-ops mem:4, reglit:104)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:29,reg:266)			      |	   Memory Usage (mem:4,reg:531)
+      register-use[49,27,47,58,22,33,22,2,0,2,2,0,2,0,0,0,0,0 |	      register-use[24,24,224,259]
+   Total Cycles = 528					      |	   Total Cycles = 600
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:38, fp-ops:0)					    (int-ops:38, fp-ops:0)
+    (branches:40)					      |	    (branches:28)
+      peephole-ops:0						      peephole-ops:0
+
+end testing factorial2
+======================================================================================
+======================================================================================
+testing fibonacci2 ...
+
+Please input an integer number: 0 0				Please input an integer number: 0 0
+1 1								1 1
+2 1								2 1
+3 2								3 2
+4 3								4 3
+5 5								5 5
+6 8								6 8
+7 13								7 13
+8 21								8 21
+9 34								9 34
+10 55								10 55
+11 89								11 89
+12 144								12 144
+13 233								13 233
+14 377								14 377
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:56020					      |	   #Instructions:80667
+    (move-ops mem:0, reglit:37275)			      |	    (move-ops mem:0, reglit:63894)
+    ( int-ops mem:4982, reglit:13763)			      |	    ( int-ops mem:62, reglit:16711)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:4982,reg:42179)			      |	   Memory Usage (mem:62,reg:73748)
+      register-use[7837,5863,6835,5863,1944,2916,1944,2916,19 |	      register-use[3918,11790,22709,35331]
+   Total Cycles = 85194					      |	   Total Cycles = 84617
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:6910, fp-ops:0)				      |	    (int-ops:5924, fp-ops:0)
+    (branches:5923)					      |	    (branches:4937)
+      peephole-ops:0						      peephole-ops:0
+
+end testing fibonacci2
+======================================================================================
+======================================================================================
+testing fibonacci3 ...
+
+Please input an integer number: get 0 0 0			Please input an integer number: get 0 0 0
+get 1 1 1							get 1 1 1
+get 2 2 1							get 2 2 1
+get 3  call 2 get 2 get 1 3 2					get 3  call 2 get 2 get 1 3 2
+get 4  call 3 get 3  call 2 get 2 get 1 get 2 4 3		get 4  call 3 get 3  call 2 get 2 get 1 get 2 4 3
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:441					      |	   #Instructions:658
+    (move-ops mem:0, reglit:242)			      |	    (move-ops mem:0, reglit:473)
+    ( int-ops mem:99, reglit:100)			      |	    ( int-ops mem:64, reglit:121)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:99,reg:277)			      |	   Memory Usage (mem:64,reg:556)
+      register-use[45,29,32,29,9,6,6,9,6,9,16,2,14,6,8,2,12,1 |	      register-use[22,82,215,237]
+   Total Cycles = 659					      |	   Total Cycles = 692
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:88, fp-ops:0)				      |	    (int-ops:81, fp-ops:0)
+    (branches:49)					      |	    (branches:42)
+      peephole-ops:0						      peephole-ops:0
+
+end testing fibonacci3
+======================================================================================
+======================================================================================
+testing fibonacci ...
+
+Please input an integer number: 				Please input an integer number: 
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:17					      |	   #Instructions:29
+    (move-ops mem:0, reglit:8)				      |	    (move-ops mem:0, reglit:20)
+    ( int-ops mem:3, reglit:6)				      |	    ( int-ops mem:2, reglit:7)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:3,reg:8)				      |	   Memory Usage (mem:2,reg:19)
+      register-use[1,1,1,1,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0, |	      register-use[0,6,8,5]
+   Total Cycles = 25					      |	   Total Cycles = 32
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:2, fp-ops:0)					    (int-ops:2, fp-ops:0)
+    (branches:2)						    (branches:2)
+      peephole-ops:0						      peephole-ops:0
+
+end testing fibonacci
+======================================================================================
+======================================================================================
+testing fma ...
+
+You will be asked for three float numbers			You will be asked for three float numbers
+Please enter the first float number: Please enter the second 	Please enter the first float number: Please enter the second 
+2.435*4.897+0.654=12.5782					2.435*4.897+0.654=12.5782
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:77					      |	   #Instructions:107
+    (move-ops mem:0, reglit:45)				      |	    (move-ops mem:0, reglit:75)
+    ( int-ops mem:9, reglit:13)					    ( int-ops mem:9, reglit:13)
+    (  fp-ops mem:10, reglit:0)				      |	    (  fp-ops mem:8, reglit:2)
+   Memory Usage (mem:19,reg:36)				      |	   Memory Usage (mem:17,reg:74)
+      register-use[8,7,8,7,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0, |	      register-use[13,14,19,28]
+   Total Cycles = 94					      |	   Total Cycles = 112
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:9, fp-ops:10)					    (int-ops:9, fp-ops:10)
+    (branches:3)						    (branches:3)
+      peephole-ops:0						      peephole-ops:0
+
+end testing fma
+======================================================================================
+======================================================================================
+testing guess ...
+
+Guess a number between 1 and 10 !				Guess a number between 1 and 10 !
+1 is too small							1 is too small
+Guess a number between 1 and 10 !				Guess a number between 1 and 10 !
+2 is too small							2 is too small
+Guess a number between 1 and 10 !				Guess a number between 1 and 10 !
+3 is too small							3 is too small
+Guess a number between 1 and 10 !				Guess a number between 1 and 10 !
+4 is too small							4 is too small
+Guess a number between 1 and 10 !				Guess a number between 1 and 10 !
+5 is too small							5 is too small
+Guess a number between 1 and 10 !				Guess a number between 1 and 10 !
+6 is too small							6 is too small
+Guess a number between 1 and 10 !				Guess a number between 1 and 10 !
+8 is too large							8 is too large
+Guess a number between 1 and 10 !				Guess a number between 1 and 10 !
+9 is too large							9 is too large
+Guess a number between 1 and 10 !				Guess a number between 1 and 10 !
+10 is too large							10 is too large
+Guess a number between 1 and 10 !				Guess a number between 1 and 10 !
+7 is the key 							7 is the key 
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:355					      |	   #Instructions:575
+    (move-ops mem:11, reglit:158)			      |	    (move-ops mem:36, reglit:359)
+    ( int-ops mem:88, reglit:98)			      |	    ( int-ops mem:60, reglit:120)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:99,reg:186)			      |	   Memory Usage (mem:96,reg:465)
+      register-use[23,23,43,41,2,20,14,2,18,0,0,0,0,0,0,0,0,0 |	      register-use[20,84,144,217]
+   Total Cycles = 591					      |	   Total Cycles = 683
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:68, fp-ops:0)					    (int-ops:68, fp-ops:0)
+    (branches:64)					      |	    (branches:58)
+      peephole-ops:0						      peephole-ops:0
+
+end testing guess
+======================================================================================
+======================================================================================
+testing loop ...
+
+Guess a number: Wrong!						Guess a number: Wrong!
+Guess a number: Wrong!						Guess a number: Wrong!
+Guess a number: Wrong!						Guess a number: Wrong!
+Guess a number: Wrong!						Guess a number: Wrong!
+Guess a number: Wrong!						Guess a number: Wrong!
+Guess a number: Wrong!						Guess a number: Wrong!
+Guess a number: Wrong!						Guess a number: Wrong!
+Guess a number: Wrong!						Guess a number: Wrong!
+Guess a number: Wrong!						Guess a number: Wrong!
+Guess a number: Wrong!						Guess a number: Wrong!
+Guess a number: Correct!					Guess a number: Correct!
+It took you 11 guesses						It took you 11 guesses
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:187					      |	   #Instructions:383
+    (move-ops mem:25, reglit:42)			      |	    (move-ops mem:96, reglit:177)
+    ( int-ops mem:59, reglit:61)			      |	    ( int-ops mem:36, reglit:74)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:84,reg:111)			      |	   Memory Usage (mem:132,reg:373)
+      register-use[3,3,3,47,22,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0 |	      register-use[3,72,139,159]
+   Total Cycles = 441					      |	   Total Cycles = 578
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:58, fp-ops:0)					    (int-ops:58, fp-ops:0)
+    (branches:46)					      |	    (branches:36)
+      peephole-ops:0						      peephole-ops:0
+
+end testing loop
+======================================================================================
+======================================================================================
+testing nested ...
+
+100								100
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:3422					      |	   #Instructions:7443
+    (move-ops mem:603, reglit:1111)			      |	    (move-ops mem:1908, reglit:3827)
+    ( int-ops mem:502, reglit:1206)			      |	    ( int-ops mem:1, reglit:1707)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:1105,reg:3014)			      |	   Memory Usage (mem:1909,reg:7936)
+      register-use[3,3,3,3,202,400,400,200,300,200,300,200,30 |	      register-use[6,403,3406,4121]
+   Total Cycles = 8430					      |	   Total Cycles = 12562
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:901, fp-ops:0)					    (int-ops:901, fp-ops:0)
+    (branches:802)						    (branches:802)
+      peephole-ops:0						      peephole-ops:0
+
+end testing nested
+======================================================================================
+======================================================================================
+testing ralloc_1 ...
+
+-1 7 6 6 0							-1 7 6 6 0
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:48					      |	   #Instructions:76
+    (move-ops mem:0, reglit:18)				      |	    (move-ops mem:0, reglit:46)
+    ( int-ops mem:22, reglit:8)				      |	    ( int-ops mem:15, reglit:15)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:22,reg:30)				      |	   Memory Usage (mem:15,reg:66)
+      register-use[4,4,4,4,3,3,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0, |	      register-use[18,11,17,20]
+   Total Cycles = 82					      |	   Total Cycles = 77
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:15, fp-ops:0)					    (int-ops:15, fp-ops:0)
+    (branches:1)						    (branches:1)
+      peephole-ops:0						      peephole-ops:0
+
+end testing ralloc_1
+======================================================================================
+======================================================================================
+testing ralloc_2 ...
+
+11 5 6 5 10 55							11 5 6 5 10 55
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:69					      |	   #Instructions:113
+    (move-ops mem:8, reglit:28)				      |	    (move-ops mem:22, reglit:58)
+    ( int-ops mem:24, reglit:9)				      |	    ( int-ops mem:18, reglit:15)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:32,reg:36)				      |	   Memory Usage (mem:40,reg:92)
+      register-use[5,6,6,5,2,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0, |	      register-use[18,27,27,20]
+   Total Cycles = 120					      |	   Total Cycles = 153
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:12, fp-ops:0)					    (int-ops:12, fp-ops:0)
+    (branches:2)						    (branches:2)
+      peephole-ops:0						      peephole-ops:0
+
+end testing ralloc_2
+======================================================================================
+======================================================================================
+testing ralloc_3 ...
+
+2 3 4 9 5 6 7 4							2 3 4 9 5 6 7 4
+40 760								40 760
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:75					      |	   #Instructions:149
+    (move-ops mem:0, reglit:27)				      |	    (move-ops mem:0, reglit:101)
+    ( int-ops mem:41, reglit:7)				      |	    ( int-ops mem:20, reglit:28)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:41,reg:51)				      |	   Memory Usage (mem:20,reg:152)
+      register-use[3,3,3,5,2,2,2,4,9,10,5,3,0,0,0,0,0,0,0,0,0 |	      register-use[57,9,63,23]
+   Total Cycles = 176					      |	   Total Cycles = 150
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:33, fp-ops:0)					    (int-ops:33, fp-ops:0)
+    (branches:1)						    (branches:1)
+      peephole-ops:0						      peephole-ops:0
+
+end testing ralloc_3
+======================================================================================
+======================================================================================
+testing scmp2 ...
+
+2.4        2.4 2.4						2.4        2.4 2.4
+2.4        2.4 							2.4        2.4 
+2.6        2.4 2.6						2.6        2.4 2.6
+2.6        2.6 							2.6        2.6 
+2.8        2.4 2.8						2.8        2.4 2.8
+2.8        2.8 							2.8        2.8 
+1.2        1.2 2.8						1.2        1.2 2.8
+1.2        2.8 							1.2        2.8 
+1.3        1.2 2.8						1.3        1.2 2.8
+1.3        2.8 							1.3        2.8 
+20.1        1.2 20.1						20.1        1.2 20.1
+20.1        20.1 						20.1        20.1 
+0.8        0.8 20.1						0.8        0.8 20.1
+0.8        20.1 						0.8        20.1 
+12.3        0.8 20.1						12.3        0.8 20.1
+12.3        20.1 						12.3        20.1 
+ min:  0.8							 min:  0.8
+ max:  20.1							 max:  20.1
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:2228					      |	   #Instructions:3778
+    (move-ops mem:250, reglit:1279)			      |	    (move-ops mem:338, reglit:2741)
+    ( int-ops mem:194, reglit:447)			      |	    ( int-ops mem:54, reglit:587)
+    (  fp-ops mem:58, reglit:0)				      |	    (  fp-ops mem:42, reglit:16)
+   Memory Usage (mem:502,reg:1074)			      |	   Memory Usage (mem:434,reg:3159)
+      register-use[111,111,111,111,2,2,2,2,4,2,18,16,16,16,16 |	      register-use[589,273,897,1400]
+   Total Cycles = 3264					      |	   Total Cycles = 4978
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:226, fp-ops:58)					    (int-ops:226, fp-ops:58)
+    (branches:249)						    (branches:249)
+      peephole-ops:0						      peephole-ops:0
+
+end testing scmp2
+======================================================================================
+======================================================================================
+testing scmp3 ...
+
+2.4 0.8 2.4							2.4 0.8 2.4
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:173					      |	   #Instructions:320
+    (move-ops mem:25, reglit:93)			      |	    (move-ops mem:35, reglit:230)
+    ( int-ops mem:17, reglit:34)			      |	    ( int-ops mem:3, reglit:48)
+    (  fp-ops mem:4, reglit:0)				      |	    (  fp-ops mem:3, reglit:1)
+   Memory Usage (mem:46,reg:92)				      |	   Memory Usage (mem:41,reg:284)
+      register-use[9,9,9,9,2,2,2,2,2,2,2,2,2,2,0,2,0,2,0,0,0, |	      register-use[60,16,70,138]
+   Total Cycles = 274					      |	   Total Cycles = 432
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:18, fp-ops:4)					    (int-ops:18, fp-ops:4)
+    (branches:20)						    (branches:20)
+      peephole-ops:0						      peephole-ops:0
+
+end testing scmp3
+======================================================================================
+======================================================================================
+testing scmp4 ...
+
+0 7 20.5 10.1 20.5						0 7 20.5 10.1 20.5
+1 6 16.5 15.1 16.5						1 6 16.5 15.1 16.5
+2 5 12 12.1 12.1						2 5 12 12.1 12.1
+3 4 1.2 1.3 1.3							3 4 1.2 1.3 1.3
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:897					      |	   #Instructions:1563
+    (move-ops mem:137, reglit:473)			      |	    (move-ops mem:172, reglit:1106)
+    ( int-ops mem:109, reglit:166)			      |	    ( int-ops mem:28, reglit:241)
+    (  fp-ops mem:12, reglit:0)				      |	    (  fp-ops mem:12, reglit:4)
+   Memory Usage (mem:258,reg:402)			      |	   Memory Usage (mem:212,reg:1334)
+      register-use[35,35,35,35,2,2,2,2,2,2,10,12,8,8,8,8,8,12 |	      register-use[344,57,377,556]
+   Total Cycles = 1395					      |	   Total Cycles = 2192
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:109, fp-ops:12)				      |	    (int-ops:105, fp-ops:16)
+    (branches:106)					      |	    (branches:104)
+      peephole-ops:0						      peephole-ops:0
+
+end testing scmp4
+======================================================================================
+======================================================================================
+testing scmp5 ...
+
+0 7 20.5 10.1 20.5						0 7 20.5 10.1 20.5
+1 6 16.5 15.1 16.5						1 6 16.5 15.1 16.5
+2 5 12 12.1 12.1						2 5 12 12.1 12.1
+3 4 1.2 1.3 1.3							3 4 1.2 1.3 1.3
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:897					      |	   #Instructions:1563
+    (move-ops mem:137, reglit:473)			      |	    (move-ops mem:172, reglit:1106)
+    ( int-ops mem:109, reglit:166)			      |	    ( int-ops mem:28, reglit:241)
+    (  fp-ops mem:12, reglit:0)				      |	    (  fp-ops mem:12, reglit:4)
+   Memory Usage (mem:258,reg:402)			      |	   Memory Usage (mem:212,reg:1334)
+      register-use[35,35,35,35,2,2,2,2,2,2,10,12,8,8,8,8,8,12 |	      register-use[344,57,377,556]
+   Total Cycles = 1395					      |	   Total Cycles = 2192
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:109, fp-ops:12)				      |	    (int-ops:105, fp-ops:16)
+    (branches:106)					      |	    (branches:104)
+      peephole-ops:0						      peephole-ops:0
+
+end testing scmp5
+======================================================================================
+======================================================================================
+testing scmp ...
+
+5.2 6.4  is larger than or equal to  0				5.2 6.4  is larger than or equal to  0
+5.2 6.4  is smaller than  1					5.2 6.4  is smaller than  1
+7.2 7.2  is larger than or equal to  1				7.2 7.2  is larger than or equal to  1
+7.2 7.2  is smaller than  0					7.2 7.2  is smaller than  0
+21.2 19.8  is larger than or equal to  1			21.2 19.8  is larger than or equal to  1
+21.2 19.8  is smaller than  0					21.2 19.8  is smaller than  0
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:283					      |	   #Instructions:397
+    (move-ops mem:0, reglit:176)			      |	    (move-ops mem:0, reglit:290)
+    ( int-ops mem:36, reglit:53)				    ( int-ops mem:36, reglit:53)
+    (  fp-ops mem:18, reglit:0)				      |	    (  fp-ops mem:12, reglit:6)
+   Memory Usage (mem:54,reg:142)			      |	   Memory Usage (mem:48,reg:294)
+      register-use[19,19,21,21,2,2,2,2,2,2,2,2,2,2,12,8,4,6,6 |	      register-use[36,33,69,156]
+   Total Cycles = 341					      |	   Total Cycles = 413
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:33, fp-ops:18)					    (int-ops:33, fp-ops:18)
+    (branches:19)						    (branches:19)
+      peephole-ops:0						      peephole-ops:0
+
+end testing scmp
+======================================================================================
+======================================================================================
+testing sorting ...
+
+inputs are: 							inputs are: 
+12.23								12.23
+3.14								3.14
+90.12								90.12
+89.9								89.9
+2.16								2.16
+0.08								0.08
+
+
+ sorting... 							 sorting... 
+0.08								0.08
+2.16								2.16
+3.14								3.14
+12.23								12.23
+89.9								89.9
+90.12								90.12
+
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:5713					      |	   #Instructions:9606
+    (move-ops mem:127, reglit:3899)			      |	    (move-ops mem:200, reglit:7695)
+    ( int-ops mem:338, reglit:1280)			      |	    ( int-ops mem:16, reglit:1626)
+    (  fp-ops mem:39, reglit:30)			      |	    (  fp-ops mem:18, reglit:51)
+   Memory Usage (mem:504,reg:3133)			      |	   Memory Usage (mem:234,reg:8298)
+      register-use[405,441,339,342,2,2,2,14,12,12,12,12,18,12 |	      register-use[1469,1021,2660,3148]
+   Total Cycles = 8157					      |	   Total Cycles = 10704
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:447, fp-ops:69)				      |	    (int-ops:450, fp-ops:69)
+    (branches:669)					      |	    (branches:663)
+      peephole-ops:0						      peephole-ops:0
+
+end testing sorting
+======================================================================================
+======================================================================================
+testing sort ...
+
+Inputs are: 							Inputs are: 
+
+2.13   isLargerThanOrEqualTo: 1   isSmallerThan: 0 2.13		2.13   isLargerThanOrEqualTo: 1   isSmallerThan: 0 2.13
+1.19   isLargerThanOrEqualTo: 0   isSmallerThan: 1 1.19		1.19   isLargerThanOrEqualTo: 0   isSmallerThan: 1 1.19
+43.2   isLargerThanOrEqualTo: 1   isSmallerThan: 0 1.19		43.2   isLargerThanOrEqualTo: 1   isSmallerThan: 0 1.19
+3.49   isLargerThanOrEqualTo: 1   isSmallerThan: 0 1.19		3.49   isLargerThanOrEqualTo: 1   isSmallerThan: 0 1.19
+3.14   isLargerThanOrEqualTo: 1   isSmallerThan: 0 1.19		3.14   isLargerThanOrEqualTo: 1   isSmallerThan: 0 1.19
+2.32   isLargerThanOrEqualTo: 1   isSmallerThan: 0 1.19		2.32   isLargerThanOrEqualTo: 1   isSmallerThan: 0 1.19
+0.08   isLargerThanOrEqualTo: 0   isSmallerThan: 1 0.08		0.08   isLargerThanOrEqualTo: 0   isSmallerThan: 1 0.08
+12.1   isLargerThanOrEqualTo: 1   isSmallerThan: 0 0.08		12.1   isLargerThanOrEqualTo: 1   isSmallerThan: 0 0.08
+0.08								0.08
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:1490					      |	   #Instructions:2507
+    (move-ops mem:21, reglit:981)			      |	    (move-ops mem:52, reglit:1967)
+    ( int-ops mem:167, reglit:288)			      |	    ( int-ops mem:83, reglit:372)
+    (  fp-ops mem:33, reglit:0)				      |	    (  fp-ops mem:25, reglit:8)
+   Memory Usage (mem:221,reg:731)			      |	   Memory Usage (mem:160,reg:2101)
+      register-use[71,71,73,73,2,2,2,2,18,16,16,16,16,4,16,24 |	      register-use[493,207,637,764]
+   Total Cycles = 2146					      |	   Total Cycles = 2726
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:176, fp-ops:33)					    (int-ops:176, fp-ops:33)
+    (branches:154)						    (branches:154)
+      peephole-ops:0						      peephole-ops:0
+
+end testing sort
+======================================================================================
+======================================================================================
+testing sqrt ...
+
+100 10000 200 50						100 10000 200 50
+25 625 50 12.5							25 625 50 12.5
+0.00152588 2.32831e-06 0.00305176 0.000762939			0.00152588 2.32831e-06 0.00305176 0.000762939
+0.000762939							0.000762939
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:384					      |	   #Instructions:858
+    (move-ops mem:170, reglit:29)			      |	    (move-ops mem:330, reglit:343)
+    ( int-ops mem:15, reglit:41)			      |	    ( int-ops mem:12, reglit:44)
+    (  fp-ops mem:97, reglit:32)			      |	    (  fp-ops mem:14, reglit:115)
+   Memory Usage (mem:282,reg:352)			      |	   Memory Usage (mem:356,reg:1010)
+      register-use[3,5,4,4,3,2,6,32,8,6,6,6,4,6,45,30,56,42,4 |	      register-use[188,198,173,451]
+   Total Cycles = 1385					      |	   Total Cycles = 1538
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:17, fp-ops:129)					    (int-ops:17, fp-ops:129)
+    (branches:35)						    (branches:35)
+      peephole-ops:0						      peephole-ops:0
+
+end testing sqrt
+======================================================================================
+======================================================================================
+testing step4_testcase2 ...
+
+142123244							142123244
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:175					      |	   #Instructions:359
+    (move-ops mem:30, reglit:48)			      |	    (move-ops mem:106, reglit:168)
+    ( int-ops mem:33, reglit:64)			      |	    ( int-ops mem:4, reglit:81)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:63,reg:130)			      |	   Memory Usage (mem:110,reg:369)
+      register-use[3,3,15,13,3,10,3,8,3,6,3,12,18,12,18,0,0,0 |	      register-use[0,39,156,174]
+   Total Cycles = 423					      |	   Total Cycles = 634
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:41, fp-ops:0)					    (int-ops:41, fp-ops:0)
+    (branches:48)					      |	    (branches:36)
+      peephole-ops:0						      peephole-ops:0
+
+end testing step4_testcase2
+======================================================================================
+======================================================================================
+testing step4_testcase ...
+
+73								73
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:191					      |	   #Instructions:388
+    (move-ops mem:43, reglit:49)			      |	    (move-ops mem:112, reglit:180)
+    ( int-ops mem:33, reglit:66)			      |	    ( int-ops mem:12, reglit:84)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:76,reg:152)			      |	   Memory Usage (mem:124,reg:392)
+      register-use[3,3,3,23,20,14,21,6,9,20,30,0,0,0,0,0,0,0, |	      register-use[3,3,158,228]
+   Total Cycles = 422					      |	   Total Cycles = 645
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:41, fp-ops:0)					    (int-ops:41, fp-ops:0)
+    (branches:42)					      |	    (branches:39)
+      peephole-ops:0						      peephole-ops:0
+
+end testing step4_testcase
+======================================================================================
+======================================================================================
+testing step8_test6_1 ...
+
+error on line 1 : unknown opcode			      |	 in main a is: 100
+							      >	 in for loop a is: 0
+							      >	 in for loop a is: 1
+							      >	 in for loop a is: 2
+							      >	 in for loop a is: 3
+							      >	 in for loop a is: 4
+							      >	 in main a is: 4
+							      >
+							      >	STATISTICS _____________________________
+							      >	   #Instructions:167
+							      >	    (move-ops mem:14, reglit:105)
+							      >	    ( int-ops mem:21, reglit:27)
+							      >	    (  fp-ops mem:0, reglit:0)
+							      >	   Memory Usage (mem:35,reg:153)
+							      >	      register-use[0,18,76,59]
+							      >	   Total Cycles = 204
+							      >	OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+							      >	    (int-ops:25, fp-ops:0)
+							      >	    (branches:12)
+							      >	      peephole-ops:0
+
+end testing step8_test6_1
+======================================================================================
+======================================================================================
+testing test_adv ...
+
+2.72029 5							2.72029 5
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:166					      |	   #Instructions:365
+    (move-ops mem:57, reglit:31)			      |	    (move-ops mem:120, reglit:167)
+    ( int-ops mem:9, reglit:37)				      |	    ( int-ops mem:3, reglit:43)
+    (  fp-ops mem:22, reglit:10)			      |	    (  fp-ops mem:2, reglit:30)
+   Memory Usage (mem:88,reg:143)			      |	   Memory Usage (mem:125,reg:401)
+      register-use[3,3,3,3,2,12,10,15,15,15,15,15,10,10,2,0,0 |	      register-use[57,86,156,102]
+   Total Cycles = 499					      |	   Total Cycles = 642
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:13, fp-ops:32)					    (int-ops:13, fp-ops:32)
+    (branches:28)						    (branches:28)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_adv
+======================================================================================
+======================================================================================
+testing test_combination ...
+
+692920920							692920920
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:39					      |	   #Instructions:70
+    (move-ops mem:11, reglit:9)				      |	    (move-ops mem:17, reglit:34)
+    ( int-ops mem:11, reglit:8)				      |	    ( int-ops mem:3, reglit:16)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:22,reg:33)				      |	   Memory Usage (mem:20,reg:74)
+      register-use[3,3,3,4,5,5,2,4,4,0,0,0,0,0,0,0,0,0,0,0,0, |	      register-use[18,13,16,27]
+   Total Cycles = 99					      |	   Total Cycles = 110
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:11, fp-ops:0)					    (int-ops:11, fp-ops:0)
+    (branches:1)						    (branches:1)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_combination
+======================================================================================
+======================================================================================
+testing test_complex ...
+
+692								692
+920								920
+920								920
+3.55								3.55
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:57					      |	   #Instructions:107
+    (move-ops mem:17, reglit:12)			      |	    (move-ops mem:27, reglit:52)
+    ( int-ops mem:15, reglit:8)				      |	    ( int-ops mem:7, reglit:16)
+    (  fp-ops mem:4, reglit:1)				      |	    (  fp-ops mem:1, reglit:4)
+   Memory Usage (mem:36,reg:47)				      |	   Memory Usage (mem:35,reg:114)
+      register-use[3,3,3,4,5,5,2,4,4,2,2,2,5,3,0,0,0,0,0,0,0, |	      register-use[39,32,16,27]
+   Total Cycles = 146					      |	   Total Cycles = 176
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:15, fp-ops:5)					    (int-ops:15, fp-ops:5)
+    (branches:1)						    (branches:1)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_complex
+======================================================================================
+======================================================================================
+testing test_expr ...
+
+1								1
+2								2
+10								10
+20								20
+3								3
+30								30
+27								27
+-20								-20
+218								218
+228								228
+268								268
+-10								-10
+1								1
+3.14159								3.14159
+2								2
+1.5708								1.5708
+1.5708								1.5708
+2								2
+4								4
+15.5277								15.5277
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:141					      |	   #Instructions:262
+    (move-ops mem:37, reglit:24)			      |	    (move-ops mem:59, reglit:123)
+    ( int-ops mem:44, reglit:10)			      |	    ( int-ops mem:32, reglit:22)
+    (  fp-ops mem:15, reglit:11)			      |	    (  fp-ops mem:8, reglit:18)
+   Memory Usage (mem:96,reg:111)			      |	   Memory Usage (mem:99,reg:267)
+      register-use[3,3,3,3,3,3,4,3,5,3,6,2,3,4,2,3,2,2,2,2,2, |	      register-use[107,80,26,54]
+   Total Cycles = 328					      |	   Total Cycles = 411
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:37, fp-ops:26)					    (int-ops:37, fp-ops:26)
+    (branches:1)						    (branches:1)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_expr
+======================================================================================
+======================================================================================
+testing test_f10 ...
+
+1 get if block							1 get if block
+1 get if block							1 get if block
+5 get else block						5 get else block
+6 get else block						6 get else block
+18 get else block						18 get else block
+1 5 11 1 1							1 5 11 1 1
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:162					      |	   #Instructions:234
+    (move-ops mem:0, reglit:92)				      |	    (move-ops mem:0, reglit:164)
+    ( int-ops mem:38, reglit:32)			      |	    ( int-ops mem:30, reglit:40)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:38,reg:91)				      |	   Memory Usage (mem:30,reg:174)
+      register-use[11,11,21,15,6,0,0,2,2,3,2,3,2,2,2,5,2,2,0, |	      register-use[24,32,41,77]
+   Total Cycles = 210					      |	   Total Cycles = 243
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:30, fp-ops:0)					    (int-ops:30, fp-ops:0)
+    (branches:11)						    (branches:11)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f10
+======================================================================================
+======================================================================================
+testing test_f11 ...
+
+1 5 11 1 1							1 5 11 1 1
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:144					      |	   #Instructions:215
+    (move-ops mem:0, reglit:92)				      |	    (move-ops mem:0, reglit:163)
+    ( int-ops mem:20, reglit:32)			      |	    ( int-ops mem:12, reglit:40)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:20,reg:91)				      |	   Memory Usage (mem:12,reg:173)
+      register-use[11,11,21,15,6,0,0,2,2,3,2,3,2,2,2,5,2,2,0, |	      register-use[24,32,41,76]
+   Total Cycles = 192					      |	   Total Cycles = 224
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:15, fp-ops:0)					    (int-ops:15, fp-ops:0)
+    (branches:11)						    (branches:11)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f11
+======================================================================================
+======================================================================================
+testing test_f12 ...
+
+1 200								1 200
+1 4000								1 4000
+1 4000								1 4000
+1 200								1 200
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:130					      |	   #Instructions:208
+    (move-ops mem:5, reglit:80)				      |	    (move-ops mem:18, reglit:145)
+    ( int-ops mem:20, reglit:25)			      |	    ( int-ops mem:16, reglit:29)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:25,reg:80)				      |	   Memory Usage (mem:34,reg:167)
+      register-use[9,9,17,13,4,4,4,0,0,2,2,2,2,2,2,2,2,2,2,0, |	      register-use[8,8,63,88]
+   Total Cycles = 161					      |	   Total Cycles = 255
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:12, fp-ops:0)					    (int-ops:12, fp-ops:0)
+    (branches:9)						    (branches:9)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f12
+======================================================================================
+======================================================================================
+testing test_f13 ...
+
+1 1								1 1
+1 10								1 10
+1 20								1 20
+1 2								1 2
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:206					      |	   #Instructions:316
+    (move-ops mem:5, reglit:140)			      |	    (move-ops mem:18, reglit:237)
+    ( int-ops mem:20, reglit:41)			      |	    ( int-ops mem:16, reglit:45)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:25,reg:128)			      |	   Memory Usage (mem:34,reg:259)
+      register-use[17,17,25,25,8,4,4,4,4,0,0,2,2,2,2,2,2,2,2, |	      register-use[16,16,103,124]
+   Total Cycles = 241					      |	   Total Cycles = 367
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:12, fp-ops:0)					    (int-ops:12, fp-ops:0)
+    (branches:13)						    (branches:13)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f13
+======================================================================================
+======================================================================================
+testing test_f14 ...
+
+Please input an integer number: 0 0				Please input an integer number: 0 0
+1 1								1 1
+2 1								2 1
+3 2								3 2
+4 3								4 3
+5 5								5 5
+6 8								6 8
+7 13								7 13
+8 21								8 21
+9 34								9 34
+10 55								10 55
+11 89								11 89
+12 144								12 144
+13 233								13 233
+14 377								14 377
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:59065					      |	   #Instructions:87569
+    (move-ops mem:0, reglit:39102)			      |	    (move-ops mem:0, reglit:68824)
+    ( int-ops mem:5591, reglit:14372)			      |	    ( int-ops mem:62, reglit:18683)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:5591,reg:44615)			      |	   Memory Usage (mem:62,reg:80650)
+      register-use[7837,5863,6835,5863,1944,2916,1944,2916,19 |	      register-use[3918,11790,25667,39275]
+   Total Cycles = 91284					      |	   Total Cycles = 92128
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:7519, fp-ops:0)				      |	    (int-ops:6910, fp-ops:0)
+    (branches:6532)					      |	    (branches:5923)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f14
+======================================================================================
+======================================================================================
+testing test_f1 ...
+
+Please input an integer number: 0 2				Please input an integer number: 0 2
+1 3								1 3
+2 4								2 4
+3 5								3 5
+4 6								4 6
+5 7								5 7
+6 8								6 8
+7 9								7 9
+8 10								8 10
+9 11								9 11
+10 12								10 12
+11 13								11 13
+12 14								12 14
+13 15								13 15
+14 16								14 16
+15 17								15 17
+16 18								16 18
+17 19								17 19
+18 20								18 20
+19 21								19 21
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:1374					      |	   #Instructions:1888
+    (move-ops mem:0, reglit:941)			      |	    (move-ops mem:0, reglit:1455)
+    ( int-ops mem:103, reglit:330)			      |	    ( int-ops mem:82, reglit:351)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:103,reg:900)			      |	   Memory Usage (mem:82,reg:1552)
+      register-use[163,183,163,165,40,60,2,42,40,40,2,0,0,0,0 |	      register-use[182,202,508,660]
+   Total Cycles = 1583					      |	   Total Cycles = 1972
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:102, fp-ops:0)					    (int-ops:102, fp-ops:0)
+    (branches:103)						    (branches:103)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f1
+======================================================================================
+======================================================================================
+testing test_f2 ...
+
+Please input an integer number: 0 2				Please input an integer number: 0 2
+1 3								1 3
+2 4								2 4
+3 5								3 5
+4 6								4 6
+5 7								5 7
+6 8								6 8
+7 9								7 9
+8 10								8 10
+9 11								9 11
+10 12								10 12
+11 13								11 13
+12 14								12 14
+13 15								13 15
+14 16								14 16
+15 17								15 17
+16 18								16 18
+17 19								17 19
+18 20								18 20
+19 21								19 21
+20 22								20 22
+21 23								21 23
+22 24								22 24
+23 25								23 25
+24 26								24 26
+25 27								25 27
+26 28								26 28
+27 29								27 29
+28 30								28 30
+29 31								29 31
+30 32								30 32
+31 33								31 33
+32 34								32 34
+33 35								33 35
+34 36								34 36
+35 37								35 37
+36 38								36 38
+37 39								37 39
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:5232					      |	   #Instructions:7015
+    (move-ops mem:0, reglit:3797)			      |	    (move-ops mem:0, reglit:5580)
+    ( int-ops mem:310, reglit:1125)			      |	    ( int-ops mem:154, reglit:1281)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:310,reg:3564)			      |	   Memory Usage (mem:154,reg:5728)
+      register-use[541,579,541,582,78,78,78,78,78,78,78,351,7 |	      register-use[578,772,2128,2250]
+   Total Cycles = 6323					      |	   Total Cycles = 7288
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:348, fp-ops:0)					    (int-ops:348, fp-ops:0)
+    (branches:310)						    (branches:310)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f2
+======================================================================================
+======================================================================================
+testing test_f3 ...
+
+Please input an integer number: 0 2				Please input an integer number: 0 2
+1 3								1 3
+2 4								2 4
+3 5								3 5
+4 6								4 6
+5 7								5 7
+6 8								6 8
+7 9								7 9
+8 10								8 10
+9 11								9 11
+10 12								10 12
+11 13								11 13
+12 14								12 14
+13 15								13 15
+14 16								14 16
+15 17								15 17
+16 18								16 18
+17 19								17 19
+18 20								18 20
+19 21								19 21
+20 22								20 22
+21 23								21 23
+22 24								22 24
+23 25								23 25
+24 26								24 26
+25 27								25 27
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:3666					      |	   #Instructions:4978
+    (move-ops mem:0, reglit:2648)			      |	    (move-ops mem:0, reglit:3960)
+    ( int-ops mem:214, reglit:804)			      |	    ( int-ops mem:106, reglit:912)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:214,reg:2541)			      |	   Memory Usage (mem:106,reg:4114)
+      register-use[373,399,373,402,54,54,54,54,54,81,54,54,24 |	      register-use[398,640,1522,1554]
+   Total Cycles = 4421					      |	   Total Cycles = 5167
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:267, fp-ops:0)					    (int-ops:267, fp-ops:0)
+    (branches:214)						    (branches:214)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f3
+======================================================================================
+======================================================================================
+testing test_f4 ...
+
+5 7 70								5 7 70
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:70					      |	   #Instructions:100
+    (move-ops mem:0, reglit:48)				      |	    (move-ops mem:0, reglit:78)
+    ( int-ops mem:8, reglit:14)				      |	    ( int-ops mem:5, reglit:17)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:8,reg:42)				      |	   Memory Usage (mem:5,reg:82)
+      register-use[11,9,5,5,2,3,3,2,2,0,0,0,0,0,0,0,0,0,0,0,0 |	      register-use[11,9,22,40]
+   Total Cycles = 88					      |	   Total Cycles = 103
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:6, fp-ops:0)					    (int-ops:6, fp-ops:0)
+    (branches:3)						    (branches:3)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f4
+======================================================================================
+======================================================================================
+testing test_f5 ...
+
+5 7 1400							5 7 1400
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:94					      |	   #Instructions:136
+    (move-ops mem:0, reglit:67)				      |	    (move-ops mem:0, reglit:109)
+    ( int-ops mem:9, reglit:18)				      |	    ( int-ops mem:5, reglit:22)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:9,reg:59)				      |	   Memory Usage (mem:5,reg:114)
+      register-use[16,13,7,7,2,3,2,3,2,2,2,0,0,0,0,0,0,0,0,0, |	      register-use[13,18,30,53]
+   Total Cycles = 118					      |	   Total Cycles = 140
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:7, fp-ops:0)					    (int-ops:7, fp-ops:0)
+    (branches:4)						    (branches:4)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f5
+======================================================================================
+======================================================================================
+testing test_f6 ...
+
+5 7 245000							5 7 245000
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:163					      |	   #Instructions:229
+    (move-ops mem:0, reglit:121)			      |	    (move-ops mem:0, reglit:187)
+    ( int-ops mem:12, reglit:30)			      |	    ( int-ops mem:5, reglit:37)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:12,reg:104)			      |	   Memory Usage (mem:5,reg:195)
+      register-use[31,25,13,13,2,3,2,3,2,2,2,2,2,2,0,0,0,0,0, |	      register-use[30,23,56,86]
+   Total Cycles = 205					      |	   Total Cycles = 236
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:10, fp-ops:0)					    (int-ops:10, fp-ops:0)
+    (branches:7)						    (branches:7)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f6
+======================================================================================
+======================================================================================
+testing test_f7 ...
+
+5 7 12251225							5 7 12251225
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:111					      |	   #Instructions:153
+    (move-ops mem:0, reglit:79)				      |	    (move-ops mem:0, reglit:121)
+    ( int-ops mem:11, reglit:21)			      |	    ( int-ops mem:7, reglit:25)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:11,reg:66)				      |	   Memory Usage (mem:7,reg:123)
+      register-use[11,12,11,11,2,2,2,9,6,0,0,0,0,0,0,0,0,0,0, |	      register-use[12,13,35,63]
+   Total Cycles = 136					      |	   Total Cycles = 158
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:7, fp-ops:0)					    (int-ops:7, fp-ops:0)
+    (branches:5)						    (branches:5)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f7
+======================================================================================
+======================================================================================
+testing test_f8 ...
+
+0 5								0 5
+2 115								2 115
+4 225								4 225
+6 335								6 335
+8 445								8 445
+10 555								10 555
+12 665								12 665
+14 775								14 775
+16 885								16 885
+18 995								18 995
+20 1105								20 1105
+22 1215								22 1215
+24 1325								24 1325
+26 1435								26 1435
+28 1545								28 1545
+30 1655								30 1655
+32 1765								32 1765
+34 1875								34 1875
+36 1985								36 1985
+38 2095								38 2095
+40 2205								40 2205
+42 2315								42 2315
+44 2425								44 2425
+46 2535								46 2535
+48 2645								48 2645
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:3590					      |	   #Instructions:5010
+    (move-ops mem:0, reglit:2616)			      |	    (move-ops mem:0, reglit:4036)
+    ( int-ops mem:203, reglit:771)			      |	    ( int-ops mem:100, reglit:874)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:203,reg:2388)			      |	   Memory Usage (mem:100,reg:4267)
+      register-use[538,461,459,535,2,2,3,2,2,2,78,52,50,50,50 |	      register-use[565,587,1368,1747]
+   Total Cycles = 4181					      |	   Total Cycles = 5191
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:256, fp-ops:0)					    (int-ops:256, fp-ops:0)
+    (branches:205)						    (branches:205)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_f8
+======================================================================================
+======================================================================================
+testing test_f9 ...
+
+error on line 1 : unknown opcode			      |	0 1
+							      >	2 1
+							      >	4 1
+							      >	6 5
+							      >	8 5
+							      >	10 5
+							      >	12 5
+							      >	14 5
+							      >
+							      >	STATISTICS _____________________________
+							      >	   #Instructions:302
+							      >	    (move-ops mem:0, reglit:212)
+							      >	    ( int-ops mem:32, reglit:58)
+							      >	    (  fp-ops mem:0, reglit:0)
+							      >	   Memory Usage (mem:32,reg:274)
+							      >	      register-use[0,0,118,156]
+							      >	   Total Cycles = 326
+							      >	OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+							      >	    (int-ops:41, fp-ops:0)
+							      >	    (branches:29)
+							      >	      peephole-ops:0
+
+end testing test_f9
+======================================================================================
+======================================================================================
+testing test_for ...
+
+2.64575								2.64575
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:1722					      |	   #Instructions:3742
+    (move-ops mem:704, reglit:308)			      |	    (move-ops mem:1112, reglit:1920)
+    ( int-ops mem:102, reglit:306)			      |	    ( int-ops mem:1, reglit:407)
+    (  fp-ops mem:102, reglit:200)			      |	    (  fp-ops mem:2, reglit:300)
+   Memory Usage (mem:908,reg:1812)			      |	   Memory Usage (mem:1115,reg:4433)
+      register-use[3,3,3,203,300,300,300,200,200,300,0,0,0,0, |	      register-use[406,803,1115,2109]
+   Total Cycles = 5136					      |	   Total Cycles = 6467
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:202, fp-ops:302)					    (int-ops:202, fp-ops:302)
+    (branches:202)						    (branches:202)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_for
+======================================================================================
+======================================================================================
+testing test_if ...
+
+91								91
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:31					      |	   #Instructions:61
+    (move-ops mem:7, reglit:10)				      |	    (move-ops mem:20, reglit:27)
+    ( int-ops mem:5, reglit:9)				      |	    ( int-ops mem:1, reglit:13)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:12,reg:20)				      |	   Memory Usage (mem:21,reg:55)
+      register-use[3,3,3,3,3,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0, |	      register-use[6,10,9,30]
+   Total Cycles = 63					      |	   Total Cycles = 106
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:4, fp-ops:0)					    (int-ops:4, fp-ops:0)
+    (branches:5)						    (branches:5)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_if
+======================================================================================
+======================================================================================
+testing test_loc1 ...
+
+error on line 1 : unknown opcode			      |	50 is smaller than 500
+							      >	5 is greater than or equal to 5
+							      >
+							      >	STATISTICS _____________________________
+							      >	   #Instructions:531
+							      >	    (move-ops mem:0, reglit:437)
+							      >	    ( int-ops mem:4, reglit:72)
+							      >	    (  fp-ops mem:4, reglit:14)
+							      >	   Memory Usage (mem:8,reg:444)
+							      >	      register-use[46,50,126,222]
+							      >	   Total Cycles = 563
+							      >	OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+							      >	    (int-ops:4, fp-ops:18)
+							      >	    (branches:20)
+							      >	      peephole-ops:0
+
+end testing test_loc1
+======================================================================================
+======================================================================================
+testing test_loc2 ...
+
+50 is smaller than 500						50 is smaller than 500
+5 is greater than or equal to 5					5 is greater than or equal to 5
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:390					      |	   #Instructions:531
+    (move-ops mem:0, reglit:295)			      |	    (move-ops mem:0, reglit:437)
+    ( int-ops mem:4, reglit:73)				      |	    ( int-ops mem:4, reglit:72)
+    (  fp-ops mem:16, reglit:2)				      |	    (  fp-ops mem:4, reglit:14)
+   Memory Usage (mem:20,reg:234)			      |	   Memory Usage (mem:8,reg:444)
+      register-use[69,57,41,41,2,2,2,2,2,2,0,0,2,2,2,2,0,0,2, |	      register-use[46,50,126,222]
+   Total Cycles = 498					      |	   Total Cycles = 563
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:4, fp-ops:18)					    (int-ops:4, fp-ops:18)
+    (branches:21)					      |	    (branches:20)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_loc2
+======================================================================================
+======================================================================================
+testing test_loc3 ...
+
+error on line 1 : unknown opcode			      |	4
+							      >	16
+							      >	256
+							      >	65536
+							      >	4.29497e+09
+							      >	This is the end
+							      >
+							      >	STATISTICS _____________________________
+							      >	   #Instructions:669
+							      >	    (move-ops mem:0, reglit:541)
+							      >	    ( int-ops mem:7, reglit:100)
+							      >	    (  fp-ops mem:5, reglit:16)
+							      >	   Memory Usage (mem:12,reg:560)
+							      >	      register-use[42,63,164,291]
+							      >	   Total Cycles = 708
+							      >	OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+							      >	    (int-ops:7, fp-ops:21)
+							      >	    (branches:33)
+							      >	      peephole-ops:0
+
+end testing test_loc3
+======================================================================================
+======================================================================================
+testing test_loc4 ...
+
+25 250								25 250
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:122					      |	   #Instructions:164
+    (move-ops mem:0, reglit:90)				      |	    (move-ops mem:0, reglit:132)
+    ( int-ops mem:2, reglit:25)					    ( int-ops mem:2, reglit:25)
+    (  fp-ops mem:5, reglit:0)				      |	    (  fp-ops mem:2, reglit:3)
+   Memory Usage (mem:7,reg:75)				      |	   Memory Usage (mem:4,reg:131)
+      register-use[20,17,13,13,2,2,2,2,2,2,0,0,0,0,0,0,0,0,0, |	      register-use[10,17,39,65]
+   Total Cycles = 149					      |	   Total Cycles = 173
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:2, fp-ops:5)					    (int-ops:2, fp-ops:5)
+    (branches:6)						    (branches:6)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_loc4
+======================================================================================
+======================================================================================
+testing test_loc5 ...
+
+error on line 1 : unknown opcode			      |	4
+							      >	16
+							      >	256
+							      >	65536
+							      >	4.29497e+09
+							      >	This is the end
+							      >
+							      >	STATISTICS _____________________________
+							      >	   #Instructions:669
+							      >	    (move-ops mem:0, reglit:541)
+							      >	    ( int-ops mem:7, reglit:100)
+							      >	    (  fp-ops mem:5, reglit:16)
+							      >	   Memory Usage (mem:12,reg:560)
+							      >	      register-use[42,63,164,291]
+							      >	   Total Cycles = 708
+							      >	OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+							      >	    (int-ops:7, fp-ops:21)
+							      >	    (branches:33)
+							      >	      peephole-ops:0
+
+end testing test_loc5
+======================================================================================
+======================================================================================
+testing test_loc6 ...
+
+6 0 								6 0 
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:41					      |	   #Instructions:53
+    (move-ops mem:0, reglit:26)				      |	    (move-ops mem:0, reglit:41)
+    ( int-ops mem:6, reglit:9)				      |	    ( int-ops mem:5, reglit:7)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:6,reg:23)				      |	   Memory Usage (mem:5,reg:38)
+      register-use[6,5,5,5,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, |	      register-use[2,2,15,19]
+   Total Cycles = 48					      |	   Total Cycles = 55
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:4, fp-ops:0)					    (int-ops:4, fp-ops:0)
+    (branches:2)						    (branches:2)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_loc6
+======================================================================================
+======================================================================================
+testing test_loc7 ...
+
+10 0								10 0
+11 1								11 1
+9 1.01								9 1.01
+10 2.01								10 2.01
+8 2.02								8 2.02
+9 3.02								9 3.02
+7 3.03								7 3.03
+8 4.03								8 4.03
+6 4.04								6 4.04
+7 5.04								7 5.04
+5 5.05								5 5.05
+6 6.05								6 6.05
+4 6.06								4 6.06
+5 7.06								5 7.06
+3 7.07								3 7.07
+4 8.07								4 8.07
+2 8.08								2 8.08
+3 9.08								3 9.08
+1 9.09								1 9.09
+2 10.09								2 10.09
+0 10.1								0 10.1
+1 11.1								1 11.1
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:763					      |	   #Instructions:1104
+    (move-ops mem:0, reglit:495)			      |	    (move-ops mem:0, reglit:836)
+    ( int-ops mem:88, reglit:137)			      |	    ( int-ops mem:66, reglit:159)
+    (  fp-ops mem:22, reglit:21)				    (  fp-ops mem:22, reglit:21)
+   Memory Usage (mem:110,reg:493)			      |	   Memory Usage (mem:88,reg:942)
+      register-use[47,47,47,47,2,22,33,22,0,22,33,22,22,33,22 |	      register-use[44,48,356,494]
+   Total Cycles = 959					      |	   Total Cycles = 1148
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:88, fp-ops:43)					    (int-ops:88, fp-ops:43)
+    (branches:45)						    (branches:45)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_loc7
+======================================================================================
+======================================================================================
+testing test_loc8 ...
+
+5 2 9								5 2 9
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:83					      |	   #Instructions:110
+    (move-ops mem:0, reglit:57)				      |	    (move-ops mem:0, reglit:84)
+    ( int-ops mem:6, reglit:20)					    ( int-ops mem:6, reglit:20)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:6,reg:51)				      |	   Memory Usage (mem:6,reg:81)
+      register-use[10,9,11,13,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0 |	      register-use[9,10,24,38]
+   Total Cycles = 87					      |	   Total Cycles = 114
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:6, fp-ops:0)					    (int-ops:6, fp-ops:0)
+    (branches:4)						    (branches:4)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_loc8
+======================================================================================
+======================================================================================
+testing test_mult ...
+
+52								52
+21								21
+94								94
+
+STATISTICS _____________________________			STATISTICS _____________________________
+   #Instructions:28					      |	   #Instructions:43
+    (move-ops mem:5, reglit:7)				      |	    (move-ops mem:10, reglit:17)
+    ( int-ops mem:10, reglit:6)				      |	    ( int-ops mem:8, reglit:8)
+    (  fp-ops mem:0, reglit:0)					    (  fp-ops mem:0, reglit:0)
+   Memory Usage (mem:15,reg:15)				      |	   Memory Usage (mem:18,reg:31)
+      register-use[3,3,5,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, |	      register-use[3,9,8,11]
+   Total Cycles = 42					      |	   Total Cycles = 60
+OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv		OTHER STATSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    (int-ops:6, fp-ops:0)					    (int-ops:6, fp-ops:0)
+    (branches:1)						    (branches:1)
+      peephole-ops:0						      peephole-ops:0
+
+end testing test_mult
+======================================================================================

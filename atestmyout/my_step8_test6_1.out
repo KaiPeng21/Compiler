@@ -1,0 +1,384 @@
+;Symbol table GLOBAL
+; return type: null
+; subscope local var size: 0
+;scope type: GLOBAL_TYPE 
+;name space type STRING value " " local slot location: -1
+;name eol type STRING value "\n" local slot location: -2
+;name strmain type STRING value " in main a is: " local slot location: -3
+;name strfor type STRING value " in for loop a is: " local slot location: -4
+;name a type INT local slot location: -5
+
+
+;Symbol table main
+; return type: VOID
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+;name i type INT local slot location: -1
+
+
+;Symbol table BLOCK 1
+; return type: null
+; subscope local var size: 0
+;scope type: FOR_TYPE 
+;name a type INT local slot location: -2
+
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+
+; pre-conversion assignOutputID: i
+; searching slot location for -- i -- in function scope main and get location -1
+
+; post-conversion assignOutputID: $-1
+; searching slot location for -- i -- in function scope main and get location -1
+
+;exit Cond: < :: i :: 5
+; searching slot location for -- i -- in function scope main and get location -1
+
+; pre-conversion assignOutputID: i
+; searching slot location for -- i -- in function scope main and get location -1
+
+; post-conversion assignOutputID: $-1
+; searching slot location for -- i -- in function scope main and get location -1
+
+; searching slot location for -- i -- in function scope main and get location -1
+
+; searching slot location for -- i -- in function scope main and get location -1
+
+
+;IR code
+;PUSH
+;JSR main
+;HALT
+
+;LABEL main		 Under Func Scope: main
+;LINK 2			 Under Func Scope: main
+;STOREI 100 $T1		 Under Func Scope: main
+;STOREI $T1 a		 Under Func Scope: main
+;WRITES strmain		 Under Func Scope: main
+;WRITEI a		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;STOREI 0 $T2		 Under Func Scope: main
+;STOREI $T2 $-1		 Under Func Scope: main
+;LABEL label1		 Under Func Scope: main
+;STOREI 5 $T3		 Under Func Scope: main
+;GEI $-1 $T3 label3	 Under Func Scope: main
+;STOREI $-1 $T6		 Under Func Scope: main
+;STOREI $T6 a		 Under Func Scope: main
+;WRITES strfor		 Under Func Scope: main
+;WRITEI a		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;STOREI 1 $T4		 Under Func Scope: main
+;ADDI $-1 $T4 $T5	 Under Func Scope: main
+;STOREI $T5 $-1		 Under Func Scope: main
+;JUMP label1		 Under Func Scope: main
+;LABEL label3		 Under Func Scope: main
+;WRITES strmain		 Under Func Scope: main
+;WRITEI a		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;UNLINK			 Under Func Scope: main
+;RET			 Under Func Scope: main
+
+; ========= CFG IR NODE =========
+
+;LABEL main		P: 					S: ;LINK 2		 <== BB leader
+;LINK 2			P: ;LABEL main			S: ;STOREI 100 $T1	
+;STOREI 100 $T1		P: ;LINK 2			S: ;STOREI $T1 a	
+;STOREI $T1 a		P: ;STOREI 100 $T1			S: ;WRITES strmain	
+;WRITES strmain		P: ;STOREI $T1 a			S: ;WRITEI a	
+;WRITEI a		P: ;WRITES strmain			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEI a				S: ;STOREI 0 $T2	
+;STOREI 0 $T2		P: ;WRITES eol			S: ;STOREI $T2 $-1	
+;STOREI $T2 $-1		P: ;STOREI 0 $T2			S: ;LABEL label1	
+;LABEL label1		P: ;STOREI $T2 $-1	;JUMP label1		S: ;STOREI 5 $T3		 <== BB leader
+;STOREI 5 $T3		P: ;LABEL label1			S: ;GEI $-1 $T3 label3	
+;GEI $-1 $T3 label3	P: ;STOREI 5 $T3			S: ;STOREI $-1 $T6	;LABEL label3	
+;STOREI $-1 $T6		P: ;GEI $-1 $T3 label3		S: ;STOREI $T6 a		 <== BB leader
+;STOREI $T6 a		P: ;STOREI $-1 $T6			S: ;WRITES strfor	
+;WRITES strfor		P: ;STOREI $T6 a			S: ;WRITEI a	
+;WRITEI a		P: ;WRITES strfor			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEI a				S: ;STOREI 1 $T4	
+;STOREI 1 $T4		P: ;WRITES eol			S: ;ADDI $-1 $T4 $T5	
+;ADDI $-1 $T4 $T5	P: ;STOREI 1 $T4			S: ;STOREI $T5 $-1	
+;STOREI $T5 $-1		P: ;ADDI $-1 $T4 $T5		S: ;JUMP label1	
+;JUMP label1		P: ;STOREI $T5 $-1			S: ;LABEL label1	
+;LABEL label3		P: ;GEI $-1 $T3 label3		S: ;WRITES strmain		 <== BB leader
+;WRITES strmain		P: ;LABEL label3			S: ;WRITEI a	
+;WRITEI a		P: ;WRITES strmain			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEI a				S: ;UNLINK	
+;UNLINK			P: ;WRITES eol			S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+; ========= CFG IR NODE / KILL/ GEN =========
+
+;LABEL main		Kill: 				Gen: 
+;LINK 2			Kill: 				Gen: 
+;STOREI 100 $T1		Kill: $T1, 			Gen: 
+;STOREI $T1 a		Kill: a, 				Gen: $T1, 
+;WRITES strmain		Kill: 				Gen: 
+;WRITEI a		Kill: 					Gen: a, 
+;WRITES eol		Kill: 				Gen: 
+;STOREI 0 $T2		Kill: $T2, 			Gen: 
+;STOREI $T2 $-1		Kill: $-1, 			Gen: $T2, 
+;LABEL label1		Kill: 				Gen: 
+;STOREI 5 $T3		Kill: $T3, 			Gen: 
+;GEI $-1 $T3 label3	Kill: 				Gen: $T3, $-1, 
+;STOREI $-1 $T6		Kill: $T6, 			Gen: $-1, 
+;STOREI $T6 a		Kill: a, 				Gen: $T6, 
+;WRITES strfor		Kill: 				Gen: 
+;WRITEI a		Kill: 					Gen: a, 
+;WRITES eol		Kill: 				Gen: 
+;STOREI 1 $T4		Kill: $T4, 			Gen: 
+;ADDI $-1 $T4 $T5	Kill: $T5, 				Gen: $-1, $T4, 
+;STOREI $T5 $-1		Kill: $-1, 			Gen: $T5, 
+;JUMP label1		Kill: 				Gen: 
+;LABEL label3		Kill: 				Gen: 
+;WRITES strmain		Kill: 				Gen: 
+;WRITEI a		Kill: 					Gen: a, 
+;WRITES eol		Kill: 				Gen: 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+; ========= CFG IR NODE / LIVE IN / LIVE OUT =========
+
+;LABEL main		Live IN: 				Live OUT: 
+;LINK 2			Live IN: 			Live OUT: 
+;STOREI 100 $T1		Live IN: 			Live OUT: $T1, 
+;STOREI $T1 a		Live IN: $T1, 			Live OUT: a, 
+;WRITES strmain		Live IN: a, 			Live OUT: a, 
+;WRITEI a		Live IN: a, 				Live OUT: a, 
+;WRITES eol		Live IN: a, 				Live OUT: a, 
+;STOREI 0 $T2		Live IN: a, 			Live OUT: $T2, a, 
+;STOREI $T2 $-1		Live IN: $T2, a, 		Live OUT: $-1, a, 
+;LABEL label1		Live IN: a, $-1, 			Live OUT: $-1, a, 
+;STOREI 5 $T3		Live IN: $-1, a, 			Live OUT: $T3, $-1, a, 
+;GEI $-1 $T3 label3	Live IN: $T3, $-1, a, 		Live OUT: $-1, a, 
+;STOREI $-1 $T6		Live IN: $-1, 			Live OUT: $T6, $-1, 
+;STOREI $T6 a		Live IN: $T6, $-1, 		Live OUT: $-1, a, 
+;WRITES strfor		Live IN: a, $-1, 			Live OUT: $-1, a, 
+;WRITEI a		Live IN: a, $-1, 			Live OUT: $-1, a, 
+;WRITES eol		Live IN: a, $-1, 			Live OUT: $-1, a, 
+;STOREI 1 $T4		Live IN: $-1, a, 			Live OUT: $-1, $T4, a, 
+;ADDI $-1 $T4 $T5	Live IN: $-1, $T4, a, 			Live OUT: a, $T5, 
+;STOREI $T5 $-1		Live IN: $T5, a, 		Live OUT: $-1, a, 
+;JUMP label1		Live IN: a, $-1, 			Live OUT: $-1, a, 
+;LABEL label3		Live IN: a, 			Live OUT: a, 
+;WRITES strmain		Live IN: a, 			Live OUT: a, 
+;WRITEI a		Live IN: a, 				Live OUT: a, 
+;WRITES eol		Live IN: a, 				Live OUT: a, 
+;UNLINK			Live IN: a, 			Live OUT: a, 
+;RET			Live IN: a, 			Live OUT: a, 
+;str space " " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str eol "\n" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str strmain " in main a is: " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str strfor " in for loop a is: " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var a 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;jsr main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;sys halt 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL main liveout: ; {  }
+;label main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 2 liveout: ; {  }
+;link 8 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 100 $T1 liveout: ; { $T1  }
+; ensure(): $T1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+; loading $-2 to register r3
+;move $-2 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;move 100 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;STOREI $T1 a liveout: ; { a  }
+; ensure(): $T1 has register r3
+; ensure(): a gets register r2 { r0-><null> || r1-><null> || r2->a || r3->$T1* }
+; loading a to register r2
+;move a r2 	; { r0-><null> || r1-><null> || r2->a || r3->$T1* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->a || r3->$T1* }
+; freeing unused variable r3
+; spilling varialbe $T1
+;move r3 $-2 	; { r0-><null> || r1-><null> || r2->a* || r3->$T1* }
+;WRITES strmain liveout: ; { a  }
+;sys writes strmain 	; { r0-><null> || r1-><null> || r2->a* || r3-><null> }
+;WRITEI a liveout: ; { a  }
+; ensure(): a has register r2
+;sys writei r2 	; { r0-><null> || r1-><null> || r2->a* || r3-><null> }
+;WRITES eol liveout: ; { a  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2->a* || r3-><null> }
+;STOREI 0 $T2 liveout: ; { $T2 a  }
+; ensure(): $T2 gets register r3 { r0-><null> || r1-><null> || r2->a* || r3->$T2 }
+; loading $-3 to register r3
+;move $-3 r3 	; { r0-><null> || r1-><null> || r2->a* || r3->$T2 }
+;move 0 r3 	; { r0-><null> || r1-><null> || r2->a* || r3->$T2 }
+;STOREI $T2 $-1 liveout: ; { $-1 a  }
+; ensure(): $T2 has register r3
+; ensure(): $-1 gets register r1 { r0-><null> || r1->$-1 || r2->a* || r3->$T2* }
+; loading $-1 to register r1
+;move $-1 r1 	; { r0-><null> || r1->$-1 || r2->a* || r3->$T2* }
+;move r3 r1 	; { r0-><null> || r1->$-1 || r2->a* || r3->$T2* }
+; freeing unused variable r3
+; spilling varialbe $T2
+;move r3 $-3 	; { r0-><null> || r1->$-1* || r2->a* || r3->$T2* }
+;LABEL label1 liveout: ; { $-1 a  }
+; spilling registers at the end of Basic Block
+; spilling varialbe a
+;move r2 a 	; { r0-><null> || r1->$-1* || r2->a* || r3-><null> }
+; spilling varialbe $-1
+;move r1 $-1 	; { r0-><null> || r1->$-1* || r2-><null> || r3-><null> }
+;label label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 5 $T3 liveout: ; { $T3 $-1 a  }
+; ensure(): $T3 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T3 }
+; loading $-4 to register r3
+;move $-4 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T3 }
+;move 5 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T3 }
+;GEI $-1 $T3 label3 liveout: ; { $-1 a  }
+; ensure(): $-1 gets register r2 { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+; ensure(): $T3 has register r3
+;cmpi r2 r3 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T3
+;move r3 $-4 	; { r0-><null> || r1-><null> || r2->$-1 || r3->$T3* }
+; spilling varialbe $-1
+;move r2 $-1 	; { r0-><null> || r1-><null> || r2->$-1 || r3-><null> }
+;jge label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r2
+; freeing unused variable r3
+;STOREI $-1 $T6 liveout: ; { $T6 $-1  }
+; ensure(): $-1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$-1 }
+; ensure(): $T6 gets register r2 { r0-><null> || r1-><null> || r2->$T6 || r3->$-1 }
+; loading $-7 to register r2
+;move $-7 r2 	; { r0-><null> || r1-><null> || r2->$T6 || r3->$-1 }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$T6 || r3->$-1 }
+;STOREI $T6 a liveout: ; { $-1 a  }
+; ensure(): $T6 has register r2
+; ensure(): a gets register r1 { r0-><null> || r1->a || r2->$T6* || r3->$-1 }
+; loading a to register r1
+;move a r1 	; { r0-><null> || r1->a || r2->$T6* || r3->$-1 }
+;move r2 r1 	; { r0-><null> || r1->a || r2->$T6* || r3->$-1 }
+; freeing unused variable r2
+; spilling varialbe $T6
+;move r2 $-7 	; { r0-><null> || r1->a* || r2->$T6* || r3->$-1 }
+;WRITES strfor liveout: ; { $-1 a  }
+;sys writes strfor 	; { r0-><null> || r1->a* || r2-><null> || r3->$-1 }
+;WRITEI a liveout: ; { $-1 a  }
+; ensure(): a has register r1
+;sys writei r1 	; { r0-><null> || r1->a* || r2-><null> || r3->$-1 }
+;WRITES eol liveout: ; { $-1 a  }
+;sys writes eol 	; { r0-><null> || r1->a* || r2-><null> || r3->$-1 }
+;STOREI 1 $T4 liveout: ; { $-1 $T4 a  }
+; ensure(): $T4 gets register r2 { r0-><null> || r1->a* || r2->$T4 || r3->$-1 }
+; loading $-5 to register r2
+;move $-5 r2 	; { r0-><null> || r1->a* || r2->$T4 || r3->$-1 }
+;move 1 r2 	; { r0-><null> || r1->a* || r2->$T4 || r3->$-1 }
+;ADDI $-1 $T4 $T5 liveout: ; { a $T5  }
+; ensure(): $-1 has register r3
+; ensure(): $T4 has register r2
+; switching owner of register $-1 to $T5 { r0-><null> || r1->a* || r2->$T4* || r3->$-1 }
+;addi r2 r3 	; { r0-><null> || r1->a* || r2->$T4* || r3->$T5 }
+; freeing unused variable r2
+; spilling varialbe $T4
+;move r2 $-5 	; { r0-><null> || r1->a* || r2->$T4* || r3->$T5* }
+;STOREI $T5 $-1 liveout: ; { $-1 a  }
+; ensure(): $T5 has register r3
+; ensure(): $-1 gets register r2 { r0-><null> || r1->a* || r2->$-1 || r3->$T5* }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1->a* || r2->$-1 || r3->$T5* }
+;move r3 r2 	; { r0-><null> || r1->a* || r2->$-1 || r3->$T5* }
+; freeing unused variable r3
+; spilling varialbe $T5
+;move r3 $-6 	; { r0-><null> || r1->a* || r2->$-1* || r3->$T5* }
+;JUMP label1 liveout: ; { $-1 a  }
+; spilling registers at the end of Basic Block
+; spilling varialbe $-1
+;move r2 $-1 	; { r0-><null> || r1->a* || r2->$-1* || r3-><null> }
+; spilling varialbe a
+;move r1 a 	; { r0-><null> || r1->a* || r2-><null> || r3-><null> }
+;jmp label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label3 liveout: ; { a  }
+; spilling registers at the end of Basic Block
+;label label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITES strmain liveout: ; { a  }
+;sys writes strmain 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITEI a liveout: ; { a  }
+; ensure(): a gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->a }
+; loading a to register r3
+;move a r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->a }
+;sys writei r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->a }
+;WRITES eol liveout: ; { a  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3->a }
+;UNLINK liveout: ; { a  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3->a }
+;RET liveout: ; { a  }
+; writing back global variables prior a function call
+; spilling varialbe a
+;move r3 a 	; { r0-><null> || r1-><null> || r2-><null> || r3->a }
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+
+str space " "
+str eol "\n"
+str strmain " in main a is: "
+str strfor " in for loop a is: "
+var a
+push
+push
+push
+push
+push
+jsr main
+sys halt
+label main
+link 8
+move $-2 r3
+move 100 r3
+move a r2
+move r3 r2
+move r3 $-2
+sys writes strmain
+sys writei r2
+sys writes eol
+move $-3 r3
+move 0 r3
+move $-1 r1
+move r3 r1
+move r3 $-3
+move r2 a
+move r1 $-1
+label label1
+move $-4 r3
+move 5 r3
+move $-1 r2
+cmpi r2 r3
+move r3 $-4
+move r2 $-1
+jge label3
+move $-1 r3
+move $-7 r2
+move r3 r2
+move a r1
+move r2 r1
+move r2 $-7
+sys writes strfor
+sys writei r1
+sys writes eol
+move $-5 r2
+move 1 r2
+addi r2 r3
+move r2 $-5
+move $-1 r2
+move r3 r2
+move r3 $-6
+move r2 $-1
+move r1 a
+jmp label1
+label label3
+sys writes strmain
+move a r3
+sys writei r3
+sys writes eol
+unlnk
+move r3 a
+ret

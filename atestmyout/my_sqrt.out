@@ -1,0 +1,1136 @@
+;Symbol table GLOBAL
+; return type: null
+; subscope local var size: 0
+;scope type: GLOBAL_TYPE 
+;name dummy type STRING value "abcde" local slot location: -1
+;name space type STRING value " " local slot location: -2
+;name eol type STRING value "\n" local slot location: -3
+;name n type FLOAT local slot location: -4
+;name x1 type FLOAT local slot location: -5
+;name x2 type FLOAT local slot location: -6
+;name fx type FLOAT local slot location: -7
+;name dfx type FLOAT local slot location: -8
+;name error type FLOAT local slot location: -9
+;name i type INT local slot location: -10
+
+
+;Symbol table main
+; return type: VOID
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+
+
+;Symbol table BLOCK 1
+; return type: null
+; subscope local var size: 0
+;scope type: FOR_TYPE 
+
+
+;Symbol table BLOCK 2
+; return type: null
+; subscope local var size: 0
+;scope type: FOR_TYPE 
+
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+
+;exit Cond: < :: i :: 2
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 2 scopeType: FOR
+
+;exit Cond: > :: (x1-x2) :: error
+
+;IR code
+;PUSH
+;JSR main
+;HALT
+
+;LABEL main		 Under Func Scope: main
+;LINK 1			 Under Func Scope: main
+;STOREF 0.001 $T1	 Under Func Scope: main
+;STOREF $T1 error	 Under Func Scope: main
+;READF x1		 Under Func Scope: main
+;MULTF x1 x1 $T2	 Under Func Scope: main
+;SUBF $T2 n $T3		 Under Func Scope: main
+;STOREF $T3 fx		 Under Func Scope: main
+;STOREF 2.0 $T4		 Under Func Scope: main
+;MULTF $T4 x1 $T5	 Under Func Scope: main
+;STOREF $T5 dfx		 Under Func Scope: main
+;DIVF fx dfx $T6	 Under Func Scope: main
+;SUBF x1 $T6 $T7	 Under Func Scope: main
+;STOREF $T7 x2		 Under Func Scope: main
+;WRITEF x1		 Under Func Scope: main
+;WRITES space		 Under Func Scope: main
+;WRITEF fx		 Under Func Scope: main
+;WRITES space		 Under Func Scope: main
+;WRITEF dfx		 Under Func Scope: main
+;WRITES space		 Under Func Scope: main
+;WRITEF x2		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;STOREI 0 $T8		 Under Func Scope: main
+;STOREI $T8 i		 Under Func Scope: main
+;LABEL label1		 Under Func Scope: main
+;STOREI 2 $T9		 Under Func Scope: main
+;GEI i $T9 label3	 Under Func Scope: main
+;STOREF x2 $T12		 Under Func Scope: main
+;STOREF $T12 x1		 Under Func Scope: main
+;MULTF x1 x1 $T13	 Under Func Scope: main
+;SUBF $T13 n $T14	 Under Func Scope: main
+;STOREF $T14 fx		 Under Func Scope: main
+;STOREF 2.0 $T15	 Under Func Scope: main
+;MULTF $T15 x1 $T16	 Under Func Scope: main
+;STOREF $T16 dfx	 Under Func Scope: main
+;DIVF fx dfx $T17	 Under Func Scope: main
+;SUBF x1 $T17 $T18	 Under Func Scope: main
+;STOREF $T18 x2		 Under Func Scope: main
+;STOREI 1 $T10		 Under Func Scope: main
+;ADDI i $T10 $T11	 Under Func Scope: main
+;STOREI $T11 i		 Under Func Scope: main
+;JUMP label1		 Under Func Scope: main
+;LABEL label3		 Under Func Scope: main
+;WRITEF x1		 Under Func Scope: main
+;WRITES space		 Under Func Scope: main
+;WRITEF fx		 Under Func Scope: main
+;WRITES space		 Under Func Scope: main
+;WRITEF dfx		 Under Func Scope: main
+;WRITES space		 Under Func Scope: main
+;WRITEF x2		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;LABEL label4		 Under Func Scope: main
+;SUBF x1 x2 $T19	 Under Func Scope: main
+;STOREF error $T20	 Under Func Scope: main
+;LEF $T19 $T20 label6	 Under Func Scope: main
+;STOREF x2 $T21		 Under Func Scope: main
+;STOREF $T21 x1		 Under Func Scope: main
+;MULTF x1 x1 $T22	 Under Func Scope: main
+;SUBF $T22 n $T23	 Under Func Scope: main
+;STOREF $T23 fx		 Under Func Scope: main
+;STOREF 2.0 $T24	 Under Func Scope: main
+;MULTF $T24 x1 $T25	 Under Func Scope: main
+;STOREF $T25 dfx	 Under Func Scope: main
+;DIVF fx dfx $T26	 Under Func Scope: main
+;SUBF x1 $T26 $T27	 Under Func Scope: main
+;STOREF $T27 x2		 Under Func Scope: main
+;JUMP label4		 Under Func Scope: main
+;LABEL label6		 Under Func Scope: main
+;WRITEF x1		 Under Func Scope: main
+;WRITES space		 Under Func Scope: main
+;WRITEF fx		 Under Func Scope: main
+;WRITES space		 Under Func Scope: main
+;WRITEF dfx		 Under Func Scope: main
+;WRITES space		 Under Func Scope: main
+;WRITEF x2		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;WRITEF x2		 Under Func Scope: main
+;UNLINK			 Under Func Scope: main
+;RET			 Under Func Scope: main
+
+; ========= CFG IR NODE =========
+
+;LABEL main		P: 					S: ;LINK 1		 <== BB leader
+;LINK 1			P: ;LABEL main			S: ;STOREF 0.001 $T1	
+;STOREF 0.001 $T1	P: ;LINK 1				S: ;STOREF $T1 error	
+;STOREF $T1 error	P: ;STOREF 0.001 $T1			S: ;READF x1	
+;READF x1		P: ;STOREF $T1 error			S: ;MULTF x1 x1 $T2	
+;MULTF x1 x1 $T2	P: ;READF x1				S: ;SUBF $T2 n $T3	
+;SUBF $T2 n $T3		P: ;MULTF x1 x1 $T2		S: ;STOREF $T3 fx	
+;STOREF $T3 fx		P: ;SUBF $T2 n $T3		S: ;STOREF 2.0 $T4	
+;STOREF 2.0 $T4		P: ;STOREF $T3 fx		S: ;MULTF $T4 x1 $T5	
+;MULTF $T4 x1 $T5	P: ;STOREF 2.0 $T4			S: ;STOREF $T5 dfx	
+;STOREF $T5 dfx		P: ;MULTF $T4 x1 $T5		S: ;DIVF fx dfx $T6	
+;DIVF fx dfx $T6	P: ;STOREF $T5 dfx			S: ;SUBF x1 $T6 $T7	
+;SUBF x1 $T6 $T7	P: ;DIVF fx dfx $T6			S: ;STOREF $T7 x2	
+;STOREF $T7 x2		P: ;SUBF x1 $T6 $T7		S: ;WRITEF x1	
+;WRITEF x1		P: ;STOREF $T7 x2			S: ;WRITES space	
+;WRITES space		P: ;WRITEF x1			S: ;WRITEF fx	
+;WRITEF fx		P: ;WRITES space			S: ;WRITES space	
+;WRITES space		P: ;WRITEF fx			S: ;WRITEF dfx	
+;WRITEF dfx		P: ;WRITES space			S: ;WRITES space	
+;WRITES space		P: ;WRITEF dfx			S: ;WRITEF x2	
+;WRITEF x2		P: ;WRITES space			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEF x2			S: ;STOREI 0 $T8	
+;STOREI 0 $T8		P: ;WRITES eol			S: ;STOREI $T8 i	
+;STOREI $T8 i		P: ;STOREI 0 $T8			S: ;LABEL label1	
+;LABEL label1		P: ;STOREI $T8 i	;JUMP label1		S: ;STOREI 2 $T9		 <== BB leader
+;STOREI 2 $T9		P: ;LABEL label1			S: ;GEI i $T9 label3	
+;GEI i $T9 label3	P: ;STOREI 2 $T9			S: ;STOREF x2 $T12	;LABEL label3	
+;STOREF x2 $T12		P: ;GEI i $T9 label3		S: ;STOREF $T12 x1		 <== BB leader
+;STOREF $T12 x1		P: ;STOREF x2 $T12		S: ;MULTF x1 x1 $T13	
+;MULTF x1 x1 $T13	P: ;STOREF $T12 x1			S: ;SUBF $T13 n $T14	
+;SUBF $T13 n $T14	P: ;MULTF x1 x1 $T13			S: ;STOREF $T14 fx	
+;STOREF $T14 fx		P: ;SUBF $T13 n $T14		S: ;STOREF 2.0 $T15	
+;STOREF 2.0 $T15	P: ;STOREF $T14 fx			S: ;MULTF $T15 x1 $T16	
+;MULTF $T15 x1 $T16	P: ;STOREF 2.0 $T15			S: ;STOREF $T16 dfx	
+;STOREF $T16 dfx	P: ;MULTF $T15 x1 $T16			S: ;DIVF fx dfx $T17	
+;DIVF fx dfx $T17	P: ;STOREF $T16 dfx			S: ;SUBF x1 $T17 $T18	
+;SUBF x1 $T17 $T18	P: ;DIVF fx dfx $T17			S: ;STOREF $T18 x2	
+;STOREF $T18 x2		P: ;SUBF x1 $T17 $T18		S: ;STOREI 1 $T10	
+;STOREI 1 $T10		P: ;STOREF $T18 x2		S: ;ADDI i $T10 $T11	
+;ADDI i $T10 $T11	P: ;STOREI 1 $T10			S: ;STOREI $T11 i	
+;STOREI $T11 i		P: ;ADDI i $T10 $T11		S: ;JUMP label1	
+;JUMP label1		P: ;STOREI $T11 i			S: ;LABEL label1	
+;LABEL label3		P: ;GEI i $T9 label3		S: ;WRITEF x1		 <== BB leader
+;WRITEF x1		P: ;LABEL label3			S: ;WRITES space	
+;WRITES space		P: ;WRITEF x1			S: ;WRITEF fx	
+;WRITEF fx		P: ;WRITES space			S: ;WRITES space	
+;WRITES space		P: ;WRITEF fx			S: ;WRITEF dfx	
+;WRITEF dfx		P: ;WRITES space			S: ;WRITES space	
+;WRITES space		P: ;WRITEF dfx			S: ;WRITEF x2	
+;WRITEF x2		P: ;WRITES space			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEF x2			S: ;LABEL label4	
+;LABEL label4		P: ;WRITES eol	;JUMP label4		S: ;SUBF x1 x2 $T19		 <== BB leader
+;SUBF x1 x2 $T19	P: ;LABEL label4			S: ;STOREF error $T20	
+;STOREF error $T20	P: ;SUBF x1 x2 $T19			S: ;LEF $T19 $T20 label6	
+;LEF $T19 $T20 label6	P: ;STOREF error $T20		S: ;STOREF x2 $T21	;LABEL label6	
+;STOREF x2 $T21		P: ;LEF $T19 $T20 label6		S: ;STOREF $T21 x1		 <== BB leader
+;STOREF $T21 x1		P: ;STOREF x2 $T21		S: ;MULTF x1 x1 $T22	
+;MULTF x1 x1 $T22	P: ;STOREF $T21 x1			S: ;SUBF $T22 n $T23	
+;SUBF $T22 n $T23	P: ;MULTF x1 x1 $T22			S: ;STOREF $T23 fx	
+;STOREF $T23 fx		P: ;SUBF $T22 n $T23		S: ;STOREF 2.0 $T24	
+;STOREF 2.0 $T24	P: ;STOREF $T23 fx			S: ;MULTF $T24 x1 $T25	
+;MULTF $T24 x1 $T25	P: ;STOREF 2.0 $T24			S: ;STOREF $T25 dfx	
+;STOREF $T25 dfx	P: ;MULTF $T24 x1 $T25			S: ;DIVF fx dfx $T26	
+;DIVF fx dfx $T26	P: ;STOREF $T25 dfx			S: ;SUBF x1 $T26 $T27	
+;SUBF x1 $T26 $T27	P: ;DIVF fx dfx $T26			S: ;STOREF $T27 x2	
+;STOREF $T27 x2		P: ;SUBF x1 $T26 $T27		S: ;JUMP label4	
+;JUMP label4		P: ;STOREF $T27 x2			S: ;LABEL label4	
+;LABEL label6		P: ;LEF $T19 $T20 label6		S: ;WRITEF x1		 <== BB leader
+;WRITEF x1		P: ;LABEL label6			S: ;WRITES space	
+;WRITES space		P: ;WRITEF x1			S: ;WRITEF fx	
+;WRITEF fx		P: ;WRITES space			S: ;WRITES space	
+;WRITES space		P: ;WRITEF fx			S: ;WRITEF dfx	
+;WRITEF dfx		P: ;WRITES space			S: ;WRITES space	
+;WRITES space		P: ;WRITEF dfx			S: ;WRITEF x2	
+;WRITEF x2		P: ;WRITES space			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEF x2			S: ;WRITEF x2	
+;WRITEF x2		P: ;WRITES eol			S: ;UNLINK	
+;UNLINK			P: ;WRITEF x2			S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+; ========= CFG IR NODE / KILL/ GEN =========
+
+;LABEL main		Kill: 				Gen: 
+;LINK 1			Kill: 				Gen: 
+;STOREF 0.001 $T1	Kill: $T1, 				Gen: 
+;STOREF $T1 error	Kill: error, 				Gen: $T1, 
+;READF x1		Kill: x1, 				Gen: 
+;MULTF x1 x1 $T2	Kill: $T2, 				Gen: x1, 
+;SUBF $T2 n $T3		Kill: $T3, 			Gen: $T2, n, 
+;STOREF $T3 fx		Kill: fx, 			Gen: $T3, 
+;STOREF 2.0 $T4		Kill: $T4, 			Gen: 
+;MULTF $T4 x1 $T5	Kill: $T5, 				Gen: $T4, x1, 
+;STOREF $T5 dfx		Kill: dfx, 			Gen: $T5, 
+;DIVF fx dfx $T6	Kill: $T6, 				Gen: dfx, fx, 
+;SUBF x1 $T6 $T7	Kill: $T7, 				Gen: $T6, x1, 
+;STOREF $T7 x2		Kill: x2, 			Gen: $T7, 
+;WRITEF x1		Kill: 				Gen: x1, 
+;WRITES space		Kill: 				Gen: 
+;WRITEF fx		Kill: 				Gen: fx, 
+;WRITES space		Kill: 				Gen: 
+;WRITEF dfx		Kill: 				Gen: dfx, 
+;WRITES space		Kill: 				Gen: 
+;WRITEF x2		Kill: 				Gen: x2, 
+;WRITES eol		Kill: 				Gen: 
+;STOREI 0 $T8		Kill: $T8, 			Gen: 
+;STOREI $T8 i		Kill: i, 				Gen: $T8, 
+;LABEL label1		Kill: 				Gen: 
+;STOREI 2 $T9		Kill: $T9, 			Gen: 
+;GEI i $T9 label3	Kill: 					Gen: $T9, i, 
+;STOREF x2 $T12		Kill: $T12, 			Gen: x2, 
+;STOREF $T12 x1		Kill: x1, 			Gen: $T12, 
+;MULTF x1 x1 $T13	Kill: $T13, 				Gen: x1, 
+;SUBF $T13 n $T14	Kill: $T14, 				Gen: n, $T13, 
+;STOREF $T14 fx		Kill: fx, 			Gen: $T14, 
+;STOREF 2.0 $T15	Kill: $T15, 				Gen: 
+;MULTF $T15 x1 $T16	Kill: $T16, 				Gen: x1, $T15, 
+;STOREF $T16 dfx	Kill: dfx, 				Gen: $T16, 
+;DIVF fx dfx $T17	Kill: $T17, 				Gen: dfx, fx, 
+;SUBF x1 $T17 $T18	Kill: $T18, 				Gen: $T17, x1, 
+;STOREF $T18 x2		Kill: x2, 			Gen: $T18, 
+;STOREI 1 $T10		Kill: $T10, 			Gen: 
+;ADDI i $T10 $T11	Kill: $T11, 				Gen: $T10, i, 
+;STOREI $T11 i		Kill: i, 				Gen: $T11, 
+;JUMP label1		Kill: 				Gen: 
+;LABEL label3		Kill: 				Gen: 
+;WRITEF x1		Kill: 				Gen: x1, 
+;WRITES space		Kill: 				Gen: 
+;WRITEF fx		Kill: 				Gen: fx, 
+;WRITES space		Kill: 				Gen: 
+;WRITEF dfx		Kill: 				Gen: dfx, 
+;WRITES space		Kill: 				Gen: 
+;WRITEF x2		Kill: 				Gen: x2, 
+;WRITES eol		Kill: 				Gen: 
+;LABEL label4		Kill: 				Gen: 
+;SUBF x1 x2 $T19	Kill: $T19, 				Gen: x2, x1, 
+;STOREF error $T20	Kill: $T20, 				Gen: error, 
+;LEF $T19 $T20 label6	Kill: 				Gen: $T19, $T20, 
+;STOREF x2 $T21		Kill: $T21, 			Gen: x2, 
+;STOREF $T21 x1		Kill: x1, 			Gen: $T21, 
+;MULTF x1 x1 $T22	Kill: $T22, 				Gen: x1, 
+;SUBF $T22 n $T23	Kill: $T23, 				Gen: n, $T22, 
+;STOREF $T23 fx		Kill: fx, 			Gen: $T23, 
+;STOREF 2.0 $T24	Kill: $T24, 				Gen: 
+;MULTF $T24 x1 $T25	Kill: $T25, 				Gen: $T24, x1, 
+;STOREF $T25 dfx	Kill: dfx, 				Gen: $T25, 
+;DIVF fx dfx $T26	Kill: $T26, 				Gen: dfx, fx, 
+;SUBF x1 $T26 $T27	Kill: $T27, 				Gen: $T26, x1, 
+;STOREF $T27 x2		Kill: x2, 			Gen: $T27, 
+;JUMP label4		Kill: 				Gen: 
+;LABEL label6		Kill: 				Gen: 
+;WRITEF x1		Kill: 				Gen: x1, 
+;WRITES space		Kill: 				Gen: 
+;WRITEF fx		Kill: 				Gen: fx, 
+;WRITES space		Kill: 				Gen: 
+;WRITEF dfx		Kill: 				Gen: dfx, 
+;WRITES space		Kill: 				Gen: 
+;WRITEF x2		Kill: 				Gen: x2, 
+;WRITES eol		Kill: 				Gen: 
+;WRITEF x2		Kill: 				Gen: x2, 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+; ========= CFG IR NODE / LIVE IN / LIVE OUT =========
+
+;LABEL main		Live IN: n, 				Live OUT: n, 
+;LINK 1			Live IN: n, 			Live OUT: n, 
+;STOREF 0.001 $T1	Live IN: n, 				Live OUT: $T1, n, 
+;STOREF $T1 error	Live IN: n, $T1, 			Live OUT: error, n, 
+;READF x1		Live IN: n, error, 			Live OUT: error, n, x1, 
+;MULTF x1 x1 $T2	Live IN: n, error, x1, 			Live OUT: $T2, error, n, x1, 
+;SUBF $T2 n $T3		Live IN: $T2, n, error, x1, 	Live OUT: $T3, error, n, x1, 
+;STOREF $T3 fx		Live IN: n, $T3, error, x1, 	Live OUT: error, fx, n, x1, 
+;STOREF 2.0 $T4		Live IN: n, error, fx, x1, 	Live OUT: error, fx, $T4, n, x1, 
+;MULTF $T4 x1 $T5	Live IN: n, error, $T4, fx, x1, 	Live OUT: error, fx, $T5, n, x1, 
+;STOREF $T5 dfx		Live IN: n, error, fx, $T5, x1, 	Live OUT: error, dfx, fx, n, x1, 
+;DIVF fx dfx $T6	Live IN: n, dfx, error, fx, x1, 	Live OUT: error, dfx, $T6, fx, n, x1, 
+;SUBF x1 $T6 $T7	Live IN: n, $T6, dfx, error, fx, x1, 	Live OUT: error, dfx, $T7, fx, n, x1, 
+;STOREF $T7 x2		Live IN: n, dfx, error, $T7, fx, x1, 	Live OUT: error, dfx, fx, n, x2, x1, 
+;WRITEF x1		Live IN: n, x2, dfx, error, fx, x1, 	Live OUT: error, dfx, fx, n, x2, x1, 
+;WRITES space		Live IN: n, x2, dfx, error, fx, x1, 	Live OUT: error, dfx, fx, n, x2, x1, 
+;WRITEF fx		Live IN: n, x2, dfx, error, fx, x1, 	Live OUT: error, dfx, fx, n, x2, x1, 
+;WRITES space		Live IN: n, x2, dfx, error, fx, x1, 	Live OUT: error, dfx, fx, n, x2, x1, 
+;WRITEF dfx		Live IN: n, x2, dfx, error, fx, x1, 	Live OUT: error, dfx, fx, n, x2, x1, 
+;WRITES space		Live IN: n, x2, dfx, error, fx, x1, 	Live OUT: error, dfx, fx, n, x2, x1, 
+;WRITEF x2		Live IN: n, x2, dfx, error, fx, x1, 	Live OUT: error, dfx, fx, n, x2, x1, 
+;WRITES eol		Live IN: n, x2, dfx, error, fx, x1, 	Live OUT: error, dfx, fx, n, x2, x1, 
+;STOREI 0 $T8		Live IN: dfx, error, fx, n, x2, x1, 	Live OUT: error, dfx, fx, n, $T8, x2, x1, 
+;STOREI $T8 i		Live IN: dfx, error, fx, n, $T8, x2, x1, 	Live OUT: error, dfx, fx, n, x2, x1, i, 
+;LABEL label1		Live IN: dfx, error, fx, n, x2, i, x1, 	Live OUT: error, dfx, fx, n, x2, x1, i, 
+;STOREI 2 $T9		Live IN: dfx, error, fx, n, x2, i, x1, 	Live OUT: error, dfx, fx, n, $T9, x2, x1, i, 
+;GEI i $T9 label3	Live IN: dfx, error, fx, n, $T9, x2, x1, i, 	Live OUT: error, dfx, fx, n, x2, i, x1, 
+;STOREF x2 $T12		Live IN: n, x2, error, i, 	Live OUT: error, n, $T12, i, 
+;STOREF $T12 x1		Live IN: n, $T12, error, i, 	Live OUT: error, n, i, x1, 
+;MULTF x1 x1 $T13	Live IN: n, error, x1, i, 		Live OUT: error, n, $T13, i, x1, 
+;SUBF $T13 n $T14	Live IN: n, $T13, error, x1, i, 	Live OUT: error, n, $T14, i, x1, 
+;STOREF $T14 fx		Live IN: $T14, n, error, x1, i, 	Live OUT: error, fx, n, i, x1, 
+;STOREF 2.0 $T15	Live IN: n, error, fx, x1, i, 		Live OUT: error, fx, n, i, x1, $T15, 
+;MULTF $T15 x1 $T16	Live IN: n, error, fx, $T15, x1, i, 	Live OUT: error, fx, n, $T16, i, x1, 
+;STOREF $T16 dfx	Live IN: n, error, $T16, fx, x1, i, 	Live OUT: error, dfx, fx, n, i, x1, 
+;DIVF fx dfx $T17	Live IN: dfx, error, fx, n, x1, i, 	Live OUT: error, dfx, fx, n, $T17, i, x1, 
+;SUBF x1 $T17 $T18	Live IN: dfx, error, fx, n, $T17, i, x1, 	Live OUT: error, dfx, fx, n, $T18, x1, i, 
+;STOREF $T18 x2		Live IN: dfx, error, fx, n, $T18, i, x1, 	Live OUT: error, dfx, fx, n, x2, x1, i, 
+;STOREI 1 $T10		Live IN: dfx, error, fx, n, x2, i, x1, 	Live OUT: error, dfx, $T10, fx, n, x2, x1, i, 
+;ADDI i $T10 $T11	Live IN: dfx, error, $T10, fx, n, x2, i, x1, 	Live OUT: error, dfx, fx, n, $T11, x2, x1, 
+;STOREI $T11 i		Live IN: dfx, error, fx, n, $T11, x2, x1, 	Live OUT: error, dfx, fx, n, x2, x1, i, 
+;JUMP label1		Live IN: dfx, error, fx, n, x2, i, x1, 	Live OUT: error, dfx, fx, n, x2, x1, i, 
+;LABEL label3		Live IN: dfx, error, fx, n, x2, x1, i, 	Live OUT: error, dfx, fx, n, x2, i, x1, 
+;WRITEF x1		Live IN: dfx, error, fx, n, x2, x1, i, 	Live OUT: error, dfx, fx, n, x2, i, x1, 
+;WRITES space		Live IN: dfx, error, fx, n, x2, x1, i, 	Live OUT: error, dfx, fx, n, x2, i, x1, 
+;WRITEF fx		Live IN: dfx, error, fx, n, x2, x1, i, 	Live OUT: error, dfx, fx, n, x2, i, x1, 
+;WRITES space		Live IN: dfx, error, fx, n, x2, x1, i, 	Live OUT: error, dfx, fx, n, x2, i, x1, 
+;WRITEF dfx		Live IN: error, dfx, fx, n, x2, x1, i, 	Live OUT: dfx, error, fx, n, x2, i, x1, 
+;WRITES space		Live IN: error, dfx, fx, n, x2, x1, i, 	Live OUT: dfx, error, fx, n, x2, i, x1, 
+;WRITEF x2		Live IN: error, dfx, fx, n, x2, x1, i, 	Live OUT: dfx, error, fx, n, x2, i, x1, 
+;WRITES eol		Live IN: error, dfx, fx, n, x2, x1, i, 	Live OUT: dfx, error, fx, n, x2, i, x1, 
+;LABEL label4		Live IN: error, dfx, fx, n, x2, x1, i, 	Live OUT: dfx, error, fx, n, x2, i, x1, 
+;SUBF x1 x2 $T19	Live IN: error, dfx, fx, n, x2, x1, i, 	Live OUT: $T19, dfx, error, fx, n, x2, i, x1, 
+;STOREF error $T20	Live IN: $T19, dfx, error, fx, n, x2, x1, i, 	Live OUT: $T19, error, dfx, fx, $T20, n, x2, i, x1, 
+;LEF $T19 $T20 label6	Live IN: $T19, dfx, error, $T20, fx, n, x2, x1, i, 	Live OUT: error, dfx, fx, n, x2, i, x1, 
+;STOREF x2 $T21		Live IN: n, x2, error, i, 	Live OUT: error, $T21, n, i, 
+;STOREF $T21 x1		Live IN: n, error, $T21, i, 	Live OUT: error, n, i, x1, 
+;MULTF x1 x1 $T22	Live IN: n, error, x1, i, 		Live OUT: error, n, $T22, i, x1, 
+;SUBF $T22 n $T23	Live IN: n, $T22, error, x1, i, 	Live OUT: error, n, $T23, i, x1, 
+;STOREF $T23 fx		Live IN: $T23, n, error, x1, i, 	Live OUT: error, fx, n, i, x1, 
+;STOREF 2.0 $T24	Live IN: n, error, fx, x1, i, 		Live OUT: error, fx, n, $T24, i, x1, 
+;MULTF $T24 x1 $T25	Live IN: n, $T24, error, fx, x1, i, 	Live OUT: error, fx, n, $T25, i, x1, 
+;STOREF $T25 dfx	Live IN: n, $T25, error, fx, x1, i, 	Live OUT: error, dfx, fx, n, i, x1, 
+;DIVF fx dfx $T26	Live IN: error, dfx, fx, n, x1, i, 	Live OUT: dfx, error, fx, n, $T26, i, x1, 
+;SUBF x1 $T26 $T27	Live IN: error, dfx, fx, n, $T26, x1, i, 	Live OUT: dfx, error, fx, n, $T27, i, x1, 
+;STOREF $T27 x2		Live IN: error, dfx, fx, n, $T27, x1, i, 	Live OUT: dfx, error, fx, n, x2, i, x1, 
+;JUMP label4		Live IN: error, dfx, fx, n, x2, x1, i, 	Live OUT: dfx, error, fx, n, x2, i, x1, 
+;LABEL label6		Live IN: dfx, error, fx, n, x2, x1, i, 	Live OUT: error, dfx, fx, n, x2, i, x1, 
+;WRITEF x1		Live IN: dfx, error, fx, n, x2, i, x1, 	Live OUT: error, dfx, fx, n, x2, x1, i, 
+;WRITES space		Live IN: dfx, error, fx, n, x2, i, x1, 	Live OUT: error, dfx, fx, n, x2, x1, i, 
+;WRITEF fx		Live IN: dfx, error, fx, n, x2, i, x1, 	Live OUT: error, dfx, fx, n, x2, x1, i, 
+;WRITES space		Live IN: dfx, error, fx, n, x2, i, x1, 	Live OUT: error, dfx, fx, n, x2, x1, i, 
+;WRITEF dfx		Live IN: error, dfx, fx, n, x2, i, x1, 	Live OUT: dfx, error, fx, n, x2, x1, i, 
+;WRITES space		Live IN: error, dfx, fx, n, x2, i, x1, 	Live OUT: dfx, error, fx, n, x2, x1, i, 
+;WRITEF x2		Live IN: error, dfx, fx, n, x2, i, x1, 	Live OUT: dfx, error, fx, n, x2, x1, i, 
+;WRITES eol		Live IN: error, dfx, fx, n, x2, i, x1, 	Live OUT: dfx, error, fx, n, x2, x1, i, 
+;WRITEF x2		Live IN: error, dfx, fx, n, x2, i, x1, 	Live OUT: dfx, error, fx, n, x2, x1, i, 
+;UNLINK			Live IN: error, dfx, fx, n, x2, i, x1, 	Live OUT: dfx, error, fx, n, x2, x1, i, 
+;RET			Live IN: error, dfx, fx, n, x2, i, x1, 	Live OUT: dfx, error, fx, n, x2, x1, i, 
+;str dummy "abcde" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str space " " 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str eol "\n" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var n 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var x1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var x2 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var fx 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var dfx 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var error 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var i 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;jsr main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;sys halt 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL main liveout: ; { n  }
+;label main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 1 liveout: ; { n  }
+;link 28 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREF 0.001 $T1 liveout: ; { $T1 n  }
+; ensure(): $T1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+; loading $-1 to register r3
+;move $-1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;move 0.001 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T1 }
+;STOREF $T1 error liveout: ; { error n  }
+; ensure(): $T1 has register r3
+; ensure(): error gets register r2 { r0-><null> || r1-><null> || r2->error || r3->$T1* }
+; loading error to register r2
+;move error r2 	; { r0-><null> || r1-><null> || r2->error || r3->$T1* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->error || r3->$T1* }
+; freeing unused variable r3
+; spilling varialbe $T1
+;move r3 $-1 	; { r0-><null> || r1-><null> || r2->error* || r3->$T1* }
+;READF x1 liveout: ; { error n x1  }
+; ensure(): x1 gets register r3 { r0-><null> || r1-><null> || r2->error* || r3->x1 }
+; loading x1 to register r3
+;move x1 r3 	; { r0-><null> || r1-><null> || r2->error* || r3->x1 }
+;sys readr r3 	; { r0-><null> || r1-><null> || r2->error* || r3->x1 }
+;MULTF x1 x1 $T2 liveout: ; { $T2 error n x1  }
+; ensure(): x1 has register r3
+; ensure(): x1 has register r3
+; switching owner of register x1 to $T2 { r0-><null> || r1-><null> || r2->error* || r3->x1* }
+; spilling varialbe x1
+;move r3 x1 	; { r0-><null> || r1-><null> || r2->error* || r3->x1* }
+;mulr r3 r3 	; { r0-><null> || r1-><null> || r2->error* || r3->$T2 }
+;SUBF $T2 n $T3 liveout: ; { $T3 error n x1  }
+; ensure(): $T2 has register r3
+; ensure(): n gets register r1 { r0-><null> || r1->n || r2->error* || r3->$T2* }
+; loading n to register r1
+;move n r1 	; { r0-><null> || r1->n || r2->error* || r3->$T2* }
+; switching owner of register $T2 to $T3 { r0-><null> || r1->n || r2->error* || r3->$T2* }
+; spilling varialbe $T2
+;move r3 $-2 	; { r0-><null> || r1->n || r2->error* || r3->$T2* }
+;subr r1 r3 	; { r0-><null> || r1->n || r2->error* || r3->$T3 }
+;STOREF $T3 fx liveout: ; { error fx n x1  }
+; ensure(): $T3 has register r3
+; ensure(): fx gets register r0 { r0->fx || r1->n || r2->error* || r3->$T3* }
+; loading fx to register r0
+;move fx r0 	; { r0->fx || r1->n || r2->error* || r3->$T3* }
+;move r3 r0 	; { r0->fx || r1->n || r2->error* || r3->$T3* }
+; freeing unused variable r3
+; spilling varialbe $T3
+;move r3 $-3 	; { r0->fx* || r1->n || r2->error* || r3->$T3* }
+;STOREF 2.0 $T4 liveout: ; { error fx $T4 n x1  }
+; ensure(): $T4 gets register r3 { r0->fx* || r1->n || r2->error* || r3->$T4 }
+; loading $-4 to register r3
+;move $-4 r3 	; { r0->fx* || r1->n || r2->error* || r3->$T4 }
+;move 2.0 r3 	; { r0->fx* || r1->n || r2->error* || r3->$T4 }
+;MULTF $T4 x1 $T5 liveout: ; { error fx $T5 n x1  }
+; ensure(): $T4 has register r3
+; freeing unused variable r0
+; spilling varialbe fx
+;move r0 fx 	; { r0->fx* || r1->n || r2->error* || r3->$T4* }
+; allocate() has to spill x1
+; ensure(): x1 gets register r0 { r0->x1 || r1->n || r2->error* || r3->$T4* }
+; loading x1 to register r0
+;move x1 r0 	; { r0->x1 || r1->n || r2->error* || r3->$T4* }
+; switching owner of register $T4 to $T5 { r0->x1 || r1->n || r2->error* || r3->$T4* }
+; spilling varialbe $T4
+;move r3 $-4 	; { r0->x1 || r1->n || r2->error* || r3->$T4* }
+;mulr r0 r3 	; { r0->x1 || r1->n || r2->error* || r3->$T5 }
+;STOREF $T5 dfx liveout: ; { error dfx fx n x1  }
+; ensure(): $T5 has register r3
+; freeing unused variable r0
+; allocate() has to spill dfx
+; ensure(): dfx gets register r0 { r0->dfx || r1->n || r2->error* || r3->$T5* }
+; loading dfx to register r0
+;move dfx r0 	; { r0->dfx || r1->n || r2->error* || r3->$T5* }
+;move r3 r0 	; { r0->dfx || r1->n || r2->error* || r3->$T5* }
+; freeing unused variable r3
+; spilling varialbe $T5
+;move r3 $-5 	; { r0->dfx* || r1->n || r2->error* || r3->$T5* }
+;DIVF fx dfx $T6 liveout: ; { error dfx $T6 fx n x1  }
+; ensure(): fx gets register r3 { r0->dfx* || r1->n || r2->error* || r3->fx }
+; loading fx to register r3
+;move fx r3 	; { r0->dfx* || r1->n || r2->error* || r3->fx }
+; ensure(): dfx has register r0
+; switching owner of register fx to $T6 { r0->dfx* || r1->n || r2->error* || r3->fx }
+;divr r0 r3 	; { r0->dfx* || r1->n || r2->error* || r3->$T6 }
+;SUBF x1 $T6 $T7 liveout: ; { error dfx $T7 fx n x1  }
+; freeing unused variable r0
+; spilling varialbe dfx
+;move r0 dfx 	; { r0->dfx* || r1->n || r2->error* || r3->$T6* }
+; allocate() has to spill x1
+; ensure(): x1 gets register r0 { r0->x1 || r1->n || r2->error* || r3->$T6* }
+; loading x1 to register r0
+;move x1 r0 	; { r0->x1 || r1->n || r2->error* || r3->$T6* }
+; ensure(): $T6 has register r3
+; switching owner of register x1 to $T7 { r0->x1 || r1->n || r2->error* || r3->$T6* }
+;subr r3 r0 	; { r0->$T7 || r1->n || r2->error* || r3->$T6* }
+; freeing unused variable r3
+; spilling varialbe $T6
+;move r3 $-6 	; { r0->$T7* || r1->n || r2->error* || r3->$T6* }
+;STOREF $T7 x2 liveout: ; { error dfx fx n x2 x1  }
+; ensure(): $T7 has register r0
+; ensure(): x2 gets register r3 { r0->$T7* || r1->n || r2->error* || r3->x2 }
+; loading x2 to register r3
+;move x2 r3 	; { r0->$T7* || r1->n || r2->error* || r3->x2 }
+;move r0 r3 	; { r0->$T7* || r1->n || r2->error* || r3->x2 }
+; freeing unused variable r0
+; spilling varialbe $T7
+;move r0 $-7 	; { r0->$T7* || r1->n || r2->error* || r3->x2* }
+;WRITEF x1 liveout: ; { error dfx fx n x2 x1  }
+; ensure(): x1 gets register r0 { r0->x1 || r1->n || r2->error* || r3->x2* }
+; loading x1 to register r0
+;move x1 r0 	; { r0->x1 || r1->n || r2->error* || r3->x2* }
+;sys writer r0 	; { r0->x1 || r1->n || r2->error* || r3->x2* }
+;WRITES space liveout: ; { error dfx fx n x2 x1  }
+;sys writes space 	; { r0->x1 || r1->n || r2->error* || r3->x2* }
+;WRITEF fx liveout: ; { error dfx fx n x2 x1  }
+; freeing unused variable r0
+; allocate() has to spill fx
+; ensure(): fx gets register r0 { r0->fx || r1->n || r2->error* || r3->x2* }
+; loading fx to register r0
+;move fx r0 	; { r0->fx || r1->n || r2->error* || r3->x2* }
+;sys writer r0 	; { r0->fx || r1->n || r2->error* || r3->x2* }
+;WRITES space liveout: ; { error dfx fx n x2 x1  }
+;sys writes space 	; { r0->fx || r1->n || r2->error* || r3->x2* }
+;WRITEF dfx liveout: ; { error dfx fx n x2 x1  }
+; freeing unused variable r0
+; allocate() has to spill dfx
+; ensure(): dfx gets register r0 { r0->dfx || r1->n || r2->error* || r3->x2* }
+; loading dfx to register r0
+;move dfx r0 	; { r0->dfx || r1->n || r2->error* || r3->x2* }
+;sys writer r0 	; { r0->dfx || r1->n || r2->error* || r3->x2* }
+;WRITES space liveout: ; { error dfx fx n x2 x1  }
+;sys writes space 	; { r0->dfx || r1->n || r2->error* || r3->x2* }
+;WRITEF x2 liveout: ; { error dfx fx n x2 x1  }
+; ensure(): x2 has register r3
+;sys writer r3 	; { r0->dfx || r1->n || r2->error* || r3->x2* }
+;WRITES eol liveout: ; { error dfx fx n x2 x1  }
+;sys writes eol 	; { r0->dfx || r1->n || r2->error* || r3->x2* }
+;STOREI 0 $T8 liveout: ; { error dfx fx n $T8 x2 x1  }
+; freeing unused variable r0
+; allocate() has to spill $T8
+; ensure(): $T8 gets register r0 { r0->$T8 || r1->n || r2->error* || r3->x2* }
+; loading $-8 to register r0
+;move $-8 r0 	; { r0->$T8 || r1->n || r2->error* || r3->x2* }
+;move 0 r0 	; { r0->$T8 || r1->n || r2->error* || r3->x2* }
+;STOREI $T8 i liveout: ; { error dfx fx n x2 x1 i  }
+; ensure(): $T8 has register r0
+; freeing unused variable r1
+; allocate() has to spill i
+; ensure(): i gets register r1 { r0->$T8* || r1->i || r2->error* || r3->x2* }
+; loading i to register r1
+;move i r1 	; { r0->$T8* || r1->i || r2->error* || r3->x2* }
+;move r0 r1 	; { r0->$T8* || r1->i || r2->error* || r3->x2* }
+; freeing unused variable r0
+; spilling varialbe $T8
+;move r0 $-8 	; { r0->$T8* || r1->i* || r2->error* || r3->x2* }
+;LABEL label1 liveout: ; { error dfx fx n x2 x1 i  }
+; spilling registers at the end of Basic Block
+; spilling varialbe x2
+;move r3 x2 	; { r0-><null> || r1->i* || r2->error* || r3->x2* }
+; spilling varialbe error
+;move r2 error 	; { r0-><null> || r1->i* || r2->error* || r3-><null> }
+; spilling varialbe i
+;move r1 i 	; { r0-><null> || r1->i* || r2-><null> || r3-><null> }
+;label label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 2 $T9 liveout: ; { error dfx fx n $T9 x2 x1 i  }
+; ensure(): $T9 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T9 }
+; loading $-9 to register r3
+;move $-9 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T9 }
+;move 2 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T9 }
+;GEI i $T9 label3 liveout: ; { error dfx fx n x2 i x1  }
+; ensure(): i gets register r2 { r0-><null> || r1-><null> || r2->i || r3->$T9* }
+; loading i to register r2
+;move i r2 	; { r0-><null> || r1-><null> || r2->i || r3->$T9* }
+; ensure(): $T9 has register r3
+;cmpi r2 r3 	; { r0-><null> || r1-><null> || r2->i || r3->$T9* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T9
+;move r3 $-9 	; { r0-><null> || r1-><null> || r2->i || r3->$T9* }
+; spilling varialbe i
+;move r2 i 	; { r0-><null> || r1-><null> || r2->i || r3-><null> }
+;jge label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r2
+; freeing unused variable r3
+;STOREF x2 $T12 liveout: ; { error n $T12 i  }
+; ensure(): x2 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->x2 }
+; loading x2 to register r3
+;move x2 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->x2 }
+; ensure(): $T12 gets register r2 { r0-><null> || r1-><null> || r2->$T12 || r3->x2 }
+; loading $-12 to register r2
+;move $-12 r2 	; { r0-><null> || r1-><null> || r2->$T12 || r3->x2 }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$T12 || r3->x2 }
+; freeing unused variable r3
+;STOREF $T12 x1 liveout: ; { error n i x1  }
+; ensure(): $T12 has register r2
+; ensure(): x1 gets register r3 { r0-><null> || r1-><null> || r2->$T12* || r3->x1 }
+; loading x1 to register r3
+;move x1 r3 	; { r0-><null> || r1-><null> || r2->$T12* || r3->x1 }
+;move r2 r3 	; { r0-><null> || r1-><null> || r2->$T12* || r3->x1 }
+; freeing unused variable r2
+; spilling varialbe $T12
+;move r2 $-12 	; { r0-><null> || r1-><null> || r2->$T12* || r3->x1* }
+;MULTF x1 x1 $T13 liveout: ; { error n $T13 i x1  }
+; ensure(): x1 has register r3
+; ensure(): x1 has register r3
+; switching owner of register x1 to $T13 { r0-><null> || r1-><null> || r2-><null> || r3->x1* }
+; spilling varialbe x1
+;move r3 x1 	; { r0-><null> || r1-><null> || r2-><null> || r3->x1* }
+;mulr r3 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T13 }
+;SUBF $T13 n $T14 liveout: ; { error n $T14 i x1  }
+; ensure(): $T13 has register r3
+; ensure(): n gets register r2 { r0-><null> || r1-><null> || r2->n || r3->$T13* }
+; loading n to register r2
+;move n r2 	; { r0-><null> || r1-><null> || r2->n || r3->$T13* }
+; switching owner of register $T13 to $T14 { r0-><null> || r1-><null> || r2->n || r3->$T13* }
+; spilling varialbe $T13
+;move r3 $-13 	; { r0-><null> || r1-><null> || r2->n || r3->$T13* }
+;subr r2 r3 	; { r0-><null> || r1-><null> || r2->n || r3->$T14 }
+;STOREF $T14 fx liveout: ; { error fx n i x1  }
+; ensure(): $T14 has register r3
+; ensure(): fx gets register r1 { r0-><null> || r1->fx || r2->n || r3->$T14* }
+; loading fx to register r1
+;move fx r1 	; { r0-><null> || r1->fx || r2->n || r3->$T14* }
+;move r3 r1 	; { r0-><null> || r1->fx || r2->n || r3->$T14* }
+; freeing unused variable r3
+; spilling varialbe $T14
+;move r3 $-14 	; { r0-><null> || r1->fx* || r2->n || r3->$T14* }
+;STOREF 2.0 $T15 liveout: ; { error fx n i x1 $T15  }
+; ensure(): $T15 gets register r3 { r0-><null> || r1->fx* || r2->n || r3->$T15 }
+; loading $-15 to register r3
+;move $-15 r3 	; { r0-><null> || r1->fx* || r2->n || r3->$T15 }
+;move 2.0 r3 	; { r0-><null> || r1->fx* || r2->n || r3->$T15 }
+;MULTF $T15 x1 $T16 liveout: ; { error fx n $T16 i x1  }
+; ensure(): $T15 has register r3
+; ensure(): x1 gets register r0 { r0->x1 || r1->fx* || r2->n || r3->$T15* }
+; loading x1 to register r0
+;move x1 r0 	; { r0->x1 || r1->fx* || r2->n || r3->$T15* }
+; switching owner of register $T15 to $T16 { r0->x1 || r1->fx* || r2->n || r3->$T15* }
+; spilling varialbe $T15
+;move r3 $-15 	; { r0->x1 || r1->fx* || r2->n || r3->$T15* }
+;mulr r0 r3 	; { r0->x1 || r1->fx* || r2->n || r3->$T16 }
+;STOREF $T16 dfx liveout: ; { error dfx fx n i x1  }
+; ensure(): $T16 has register r3
+; freeing unused variable r0
+; allocate() has to spill dfx
+; ensure(): dfx gets register r0 { r0->dfx || r1->fx* || r2->n || r3->$T16* }
+; loading dfx to register r0
+;move dfx r0 	; { r0->dfx || r1->fx* || r2->n || r3->$T16* }
+;move r3 r0 	; { r0->dfx || r1->fx* || r2->n || r3->$T16* }
+; freeing unused variable r3
+; spilling varialbe $T16
+;move r3 $-16 	; { r0->dfx* || r1->fx* || r2->n || r3->$T16* }
+;DIVF fx dfx $T17 liveout: ; { error dfx fx n $T17 i x1  }
+; ensure(): fx has register r1
+; ensure(): dfx has register r0
+; switching owner of register fx to $T17 { r0->dfx* || r1->fx* || r2->n || r3-><null> }
+; spilling varialbe fx
+;move r1 fx 	; { r0->dfx* || r1->fx* || r2->n || r3-><null> }
+;divr r0 r1 	; { r0->dfx* || r1->$T17 || r2->n || r3-><null> }
+;SUBF x1 $T17 $T18 liveout: ; { error dfx fx n $T18 x1 i  }
+; ensure(): x1 gets register r3 { r0->dfx* || r1->$T17* || r2->n || r3->x1 }
+; loading x1 to register r3
+;move x1 r3 	; { r0->dfx* || r1->$T17* || r2->n || r3->x1 }
+; ensure(): $T17 has register r1
+; switching owner of register x1 to $T18 { r0->dfx* || r1->$T17* || r2->n || r3->x1 }
+;subr r1 r3 	; { r0->dfx* || r1->$T17* || r2->n || r3->$T18 }
+; freeing unused variable r1
+; spilling varialbe $T17
+;move r1 $-17 	; { r0->dfx* || r1->$T17* || r2->n || r3->$T18* }
+;STOREF $T18 x2 liveout: ; { error dfx fx n x2 x1 i  }
+; ensure(): $T18 has register r3
+; ensure(): x2 gets register r1 { r0->dfx* || r1->x2 || r2->n || r3->$T18* }
+; loading x2 to register r1
+;move x2 r1 	; { r0->dfx* || r1->x2 || r2->n || r3->$T18* }
+;move r3 r1 	; { r0->dfx* || r1->x2 || r2->n || r3->$T18* }
+; freeing unused variable r3
+; spilling varialbe $T18
+;move r3 $-18 	; { r0->dfx* || r1->x2* || r2->n || r3->$T18* }
+;STOREI 1 $T10 liveout: ; { error dfx $T10 fx n x2 x1 i  }
+; ensure(): $T10 gets register r3 { r0->dfx* || r1->x2* || r2->n || r3->$T10 }
+; loading $-10 to register r3
+;move $-10 r3 	; { r0->dfx* || r1->x2* || r2->n || r3->$T10 }
+;move 1 r3 	; { r0->dfx* || r1->x2* || r2->n || r3->$T10 }
+;ADDI i $T10 $T11 liveout: ; { error dfx fx n $T11 x2 x1  }
+; freeing unused variable r0
+; spilling varialbe dfx
+;move r0 dfx 	; { r0->dfx* || r1->x2* || r2->n || r3->$T10* }
+; allocate() has to spill i
+; ensure(): i gets register r0 { r0->i || r1->x2* || r2->n || r3->$T10* }
+; loading i to register r0
+;move i r0 	; { r0->i || r1->x2* || r2->n || r3->$T10* }
+; ensure(): $T10 has register r3
+; switching owner of register i to $T11 { r0->i || r1->x2* || r2->n || r3->$T10* }
+;addi r3 r0 	; { r0->$T11 || r1->x2* || r2->n || r3->$T10* }
+; freeing unused variable r3
+; spilling varialbe $T10
+;move r3 $-10 	; { r0->$T11* || r1->x2* || r2->n || r3->$T10* }
+;STOREI $T11 i liveout: ; { error dfx fx n x2 x1 i  }
+; ensure(): $T11 has register r0
+; ensure(): i gets register r3 { r0->$T11* || r1->x2* || r2->n || r3->i }
+; loading i to register r3
+;move i r3 	; { r0->$T11* || r1->x2* || r2->n || r3->i }
+;move r0 r3 	; { r0->$T11* || r1->x2* || r2->n || r3->i }
+; freeing unused variable r0
+; spilling varialbe $T11
+;move r0 $-11 	; { r0->$T11* || r1->x2* || r2->n || r3->i* }
+;JUMP label1 liveout: ; { error dfx fx n x2 x1 i  }
+; spilling registers at the end of Basic Block
+; spilling varialbe i
+;move r3 i 	; { r0-><null> || r1->x2* || r2->n || r3->i* }
+; spilling varialbe n
+;move r2 n 	; { r0-><null> || r1->x2* || r2->n || r3-><null> }
+; spilling varialbe x2
+;move r1 x2 	; { r0-><null> || r1->x2* || r2-><null> || r3-><null> }
+;jmp label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label3 liveout: ; { error dfx fx n x2 i x1  }
+; spilling registers at the end of Basic Block
+;label label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITEF x1 liveout: ; { error dfx fx n x2 i x1  }
+; ensure(): x1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->x1 }
+; loading x1 to register r3
+;move x1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->x1 }
+;sys writer r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->x1 }
+;WRITES space liveout: ; { error dfx fx n x2 i x1  }
+;sys writes space 	; { r0-><null> || r1-><null> || r2-><null> || r3->x1 }
+;WRITEF fx liveout: ; { error dfx fx n x2 i x1  }
+; ensure(): fx gets register r2 { r0-><null> || r1-><null> || r2->fx || r3->x1 }
+; loading fx to register r2
+;move fx r2 	; { r0-><null> || r1-><null> || r2->fx || r3->x1 }
+;sys writer r2 	; { r0-><null> || r1-><null> || r2->fx || r3->x1 }
+;WRITES space liveout: ; { error dfx fx n x2 i x1  }
+;sys writes space 	; { r0-><null> || r1-><null> || r2->fx || r3->x1 }
+;WRITEF dfx liveout: ; { dfx error fx n x2 i x1  }
+; ensure(): dfx gets register r1 { r0-><null> || r1->dfx || r2->fx || r3->x1 }
+; loading dfx to register r1
+;move dfx r1 	; { r0-><null> || r1->dfx || r2->fx || r3->x1 }
+;sys writer r1 	; { r0-><null> || r1->dfx || r2->fx || r3->x1 }
+;WRITES space liveout: ; { dfx error fx n x2 i x1  }
+;sys writes space 	; { r0-><null> || r1->dfx || r2->fx || r3->x1 }
+;WRITEF x2 liveout: ; { dfx error fx n x2 i x1  }
+; ensure(): x2 gets register r0 { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+; loading x2 to register r0
+;move x2 r0 	; { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+;sys writer r0 	; { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+;WRITES eol liveout: ; { dfx error fx n x2 i x1  }
+;sys writes eol 	; { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+;LABEL label4 liveout: ; { dfx error fx n x2 i x1  }
+; spilling registers at the end of Basic Block
+; spilling varialbe x1
+;move r3 x1 	; { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+; spilling varialbe fx
+;move r2 fx 	; { r0->x2 || r1->dfx || r2->fx || r3-><null> }
+; spilling varialbe dfx
+;move r1 dfx 	; { r0->x2 || r1->dfx || r2-><null> || r3-><null> }
+; spilling varialbe x2
+;move r0 x2 	; { r0->x2 || r1-><null> || r2-><null> || r3-><null> }
+;label label4 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;SUBF x1 x2 $T19 liveout: ; { $T19 dfx error fx n x2 i x1  }
+; ensure(): x1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->x1 }
+; loading x1 to register r3
+;move x1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->x1 }
+; ensure(): x2 gets register r2 { r0-><null> || r1-><null> || r2->x2 || r3->x1 }
+; loading x2 to register r2
+;move x2 r2 	; { r0-><null> || r1-><null> || r2->x2 || r3->x1 }
+; switching owner of register x1 to $T19 { r0-><null> || r1-><null> || r2->x2 || r3->x1 }
+;subr r2 r3 	; { r0-><null> || r1-><null> || r2->x2 || r3->$T19 }
+;STOREF error $T20 liveout: ; { $T19 error dfx fx $T20 n x2 i x1  }
+; ensure(): error gets register r1 { r0-><null> || r1->error || r2->x2 || r3->$T19* }
+; loading error to register r1
+;move error r1 	; { r0-><null> || r1->error || r2->x2 || r3->$T19* }
+; ensure(): $T20 gets register r0 { r0->$T20 || r1->error || r2->x2 || r3->$T19* }
+; loading $-20 to register r0
+;move $-20 r0 	; { r0->$T20 || r1->error || r2->x2 || r3->$T19* }
+;move r1 r0 	; { r0->$T20 || r1->error || r2->x2 || r3->$T19* }
+;LEF $T19 $T20 label6 liveout: ; { error dfx fx n x2 i x1  }
+; ensure(): $T19 has register r3
+; ensure(): $T20 has register r0
+;cmpr r3 r0 	; { r0->$T20* || r1->error || r2->x2 || r3->$T19* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T19
+;move r3 $-19 	; { r0->$T20* || r1->error || r2->x2 || r3->$T19* }
+; spilling varialbe x2
+;move r2 x2 	; { r0->$T20* || r1->error || r2->x2 || r3-><null> }
+; spilling varialbe error
+;move r1 error 	; { r0->$T20* || r1->error || r2-><null> || r3-><null> }
+; spilling varialbe $T20
+;move r0 $-20 	; { r0->$T20* || r1-><null> || r2-><null> || r3-><null> }
+;jle label6 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r3
+; freeing unused variable r0
+;STOREF x2 $T21 liveout: ; { error $T21 n i  }
+; ensure(): x2 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->x2 }
+; loading x2 to register r3
+;move x2 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->x2 }
+; ensure(): $T21 gets register r2 { r0-><null> || r1-><null> || r2->$T21 || r3->x2 }
+; loading $-21 to register r2
+;move $-21 r2 	; { r0-><null> || r1-><null> || r2->$T21 || r3->x2 }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->$T21 || r3->x2 }
+; freeing unused variable r3
+;STOREF $T21 x1 liveout: ; { error n i x1  }
+; ensure(): $T21 has register r2
+; ensure(): x1 gets register r3 { r0-><null> || r1-><null> || r2->$T21* || r3->x1 }
+; loading x1 to register r3
+;move x1 r3 	; { r0-><null> || r1-><null> || r2->$T21* || r3->x1 }
+;move r2 r3 	; { r0-><null> || r1-><null> || r2->$T21* || r3->x1 }
+; freeing unused variable r2
+; spilling varialbe $T21
+;move r2 $-21 	; { r0-><null> || r1-><null> || r2->$T21* || r3->x1* }
+;MULTF x1 x1 $T22 liveout: ; { error n $T22 i x1  }
+; ensure(): x1 has register r3
+; ensure(): x1 has register r3
+; switching owner of register x1 to $T22 { r0-><null> || r1-><null> || r2-><null> || r3->x1* }
+; spilling varialbe x1
+;move r3 x1 	; { r0-><null> || r1-><null> || r2-><null> || r3->x1* }
+;mulr r3 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T22 }
+;SUBF $T22 n $T23 liveout: ; { error n $T23 i x1  }
+; ensure(): $T22 has register r3
+; ensure(): n gets register r2 { r0-><null> || r1-><null> || r2->n || r3->$T22* }
+; loading n to register r2
+;move n r2 	; { r0-><null> || r1-><null> || r2->n || r3->$T22* }
+; switching owner of register $T22 to $T23 { r0-><null> || r1-><null> || r2->n || r3->$T22* }
+; spilling varialbe $T22
+;move r3 $-22 	; { r0-><null> || r1-><null> || r2->n || r3->$T22* }
+;subr r2 r3 	; { r0-><null> || r1-><null> || r2->n || r3->$T23 }
+;STOREF $T23 fx liveout: ; { error fx n i x1  }
+; ensure(): $T23 has register r3
+; ensure(): fx gets register r1 { r0-><null> || r1->fx || r2->n || r3->$T23* }
+; loading fx to register r1
+;move fx r1 	; { r0-><null> || r1->fx || r2->n || r3->$T23* }
+;move r3 r1 	; { r0-><null> || r1->fx || r2->n || r3->$T23* }
+; freeing unused variable r3
+; spilling varialbe $T23
+;move r3 $-23 	; { r0-><null> || r1->fx* || r2->n || r3->$T23* }
+;STOREF 2.0 $T24 liveout: ; { error fx n $T24 i x1  }
+; ensure(): $T24 gets register r3 { r0-><null> || r1->fx* || r2->n || r3->$T24 }
+; loading $-24 to register r3
+;move $-24 r3 	; { r0-><null> || r1->fx* || r2->n || r3->$T24 }
+;move 2.0 r3 	; { r0-><null> || r1->fx* || r2->n || r3->$T24 }
+;MULTF $T24 x1 $T25 liveout: ; { error fx n $T25 i x1  }
+; ensure(): $T24 has register r3
+; ensure(): x1 gets register r0 { r0->x1 || r1->fx* || r2->n || r3->$T24* }
+; loading x1 to register r0
+;move x1 r0 	; { r0->x1 || r1->fx* || r2->n || r3->$T24* }
+; switching owner of register $T24 to $T25 { r0->x1 || r1->fx* || r2->n || r3->$T24* }
+; spilling varialbe $T24
+;move r3 $-24 	; { r0->x1 || r1->fx* || r2->n || r3->$T24* }
+;mulr r0 r3 	; { r0->x1 || r1->fx* || r2->n || r3->$T25 }
+;STOREF $T25 dfx liveout: ; { error dfx fx n i x1  }
+; ensure(): $T25 has register r3
+; freeing unused variable r0
+; allocate() has to spill dfx
+; ensure(): dfx gets register r0 { r0->dfx || r1->fx* || r2->n || r3->$T25* }
+; loading dfx to register r0
+;move dfx r0 	; { r0->dfx || r1->fx* || r2->n || r3->$T25* }
+;move r3 r0 	; { r0->dfx || r1->fx* || r2->n || r3->$T25* }
+; freeing unused variable r3
+; spilling varialbe $T25
+;move r3 $-25 	; { r0->dfx* || r1->fx* || r2->n || r3->$T25* }
+;DIVF fx dfx $T26 liveout: ; { dfx error fx n $T26 i x1  }
+; ensure(): fx has register r1
+; ensure(): dfx has register r0
+; switching owner of register fx to $T26 { r0->dfx* || r1->fx* || r2->n || r3-><null> }
+; spilling varialbe fx
+;move r1 fx 	; { r0->dfx* || r1->fx* || r2->n || r3-><null> }
+;divr r0 r1 	; { r0->dfx* || r1->$T26 || r2->n || r3-><null> }
+;SUBF x1 $T26 $T27 liveout: ; { dfx error fx n $T27 i x1  }
+; ensure(): x1 gets register r3 { r0->dfx* || r1->$T26* || r2->n || r3->x1 }
+; loading x1 to register r3
+;move x1 r3 	; { r0->dfx* || r1->$T26* || r2->n || r3->x1 }
+; ensure(): $T26 has register r1
+; switching owner of register x1 to $T27 { r0->dfx* || r1->$T26* || r2->n || r3->x1 }
+;subr r1 r3 	; { r0->dfx* || r1->$T26* || r2->n || r3->$T27 }
+; freeing unused variable r1
+; spilling varialbe $T26
+;move r1 $-26 	; { r0->dfx* || r1->$T26* || r2->n || r3->$T27* }
+;STOREF $T27 x2 liveout: ; { dfx error fx n x2 i x1  }
+; ensure(): $T27 has register r3
+; ensure(): x2 gets register r1 { r0->dfx* || r1->x2 || r2->n || r3->$T27* }
+; loading x2 to register r1
+;move x2 r1 	; { r0->dfx* || r1->x2 || r2->n || r3->$T27* }
+;move r3 r1 	; { r0->dfx* || r1->x2 || r2->n || r3->$T27* }
+; freeing unused variable r3
+; spilling varialbe $T27
+;move r3 $-27 	; { r0->dfx* || r1->x2* || r2->n || r3->$T27* }
+;JUMP label4 liveout: ; { dfx error fx n x2 i x1  }
+; spilling registers at the end of Basic Block
+; spilling varialbe n
+;move r2 n 	; { r0->dfx* || r1->x2* || r2->n || r3-><null> }
+; spilling varialbe x2
+;move r1 x2 	; { r0->dfx* || r1->x2* || r2-><null> || r3-><null> }
+; spilling varialbe dfx
+;move r0 dfx 	; { r0->dfx* || r1-><null> || r2-><null> || r3-><null> }
+;jmp label4 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label6 liveout: ; { error dfx fx n x2 i x1  }
+; spilling registers at the end of Basic Block
+;label label6 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITEF x1 liveout: ; { error dfx fx n x2 x1 i  }
+; ensure(): x1 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->x1 }
+; loading x1 to register r3
+;move x1 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->x1 }
+;sys writer r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->x1 }
+;WRITES space liveout: ; { error dfx fx n x2 x1 i  }
+;sys writes space 	; { r0-><null> || r1-><null> || r2-><null> || r3->x1 }
+;WRITEF fx liveout: ; { error dfx fx n x2 x1 i  }
+; ensure(): fx gets register r2 { r0-><null> || r1-><null> || r2->fx || r3->x1 }
+; loading fx to register r2
+;move fx r2 	; { r0-><null> || r1-><null> || r2->fx || r3->x1 }
+;sys writer r2 	; { r0-><null> || r1-><null> || r2->fx || r3->x1 }
+;WRITES space liveout: ; { error dfx fx n x2 x1 i  }
+;sys writes space 	; { r0-><null> || r1-><null> || r2->fx || r3->x1 }
+;WRITEF dfx liveout: ; { dfx error fx n x2 x1 i  }
+; ensure(): dfx gets register r1 { r0-><null> || r1->dfx || r2->fx || r3->x1 }
+; loading dfx to register r1
+;move dfx r1 	; { r0-><null> || r1->dfx || r2->fx || r3->x1 }
+;sys writer r1 	; { r0-><null> || r1->dfx || r2->fx || r3->x1 }
+;WRITES space liveout: ; { dfx error fx n x2 x1 i  }
+;sys writes space 	; { r0-><null> || r1->dfx || r2->fx || r3->x1 }
+;WRITEF x2 liveout: ; { dfx error fx n x2 x1 i  }
+; ensure(): x2 gets register r0 { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+; loading x2 to register r0
+;move x2 r0 	; { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+;sys writer r0 	; { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+;WRITES eol liveout: ; { dfx error fx n x2 x1 i  }
+;sys writes eol 	; { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+;WRITEF x2 liveout: ; { dfx error fx n x2 x1 i  }
+; ensure(): x2 has register r0
+;sys writer r0 	; { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+;UNLINK liveout: ; { dfx error fx n x2 x1 i  }
+;unlnk 	; { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+;RET liveout: ; { dfx error fx n x2 x1 i  }
+; writing back global variables prior a function call
+; spilling varialbe x1
+;move r3 x1 	; { r0->x2 || r1->dfx || r2->fx || r3->x1 }
+; spilling varialbe fx
+;move r2 fx 	; { r0->x2 || r1->dfx || r2->fx || r3-><null> }
+; spilling varialbe dfx
+;move r1 dfx 	; { r0->x2 || r1->dfx || r2-><null> || r3-><null> }
+; spilling varialbe x2
+;move r0 x2 	; { r0->x2 || r1-><null> || r2-><null> || r3-><null> }
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+
+str dummy "abcde"
+str space " "
+str eol "\n"
+var n
+var x1
+var x2
+var fx
+var dfx
+var error
+var i
+push
+push
+push
+push
+push
+jsr main
+sys halt
+label main
+link 28
+move $-1 r3
+move 0.001 r3
+move error r2
+move r3 r2
+move r3 $-1
+move x1 r3
+sys readr r3
+move r3 x1
+mulr r3 r3
+move n r1
+move r3 $-2
+subr r1 r3
+move fx r0
+move r3 r0
+move r3 $-3
+move $-4 r3
+move 2.0 r3
+move r0 fx
+move x1 r0
+move r3 $-4
+mulr r0 r3
+move dfx r0
+move r3 r0
+move r3 $-5
+move fx r3
+divr r0 r3
+move r0 dfx
+move x1 r0
+subr r3 r0
+move r3 $-6
+move x2 r3
+move r0 r3
+move r0 $-7
+move x1 r0
+sys writer r0
+sys writes space
+move fx r0
+sys writer r0
+sys writes space
+move dfx r0
+sys writer r0
+sys writes space
+sys writer r3
+sys writes eol
+move $-8 r0
+move 0 r0
+move i r1
+move r0 r1
+move r0 $-8
+move r3 x2
+move r2 error
+move r1 i
+label label1
+move $-9 r3
+move 2 r3
+move i r2
+cmpi r2 r3
+move r3 $-9
+move r2 i
+jge label3
+move x2 r3
+move $-12 r2
+move r3 r2
+move x1 r3
+move r2 r3
+move r2 $-12
+move r3 x1
+mulr r3 r3
+move n r2
+move r3 $-13
+subr r2 r3
+move fx r1
+move r3 r1
+move r3 $-14
+move $-15 r3
+move 2.0 r3
+move x1 r0
+move r3 $-15
+mulr r0 r3
+move dfx r0
+move r3 r0
+move r3 $-16
+move r1 fx
+divr r0 r1
+move x1 r3
+subr r1 r3
+move r1 $-17
+move x2 r1
+move r3 r1
+move r3 $-18
+move $-10 r3
+move 1 r3
+move r0 dfx
+move i r0
+addi r3 r0
+move r3 $-10
+move i r3
+move r0 r3
+move r0 $-11
+move r3 i
+move r2 n
+move r1 x2
+jmp label1
+label label3
+move x1 r3
+sys writer r3
+sys writes space
+move fx r2
+sys writer r2
+sys writes space
+move dfx r1
+sys writer r1
+sys writes space
+move x2 r0
+sys writer r0
+sys writes eol
+move r3 x1
+move r2 fx
+move r1 dfx
+move r0 x2
+label label4
+move x1 r3
+move x2 r2
+subr r2 r3
+move error r1
+move $-20 r0
+move r1 r0
+cmpr r3 r0
+move r3 $-19
+move r2 x2
+move r1 error
+move r0 $-20
+jle label6
+move x2 r3
+move $-21 r2
+move r3 r2
+move x1 r3
+move r2 r3
+move r2 $-21
+move r3 x1
+mulr r3 r3
+move n r2
+move r3 $-22
+subr r2 r3
+move fx r1
+move r3 r1
+move r3 $-23
+move $-24 r3
+move 2.0 r3
+move x1 r0
+move r3 $-24
+mulr r0 r3
+move dfx r0
+move r3 r0
+move r3 $-25
+move r1 fx
+divr r0 r1
+move x1 r3
+subr r1 r3
+move r1 $-26
+move x2 r1
+move r3 r1
+move r3 $-27
+move r2 n
+move r1 x2
+move r0 dfx
+jmp label4
+label label6
+move x1 r3
+sys writer r3
+sys writes space
+move fx r2
+sys writer r2
+sys writes space
+move dfx r1
+sys writer r1
+sys writes space
+move x2 r0
+sys writer r0
+sys writes eol
+sys writer r0
+unlnk
+move r3 x1
+move r2 fx
+move r1 dfx
+move r0 x2
+ret

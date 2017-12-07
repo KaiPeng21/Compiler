@@ -1,0 +1,177 @@
+;IR code
+;LABEL MULT
+;LINK
+;MULTF $P1 $P2 $T1
+;STOREF $T1 $L1
+;STOREF $L1 $R
+;RET
+
+;LABEL SQUARE
+;LINK
+;STOREI 1 $T1
+;PUSH 
+;PUSH $T1
+;PUSH $P1
+;JSR MULT
+;POP 
+;POP 
+;POP $T2
+;PUSH 
+;PUSH $P1
+;PUSH $T2
+;JSR MULT
+;POP 
+;POP 
+;POP $T3
+;STOREF $T3 $R
+;RET
+
+;LABEL main
+;LINK
+;PUSH 
+;JSR PRINTMESSAGE
+;POP $T1
+;STOREI $T1 $R
+;RET
+
+;LABEL PRINTMESSAGE
+;LINK
+;STOREI 5 $T1
+;STOREI $T1 $L1
+;STOREI 10 $T2
+;STOREI $T2 $L2
+;PUSH 
+;PUSH $L1
+;JSR SQUARE
+;POP 
+;POP $T3
+;STOREF $T3 $L1
+;PUSH 
+;PUSH $L2
+;PUSH $L1
+;JSR MULT
+;POP 
+;POP 
+;POP $T4
+;STOREF $T4 $L2
+;WRITEF $L1
+;WRITES space
+;WRITEF $L2
+;WRITES eol
+;RET
+
+;tiny code
+str space " "
+str eol "\n"
+str m "This is the end"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label MULT
+link 1
+move $7 r0
+mulr $6 r0
+move r0 $-1
+move $-1 r1
+move r1 $8
+unlnk
+ret
+label SQUARE
+link 0
+move 1 r2
+push 
+push r2
+push $6
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r3
+push 
+push $6
+push r3
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r4
+move r4 $7
+unlnk
+ret
+label main
+link 0
+push 
+push r0
+push r1
+push r2
+push r3
+jsr PRINTMESSAGE
+pop r3
+pop r2
+pop r1
+pop r0
+pop r5
+move r5 $6
+unlnk
+ret
+label PRINTMESSAGE
+link 2
+move 5 r6
+move r6 $-1
+move 10 r7
+move r7 $-2
+push 
+push $-1
+push r0
+push r1
+push r2
+push r3
+jsr SQUARE
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop r8
+move r8 $-1
+push 
+push $-2
+push $-1
+push r0
+push r1
+push r2
+push r3
+jsr MULT
+pop r3
+pop r2
+pop r1
+pop r0
+pop 
+pop 
+pop r9
+move r9 $-2
+sys writer $-1
+sys writes space
+sys writer $-2
+sys writes eol
+unlnk
+ret
+end

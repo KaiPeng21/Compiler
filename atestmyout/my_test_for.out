@@ -1,0 +1,440 @@
+;Symbol table GLOBAL
+; return type: null
+; subscope local var size: 0
+;scope type: GLOBAL_TYPE 
+;name i type INT local slot location: -1
+;name j type INT local slot location: -2
+;name newapprox type FLOAT local slot location: -3
+;name approx type FLOAT local slot location: -4
+;name num type FLOAT local slot location: -5
+;name eol type STRING value "\n" local slot location: -6
+
+
+;Symbol table main
+; return type: VOID
+; subscope local var size: 0
+;scope type: FUNC_TYPE 
+
+
+;Symbol table BLOCK 1
+; return type: null
+; subscope local var size: 0
+;scope type: FOR_TYPE 
+
+
+; SUBSCOPE for function scope: main
+; SUBSCOPE block ID: 1 scopeType: FOR
+
+;exit Cond: != :: i :: 0
+
+;IR code
+;PUSH
+;JSR main
+;HALT
+
+;LABEL main		 Under Func Scope: main
+;LINK 1			 Under Func Scope: main
+;READF num		 Under Func Scope: main
+;STOREI 1 $T1		 Under Func Scope: main
+;STOREI $T1 j		 Under Func Scope: main
+;STOREF num $T2		 Under Func Scope: main
+;STOREF $T2 approx	 Under Func Scope: main
+;STOREI 100 $T3		 Under Func Scope: main
+;STOREI $T3 i		 Under Func Scope: main
+;LABEL label1		 Under Func Scope: main
+;STOREI 0 $T4		 Under Func Scope: main
+;EQI i $T4 label3	 Under Func Scope: main
+;STOREF 0.5 $T7		 Under Func Scope: main
+;DIVF num approx $T8	 Under Func Scope: main
+;ADDF approx $T8 $T9	 Under Func Scope: main
+;MULTF $T7 $T9 $T10	 Under Func Scope: main
+;STOREF $T10 newapprox	 Under Func Scope: main
+;STOREF newapprox $T11	 Under Func Scope: main
+;STOREF $T11 approx	 Under Func Scope: main
+;STOREI 1 $T5		 Under Func Scope: main
+;SUBI i $T5 $T6		 Under Func Scope: main
+;STOREI $T6 i		 Under Func Scope: main
+;JUMP label1		 Under Func Scope: main
+;LABEL label3		 Under Func Scope: main
+;WRITEF approx		 Under Func Scope: main
+;WRITES eol		 Under Func Scope: main
+;UNLINK			 Under Func Scope: main
+;RET			 Under Func Scope: main
+
+; ========= CFG IR NODE =========
+
+;LABEL main		P: 					S: ;LINK 1		 <== BB leader
+;LINK 1			P: ;LABEL main			S: ;READF num	
+;READF num		P: ;LINK 1				S: ;STOREI 1 $T1	
+;STOREI 1 $T1		P: ;READF num			S: ;STOREI $T1 j	
+;STOREI $T1 j		P: ;STOREI 1 $T1			S: ;STOREF num $T2	
+;STOREF num $T2		P: ;STOREI $T1 j			S: ;STOREF $T2 approx	
+;STOREF $T2 approx	P: ;STOREF num $T2			S: ;STOREI 100 $T3	
+;STOREI 100 $T3		P: ;STOREF $T2 approx		S: ;STOREI $T3 i	
+;STOREI $T3 i		P: ;STOREI 100 $T3			S: ;LABEL label1	
+;LABEL label1		P: ;STOREI $T3 i	;JUMP label1		S: ;STOREI 0 $T4		 <== BB leader
+;STOREI 0 $T4		P: ;LABEL label1			S: ;EQI i $T4 label3	
+;EQI i $T4 label3	P: ;STOREI 0 $T4			S: ;STOREF 0.5 $T7	;LABEL label3	
+;STOREF 0.5 $T7		P: ;EQI i $T4 label3		S: ;DIVF num approx $T8		 <== BB leader
+;DIVF num approx $T8	P: ;STOREF 0.5 $T7			S: ;ADDF approx $T8 $T9	
+;ADDF approx $T8 $T9	P: ;DIVF num approx $T8		S: ;MULTF $T7 $T9 $T10	
+;MULTF $T7 $T9 $T10	P: ;ADDF approx $T8 $T9		S: ;STOREF $T10 newapprox	
+;STOREF $T10 newapprox	P: ;MULTF $T7 $T9 $T10		S: ;STOREF newapprox $T11	
+;STOREF newapprox $T11	P: ;STOREF $T10 newapprox		S: ;STOREF $T11 approx	
+;STOREF $T11 approx	P: ;STOREF newapprox $T11		S: ;STOREI 1 $T5	
+;STOREI 1 $T5		P: ;STOREF $T11 approx		S: ;SUBI i $T5 $T6	
+;SUBI i $T5 $T6		P: ;STOREI 1 $T5			S: ;STOREI $T6 i	
+;STOREI $T6 i		P: ;SUBI i $T5 $T6			S: ;JUMP label1	
+;JUMP label1		P: ;STOREI $T6 i			S: ;LABEL label1	
+;LABEL label3		P: ;EQI i $T4 label3		S: ;WRITEF approx		 <== BB leader
+;WRITEF approx		P: ;LABEL label3			S: ;WRITES eol	
+;WRITES eol		P: ;WRITEF approx			S: ;UNLINK	
+;UNLINK			P: ;WRITES eol			S: ;RET	
+;RET			P: ;UNLINK				S: 
+
+; ========= CFG IR NODE / KILL/ GEN =========
+
+;LABEL main		Kill: 				Gen: 
+;LINK 1			Kill: 				Gen: 
+;READF num		Kill: num, 				Gen: 
+;STOREI 1 $T1		Kill: $T1, 			Gen: 
+;STOREI $T1 j		Kill: j, 				Gen: $T1, 
+;STOREF num $T2		Kill: $T2, 			Gen: num, 
+;STOREF $T2 approx	Kill: approx, 			Gen: $T2, 
+;STOREI 100 $T3		Kill: $T3, 			Gen: 
+;STOREI $T3 i		Kill: i, 				Gen: $T3, 
+;LABEL label1		Kill: 				Gen: 
+;STOREI 0 $T4		Kill: $T4, 			Gen: 
+;EQI i $T4 label3	Kill: 					Gen: $T4, i, 
+;STOREF 0.5 $T7		Kill: $T7, 			Gen: 
+;DIVF num approx $T8	Kill: $T8, 				Gen: approx, num, 
+;ADDF approx $T8 $T9	Kill: $T9, 				Gen: approx, $T8, 
+;MULTF $T7 $T9 $T10	Kill: $T10, 				Gen: $T7, $T9, 
+;STOREF $T10 newapprox	Kill: newapprox, 			Gen: $T10, 
+;STOREF newapprox $T11	Kill: $T11, 			Gen: newapprox, 
+;STOREF $T11 approx	Kill: approx, 			Gen: $T11, 
+;STOREI 1 $T5		Kill: $T5, 			Gen: 
+;SUBI i $T5 $T6		Kill: $T6, 			Gen: $T5, i, 
+;STOREI $T6 i		Kill: i, 				Gen: $T6, 
+;JUMP label1		Kill: 				Gen: 
+;LABEL label3		Kill: 				Gen: 
+;WRITEF approx		Kill: 				Gen: approx, 
+;WRITES eol		Kill: 				Gen: 
+;UNLINK			Kill: 				Gen: 
+;RET			Kill: 				Gen: 
+
+; ========= CFG IR NODE / LIVE IN / LIVE OUT =========
+
+;LABEL main		Live IN: newapprox, 			Live OUT: newapprox, 
+;LINK 1			Live IN: newapprox, 		Live OUT: newapprox, 
+;READF num		Live IN: newapprox, 			Live OUT: num, newapprox, 
+;STOREI 1 $T1		Live IN: newapprox, num, 		Live OUT: num, $T1, newapprox, 
+;STOREI $T1 j		Live IN: newapprox, num, $T1, 	Live OUT: num, newapprox, j, 
+;STOREF num $T2		Live IN: newapprox, num, j, 	Live OUT: $T2, num, newapprox, j, 
+;STOREF $T2 approx	Live IN: $T2, newapprox, num, j, 	Live OUT: num, approx, newapprox, j, 
+;STOREI 100 $T3		Live IN: newapprox, approx, num, j, 	Live OUT: $T3, num, approx, newapprox, j, 
+;STOREI $T3 i		Live IN: newapprox, $T3, approx, num, j, 	Live OUT: num, approx, newapprox, j, i, 
+;LABEL label1		Live IN: newapprox, approx, num, j, i, 	Live OUT: num, approx, newapprox, j, i, 
+;STOREI 0 $T4		Live IN: newapprox, approx, num, j, i, 	Live OUT: num, approx, $T4, newapprox, j, i, 
+;EQI i $T4 label3	Live IN: newapprox, num, approx, j, $T4, i, 	Live OUT: approx, num, newapprox, j, i, 
+;STOREF 0.5 $T7		Live IN: num, approx, j, i, 	Live OUT: approx, num, $T7, j, i, 
+;DIVF num approx $T8	Live IN: approx, num, j, $T7, i, 	Live OUT: num, approx, $T7, $T8, j, i, 
+;ADDF approx $T8 $T9	Live IN: $T8, approx, num, j, $T7, i, 	Live OUT: num, $T7, $T9, j, i, 
+;MULTF $T7 $T9 $T10	Live IN: num, $T9, j, $T7, i, 	Live OUT: num, $T10, j, i, 
+;STOREF $T10 newapprox	Live IN: num, j, $T10, i, 	Live OUT: num, newapprox, j, i, 
+;STOREF newapprox $T11	Live IN: newapprox, num, j, i, 	Live OUT: num, newapprox, $T11, j, i, 
+;STOREF $T11 approx	Live IN: newapprox, num, $T11, j, i, 	Live OUT: approx, num, newapprox, j, i, 
+;STOREI 1 $T5		Live IN: newapprox, num, approx, j, i, 	Live OUT: approx, num, $T5, newapprox, j, i, 
+;SUBI i $T5 $T6		Live IN: newapprox, approx, num, j, i, $T5, 	Live OUT: num, approx, $T6, newapprox, j, 
+;STOREI $T6 i		Live IN: newapprox, approx, num, $T6, j, 	Live OUT: num, approx, newapprox, j, i, 
+;JUMP label1		Live IN: newapprox, approx, num, j, i, 	Live OUT: num, approx, newapprox, j, i, 
+;LABEL label3		Live IN: newapprox, approx, num, j, i, 	Live OUT: num, approx, newapprox, j, i, 
+;WRITEF approx		Live IN: newapprox, num, approx, j, i, 	Live OUT: approx, num, newapprox, j, i, 
+;WRITES eol		Live IN: newapprox, num, approx, j, i, 	Live OUT: approx, num, newapprox, j, i, 
+;UNLINK			Live IN: newapprox, num, approx, j, i, 	Live OUT: approx, num, newapprox, j, i, 
+;RET			Live IN: newapprox, num, approx, j, i, 	Live OUT: approx, num, newapprox, j, i, 
+;var i 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var j 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var newapprox 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var approx 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;var num 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;str eol "\n" 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;push 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;jsr main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;sys halt 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL main liveout: ; { newapprox  }
+;label main 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LINK 1 liveout: ; { newapprox  }
+;link 12 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;READF num liveout: ; { num newapprox  }
+; ensure(): num gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->num }
+; loading num to register r3
+;move num r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->num }
+;sys readr r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->num }
+;STOREI 1 $T1 liveout: ; { num $T1 newapprox  }
+; ensure(): $T1 gets register r2 { r0-><null> || r1-><null> || r2->$T1 || r3->num* }
+; loading $-1 to register r2
+;move $-1 r2 	; { r0-><null> || r1-><null> || r2->$T1 || r3->num* }
+;move 1 r2 	; { r0-><null> || r1-><null> || r2->$T1 || r3->num* }
+;STOREI $T1 j liveout: ; { num newapprox j  }
+; ensure(): $T1 has register r2
+; ensure(): j gets register r1 { r0-><null> || r1->j || r2->$T1* || r3->num* }
+; loading j to register r1
+;move j r1 	; { r0-><null> || r1->j || r2->$T1* || r3->num* }
+;move r2 r1 	; { r0-><null> || r1->j || r2->$T1* || r3->num* }
+; freeing unused variable r2
+; spilling varialbe $T1
+;move r2 $-1 	; { r0-><null> || r1->j* || r2->$T1* || r3->num* }
+;STOREF num $T2 liveout: ; { $T2 num newapprox j  }
+; ensure(): num has register r3
+; ensure(): $T2 gets register r2 { r0-><null> || r1->j* || r2->$T2 || r3->num* }
+; loading $-2 to register r2
+;move $-2 r2 	; { r0-><null> || r1->j* || r2->$T2 || r3->num* }
+;move r3 r2 	; { r0-><null> || r1->j* || r2->$T2 || r3->num* }
+;STOREF $T2 approx liveout: ; { num approx newapprox j  }
+; ensure(): $T2 has register r2
+; ensure(): approx gets register r0 { r0->approx || r1->j* || r2->$T2* || r3->num* }
+; loading approx to register r0
+;move approx r0 	; { r0->approx || r1->j* || r2->$T2* || r3->num* }
+;move r2 r0 	; { r0->approx || r1->j* || r2->$T2* || r3->num* }
+; freeing unused variable r2
+; spilling varialbe $T2
+;move r2 $-2 	; { r0->approx* || r1->j* || r2->$T2* || r3->num* }
+;STOREI 100 $T3 liveout: ; { $T3 num approx newapprox j  }
+; ensure(): $T3 gets register r2 { r0->approx* || r1->j* || r2->$T3 || r3->num* }
+; loading $-3 to register r2
+;move $-3 r2 	; { r0->approx* || r1->j* || r2->$T3 || r3->num* }
+;move 100 r2 	; { r0->approx* || r1->j* || r2->$T3 || r3->num* }
+;STOREI $T3 i liveout: ; { num approx newapprox j i  }
+; ensure(): $T3 has register r2
+; freeing unused variable r0
+; spilling varialbe approx
+;move r0 approx 	; { r0->approx* || r1->j* || r2->$T3* || r3->num* }
+; allocate() has to spill i
+; ensure(): i gets register r0 { r0->i || r1->j* || r2->$T3* || r3->num* }
+; loading i to register r0
+;move i r0 	; { r0->i || r1->j* || r2->$T3* || r3->num* }
+;move r2 r0 	; { r0->i || r1->j* || r2->$T3* || r3->num* }
+; freeing unused variable r2
+; spilling varialbe $T3
+;move r2 $-3 	; { r0->i* || r1->j* || r2->$T3* || r3->num* }
+;LABEL label1 liveout: ; { num approx newapprox j i  }
+; spilling registers at the end of Basic Block
+; spilling varialbe num
+;move r3 num 	; { r0->i* || r1->j* || r2-><null> || r3->num* }
+; spilling varialbe j
+;move r1 j 	; { r0->i* || r1->j* || r2-><null> || r3-><null> }
+; spilling varialbe i
+;move r0 i 	; { r0->i* || r1-><null> || r2-><null> || r3-><null> }
+;label label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;STOREI 0 $T4 liveout: ; { num approx $T4 newapprox j i  }
+; ensure(): $T4 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T4 }
+; loading $-4 to register r3
+;move $-4 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4 }
+;move 0 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T4 }
+;EQI i $T4 label3 liveout: ; { approx num newapprox j i  }
+; ensure(): i gets register r2 { r0-><null> || r1-><null> || r2->i || r3->$T4* }
+; loading i to register r2
+;move i r2 	; { r0-><null> || r1-><null> || r2->i || r3->$T4* }
+; ensure(): $T4 has register r3
+;cmpi r2 r3 	; { r0-><null> || r1-><null> || r2->i || r3->$T4* }
+; spilling registers at the end of Basic Block
+; spilling varialbe $T4
+;move r3 $-4 	; { r0-><null> || r1-><null> || r2->i || r3->$T4* }
+; spilling varialbe i
+;move r2 i 	; { r0-><null> || r1-><null> || r2->i || r3-><null> }
+;jeq label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+; freeing unused variable r2
+; freeing unused variable r3
+;STOREF 0.5 $T7 liveout: ; { approx num $T7 j i  }
+; ensure(): $T7 gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->$T7 }
+; loading $-7 to register r3
+;move $-7 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T7 }
+;move 0.5 r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->$T7 }
+;DIVF num approx $T8 liveout: ; { num approx $T7 $T8 j i  }
+; ensure(): num gets register r2 { r0-><null> || r1-><null> || r2->num || r3->$T7* }
+; loading num to register r2
+;move num r2 	; { r0-><null> || r1-><null> || r2->num || r3->$T7* }
+; ensure(): approx gets register r1 { r0-><null> || r1->approx || r2->num || r3->$T7* }
+; loading approx to register r1
+;move approx r1 	; { r0-><null> || r1->approx || r2->num || r3->$T7* }
+; switching owner of register num to $T8 { r0-><null> || r1->approx || r2->num || r3->$T7* }
+;divr r1 r2 	; { r0-><null> || r1->approx || r2->$T8 || r3->$T7* }
+;ADDF approx $T8 $T9 liveout: ; { num $T7 $T9 j i  }
+; ensure(): approx has register r1
+; ensure(): $T8 has register r2
+; switching owner of register approx to $T9 { r0-><null> || r1->approx || r2->$T8* || r3->$T7* }
+;addr r2 r1 	; { r0-><null> || r1->$T9 || r2->$T8* || r3->$T7* }
+; freeing unused variable r2
+; spilling varialbe $T8
+;move r2 $-8 	; { r0-><null> || r1->$T9* || r2->$T8* || r3->$T7* }
+;MULTF $T7 $T9 $T10 liveout: ; { num $T10 j i  }
+; ensure(): $T7 has register r3
+; ensure(): $T9 has register r1
+; switching owner of register $T7 to $T10 { r0-><null> || r1->$T9* || r2-><null> || r3->$T7* }
+; spilling varialbe $T7
+;move r3 $-7 	; { r0-><null> || r1->$T9* || r2-><null> || r3->$T7* }
+;mulr r1 r3 	; { r0-><null> || r1->$T9* || r2-><null> || r3->$T10 }
+; freeing unused variable r1
+; spilling varialbe $T9
+;move r1 $-9 	; { r0-><null> || r1->$T9* || r2-><null> || r3->$T10* }
+;STOREF $T10 newapprox liveout: ; { num newapprox j i  }
+; ensure(): $T10 has register r3
+; ensure(): newapprox gets register r2 { r0-><null> || r1-><null> || r2->newapprox || r3->$T10* }
+; loading newapprox to register r2
+;move newapprox r2 	; { r0-><null> || r1-><null> || r2->newapprox || r3->$T10* }
+;move r3 r2 	; { r0-><null> || r1-><null> || r2->newapprox || r3->$T10* }
+; freeing unused variable r3
+; spilling varialbe $T10
+;move r3 $-10 	; { r0-><null> || r1-><null> || r2->newapprox* || r3->$T10* }
+;STOREF newapprox $T11 liveout: ; { num newapprox $T11 j i  }
+; ensure(): newapprox has register r2
+; ensure(): $T11 gets register r3 { r0-><null> || r1-><null> || r2->newapprox* || r3->$T11 }
+; loading $-11 to register r3
+;move $-11 r3 	; { r0-><null> || r1-><null> || r2->newapprox* || r3->$T11 }
+;move r2 r3 	; { r0-><null> || r1-><null> || r2->newapprox* || r3->$T11 }
+;STOREF $T11 approx liveout: ; { approx num newapprox j i  }
+; ensure(): $T11 has register r3
+; ensure(): approx gets register r1 { r0-><null> || r1->approx || r2->newapprox* || r3->$T11* }
+; loading approx to register r1
+;move approx r1 	; { r0-><null> || r1->approx || r2->newapprox* || r3->$T11* }
+;move r3 r1 	; { r0-><null> || r1->approx || r2->newapprox* || r3->$T11* }
+; freeing unused variable r3
+; spilling varialbe $T11
+;move r3 $-11 	; { r0-><null> || r1->approx* || r2->newapprox* || r3->$T11* }
+;STOREI 1 $T5 liveout: ; { approx num $T5 newapprox j i  }
+; ensure(): $T5 gets register r3 { r0-><null> || r1->approx* || r2->newapprox* || r3->$T5 }
+; loading $-5 to register r3
+;move $-5 r3 	; { r0-><null> || r1->approx* || r2->newapprox* || r3->$T5 }
+;move 1 r3 	; { r0-><null> || r1->approx* || r2->newapprox* || r3->$T5 }
+;SUBI i $T5 $T6 liveout: ; { num approx $T6 newapprox j  }
+; ensure(): i gets register r0 { r0->i || r1->approx* || r2->newapprox* || r3->$T5* }
+; loading i to register r0
+;move i r0 	; { r0->i || r1->approx* || r2->newapprox* || r3->$T5* }
+; ensure(): $T5 has register r3
+; switching owner of register i to $T6 { r0->i || r1->approx* || r2->newapprox* || r3->$T5* }
+;subi r3 r0 	; { r0->$T6 || r1->approx* || r2->newapprox* || r3->$T5* }
+; freeing unused variable r3
+; spilling varialbe $T5
+;move r3 $-5 	; { r0->$T6* || r1->approx* || r2->newapprox* || r3->$T5* }
+;STOREI $T6 i liveout: ; { num approx newapprox j i  }
+; ensure(): $T6 has register r0
+; ensure(): i gets register r3 { r0->$T6* || r1->approx* || r2->newapprox* || r3->i }
+; loading i to register r3
+;move i r3 	; { r0->$T6* || r1->approx* || r2->newapprox* || r3->i }
+;move r0 r3 	; { r0->$T6* || r1->approx* || r2->newapprox* || r3->i }
+; freeing unused variable r0
+; spilling varialbe $T6
+;move r0 $-6 	; { r0->$T6* || r1->approx* || r2->newapprox* || r3->i* }
+;JUMP label1 liveout: ; { num approx newapprox j i  }
+; spilling registers at the end of Basic Block
+; spilling varialbe i
+;move r3 i 	; { r0-><null> || r1->approx* || r2->newapprox* || r3->i* }
+; spilling varialbe newapprox
+;move r2 newapprox 	; { r0-><null> || r1->approx* || r2->newapprox* || r3-><null> }
+; spilling varialbe approx
+;move r1 approx 	; { r0-><null> || r1->approx* || r2-><null> || r3-><null> }
+;jmp label1 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;LABEL label3 liveout: ; { num approx newapprox j i  }
+; spilling registers at the end of Basic Block
+;label label3 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+;WRITEF approx liveout: ; { approx num newapprox j i  }
+; ensure(): approx gets register r3 { r0-><null> || r1-><null> || r2-><null> || r3->approx }
+; loading approx to register r3
+;move approx r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->approx }
+;sys writer r3 	; { r0-><null> || r1-><null> || r2-><null> || r3->approx }
+;WRITES eol liveout: ; { approx num newapprox j i  }
+;sys writes eol 	; { r0-><null> || r1-><null> || r2-><null> || r3->approx }
+;UNLINK liveout: ; { approx num newapprox j i  }
+;unlnk 	; { r0-><null> || r1-><null> || r2-><null> || r3->approx }
+;RET liveout: ; { approx num newapprox j i  }
+; writing back global variables prior a function call
+; spilling varialbe approx
+;move r3 approx 	; { r0-><null> || r1-><null> || r2-><null> || r3->approx }
+;ret 	; { r0-><null> || r1-><null> || r2-><null> || r3-><null> }
+
+var i
+var j
+var newapprox
+var approx
+var num
+str eol "\n"
+push
+push
+push
+push
+push
+jsr main
+sys halt
+label main
+link 12
+move num r3
+sys readr r3
+move $-1 r2
+move 1 r2
+move j r1
+move r2 r1
+move r2 $-1
+move $-2 r2
+move r3 r2
+move approx r0
+move r2 r0
+move r2 $-2
+move $-3 r2
+move 100 r2
+move r0 approx
+move i r0
+move r2 r0
+move r2 $-3
+move r3 num
+move r1 j
+move r0 i
+label label1
+move $-4 r3
+move 0 r3
+move i r2
+cmpi r2 r3
+move r3 $-4
+move r2 i
+jeq label3
+move $-7 r3
+move 0.5 r3
+move num r2
+move approx r1
+divr r1 r2
+addr r2 r1
+move r2 $-8
+move r3 $-7
+mulr r1 r3
+move r1 $-9
+move newapprox r2
+move r3 r2
+move r3 $-10
+move $-11 r3
+move r2 r3
+move approx r1
+move r3 r1
+move r3 $-11
+move $-5 r3
+move 1 r3
+move i r0
+subi r3 r0
+move r3 $-5
+move i r3
+move r0 r3
+move r0 $-6
+move r3 i
+move r2 newapprox
+move r1 approx
+jmp label1
+label label3
+move approx r3
+sys writer r3
+sys writes eol
+unlnk
+move r3 approx
+ret

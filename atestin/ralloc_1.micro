@@ -1,0 +1,26 @@
+PROGRAM ralloc1
+BEGIN
+
+    STRING space := " ";
+    STRING eol := "\n";  -- end of line
+
+    FUNCTION VOID main()
+    BEGIN
+	
+	INT a, b, c, d, e;
+
+	READ(a);
+	READ(b);
+	READ(c);
+	READ(d);
+	READ(e);
+	a := a + b * (c - d);
+	b := c + d;
+	c := a + b;
+	d := a + b;
+	e := c - d * c / b + a;
+
+	WRITE(a, space, b, space, c, space, d, space, e, eol);
+    END
+END
+

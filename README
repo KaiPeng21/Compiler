@@ -1,0 +1,32 @@
+
+# This is a compiler project from Purdue University
+# The compiler compiles a subset of Micro language,
+# a programming language similar to C, to an
+# assembly instruction set called "tiny"
+
+
+# Execute the following commands to run the file
+
+export CLASSPATH=<location of antlr.jar>
+
+make
+
+runme <input micro file path> <output file path>
+
+# Use the following instruction to test
+
+# 1. Create Micro file and input file and put it in atestin directory
+# 2. run the following command
+
+atest
+
+# or
+
+atest <filename>
+
+# or
+
+atest200 # to use the 200 register version
+
+#ECE468 Fall 2017 Team TooYoungTooSimple
+#Chia-Hua Peng and Shaojiang Zhong
